@@ -126,7 +126,7 @@ def render_frame(cfg, font_path, year, values_by_year, output_path):
 
     # 最大条的数值文字宽度(用于让数值右缘贴边不越界)
     max_val = max(v for _,_,v in values_by_year)
-    max_num_text = f"{max_val:,.0f}"
+    max_num_text = cfg.get("value_prefix", "") + f"{max_val:,.0f}"
     max_num_w = d.textlength(max_num_text, font=f_value)
     # 数值右缘上限:贴近画面右界但留 8px
     value_right_limit = bar_right_limit - 8
@@ -155,7 +155,7 @@ def render_frame(cfg, font_path, year, values_by_year, output_path):
         bar_x = bar_left_dyn
         draw_rounded_bar(d, bar_x, y, bw, bar_h, hex_to_rgb(color), cfg["bar_radius"])
         if cfg["show_value"]:
-            num_text = f"{value:,.0f}"
+            num_text = cfg.get("value_prefix", "") + f"{value:,.0f}"
             num_w = d.textlength(num_text, font=f_value)
             # 紧贴条形尾 + 8px(随条长自动移动,短条时自然位于中间位置)
             num_x = bar_x + bw + 8
