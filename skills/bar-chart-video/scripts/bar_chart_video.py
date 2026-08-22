@@ -72,6 +72,11 @@ def load_font(path, size):
 def draw_rounded_bar(d, x, y, w, h, color, radius):
     d.rounded_rectangle([x, y, x+w, y+h], radius=radius, fill=color)
 
+def format_value(v):
+    """数值格式化:纯整数+千分位(金牌49→'49',人口146387→'146,387')"""
+    return f"{v:,.0f}"
+
+
 def is_landscape(cfg):
     return cfg["width"] >= cfg["height"]
 
@@ -126,7 +131,7 @@ def render_frame(cfg, font_path, year, values_by_year, output_path):
 
     # 最大条的数值文字宽度(用于让数值右缘贴边不越界)
     max_val = max(v for _,_,v in values_by_year)
-    max_num_text = cfg.get("value_prefix", "") + f"{max_val:,.0f}"
+    max_num_text = cfg.get("value_prefix", "") + format_value(max_val)
     max_num_w = d.textlength(max_num_text, font=f_value)
     # 数值右缘上限:贴近画面右界但留 8px
     value_right_limit = bar_right_limit - 8
@@ -155,7 +160,7 @@ def render_frame(cfg, font_path, year, values_by_year, output_path):
         bar_x = bar_left_dyn
         draw_rounded_bar(d, bar_x, y, bw, bar_h, hex_to_rgb(color), cfg["bar_radius"])
         if cfg["show_value"]:
-            num_text = cfg.get("value_prefix", "") + f"{value:,.0f}"
+            num_text = cfg.get("value_prefix", "") + format_value(value)
             num_w = d.textlength(num_text, font=f_value)
             # 紧贴条形尾 + 8px(随条长自动移动,短条时自然位于中间位置)
             num_x = bar_x + bw + 8
@@ -168,7 +173,9 @@ def render_frame(cfg, font_path, year, values_by_year, output_path):
     img.save(output_path)
 
 def sorted_vals(items, year_idx):
-    return sorted([(it["name"], it["color"], it["vals"][year_idx]) for it in items], key=lambda x: -x[2])
+    vals = [(it["name"], it["color"], it["vals"][year_idx]) for it in items]
+    # 过滤 0 值(未参赛/已不存在的实体不上榜,如苏联1992后)
+    return sorted([x for x in vals if x[2] > 0], key=lambda x: -x[2])
 
 def main():
     ap = argparse.ArgumentParser()
@@ -199,8 +206,15 @@ def main():
         cfg["end_pause"] = args.end_pause
     elif "end_pause" not in cfg:
         cfg["end_pause"] = 0
+    # 数据文件可覆盖:value_prefix(单位前缀如$)、value_scale_mode(缩放模式)
+    if "value_prefix" in data:
+        cfg["value_prefix"] = data["value_prefix"]
+    else:
+        cfg["value_prefix"] = ""
+    if "value_scale_mode" in data:
+        cfg["value_scale_mode"] = data["value_scale_mode"]
 
-    years = list(range(data["start_year"], data["end_year"] + 1))
+    years = data.get("years") or list(range(data["start_year"], data["end_year"] + 1))
     items = []
     global_max = 0
     for it in data["items"]:
@@ -238,24 +252,27 @@ def main():
     frame_no = 0
     last_frame_all = {}   # name -> 上一帧插值(全量,支持国家进出榜平滑)
     top_n = cfg.get("top_n", None)
+    interpolate = cfg.get("interpolate", True)   # False=hold模式(离散数据不插值,每届静止显示)
     for yi, year in enumerate(years):
         cur_all = [(it["name"], it["color"], it["vals"][yi]) for it in items]
         steps = int(cfg["fps"] * cfg["duration_per_year"])
         for s in range(steps):
-            if yi == 0:
-                t = 1.0   # 首年直接到位
+            if yi == 0 or not interpolate:
+                t = 1.0   # 首年直接到位;hold模式每届直接显示该届值
             else:
                 t = s / steps
             interp_all = []
             for name, color, v in cur_all:
-                if yi == 0:
+                if yi == 0 or not interpolate:
                     iv = v
                 else:
                     pv = last_frame_all.get(name, 0.0)
                     iv = pv + (v - pv) * t
                 interp_all.append((name, color, iv))
             interp_all.sort(key=lambda x: -x[2])
-            frame_vals = interp_all[:top_n] if top_n else interp_all
+            # 过滤 0 值(该实体当年无金牌,不上榜)后再取前N
+            nonzero = [x for x in interp_all if x[2] > 0]
+            frame_vals = nonzero[:top_n] if top_n else nonzero
             # per_frame:每帧相对当年最大缩放 → 条长严格随数据比例变化(最大条每次满宽)
             # global:固定全周期最大 → 条长绝对比例(变化幅度小但视觉稳定)
             if cfg["value_scale_mode"] == "per_frame":

@@ -6,7 +6,7 @@ validate_data.py - 数据校验工具(配合模型人工审)
 - 校验报告交给视觉/文本模型审查,通过后才生成视频
 用法:python3 validate_data.py <data.json> [--top 5]
 """
-import argparse, json, sys
+import argparse, json
 
 def main():
     ap = argparse.ArgumentParser()
@@ -15,7 +15,7 @@ def main():
     args = ap.parse_args()
 
     data = json.load(open(args.data, encoding="utf-8"))
-    years = list(range(data["start_year"], data["end_year"] + 1))
+    years = data.get("years") or list(range(data["start_year"], data["end_year"] + 1))
     n = len(years)
     items = data["items"]
 
@@ -39,7 +39,8 @@ def main():
 
     # 每年 Top N + 进出榜事件
     report = []
-    report.append(f"数据源: {data.get('subtitle','')} | 年份 {data['start_year']}-{data['end_year']} | 国家 {len(items)} 个")
+    span = f"{years[0]}-{years[-1]}" if len(years) > 1 else str(years[0])
+    report.append(f"数据源: {data.get('subtitle','')} | 年份 {span}({len(years)}届) | 实体 {len(items)} 个")
     prev_top = set()
     for i, y in enumerate(years):
         cur = sorted([(it["name"], it["values"][i]) for it in items], key=lambda x: -x[1])
@@ -51,7 +52,7 @@ def main():
             for nm in sorted(prev_top - top_names):
                 report.append(f"🏷️ {y}年: {nm} 跌出前{args.top}")
         prev_top = top_names
-        if i % 5 == 0 or y == data["end_year"]:
+        if i % 5 == 0 or y == years[-1]:
             report.append(f"{y}: " + " | ".join(f"{nm}({v:,.0f})" for nm, v in top))
 
     # 榜首更替检测
