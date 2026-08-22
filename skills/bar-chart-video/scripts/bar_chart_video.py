@@ -115,27 +115,54 @@ def render_frame(cfg, font_path, year, values_by_year, output_path):
     # 缩放基准:main 里每帧设置 _scale_max(per_frame 模式下跟随当年最大)
     scale_max = cfg.get("_scale_max", 1)
     # 横版标签区窄(左 0.16 起条),竖版宽(左 0.28 起条)
-    bar_left = int(W * (0.16 if land else 0.28))
-    bar_right = int(W * (0.80 if land else 0.90))
-    bar_max_w = bar_right - bar_left
+    bar_left_base = int(W * (0.16 if land else 0.28))
+    bar_right_limit = int(W * (0.97 if land else 0.93))  # 条形/数值物理右界,贴近画面右缘
     f_label = load_font(font_path, cfg["label_font_size"])
     f_value = load_font(font_path, cfg["value_size"])
     f_rank = load_font(font_path, cfg["rank_font_size"])
 
     rank_x = int(W * (0.03 if land else 0.05))
     label_x = int(W * (0.09 if land else 0.13))
+
+    # 最大条的数值文字宽度(用于让数值右缘贴边不越界)
+    max_val = max(v for _,_,v in values_by_year)
+    max_num_text = f"{max_val:,.0f}"
+    max_num_w = d.textlength(max_num_text, font=f_value)
+    # 数值右缘上限:贴近画面右界但留 8px
+    value_right_limit = bar_right_limit - 8
+    # 条形起点:动态避让国家名(国家名最宽者 + 12px)
+    max_label_w = max(d.textlength(nm, font=f_label) for nm,_,_ in values_by_year)
+    bar_left_dyn = max(bar_left_base, int(label_x + max_label_w + 12))
+    # 条形最大可用宽 = 数值右缘上限 - 数值文本宽 - 8px间隔 - 条形起点
+    # → 条形永远到不了数值区域(最长条时条形右缘 = 数值左缘 - 8px),数值永不重叠
+    bar_max_w = int(value_right_limit - max_num_w - 8 - bar_left_dyn)
+
+    def center_y(text, font, bar_y):
+        """按实际字形包围盒垂直居中于条形"""
+        bbox = d.textbbox((0, 0), text, font=font)
+        th = bbox[3] - bbox[1]
+        return bar_y + (bar_h - th) // 2 - bbox[1]
+
+    # 数值紧贴条形尾(8px间隔),随条长自动移动;最长条时数值右缘触 value_right_limit
     for i, (name, color, value) in enumerate(values_by_year):
         y = start_y + i*(bar_h + gap)
         if cfg["show_rank"]:
-            d.text((rank_x, y + bar_h//2 - cfg["rank_font_size"]//2), str(i+1),
+            d.text((rank_x, center_y(str(i+1), f_rank, y)), str(i+1),
                    font=f_rank, fill=hex_to_rgb("#666666"))
-        d.text((label_x, y + bar_h//2 - cfg["label_font_size"]//2), name,
+        d.text((label_x, center_y(name, f_label, y)), name,
                font=f_label, fill=hex_to_rgb("#dddddd"))
         bw = max(8, int(bar_max_w * value / scale_max))
-        draw_rounded_bar(d, bar_left, y, bw, bar_h, hex_to_rgb(color), cfg["bar_radius"])
+        bar_x = bar_left_dyn
+        draw_rounded_bar(d, bar_x, y, bw, bar_h, hex_to_rgb(color), cfg["bar_radius"])
         if cfg["show_value"]:
             num_text = f"{value:,.0f}"
-            d.text((bar_left + bw + 12, y + bar_h//2 - cfg["value_size"]//2), num_text,
+            num_w = d.textlength(num_text, font=f_value)
+            # 紧贴条形尾 + 8px(随条长自动移动,短条时自然位于中间位置)
+            num_x = bar_x + bw + 8
+            # 安全钳位:数值右缘不超过 value_right_limit
+            if num_x + num_w > value_right_limit:
+                num_x = value_right_limit - int(num_w)
+            d.text((num_x, center_y(num_text, f_value, y)), num_text,
                    font=f_value, fill=hex_to_rgb(cfg["value_color"]))
 
     img.save(output_path)
