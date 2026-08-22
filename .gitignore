@@ -1,0 +1,25 @@
+# 敏感文件
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*id_rsa*
+*id_ed25519*
+
+# 缓存/临时
+__pycache__/
+*.pyc
+.skills_store_lock.json
+tmp_*/
+temp*/
+*.cache
+
+# 素材与二进制大文件
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.mp4
+*.zip
+*.pdf

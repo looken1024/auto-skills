@@ -1,0 +1,4 @@
+interface:
+  display_name: "Deep Research Agent"
+  short_description: "Evidence-backed web research and cited reports"
+  default_prompt: "Use $deep-research-agent to research this topic with current sources, verify key claims, and produce a concise cited report."

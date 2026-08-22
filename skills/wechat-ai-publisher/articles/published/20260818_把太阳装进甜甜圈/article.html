@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>把太阳装进甜甜圈 —— 可控核聚变最通俗版</title>
+<style>
+  :root{
+    --bg:#f6f7fb; --card:#ffffff; --ink:#1a1a2e; --sub:#5b6478;
+    --brand:#e8632e; --brand2:#2e5fe8; --line:#e5e9f2;
+    --amber:#f59e0b; --green:#10b981; --blue:#2e5fe8; --purple:#8b5cf6; --red:#ef4444;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif; background:var(--bg); color:var(--ink); line-height:1.75;}
+  .wrap{max-width:780px; margin:0 auto; padding:28px 20px 60px;}
+
+  /* Hero */
+  .hero{background:linear-gradient(140deg,#2b1a12 0%,#7a3a12 45%,#e8632e 100%); border-radius:24px; padding:40px 34px; color:#fff; position:relative; overflow:hidden;}
+  .hero::after{content:""; position:absolute; right:-60px; top:-60px; width:220px; height:220px; border-radius:50%; background:radial-gradient(circle,rgba(255,220,120,.9),rgba(255,180,80,.3) 55%,transparent 70%); box-shadow:0 0 80px rgba(255,200,100,.6);}
+  .hero .tag{display:inline-block; background:rgba(255,255,255,.18); border:1px solid rgba(255,255,255,.3); padding:4px 14px; border-radius:20px; font-size:13px; font-weight:600; letter-spacing:1px;}
+  .hero h1{font-size:34px; font-weight:900; margin:16px 0 8px; line-height:1.3; position:relative; z-index:1;}
+  .hero .sub{font-size:15px; opacity:.92; position:relative; z-index:1;}
+  .hero .meta{margin-top:18px; font-size:12.5px; opacity:.75; position:relative; z-index:1; display:flex; gap:16px; flex-wrap:wrap;}
+
+  /* Section title */
+  .sec{margin-top:34px;}
+  .sec h2{font-size:22px; font-weight:800; display:flex; align-items:center; gap:10px; margin-bottom:6px;}
+  .sec h2 .n{display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border-radius:9px; background:var(--brand); color:#fff; font-size:15px; flex-shrink:0;}
+  .sec .lead{color:var(--sub); font-size:14px; margin-bottom:16px;}
+
+  .card{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:22px 24px; margin-bottom:14px;}
+  .card p{font-size:15.5px; color:#333c4e; margin-bottom:10px;}
+  .card p:last-child{margin-bottom:0;}
+  .card b{color:var(--ink);}
+
+  /* Callout */
+  .callout{border-radius:14px; padding:16px 18px; margin:12px 0; font-size:15px;}
+  .callout.orange{background:#fff5ef; border:1px solid #fcd9c6;}
+  .callout.blue{background:#eef3ff; border:1px solid #d4e0ff;}
+  .callout.green{background:#ecfdf5; border:1px solid #c8f3e0;}
+  .callout .t{font-weight:800; display:block; margin-bottom:4px;}
+
+  /* Key stat */
+  .stats{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+  .stat{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px; text-align:center;}
+  .stat .big{font-size:26px; font-weight:900; color:var(--brand);}
+  .stat .big.b{color:var(--blue);} .stat .big.g{color:var(--green);} .stat .big.p{color:var(--purple);}
+  .stat .lbl{font-size:12.5px; color:var(--sub); margin-top:4px;}
+
+  /* Q gauge */
+  .qbox{margin-top:6px;}
+  .qtrack{position:relative; height:26px; background:#f0f2f8; border-radius:13px; margin-top:14px;}
+  .qtrack .fill{position:absolute; left:0; top:0; bottom:0; width:25%; border-radius:13px; background:linear-gradient(90deg,#f59e0b,#ef4444);}
+  .qtrack .mark{position:absolute; top:-4px; width:2px; height:34px; background:#333; }
+  .qmark{position:absolute; top:32px; font-size:11.5px; color:var(--sub); transform:translateX(-50%); white-space:nowrap;}
+  .qlegend{display:flex; justify-content:space-between; margin-top:44px; font-size:12.5px; color:var(--sub);}
+
+  /* Timline */
+  .tl{border-left:3px solid var(--brand2); margin-left:8px; padding-left:22px;}
+  .tl .item{position:relative; padding:0 0 20px 8px;}
+  .tl .item:last-child{padding-bottom:0;}
+  .tl .item::before{content:""; position:absolute; left:-31px; top:5px; width:13px; height:13px; border-radius:50%; background:var(--brand2); border:3px solid #fff; box-shadow:0 0 0 2px var(--brand2);}
+  .tl .item .yr{font-weight:800; color:var(--brand2); font-size:15px;}
+  .tl .item .ev{font-size:14.5px; color:#333c4e;}
+  .tl .item.done::before{background:var(--green); box-shadow:0 0 0 2px var(--green);}
+  .tl .item.done .yr{color:var(--green);}
+
+  /* Device cards */
+  .dev{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+  .dev .d{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px;}
+  .dev .d .nm{font-weight:800; font-size:15.5px;}
+  .dev .d .loc{font-size:12px; color:var(--sub); margin:2px 0 8px;}
+  .dev .d .rec{font-size:13.5px; color:#333c4e;}
+  .dev .d .tag{display:inline-block; font-size:11px; font-weight:700; padding:2px 8px; border-radius:12px; margin-bottom:6px;}
+
+  /* Q&A */
+  .qa{border:1px solid var(--line); border-radius:14px; margin-bottom:12px; overflow:hidden; background:var(--card);}
+  .qa .q{background:#fafbfd; padding:14px 18px; font-weight:800; font-size:15.5px; border-bottom:1px solid var(--line);}
+  .qa .a{padding:14px 18px; font-size:15px; color:#333c4e;}
+
+  .foot{text-align:center; color:var(--sub); font-size:12px; margin-top:40px;}
+  .src{font-size:12px; color:var(--sub); margin-top:6px; line-height:1.9;}
+
+  @media(max-width:600px){
+    .hero h1{font-size:27px;}
+    .stats,.dev{grid-template-columns:1fr;}
+    .hero::after{width:140px;height:140px; right:-30px;top:-30px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <span class="tag">☀️ 本期前沿科技 · 可控核聚变</span>
+    <h1>把太阳装进一个“甜甜圈”</h1>
+    <div class="sub">上亿度的火球，怎么被人类乖乖关起来发电？—— 最通俗的“人造太阳”说明书</div>
+    <div class="meta">
+      <span>📅 2026年8月</span>
+      <span>📰 依据近一年权威信源</span>
+      <span>⏱ 阅读约 6 分钟</span>
+    </div>
+  </div>
+
+  <!-- 0 开场 -->
+  <div class="sec">
+    <div class="card" style="background:linear-gradient(135deg,#fff 0%,#fff7f2 100%);">
+      <p>先说一句扎心的话：<b>你电费单上的电，九成还是烧煤烧气烧出来的。</b>人类用火用了上万年，本质一直是“烧东西换能量”。</p>
+      <p>但全世界的科学家都认定，真正的“毕业答案”是<b>核聚变</b>——就是太阳发电的原理。太阳靠着它，烧了几十亿年都没烧完。</p>
+      <p>2025到2026年，中国在这条路上连爆大新闻：<b>1亿摄氏度、连续烧了1066秒</b>，打破世界纪录。这不只是一串数字，它把“人类何时能用上取之不尽、清洁安全的电”，往前狠狠推了一把。</p>
+      <div class="callout orange">
+        <span class="t">🔑 先记住三个数字</span>
+        <b>1 亿摄氏度</b>（比太阳表面热 100 多倍）· <b>1066 秒</b>（连续燃烧近 18 分钟）· <b>0 碳排放</b>
+      </div>
+    </div>
+  </div>
+
+  <!-- 1 原理 -->
+  <div class="sec">
+    <h2><span class="n">1</span>太阳是怎么“发电”的？</h2>
+    <p class="lead">原理简单到一句话：小的拼成大的，剩下的变成能量。</p>
+    <div class="card">
+      <p>把两个很轻的原子核（比如氢的亲戚——氘和氚）使劲挤在一起，它们会<b>拼成一个更重的原子核</b>。拼完之后发现：咦，重量变轻了一点点？</p>
+      <p>那一丁点“消失”的质量，全变成了巨大的能量。爱因斯坦的公式 <b>E = mc²</b> 说的就是这事——质量小小的损耗，能量大大的爆发。</p>
+      <div class="callout green">
+        <span class="t">💡 形象一点</span>
+        就像两块泥巴揉成一块，揉完发现整体轻了一点点——那“轻掉”的部分变成了光和热。太阳内部每秒都在做这件事，所以我们能看到它发光。
+      </div>
+      <p>太阳靠自己的<b>巨大引力</b>把火球压住、揉在一起。可地球上没有这种引力，怎么办？</p>
+      <p>那就只能靠另一招：<b>把温度拉到极极致</b>。太阳核心才 1500 万摄氏度，人类的地球版“太阳”反而要<b>上亿度</b>——因为没有引力帮忙，只能靠温度硬凑出聚变条件。</p>
+    </div>
+  </div>
+
+  <!-- 2 挑战 -->
+  <div class="sec">
+    <h2><span class="n">2</span>难点：怎么关住一个“太阳”</h2>
+    <p class="lead">上亿度的火球，碰什么化什么。唯一的办法是——不碰它。</p>
+    <div class="card">
+      <p>上亿度是什么概念？任何实物碰到它，瞬间汽化，灰都不剩。<b>所以人类不能“装”它，只能“隔空”管它。</b></p>
+      <p>科学家的答案是：<b>用磁场织一张看不见的“笼子”</b>，把火球悬浮在真空里，不让它沾到任何容器壁。这套设备长什么样？像一个巨大的<b>甜甜圈</b>——学名叫<b>托卡马克</b>。</p>
+      <div class="callout blue">
+        <span class="t">🍩 托卡马克 = 甜甜圈 + 磁笼</span>
+        中央是环形真空室（甜甜圈的洞），外面缠满超导线圈（甜甜圈的面）。通电后产生螺旋形强磁场，把上亿度等离子体牢牢“兜”在空中持续燃烧。
+      </div>
+      <p>而且这火球还特别“暴躁”：高温、高压、高密度，还有超高能的中子不断轰击装置内壁。想让它<b>长时间、稳定、不停歇</b>地烧，是几十年都没翻过去的大山。</p>
+      <p>过去很多装置能冲上极高温度，但只能维持<b>几秒钟</b>，一闪就熄——离发电差得十万八千里。所以<b>“烧得久”才是真本事。</b></p>
+    </div>
+  </div>
+
+  <!-- 3 关键数字 -->
+  <div class="sec">
+    <h2><span class="n">3</span>一升海水 = 300 升汽油</h2>
+    <p class="lead">为什么叫它“终极能源”？因为原料多到离谱，还干净得离谱。</p>
+    <div class="stats">
+      <div class="stat"><div class="big">300 升</div><div class="lbl">1 升海水里的氘，聚变能量≈ 300 升汽油</div></div>
+      <div class="stat"><div class="big">8 吨</div><div class="lbl">1 克氘氚燃料 ≈ 8 吨汽油</div></div>
+      <div class="stat"><div class="big">上亿年</div><div class="lbl">全球海水氘储量，够人类用上亿年</div></div>
+      <div class="stat"><div class="big g">氦气</div><div class="lbl">主要产物，无放射性、无碳排放</div></div>
+    </div>
+    <div class="card" style="margin-top:14px;">
+      <p>燃料<b>氘</b>直接能从海水里提，几乎取之不尽；氚可以用锂“造”出来，也够用几万年。反应完主要剩<b>氦气</b>——就是给气球充气的那种气体，干净得让人感动。</p>
+      <p>还有个反直觉的<b>安全优势</b>：它不像裂变核电站有堆芯熔毁风险。磁场一松、约束一失效，上亿度火球瞬间降温，反应<b>自己就停了</b>。想出事都难。</p>
+      <div class="callout green">
+        <span class="t">⚠️ 别搞混</span>
+        <b>氢弹</b>也是核聚变，但是“失控”的瞬间爆炸；<b>人造太阳</b>追求的是持续、平稳、可控地输出能量用来发电。一个是炸弹，一个是电站。
+      </div>
+    </div>
+  </div>
+
+  <!-- 4 里程碑 -->
+  <div class="sec">
+    <h2><span class="n">4</span>中国的大动作：一路刷纪录</h2>
+    <p class="lead">“永远还有50年”——这句调侃，正在被打破。</p>
+    <div class="tl">
+      <div class="item done"><span class="yr">2025年1月 · 东方超环 EAST（合肥）</span><div class="ev"><b>1 亿摄氏度、连续运行 1066 秒</b>（近18分钟），稳态高约束世界纪录。首次在实验装置上模拟出未来聚变堆所需环境。</div></div>
+      <div class="item done"><span class="yr">2025年3月 · 中国环流三号（成都）</span><div class="ev">实现<b>“双亿度”</b>（原子核1.2亿℃、电子1.6亿℃），进入燃烧实验新阶段；并拿下<b>百万安培电流 + 亿度 + 高约束</b>三合一纪录。</div></div>
+      <div class="item done"><span class="yr">2026年 · 洪荒70（上海·民营）</span><div class="ev">全球首台全高温超导托卡马克，国产化超96%，稳定运行<b>1337秒</b>。AI实时调控磁场，装置更小更便宜。</div></div>
+      <div class="item done"><span class="yr">2026年 · 超导磁体（合肥）</span><div class="ev">全球最大聚变堆超导磁体研制成功，重582吨，<b>核心100%国产化</b>，储能是国际同类3倍。</div></div>
+      <div class="item"><span class="yr">2030年前后 · BEST（合肥）</span><div class="ev">新一代“人造太阳”全力建设，目标<b>演示用核聚变发出第一度电</b>。</div></div>
+    </div>
+  </div>
+
+  <!-- 5 Q值 -->
+  <div class="sec">
+    <h2><span class="n">5</span>最关键的“考试线”：Q 值</h2>
+    <p class="lead">发电这事，光“烧得起来”还不够，得“烧得划算”。</p>
+    <div class="card qbox">
+      <p>科学家用一个叫 <b>Q 值</b> 的分数衡量：<b>产出的能量 ÷ 投入的能量</b>。</p>
+      <div class="qtrack">
+        <div class="fill" style="width:25%"></div>
+        <div class="mark" style="left:10%"></div>
+        <div class="qmark" style="left:10%">Q=1 盈亏平衡</div>
+        <div class="mark" style="left:50%"></div>
+        <div class="qmark" style="left:50%">Q=10 可商用</div>
+      </div>
+      <div class="qlegend">
+        <span>现在多数实验：耗电 &gt; 产出</span>
+        <span>迈过这道坎，才有发电价值</span>
+      </div>
+      <p style="margin-top:10px;">目前多数装置是<b>“亏本燃烧”</b>——为了加热和维护磁场，投入的电比聚变产出的还多。所以大家拼的不是“烧得多高”，而是<b>谁能先让 Q&gt;1（不亏），再冲 Q&gt;10（划算）</b>。</p>
+    </div>
+  </div>
+
+  <!-- 6 时间表 -->
+  <div class="sec">
+    <h2><span class="n">6</span>那到底什么时候能“用上”？</h2>
+    <p class="lead">权威预判：从“永远50年”变成“看得见的倒计时”。</p>
+    <div class="card">
+      <div class="tl">
+        <div class="item"><span class="yr">2030年前后</span><div class="ev">国内实验堆力争实现<b>净能量增益</b>，发出第一度聚变电（演示性质）。</div></div>
+        <div class="item"><span class="yr">2035年前后</span><div class="ev">建成<b>工程实验堆</b>，验证关键工程技术。</div></div>
+        <div class="item"><span class="yr">2045年前后</span><div class="ev">建成<b>商用示范堆</b>，接近真正并网发电。</div></div>
+      </div>
+      <div class="callout orange" style="margin-top:16px;">
+        <span class="t">🙋 家里电费会降吗？</span>
+        实话实说：<b>近一二十年不太会。</b>聚变目前还不能替代火电、风电、水电。它的意义在于——为人类长远能源自由打底。但2026年核聚变已<b>首次写入政府工作报告</b>，资本、产业、高校全面入场，进度比所有人预期的都更快。
+      </div>
+    </div>
+  </div>
+
+  <!-- 7 看点 -->
+  <div class="sec">
+    <h2><span class="n">7</span>为什么这轮真的不一样？</h2>
+    <p class="lead">三个“加速器”，让聚变从论文走向厂房。</p>
+    <div class="card">
+      <p>① <b>高温超导磁体成熟</b>——磁场更强、装置更小、成本更低，直接踩下“工程化”油门。</p>
+      <p>② <b>AI 接手操控</b>——毫秒级实时调磁场、稳等离子体，把过去靠人盯的活交给机器干。</p>
+      <p>③ <b>资本和产业链入场</b>——2026年上半年国内聚变赛道融资超 <b>70 亿元</b>，民营公司、高校学院、专项基金全来了。合肥甚至规划了 2.3 万亩的“聚变科创示范区”。</p>
+      <p>还有一个不容易的细节：<b>上世纪中国想加入国际ITER聚变项目还被拒之门外</b>，如今我们已是核心贡献方、手握聚变领域首个国际标准，研究水平站进全球第一方阵，部分技术领先。</p>
+    </div>
+  </div>
+
+  <!-- 8 Q&A -->
+  <div class="sec">
+    <h2><span class="n">8</span>3 个你可能想问的</h2>
+    <div class="qa">
+      <div class="q">🤔 既然这么牛，为什么不赶紧建商用站？</div>
+      <div class="a">因为还有“硬骨头”：要让反应长期稳定燃烧不中断；要有能扛住高能中子轰击几十年的材料；要让产出能量真的大于投入。科学验证→工程验证→商业验证，一步都不能跳。</div>
+    </div>
+    <div class="qa">
+      <div class="q">⚡ 它和现在的核电站（裂变）有啥区别？</div>
+      <div class="a">核电站是把<b>大原子核拆开</b>（裂变），有高放射性核废料、有堆芯熔毁风险；聚变是把<b>小原子核拼起来</b>，几乎无长寿命核废料、无熔毁风险，还更“近乎取之不尽”。</div>
+    </div>
+    <div class="qa">
+      <div class="q">🌍 只有中国在做吗？</div>
+      <div class="a">全球近 40 个国家都在推进聚变计划，国际上有 ITER 大科学工程。中国是其中跑得最快的之一，在部分关键技术和纪录上处于领先。</div>
+    </div>
+  </div>
+
+  <!-- 结尾 -->
+  <div class="sec">
+    <div class="card" style="background:linear-gradient(135deg,#fff7f2 0%,#fff 100%); border-color:#fcd9c6; text-align:center;">
+      <p style="font-size:18px; font-weight:800; color:var(--brand);">🌅 写在最后</p>
+      <p>人类为了“不再烧东西也能有电”，追了几十年。现在，那个被笑话“永远还有50年”的梦，第一次有了看得见的、逐年逼近的时间表。</p>
+      <p><b>当我们终于把太阳装进甜甜圈、让它平稳地发电——那将是人类点亮万家灯火的方式里，最接近“一劳永逸”的一次。</b></p>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div>《把太阳装进一个“甜甜圈”》· 通俗科技科普</div>
+    <div class="src">资料来源：人民日报/人民网、央视网《面对面》、新华社/中国青年报、科普中国、光明网、36氪、界面新闻等公开报道（2025–2026）。数据以官方公布为准。</div>
+  </div>
+
+</div>
+</body>
+</html>
