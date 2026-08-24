@@ -105,7 +105,31 @@ def main():
             print("调用失败:", json.dumps(d["error"], ensure_ascii=False)[:300])
             sys.exit(1)
         msg = d["choices"][0]["message"]
-        print(msg.get("content") or msg.get("reasoning_content") or "（空响应）")
+        content = (msg.get("content") or "").strip()
+        reasoning = (msg.get("reasoning_content") or "").strip()
+        if not content:
+            # 模型只吐了思考过程：不 dump 全文（会污染下游解析），截末尾 + 退出码 2 提示重跑/换模型
+            print("（模型未返回正文，仅思考过程，截取末尾 800 字供参考）")
+            print(reasoning[-800:] if reasoning else "（空响应）")
+            sys.exit(2)
+        # 输出截断，防止思考过程撑爆 exec 输出
+        if len(content) > 3000:
+            print(content[:1500])
+            print("\n...[中间省略]...\n")
+            print(content[-1000:])
+        else:
+            print(content)
+        # 机器可读结论行，供下游 grep【复审结论】
+        import re
+        m = re.search(r"结论[：:].{0,6}建议?返工[：:]?(是|否)", content)
+        if m:
+            print("\n【复审结论】" + ("返工" if m.group(1) == "是" else "不返工"))
+        elif "不返工" in content or "无需返工" in content:
+            print("\n【复审结论】不返工")
+        elif re.search(r"建议返工[：:]?\s*是", content):
+            print("\n【复审结论】返工")
+        else:
+            print("\n【复审结论】未识别，需人工确认")
     except Exception as e:
         print("解析失败:", e)
         print(r.stdout[:500])
