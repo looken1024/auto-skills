@@ -30,4 +30,4 @@ else
   mv "$TMP/plain.mp4" "$OUT"
 fi
 rm -rf "$TMP"
-echo "✅ $OUT")
+echo "✅ $OUT"
