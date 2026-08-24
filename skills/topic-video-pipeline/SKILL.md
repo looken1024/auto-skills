@@ -115,7 +115,9 @@ x=(w-text_w)/2:y=h*0.156:box=1:boxcolor=yellow@0.98:boxborderw=16
 ```
 
 字体：/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc
-**副标题参数（2026-08-24 起）**：`make_vertical.sh` 支持环境变量 `SUB_FONTSIZE`（默认75）与 `SUB_LINE_SPACING`（默认0，即单行）。两行副标题用：`SUB_FONTSIZE=60 SUB_LINE_SPACING=20 bash make_vertical.sh <素材> <标题> "第一行\n第二行" <输出> [时长] [bgm]`。副标题文本里的 `\n` 由 printf 解析为换行。
+**副标题参数（2026-08-24 起）**：`make_vertical.sh` 支持环境变量 `SUB_FONTSIZE`（默认75）、`SUB_LINE_SPACING`（默认0，即单行）与 `SUB_Y`（副标题顶部 y 比例，默认0.156，主标题底部实测约0.148屏高/284px，副标題顶需要至少 +28px 才不重叠）。两行副标题用：`SUB_FONTSIZE=60 SUB_LINE_SPACING=20 bash make_vertical.sh <素材> <标题> "第一行\n第二行" <输出> [时长] [bgm]`。
+
+**坑（2026-08-25 教训）：`printf '%s' "$SUB"` 不解析 `\n`，副标题换行符会变成字面反斜杠，渲染出来仍单行+「\n」两字符**。必须 `printf '%b'` 才解析真换行。校准帧能测到两行是校准命令用 `printf '...\n...'`（会解析），但 make_vertical.sh 内部不会——校准与合成写法必须一致，否则「校准两行、合成为一行」假象。两行检测看**黄框总高**（fontsize46+ls14+边框32≈157px，单行≈87px）比看行间空隙靠谱（box 背景盖住行距无空隙）；副标题 y 是文本**顶部**不是基线。
 多段视频拼接：先各段转竖版无声（同上 filter，-r 30 -c:v libx264），再 concat demuxer 拼接，最后统一 drawtext（enable='between(t,t0,t1)' 控制每句字幕时间）。
 
 标题尺寸校准方法（用户对比例敏感，务必先校准）：

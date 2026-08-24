@@ -9,7 +9,7 @@ SUB_FS="${SUB_FONTSIZE:-75}"; SUB_LS="${SUB_LINE_SPACING:-0}"; SUB_Y="${SUB_Y:-0
 FONT=/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc
 TMP=$(mktemp -d)
 printf '%s' "$TITLE" > "$TMP/t.txt"
-printf '%s' "$SUB" > "$TMP/s.txt"
+printf '%b' "$SUB" > "$TMP/s.txt"
 
 EXT="${SRC##*.}"
 if [[ "$EXT" == "jpg" || "$EXT" == "jpeg" || "$EXT" == "png" ]]; then
