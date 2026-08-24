@@ -12,11 +12,21 @@ description: "主题→短视频流水线：钩子标题候选→免费素材搜
 - 竖版 1080×1920，30fps，8-60 秒
 - 顶部红色大标题（白描边）：fontsize 86，y=h*0.106（约占屏高 4.3%）
 - 副标题黄色底框黑字：fontsize 75（占屏宽约 70%），y=h*0.156，boxborderw=16
+- **副标题必须携带具体事实数据（2026-08-24 用户要求）**：带硬数字/事实（如"150年前装得下4个地球"），不要无据外推（"一百年后就没了"被科学家否定）、不要生造说法（"一个地球宽"→"只有地球大小"）；来龙去脉简化成两三句话
+- **两行副标题模板（已验证）**：单行字数多时换两行，fontsize=60、line_spacing=20（两行黄底总宽 65%≤70%）；副标题文本用 printf '第一行\n第二行' 写入，脚本需设 SUB_FONTSIZE=60 SUB_LINE_SPACING=20
 - 副标题宽度超屏时要降到该值；校准方法见"合成"节
 - 无正文字幕（除非用户要求）
+- **默认不加配音（2026-08-24 确认）；BGM 可选**，用户要才加
 - 画面：原图/原视频居中 + 上下模糊暗色背景（gblur sigma=30, brightness=-0.28）
 - 运镜：zoompan 缓慢推近（z='min(zoom+0.0016,1.25)'）
 - BGM 截取到视频时长
+
+已验证的两行副标题示例（2026-08-24 木星大红斑，fontsize=60/line_spacing=20 总宽 65%）：
+```
+主标题: 木星大红斑正在缩小
+副标题: 150年前，装得下4个地球\n如今，只有地球大小
+数据依据(后续引用): NASA戈达德2018《天文学期刊》研究(1878年起缩小，150年前可横跨4个地球直径，近年每年缩小约230km)；哈勃/朱诺2017-2019测约1-1.3个地球宽。勿用"一百年后就没了"：系线性外推，NASA的Amy Simon本人否定，2024哈勃OPAL发现90天摆动可能稳定不消失
+```
 
 ## 流程（5 步）
 
@@ -73,7 +83,16 @@ curl -sL -o out.jpg "http://images-assets.nasa.gov/image/NASA_ID/NASA_ID~orig.jp
 
 ### 3. 素材验证（qwen-vl-max 视觉检查）
 
-用 DashScope qwen-vl-max 检查图片/抽帧：画面主体对不对、清晰度够不够、有没有变形。见 scripts/vl_check.sh。不要盲目相信文件名。
+- **素材验证必须查"真动态"（2026-08-24 教训）**：NASA 视频名字带 mp4 不代表画面在动。例：`GSFC_20180313_..._GreatRedSpot`（大红斑逐年对比）实际是静态图+年份标注切换，看着像 PPT，用户一眼看出"不动"。下载后先用 ffmpeg freezedetect 或帧差检测确认：
+  ```bash
+  # 方法1: freezedetect（任何 >=2s 冻结会报 freeze_start）
+  ffmpeg -i in.mp4 -vf freezedetect=n=-60dB:d=2 -an -f null - 2>&1 | grep freeze
+  # 方法2: 帧差检测（不同时间点抽帧算灰度差，>30 为真动态）
+  ffmpeg -ss T1 -i in.mp4 -frames:v 1 a.jpg; ffmpeg -ss T2 -i in.mp4 -frames:v 1 b.jpg
+  # 再用 PIL 算两图平均灰度差（重新缩放后逐像素）
+  ```
+- **候选素材要逐段验证内容**：同一个 NASA 视频可能混人物讲解/其他行星/动画转场，逐段抽帧问视觉模型"画面主体是什么，有没有人"，挑纯天体动态段再截取（例：weather.mp4 有 David Choi 讲解和土星画面，弃用；Jupiter HotSpots 10-18s 是纯木星云带特写，可用）
+- 用 DashScope qwen-vl-max 检查图片/抽帧：画面主体对不对、清晰度够不够、有没有变形。见 scripts/vl_check.sh。不要盲目相信文件名。
 
 竖版素材视频要抽帧选段：`ffmpeg -i in.mp4 -vf "fps=1/5,scale=480:-1" -q:v 3 f_%02d.jpg`，然后批量问视觉模型"哪几帧有清晰宇航员/主体"。
 
@@ -96,6 +115,7 @@ x=(w-text_w)/2:y=h*0.156:box=1:boxcolor=yellow@0.98:boxborderw=16
 ```
 
 字体：/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc
+**副标题参数（2026-08-24 起）**：`make_vertical.sh` 支持环境变量 `SUB_FONTSIZE`（默认75）与 `SUB_LINE_SPACING`（默认0，即单行）。两行副标题用：`SUB_FONTSIZE=60 SUB_LINE_SPACING=20 bash make_vertical.sh <素材> <标题> "第一行\n第二行" <输出> [时长] [bgm]`。副标题文本里的 `\n` 由 printf 解析为换行。
 多段视频拼接：先各段转竖版无声（同上 filter，-r 30 -c:v libx264），再 concat demuxer 拼接，最后统一 drawtext（enable='between(t,t0,t1)' 控制每句字幕时间）。
 
 标题尺寸校准方法（用户对比例敏感，务必先校准）：
@@ -159,10 +179,12 @@ open("out.mp3","wb").write(audio)
 ## 工作流铁律（用户偏好）
 
 1. 标题先给候选让用户选，选了才开做
-2. 合成前先用黑底校准帧量标题/副标题尺寸（用户对比例敏感）
-3. 文案/标题禁 AI 味（无感叹号堆砌、无空洞排比）
-4. 素材只用免费可商用源（NASA、archive.org/Jamendo），并告知用户来源
+2. 合成前先用黑底校准帧量标题/副标题尺寸（用户对比例敏感）；副标题多行先算好黄框总宽 ≤70%
+3. 文案/标题禁 AI 味（无感叹号堆砌、无空洞排比、无生造说法）；副标题必须带具体数据
+4. 素材只用免费可商用源（NASA、archive.org/Jamendo），并告知用户来源；素材先验真动态、逐段查内容
 5. 交付后给下一步选项（调比例/换 BGM/加配音/换素材）
+6. **默认不加配音（2026-08-24 确认）**，除非用户主动要求；BGM 也是可选，用户要才加
+7. 用户说"换成上一个/另一个素材"时要确认到底指哪个，避免同源素材重复交付
 
 ## 交付清单
 - 成品 mp4（竖版 1080×1920，8-60s）
