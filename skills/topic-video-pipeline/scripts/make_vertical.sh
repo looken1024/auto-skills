@@ -6,7 +6,7 @@ SRC="$1"; TITLE="$2"; SUB="$3"; OUT="$4"; DUR="${5:-8}"; BGM="$6"
 # 两行副标题（带数据）时：SUB_FONTSIZE=60 SUB_LINE_SPACING=20
 # 主副标题间距：SUB_Y 为副标题顶部 y 比例（默认 0.156，增大则下移拉开间距）
 SUB_FS="${SUB_FONTSIZE:-75}"; SUB_LS="${SUB_LINE_SPACING:-0}"; SUB_Y="${SUB_Y:-0.156}"
-FONT=/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc
+FONT="${FONT:-/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc}"
 TMP=$(mktemp -d)
 printf '%s' "$TITLE" > "$TMP/t.txt"
 printf '%b' "$SUB" > "$TMP/s.txt"
@@ -26,6 +26,7 @@ fc+="[fg]scale=1080:-2[fg2];"
 fc+="[bgb][fg2]overlay=(W-w)/2:(H-h)/2[base];"
 fc+="[base]zoompan=z='min(zoom+0.0016,1.25)':d=$ZOOM_D:s=1080x1920:fps=30,format=yuv420p,"
 fc+="drawtext=fontfile=$FONT:textfile=$TMP/t.txt:fontsize=86:fontcolor=red@0.95:x=(w-text_w)/2:y=h*0.106:borderw=6:bordercolor=white,"
+# 副标题黑字 + 黄底框
 fc+="drawtext=fontfile=$FONT:textfile=$TMP/s.txt:fontsize=$SUB_FS:fontcolor=black:line_spacing=$SUB_LS:x=(w-text_w)/2:y=h*$SUB_Y:box=1:boxcolor=yellow@0.98:boxborderw=16[v]"
 
 ffmpeg -y $LOOP -filter_complex "$fc" -map "[v]" -t $DUR -c:v libx264 -preset medium -crf 19 -movflags +faststart "$TMP/plain.mp4"
