@@ -14,15 +14,17 @@ printf '%b' "$SUB" > "$TMP/s.txt"
 EXT="${SRC##*.}"
 if [[ "$EXT" == "jpg" || "$EXT" == "jpeg" || "$EXT" == "png" ]]; then
   LOOP="-loop 1 -i $SRC -t $DUR"
+  ZOOM_D=$((DUR*30))   # 图片: 每帧重复成 DUR*30 帧
 else
   LOOP="-i $SRC"
+  ZOOM_D=1             # 视频: 每帧只处理一次, 保留时间轴(否则会把首帧重复整段变静态!)
 fi
 
 fc="split=2[bg][fg];"
 fc+="[bg]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,gblur=sigma=30,eq=brightness=-0.28:saturation=0.85[bgb];"
 fc+="[fg]scale=1080:-2[fg2];"
 fc+="[bgb][fg2]overlay=(W-w)/2:(H-h)/2[base];"
-fc+="[base]zoompan=z='min(zoom+0.0016,1.25)':d=$((DUR*30)):s=1080x1920:fps=30,format=yuv420p,"
+fc+="[base]zoompan=z='min(zoom+0.0016,1.25)':d=$ZOOM_D:s=1080x1920:fps=30,format=yuv420p,"
 fc+="drawtext=fontfile=$FONT:textfile=$TMP/t.txt:fontsize=86:fontcolor=red@0.95:x=(w-text_w)/2:y=h*0.106:borderw=6:bordercolor=white,"
 fc+="drawtext=fontfile=$FONT:textfile=$TMP/s.txt:fontsize=$SUB_FS:fontcolor=black:line_spacing=$SUB_LS:x=(w-text_w)/2:y=h*$SUB_Y:box=1:boxcolor=yellow@0.98:boxborderw=16[v]"
 
