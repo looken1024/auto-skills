@@ -5,7 +5,7 @@ set -e
 SRC="$1"; TITLE="$2"; SUB="$3"; OUT="$4"; DUR="${5:-8}"; BGM="$6"
 # 两行副标题（带数据）时：SUB_FONTSIZE=60 SUB_LINE_SPACING=20
 # 主副标题间距：SUB_Y 为副标题顶部 y 比例（默认 0.156，增大则下移拉开间距）
-SUB_FS="${SUB_FONTSIZE:-75}"; SUB_LS="${SUB_LINE_SPACING:-0}"; SUB_Y="${SUB_Y:-0.156}"
+SUB_FS="${SUB_FONTSIZE:-75}"; SUB_LS="${SUB_LINE_SPACING:-0}"; SUB_Y="${SUB_Y:-0.215}"
 FONT="${FONT:-/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc}"
 TMP=$(mktemp -d)
 printf '%s' "$TITLE" > "$TMP/t.txt"
