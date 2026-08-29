@@ -21,12 +21,16 @@ description: "抖音流量互助卡片流水线:Pexels抓16:9图,参考截图定
 
 ## 核心流程
 
-### 1. Pexels 抓图（fetch）
+### 1. Pexels 抓图（fetch / search）
+
+**API key（已配置）：** `config.json` 里的 `pexels_api_key`，用 API 搜索更全、更准。
 
 **关键事实：**
 - `www.pexels.com` 被 Cloudflare 挡（403 "Just a moment..."），web_fetch 和 curl 带浏览器 UA 都进不去
 - `images.pexels.com` CDN **完全可直连**，只要有 photo id 就能下载
-- 搜索方式：用 tavily_search 带 `include_domains:["pexels.com"]` 搜关键词，从结果 URL 提取 `/photos/{id}/`
+- Pexels API key 需要用户自己在 pexels.com 注册生成，拿到后存入 `config.json` 的 `pexels_api_key`
+- **API 搜索必须带浏览器 UA**（`Mozilla/5.0 ... Chrome/126.0`），否则 urllib 默认 UA 会被 403 拦截
+- 搜索方式：`python3 card_pipeline.py search "关键词" --pp 5` （自动过滤竖图并下载 16:9）
 
 **直链规则：**
 ```
@@ -34,6 +38,16 @@ https://images.pexels.com/photos/{id}/pexels-photo-{id}.jpeg?auto=compress&cs=ti
 ```
 - 不带 w/h 参数返回原图比例；竖图常见（2:3）
 - **16:9 横图裁剪**：`&w=1920&h=1080&fit=crop` → 直接输出 1920×1080
+
+### 1b. 视频搜索（vsearch）
+
+Pexels API 支持视频搜索：`https://api.pexels.com/videos/search?query=...`
+
+- `videos.pexels.com` CDN 可直连下载 MP4（**需带浏览器 UA**）
+- 返回 `video_files` 含多分辨率版本，脚本自动选**最接近目标分辨率且横屏**的版本
+- `python3 card_pipeline.py vsearch "秋天" --pp 3 --res 720 --out videos/`
+  - `--res` 目标宽度（默认 720），自动选最接近的横屏版本
+- 实测：下载 640×360 横屏 MP4，32 秒，2.1MB，file/ffprobe 验证有效
 
 ### 2. 参考截图文字框定位（analyze）
 
@@ -73,6 +87,34 @@ draw.text((tx,ty), text, font=font, fill=(255,255,255,255))
 - 用户调参历史：字号 52→44，透明度 170→115。记住这两个值是"最终满意点"
 - 框中心对齐参考坐标 (cx*W, cy*H)，越界保护 `max(10, min(W-box_w-10, x0))`
 - 顶部可做轻微压暗渐变（顶部 30% 渐隐），保证亮天空处白字清晰
+- **字号自适应** `fit_font()`：长文案自动缩小（下限26px），保证文字框不越过画面边界
+
+### 3b. 文案池（随机模式）
+
+**4 个文字位置固定**，内容从文案池随机抽取（不重复），保证每张图位置布局不变只换文案：
+
+```python
+render/variants 加 --random 参数即随机抽 4 条
+```
+
+**当前文案池（12 条，随时可增改）：**
+
+```
+因为我一直刷新推荐页
+看完、点赞、评论+关注
+然后你的作品就能被更多人看到
+众筹一万粉，永不取关
+跟拍真的有流量
+想要流量就要多曝光自己
+加油，互动起来
+爆款音乐有流
+推荐页就是最大的流量池
+不说了我要去评论了
+你的作品总会被看到的
+扣1试试每天爆10000+
+```
+
+不改池子的默认文案（DEFAULT_TEXTS）就是原 4 条固定文案。
 
 ### 4. 去重变体（variants）
 
@@ -95,10 +137,15 @@ draw.text((tx,ty), text, font=font, fill=(255,255,255,255))
 
 ```
 python3 card_pipeline.py fetch <photo_id> [out.jpg]          # Pexels CDN 抓 16:9 图
+python3 card_pipeline.py search <query> [--pp 5] [--out dir] # API 搜索并下载横图 (需 config.json key)
+python3 card_pipeline.py vsearch <query> [--pp 5] [--res 720] [--out dir] # API 搜索并下载横屏视频
 python3 card_pipeline.py analyze <ref_image> [boxes.json]    # 分析参考截图文字框
-python3 card_pipeline.py render <bg.jpg> <boxes.json> [--text "用|分隔"] [--size 44] [--alpha 115]
-python3 card_pipeline.py variants <bg.jpg> <boxes.json> [--outdir variants] [--count 4]
+python3 card_pipeline.py render <bg.jpg> [boxes.json] [--text "用|分隔"] [--size 44] [--alpha 115] [--random]
+python3 card_pipeline.py variants <bg.jpg> [boxes.json] [--outdir variants] [--count 4] [--random]
 ```
+
+- 不传 boxes.json 时自动用内置参考布局（4 个固定文字位）
+- `--random` 从文案池随机抽 4 条；`--text` 指定文案；都不传用默认 4 条
 
 默认文字（无 --text 时）："因为我一直刷新推荐页|看完、点赞、评论+关注|然后你的作品就能被更多人看到|众筹一万粉，永不取关"
 
