@@ -48,8 +48,35 @@ PEXELS_CFG = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".."
                           "douyin-card-pipeline", "config.json")
 LOG_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "logs")
 LEDGER_FILE = os.path.join(LOG_DIR, "gallery_sent_md5.json")
+TOPIC_DAY_FILE = os.path.join(LOG_DIR, "gallery_topic_day.json")
 UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
                     "(KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"}
+
+
+# ---------- 话题级去重（同一天不重复选话题） ----------
+def load_topic_day():
+    """读取当天已用话题记录: {"2026-08-29": {"topics": ["秋天", ...]}} """
+    if os.path.exists(TOPIC_DAY_FILE):
+        try:
+            data = json.load(open(TOPIC_DAY_FILE, encoding="utf-8"))
+            if isinstance(data, dict):
+                return data
+        except Exception:
+            pass
+    return {}
+
+
+def record_topic_day(topic):
+    """草稿创建成功后记录当天已用话题。"""
+    today = datetime.now().strftime("%Y-%m-%d")
+    data = load_topic_day()
+    day = data.setdefault(today, {"topics": []})
+    if topic not in day["topics"]:
+        day["topics"].append(topic)
+    tmp = TOPIC_DAY_FILE + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+    os.replace(tmp, TOPIC_DAY_FILE)
 
 
 # ---------- md5 台账 ----------
@@ -217,7 +244,13 @@ def main():
                 query = en
                 break
     else:
-        topic, query = random.choice(TOPICS)
+        # 话题级去重：当天已用话题不再选，全部用完则重置循环
+        used_today = load_topic_day().get(datetime.now().strftime("%Y-%m-%d"), {}).get("topics", [])
+        available = [t for t in TOPICS if t[0] not in used_today]
+        if not available:
+            print(f"!!! 当天 {len(used_today)} 个话题已全部用过，重置循环", file=sys.stderr)
+            available = TOPICS
+        topic, query = random.choice(available)
     print(f"话题: {topic}  (Pexels 查询: {query})", file=sys.stderr)
 
     sent = load_ledger()
@@ -294,17 +327,20 @@ def main():
             raise Exception("全部图片素材上传失败")
         print(f"素材库上传 OK {len(media_ids)} 张（type=image 永久素材）", file=sys.stderr)
 
-        # 4. 建「图片消息」草稿（草稿箱贴图）
-        today = datetime.now().strftime("%Y-%m-%d")
-        title = f"{topic} · 每日图集 ({today})"
+        # 4. 建「图片消息」草稿（草稿箱贴图），标题带时间区分同话题批次
+        now_dt = datetime.now()
+        today = now_dt.strftime("%Y-%m-%d")
+        hhmm = now_dt.strftime("%H:%M")
+        title = f"{topic} · 每日图集 ({today} {hhmm})"
         draft_res = create_newspic_draft(app_id, app_secret, title, media_ids)
         draft_media_id = draft_res.get("media_id")
         if not draft_media_id:
             raise Exception(f"建图片消息草稿失败: {draft_res}")
         print(f"图片消息草稿 OK media_id={draft_media_id}", file=sys.stderr)
 
-        # 5. 草稿成功后才记录 md5 台账
+        # 5. 草稿成功后才记录 md5 台账 + 当天话题
         record_sent([{"md5": h, "pexels_id": pid, "topic": topic} for h, pid in uploaded])
+        record_topic_day(topic)
 
         # 6. 追加日志
         os.makedirs(LOG_DIR, exist_ok=True)
