@@ -4,9 +4,9 @@
 set -e
 SRC="$1"; TITLE="$2"; SUB="$3"; OUT="$4"; DUR="${5:-8}"; BGM="$6"
 # 两行副标题（带数据）时：SUB_FONTSIZE=60 SUB_LINE_SPACING=20
-# 主副标题间距：SUB_Y 为副标题顶部 y 比例（默认 0.156，增大则下移拉开间距）
-SUB_FS="${SUB_FONTSIZE:-75}"; SUB_LS="${SUB_LINE_SPACING:-0}"; SUB_Y="${SUB_Y:-0.215}"
-TITLE_FS="${TITLE_FS:-86}"; TITLE_Y="${TITLE_Y:-0.106}"
+# 主副标题间距：SUB_Y 为副标题顶部 y 比例（默认 0.165 → 间距约41px，2026-08-29 用户确认紧贴版）
+SUB_FS="${SUB_FONTSIZE:-52}"; SUB_LS="${SUB_LINE_SPACING:-18}"; SUB_Y="${SUB_Y:-0.165}"
+TITLE_FS="${TITLE_FS:-56}"; TITLE_Y="${TITLE_Y:-0.106}"
 FONT="${FONT:-/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc}"
 TMP=$(mktemp -d)
 printf '%s' "$TITLE" > "$TMP/t.txt"
