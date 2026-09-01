@@ -399,11 +399,10 @@ def main():
             raise Exception("全部图片素材上传失败")
         print(f"素材库上传 OK {len(media_ids)} 张（type=image 永久素材）", file=sys.stderr)
 
-        # 4. 建「图片消息」草稿（草稿箱贴图），标题带时间区分同话题批次
+        # 4. 建「图片消息」草稿（草稿箱贴图），标题带日期（不含小时分钟）
         now_dt = datetime.now()
         today = now_dt.strftime("%Y-%m-%d")
-        hhmm = now_dt.strftime("%H:%M")
-        title = f"{topic} · 每日图集 ({today} {hhmm})"
+        title = f"{topic} · 每日图集 ({today})"
         draft_res = create_newspic_draft(app_id, app_secret, title, media_ids)
         draft_media_id = draft_res.get("media_id")
         if not draft_media_id:
