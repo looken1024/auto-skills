@@ -178,7 +178,6 @@ TOPICS = [
     ("罗马斗兽场", "colosseum rome"),
     ("悉尼歌剧院", "sydney opera house"),
     ("自由女神", "statue of liberty"),
-    ("大本钟", "big ben london"),
     ("里约基督像", "christ the redeemer rio"),
     ("佩特拉古城", "petra jordan"),
 ]
