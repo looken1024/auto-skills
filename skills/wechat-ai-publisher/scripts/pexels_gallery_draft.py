@@ -23,7 +23,23 @@ import config as wc_config
 import compress_image
 
 # ---------- 话题池：中文名 → Pexels 英文搜索词 ----------
-TOPICS = [
+# 话题池独立存于 scripts/topics.json（每3天由 expand_topics.py 补充），脚本优先读它；
+# 若文件缺失则回退到下方内置列表。
+TOPICS_JSON = os.path.join(SCRIPT_DIR, "topics.json")
+
+def load_topics():
+    if os.path.exists(TOPICS_JSON):
+        try:
+            data = json.load(open(TOPICS_JSON, encoding="utf-8"))
+            pairs = [(d["cn"], d["en"]) for d in data if d.get("cn") and d.get("en")]
+            if pairs:
+                return pairs
+        except Exception as e:
+            print(f"! 读取 topics.json 失败({e})，回退内置列表", file=sys.stderr)
+    return _BUILTIN_TOPICS
+
+
+_BUILTIN_TOPICS = [
     # --- 自然景观 ---
     ("秋天", "autumn forest"),
     ("秋叶", "autumn leaves"),
@@ -283,6 +299,8 @@ TOPICS = [
     ("吴哥日出", "angkor sunrise temple"),
     ("雅典神庙", "ancient greek temple ruins"),
 ]
+
+TOPICS = load_topics()
 
 PEXELS_CFG = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..",
                           "douyin-card-pipeline", "config.json")
