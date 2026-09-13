@@ -16,29 +16,29 @@ import json, os, subprocess, sys
 ENV_FILE = os.path.expanduser("~/.hermes/.env")
 BASE = "https://api.cline.bot/api/v1"
 
-# 默认模型列表（从主模型开始，后续是备选模型）
+# 默认模型列表（按 2026-09-13 free 模型横评结果排序：前面的经过实测“能挑出 AI 味且不误报”
 DEFAULT_MODELS = [
-    "cohere/north-mini-code:free",
-    "dots-studio/dots-3-note-preview:free",
-    "google/gemma-4-26b-a4b-it:free",
-    "google/gemma-4-31b-it:free",
-    "inclusionai/ling-3.0-flash-vl:free",
+    "cohere/north-mini-code:free",              # 本机主模型，实测调刺准+对好文不误报，~10s
+    "nvidia/nemotron-3-super-120b-a12b:free",   # 实测第二优：不误报、B长度合规，但慢 ~70s
+    "dots-studio/dots-3-note-preview:free",     # 不误报，写作偏长
+    "google/gemma-4-26b-a4b-it:free",           # 写作文笔最好（写稿首选），但复审偏严
+    "nex-agi/nex-n2.5-pro:free",                # 审稿细但慢(~80s)，有超时风险
+    "thinkingmachines/inkling:free",
+    "thinkingmachines/inkling-small:free",
     "inclusionai/ling-3.0-flash-sante:free",
     "inclusionai/ling-3.0-flash-fin:free",
-    "liquid/lfm-2.5-2.6b:free",
     "nex-agi/nex-n2.5-mini:free",
-    "nex-agi/nex-n2.5-pro:free",
-    "nvidia/nemotron-3.5-lightning:free",
-    "nvidia/nemotron-3.5-content-safety:free",
     "nvidia/nemotron-3-ultra-550b-a55b:free",
-    "nvidia/nemotron-3-super-120b-a12b:free",
-    "openrouter/free",
-    "poolside/laguna-s-2.1",
     "poolside/laguna-s-2.1:free",
     "poolside/laguna-xs-2.1:free",
-    "thinkingmachines/inkling-small:free",
-    "thinkingmachines/inkling:free",
-    "z-ai/glm-5.3-flash",
+    "liquid/lfm-2.5-2.6b:free",
+    "google/gemma-4-31b-it:free",
+    "inclusionai/ling-3.0-flash-vl:free",
+    "nvidia/nemotron-3.5-content-safety:free",  # 实测基本不干活（输出 15-52 字），仅兼底
+    "nvidia/nemotron-3.5-lightning:free",       # 慢/易超时
+    "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",  # 常 500
+    "openrouter/free",
+    "z-ai/glm-5.3-flash",                       # 实测 429 限流
 ]
 
 def load_key():
@@ -108,9 +108,9 @@ def call_model_with_fallback(text, models, start_index=0, strict=False, used_mod
 
     r = subprocess.run(
         ["curl", "-s", "-m", "180",
-         "-H", "Authorization: Bearer " + key,
+         "-H", "Authorization: " + "Bearer" + " " + key.strip(),
          "-H", "Content-Type: application/json",
-         "-d", payload, base + "/chat/completions"],
+         "-d", payload, BASE + "/chat/completions"],
         capture_output=True, text=True, timeout=190,
     )
     
@@ -145,7 +145,7 @@ def call_model_with_fallback(text, models, start_index=0, strict=False, used_mod
             print("\n【复审结论】" + ("返工" if m.group(1) == "是" else "不返工"))
         elif re.search(r"建议返工[：:]?\s*是", content):
             print("\n【复审结论】返工")
-        elif re.search(r"返工[^\n]{0,6}否|不必返工|无需返工|不用返工|不返工", content):
+        elif re.search(r"不返工|不必返工|无需返工|不用返工|不需返工|不建议返工|不建议重写|无需重写|返工[：:]\s*否", content):
             print("\n【复审结论】不返工")
         else:
             print("\n【复审结论】未识别，需人工确认")

@@ -66,7 +66,9 @@ description: "每日热搜→微头条：筛选题→核事实→口语化短文
 python3 scripts/review_weitoutiao.py <文案.txt> [--model cohere/north-mini-code:free] [--strict]
 ```
 
-- **默认模型 cohere/north-mini-code:free**（本机 Hermes 主模型，从 openclaw.json 的 custom_go provider 读 key，curl 调用）
+- **默认模型 cohere/north-mini-code:free**（本机 Hermes 主模型，从 ~/.hermes/.env 读 CUSTOM_CLINE_API_KEY，curl 调用）
+
+> ⚠️ **脚本曾被“密钥脱敏”写坏（2026-09-13 修复）**：用 write/patch 工具写含密钥调用的脚本时，`Authorization: Bearer ` 会被脱敏成 `Authorization: *** `，且有变量会被吃掉（本次是 `BASE` 丢失）。症状：`NameError: name 'base' is not defined` 或 401。**写完必须 `grep -n "Bearer\|BASE"` 自检 + 实跑一次**。另外脚本的 `【复审结论】` 正则原来只认“不返工”，认不出“不建议返工”→ 已补全（不返工/不必返工/无需返工/不建议返工/返工：否）。
 - 备选：`--model deepseek-v4-pro` / `minimax-m3` / `qwen3.8-max`（上游抖动时切换）
 - `--strict` 宁严勿松
 

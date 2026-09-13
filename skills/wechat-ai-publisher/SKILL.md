@@ -108,8 +108,13 @@ $PYTHON $SCRIPTS/create_draft.py \
 |---|---|---|
 | 40006 / 45001 | 图片超过 2MB | 压缩封面（≤800KB）/正文图（≤2MB） |
 | 40007 | thumb_media_id 无效 | 确认封面上传成功返回的 media_id |
+| 40125 | invalid appsecret（获取 access_token 失败） | AppSecret 已失效——公众号后台「设置与开发→基本配置→开发者密码」被**重置**过（旧值立即作废），或 .env 里的值被写坏。让用户在后台重置一次 AppSecret，拿到新值后更新 .env。**注意**：此错会表现为"全部图片素材上传失败"（每张图都要先换 token），别误判成图片/网络问题 |
 | 48001 | 接口未授权 | 回退用旧接口（如 `draft/delete` 而非 `freepublish/delete`） |
 | no_cover | 未传封面 | 公众号草稿强制要求封面，先上传封面拿 media_id |
+
+> ⚠️ **排错别只看 cron 摘要（已踩坑）**：`no_agent` 脚本若用 `tail -5` 汇报，会把 40125 之类的真实原因丢掉，只剩"全部图片素材上传失败"，白查半天。**脚本必须把完整 stdout+stderr 落盘**（如 `~/.hermes/logs/cron/gallery_<ts>.log`），stdout 只留一行摘要，并对 `40125 / invalid appsecret` 单独分流提示。
+
+> ⚠️ **凭证可能中途失效**：同一 AppSecret 可以在几分钟内从可用变为 40125（后台被重置）。判定"是不是凭证问题"最快的办法：直接 `GET /cgi-bin/token` 看 errcode，别先怀疑图或网络。
 
 ## 铁律
 - 封面图 **必须有**，否则微信拒收草稿。
