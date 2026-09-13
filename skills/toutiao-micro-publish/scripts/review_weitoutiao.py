@@ -5,58 +5,71 @@
 用法:
   python3 review_weitoutiao.py <text.md|txt> [--model <id>] [--strict]
 
-- 默认模型 glm-5.3（高级模型，从 openclaw.json 的 custom_go provider 读取 key）
-- 可 --model deepseek-v4-pro / minimax-m3 / qwen3.8-max 切换
-- 通过 curl 调用（opencode baseUrl + /chat/completions）
+- 默认模型 cohere/north-mini-code:free（本机 Hermes 主模型，从 ~/.hermes/.env 读 CUSTOM_CLINE_API_KEY，Cline API）
+- 可 --model <id> 切换（走同一 Cline endpoint）
+- 通过 curl 调用（https://api.cline.bot/api/v1/chat/completions）
 - 只读不改：输出复审报告，命中的 AI 味必须改写后重跑，直到通过才允许发布
+- 失败自动切换到下一个模型重试（倒序依次尝试）
 """
 import json, os, subprocess, sys
 
-CONFIG = os.path.expanduser("~/.openclaw/openclaw.json")
-MODEL = "glm-5.3"
+ENV_FILE = os.path.expanduser("~/.hermes/.env")
+BASE = "https://api.cline.bot/api/v1"
 
-def find_go_key(o):
-    """递归找 baseUrl 含 opencode 的 provider 节点，取其 apiKey"""
-    if isinstance(o, dict):
-        if isinstance(o.get("baseUrl"), str) and "opencode" in o["baseUrl"] and "apiKey" in o:
-            return o["baseUrl"].rstrip("/"), o["apiKey"]
-        for v in o.values():
-            r = find_go_key(v)
-            if r:
-                return r
-    elif isinstance(o, list):
-        for v in o:
-            r = find_go_key(v)
-            if r:
-                return r
+# 默认模型列表（从主模型开始，后续是备选模型）
+DEFAULT_MODELS = [
+    "cohere/north-mini-code:free",
+    "dots-studio/dots-3-note-preview:free",
+    "google/gemma-4-26b-a4b-it:free",
+    "google/gemma-4-31b-it:free",
+    "inclusionai/ling-3.0-flash-vl:free",
+    "inclusionai/ling-3.0-flash-sante:free",
+    "inclusionai/ling-3.0-flash-fin:free",
+    "liquid/lfm-2.5-2.6b:free",
+    "nex-agi/nex-n2.5-mini:free",
+    "nex-agi/nex-n2.5-pro:free",
+    "nvidia/nemotron-3.5-lightning:free",
+    "nvidia/nemotron-3.5-content-safety:free",
+    "nvidia/nemotron-3-ultra-550b-a55b:free",
+    "nvidia/nemotron-3-super-120b-a12b:free",
+    "openrouter/free",
+    "poolside/laguna-s-2.1",
+    "poolside/laguna-s-2.1:free",
+    "poolside/laguna-xs-2.1:free",
+    "thinkingmachines/inkling-small:free",
+    "thinkingmachines/inkling:free",
+    "z-ai/glm-5.3-flash",
+]
+
+def load_key():
+    try:
+        for line in open(ENV_FILE, encoding="utf-8"):
+            line = line.strip()
+            if line.startswith("CUSTOM_CLINE_API_KEY="):
+                return line.split("=", 1)[1].strip().strip('"').strip("'")
+    except FileNotFoundError:
+        pass
     return None
 
-def main():
-    global MODEL
-    args = sys.argv[1:]
-    strict = False
-    if "--model" in args:
-        i = args.index("--model")
-        MODEL = args[i + 1]
-        del args[i:i + 2]
-    if "--strict" in args:
-        strict = True
-        args.remove("--strict")
-    if not args:
-        print("用法: python3 review_weitoutiao.py <text.md|txt> [--model <id>] [--strict]")
+def call_model_with_fallback(text, models, start_index=0, strict=False, used_models=None):
+    """递归调用模型，失败自动切换下一个"""
+    if used_models is None:
+        used_models = []
+    
+    if start_index >= len(models):
+        print(f"错误：所有 {len(DEFAULT_MODELS)} 个模型都失败了，已尝试：{' -> '.join(used_models)}")
         sys.exit(1)
-
-    text = open(args[0], encoding="utf-8").read().strip()
-    # 微头条 500 字上下，一次全喂
-    if len(text) > 1200:
-        text = text[:1200]
-
-    found = find_go_key(json.load(open(CONFIG)))
-    if not found:
-        print("ERROR: 未找到 custom_go (opencode) provider 的 apiKey")
+    
+    current_model = models[start_index]
+    used_models.append(current_model)
+    
+    print(f"尝试模型 {current_model} ({start_index + 1}/{len(models)})")
+    
+    key = load_key()
+    if not key:
+        print("ERROR: ~/.hermes/.env 中未找到 CUSTOM_CLINE_API_KEY")
         sys.exit(1)
-    base, key = found
-
+    
     strict_note = "（严格模式：宁严勿松，任何疑似 AI 味都要标出）" if strict else ""
     prompt = f"""你是今日头条微头条主编「棱镜折射」的审稿人，以挑剔、毒舌、反 AI 味的眼光复审一篇微头条。这篇文风定位：口语化短句、有情绪有态度有反讽、夹方言感、数字具体、结尾开放抛问题/引导转发。逐项检查并输出：
 
@@ -68,7 +81,7 @@ def main():
 4. 强行升华结尾（无具体指向的总结式收尾、喊口号）
 5. 翻译腔/新闻通稿腔（"这一事件""背后折射出""带动XX经济"）
 6. 不口语化的书面词（"竟然""堪称""可谓"滥用）
-7. 短视频套路梗/网感短句（2026-08-26 用户点名禁用）："正在偷你的底裤""套路就三样""翻译成人话""翻翻名单，个个都是人才""这事离谱在哪""一个比一个会玩""谁懂啊""给我整不会了""绝了家人们"等刻意设计的短句梗——这类看似口语、实则堆砌网感，比套话更 AI 味；口语化要自然，不靠这类金句撑场
+7. 短视频套路梗/网感短句（2026-08-26 用户点名禁用）："正在偷你的底裤""套路就三样""翻译成人话""翻翻名单，个个都是人才""这事离谱在哪""一个比一个会玩""谁懂啊""绝了"等刻意设计的短句梗——这类看似口语、实则堆砌网感，比套话更 AI 味；口语化要自然，不靠这类金句撑场
 
 二、可完善点
 - 开头钩子够不够抓人（前 2 句有没有画面/反差/数字）
@@ -88,9 +101,9 @@ def main():
 要求：直接给审查结论，不要复述任务、不要展示思考过程、不要写"让我分析"开头；**总输出控制在 500 字以内**，只列命中项，没问题的部分不写。"""
 
     payload = json.dumps({
-        "model": MODEL,
-        "max_tokens": 2000,
+        "model": current_model,
         "messages": [{"role": "user", "content": prompt}],
+        "stream": False,
     }).encode()
 
     r = subprocess.run(
@@ -100,40 +113,90 @@ def main():
          "-d", payload, base + "/chat/completions"],
         capture_output=True, text=True, timeout=190,
     )
+    
     try:
         d = json.loads(r.stdout)
-        if "error" in d:
-            print("调用失败:", json.dumps(d["error"], ensure_ascii=False)[:300])
-            sys.exit(1)
+        if "error" in d and "choices" not in d:
+            error_msg = d.get("error", {}).get("message", "未知错误")
+            print(f"模型 {current_model} 调用失败：{error_msg}")
+            return call_model_with_fallback(text, models, start_index + 1, strict, used_models)
+        
+        d = d.get("data", d)
         msg = d["choices"][0]["message"]
         content = (msg.get("content") or "").strip()
-        reasoning = (msg.get("reasoning_content") or "").strip()
+        reasoning = (msg.get("reasoning") or msg.get("reasoning_content") or "").strip()
+        
         if not content:
-            # 模型只吐了思考过程：不 dump 全文（会污染下游解析），截末尾 + 退出码 2 提示重跑/换模型
-            print("（模型未返回正文，仅思考过程，截取末尾 800 字供参考）")
-            print(reasoning[-800:] if reasoning else "（空响应）")
-            sys.exit(2)
-        # 输出截断，防止思考过程撑爆 exec 输出
+            print(f"模型 {current_model} 未返回正文，仅思考过程，切换下一个模型")
+            return call_model_with_fallback(text, models, start_index + 1, strict, used_models)
+        
+        # 输出成功内容
         if len(content) > 3000:
             print(content[:1500])
             print("\n...[中间省略]...\n")
             print(content[-1000:])
         else:
             print(content)
+        
         # 机器可读结论行，供下游 grep【复审结论】
         import re
         m = re.search(r"结论[：:].{0,6}建议?返工[：:]?(是|否)", content)
         if m:
             print("\n【复审结论】" + ("返工" if m.group(1) == "是" else "不返工"))
-        elif "不返工" in content or "无需返工" in content:
-            print("\n【复审结论】不返工")
         elif re.search(r"建议返工[：:]?\s*是", content):
             print("\n【复审结论】返工")
+        elif re.search(r"返工[^\n]{0,6}否|不必返工|无需返工|不用返工|不返工", content):
+            print("\n【复审结论】不返工")
         else:
             print("\n【复审结论】未识别，需人工确认")
+        
+        print(f"\n✅ 成功使用模型 {current_model}，已完成复审任务")
+        print(f"📝 尝试顺序：{' -> '.join(used_models)}")
+        return True
+        
     except Exception as e:
-        print("解析失败:", e)
-        print(r.stdout[:500])
+        print(f"模型 {current_model} 解析失败：{e}")
+        return call_model_with_fallback(text, models, start_index + 1, strict, used_models)
+
+def main():
+    args = sys.argv[1:]
+    strict = False
+    selected_model = None
+    
+    if "--model" in args:
+        i = args.index("--model")
+        selected_model = args[i + 1]
+        del args[i:i + 2]
+    
+    if "--strict" in args:
+        strict = True
+        args.remove("--strict")
+    
+    if not args:
+        print("用法: python3 review_weitoutiao.py <text.md|txt> [--model <id>] [--strict]")
+        sys.exit(1)
+    
+    text = open(args[0], encoding="utf-8").read().strip()
+    if len(text) > 1200:
+        text = text[:1200]
+    
+    # 决定尝试的模型列表
+    models_to_try = []
+    if selected_model:
+        if selected_model in DEFAULT_MODELS:
+            # 如果用户指定了模型，从该模型开始尝试（包括它自己）
+            start_idx = DEFAULT_MODELS.index(selected_model)
+            models_to_try = DEFAULT_MODELS[start_idx:]
+        else:
+            # 如果用户指定了不在列表中的模型，先尝试它，再继续默认列表
+            models_to_try = [selected_model] + DEFAULT_MODELS
+    else:
+        models_to_try = DEFAULT_MODELS
+    
+    print(f"开始复审任务，优先级模型列表：{' -> '.join(models_to_try)}")
+    
+    success = call_model_with_fallback(text, models_to_try, strict=strict)
+    if not success:
         sys.exit(1)
 
 if __name__ == "__main__":
