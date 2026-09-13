@@ -82,6 +82,29 @@ python3 scripts/review_weitoutiao.py <文案.txt> [--model cohere/north-mini-cod
 
 **实测案例（2026-08-23 丁真文案）**：cohere/north-mini-code:free 抓出——"带动近4000万文旅经济"是通稿腔（建议改"赚了近4000万"类口语）；"当初的运气，就是清醒"与"哦豁…巴适得很"两句金句堆叠在结尾前可删一句；"那么问题来了"是互联网老梗（套路过渡）；方言"黢黑（北方）"+ "巴适（四川）"混用略不一致。这些就是复审要抓的典型。
 
+### Step 4.6 DeepSeek 网页版终审复核（硬性 · 2026-09-13 新增）
+
+Step 4.5 的 Cline 复审只抓 AI 味，**不管事实**。发布前再过一道 **DeepSeek 网页版**（chat.deepseek.com，本机无头 Chrome 已登录）做事实/合规/查重终审：
+
+```bash
+python3 scripts/ds_web_review.py <文案.txt> --recent <最近已发摘要.txt> [--timeout 420]
+```
+
+- 输出 JSON：`{"ok":true,"verdict":"PASS|FIX","answer_file":"...","answer_chars":N}`；完整报告存在 `answer_file`
+- `--recent`：把台账最近 5 条（标题+首句）写进文件传进去 → 脚本会问 DeepSeek“结尾/选题是否与最近重复”
+- **闭环（硬性）**：`VERDICT: FIX` → 按报告里的「必改项」逐条改稿 → **重跑本步**，直到 `PASS` 才允许进 Step 5；同一问题两轮改不掉就换选题
+- **前置**：Chrome 跑在 9222（脚本自己用 websocket-client 走 CDP，`suppress_origin=True`），且 chat.deepseek.com 处于登录态；若报 `未登录（跳到 sign_in）` → 走 Step 7 通知，需人工重新扫码/验证码登录
+- **失败处理（fail-open）**：脚本报错重试 1 次；仍失败则**不阻断发布**，但必须在回执与台账里标注「DeepSeek 终审未执行」
+- 本步实测能力（2026-09-13 首测）：抓出了“985 vs 双非”写错（原文是 211 vs 非211）、论据方向反了（0.5% 流失率被用来证明“真想留的人不多”）、以及两条结尾问句一字不差重复——这些是 Cline 复审完全漏掉的
+
+> ⚠️ **实现要点（2026-09-13 踩坑）**：
+> - 脚本用 **裸 CDP**（websocket-client + `suppress_origin=True`）直连 9222；`browser-harness` 的 `js()` 在 DeepSeek 页上会读到错的执行上下文（只拿到壳），不要用它取正文。
+> - **headless 后台标签会被节流**，回答可能迟迟不落 DOM → 脚本开头开 `Emulation.setFocusEmulationEnabled` + `Page.bringToFront`，轮询时每轮发一次 `Page.captureScreenshot` 强制重绘。
+> - 正文提取：取“含 `VERDICT: PASS/FIX` 且不含 `【待发内容】` 标记”的最小容器（后者只出现在提问里）——不要用 `/VERDICT\s*:/` 正则（在 Python 字符串里易双重转义）；用 `includes('VERDICT: FIX')` 这类字面量判断。
+> - 一次终审约 **5-8 分钟**（带联网搜索），比 Cline 复审慢很多；脚本默认 timeout 480s。
+> - 耗时/配额：一次终审 = 消耗一条 DeepSeek 网页版对话（免费但会留聊天记录）。
+> - 实测命中率（今天 5 条已发稿）：4 条被判 FIX，抓出的包括“985 vs 双非”写错、论据方向反了、结尾两条一字不差重复、多处数据无来源标注、未证实的“浙江省第二”。
+
 ### Step 5 发布到今日头条微头条（浏览器辅助 · 已验证流程）
 
 > ⚠️ **cron 会话里禁止用 `bu`+heredoc 手写脚本（2026-09-13 踩坑）**：调度会话（cron/子代理）里用 heredoc 写 JS 常被截断，bash 报 `here-document ... delimited by end-of-file`，脚本只跑了一半（找不到编辑器、点击不生效），结果同一个话题在 16:56、17:04 连发两条、且都没写台账。**改成直接用 `browser_exec` 工具（里面有 goto_url / wait_for_load / js / cdp / click_at_xy 助手）**。
