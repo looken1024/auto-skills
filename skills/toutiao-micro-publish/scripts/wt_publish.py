@@ -161,8 +161,7 @@ def main():
     first = ""
     if ok:
         cdp.goto(LIST_URL, wait=5)
-        first = cdp.js("(() => { const e=document.querySelector('div[class*=feed], div[class*=list]');"
-                       "return e ? e.innerText.slice(0,200) : (document.body.innerText.slice(0,300)); })()") or ""
+        first = cdp.js("document.body.innerText.replace(/\\n+/g,' ').slice(0,240)") or ""
     cdp.close()
 
     if not ok:
