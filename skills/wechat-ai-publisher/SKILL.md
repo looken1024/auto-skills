@@ -37,7 +37,9 @@ pip install requests markdown Pillow
 整理标题、作者、摘要、正文 Markdown、封面图路径。
 
 ### Step 2 撰写文章（可插拔）
-写作步骤可插拔：**通用版** `wechat-article-writer` 或 **人设版** `laoluo-article-writer`；历史/新闻社会类用 `history-social-writing` / `news-social-writing`（已内置参考文献铁律与标题三候选规范）。
+写作步骤可插拔：**民生/职场/情绪爆款文 → `gzh-viral-writer`**（本机已装：选题模型、八大标题公式、01/02/03 观点文结构、去 AI 味清单）；历史类 → `history-social-writing`；新闻社会类 → `news-social-writing`。
+
+> ⚠️ 旧文档提到的 `wechat-article-writer` / `laoluo-article-writer` **本机不存在**（悬空引用，别照着找）。
 
 > ⚠️ **正文不得重复标题**：`article.md` 第一行**不要**写 `# 标题`。标题字段由 `--title` 单独传入；若正文顶部再放一级标题，转 HTML 后会在**正文最上方重复显示标题**（已踩坑）。
 
@@ -97,6 +99,20 @@ $PYTHON $SCRIPTS/create_draft.py \
 
 ### 一键串联（run_pipeline，推荐）
 `run_pipeline.py`：压缩封面→上传封面→上传正文图并替换→转HTML→建草稿→归档。
+
+## 日更定时任务（2026-09-13 起）
+
+- cron job `4b552ab71572`「公众号文章日更-存草稿」：**每天 23:00**，产出 1 篇文章，**只存草稿箱、不群发**；模型 pin `cline_local / google/gemma-4-26b-a4b-it:free`（免费，与微头条任务一致）。
+- 完整流程：选题(多源热搜+双渠道查重) → 核事实(≥2 信源，政策类核到文号/条款原文) → 写作(`gzh-viral-writer`，3 标题候选+01/02/03 结构+去 AI 味) → 配图(`scripts/prep_gzh_images.py` + vision 验证非废图) → **DeepSeek 网页版终审** → `run_pipeline` 存草稿 → `scripts/verify_gzh_draft.py` 验证。
+- **DeepSeek 终审（硬性）**：`python3 ~/.hermes/skills/toutiao-micro-publish/scripts/ds_web_review.py <文稿.md> --mode gzh --timeout 540 --json`
+  - `verdict=FIX` → 按回答里的「必改项」逐条改稿并**重跑**（最多 2 轮）；`PASS` 才允许存草稿
+  - 报错含「未登录/sign_in」→ 停止并发邮件；其它报错重试 1 次，仍失败不阻断但要在回执里注明「DeepSeek 终审未执行」
+  - 依赖：无头 Chrome(9222) 已登录 chat.deepseek.com（登录会过期，过期需重新扫码）；脚本自动取本号最近 10 篇标题做查重
+
+### 新增脚本
+- `scripts/prep_gzh_images.py`：Pexels 抓图 → 封面 2.35:1(940×400) + 正文图 16:9(1080×608)，带暗/亮像素自检（防过曝废图）。
+- `scripts/verify_gzh_draft.py`：用 `draft/batchget` 验证草稿（title / 封面非空 / 正文 `<img>`≥1 / `<li>`=0），**必须 `r.content.decode("utf-8")`**（直接 `r.json()`/`r.text` 会中文乱码）。
+- `scripts/delete_draft.py <media_id>`：删草稿（改稿后换新版时用）。**坑：报 `53407 定时发布中，无法删除或修改`** = 该草稿已在公众号后台被设为定时群发，API 动不了；此时不要建重复稿，让用户去后台取消定时后再说。
 
 ## 能力边界与限制
 - **图片大小**：微信素材图片上限 **2MB**（超了报 `40006`/`45001`）。封面建议压缩 ≤800KB；正文图也需 ≤2MB。

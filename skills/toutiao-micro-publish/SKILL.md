@@ -183,6 +183,28 @@ YYYY-MM-DD HH:MM | 主题关键词 | 发布状态 | 首句摘要
 
 **163 授权码获取**（用户侧）：163 邮箱网页版 → 设置 → POP3/SMTP/IMAP → 开启 SMTP 服务 → 按提示用手机发短信验证 → 生成授权码（16 位字母）→ 填进 smtp.json 或环境变量。
 
+## 脚本流水线（全脚本版 · 2026-09-13 新增，绕开免费池限流）
+
+**为什么要有它**：agent 版每班会在 6-8 万 token 的长会话里跑，而免费池里唯一稳定的 `google/gemma-4-26b-a4b-it:free` 有 **16000 输入 token/分钟**上限——长会话必 429；fallback 到弱模型后会空转（2026-09-13 23:00 那班空转了 23 分钟、只吐 32 字符垃圾、没发布）。脚本版把每一步都拆成**独立小上下文请求**（2-6k 字符），于是免费模型也用得上，且没有长会话、没有空转、没有乱码回复。
+
+**入口**：`bash ~/.hermes/scripts/wt_pipeline.sh [--dry-run]`
+
+| 步骤 | 脚本 | 说明 |
+|---|---|---|
+| 1 抓热榜 | `scripts/wt_hotlist.py` | 用真实浏览器同源 fetch 拿**头条热榜** JSON（`www.toutiao.com/hot-event/hot-board`），退化到百度热搜/tophub DOM 抓取；自动过滤悲剧/刑案类词 |
+| 2 选题 | `scripts/wt_generate.py --stage pick` | 小上下文 LLM，输出 topic/angle/core_view/known_facts，排除与台账重复、政治/刑案/体育比分 |
+| 3 抓事实 | `scripts/wt_facts.py --topic …` | 浏览器搜（cn.bing.com → so.toutiao.com）提标题+摘要 → 小上下文 LLM 归纳 4-8 条可用事实（带来源） |
+| 4 写稿 | `scripts/wt_generate.py --stage write --topic-file …` | 只用核实过的事实写 400-500 字；字数偏离会让模型重写一次 |
+| 5 复审 | `review_weitoutiao.py --strict` + `wt_revise.py` | Cline 复审（AI 味）→ 命中返工就按意见改稿 |
+| 5.5 终审 | `ds_web_review.py --timeout 480` | DeepSeek 网页版事实/合规终审，FIX 就改稿重跑（≤2 轮）；未登录则停发+邮件 |
+| 6 发布 | `scripts/wt_publish.py` | 纯 CDP：新建标签 → 清空编辑器 → `Input.insertText` 逐段填 → 回读校验 → **只点一次发布** → 验证 URL/列表 → 写台账 |
+
+**踩坑（已修，别回退）**：
+- 编辑器「残留 14 字符」是**误报**：那是 ProseMirror 占位符（`.syl-placeholder[ignoreel="true"]`）。读正文要先 clone 节点并删掉这些占位符再取 innerText。
+- 发布脚本**必须自己新建标签**，不要复用 mp.toutiao.com 的旧标签（会踩到别人的草稿/草稿残留）。
+- 草稿页会**自动存草稿**，所以清空编辑器（Range 选中全文 + Backspace）这步不能省。
+- 每个脚本都能单独跑，便于定位：`wt_hotlist.py` / `wt_facts.py` / `wt_publish.py --dry-run`（只填不发）。
+
 ## 与现有 skill 的关系
 - 本 skill 是独立微头条流水线（从热搜到发布全链路），**不是** news-social-writing 的微头条附属产物
 - news-social-writing 管公众号正文+微头条（约800字）；本 skill 管纯微头条快手内容（400-500字、方言感、反讽，更"短平快"）
