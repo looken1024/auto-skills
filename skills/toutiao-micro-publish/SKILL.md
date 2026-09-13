@@ -84,6 +84,15 @@ python3 scripts/review_weitoutiao.py <文案.txt> [--model cohere/north-mini-cod
 
 ### Step 5 发布到今日头条微头条（浏览器辅助 · 已验证流程）
 
+> ⚠️ **cron 会话里禁止用 `bu`+heredoc 手写脚本（2026-09-13 踩坑）**：调度会话（cron/子代理）里用 heredoc 写 JS 常被截断，bash 报 `here-document ... delimited by end-of-file`，脚本只跑了一半（找不到编辑器、点击不生效），结果同一个话题在 16:56、17:04 连发两条、且都没写台账。**改成直接用 `browser_exec` 工具（里面有 goto_url / wait_for_load / js / cdp / click_at_xy 助手）**。
+>
+> ⚠️ **填入正文前必须先清空编辑器**：草稿页可能残留上一次会话的内容，直接插入会拼成“两篇稿子”，字数翻倍。用 Ctrl+A + Backspace 清空（CDP `Input.dispatchKeyEvent` `key='a'` modifiers=2，再 `key='Backspace'`），并回读确认清空后再填。
+>
+> ⚠️ **发布只能点一次**：确认 URL 跳到作品管理页、列表首条是自己刚写的文后就停，重复点“发布”会重发同题（2026-09-13 事故：同题发了 3 条，事后手动删 2 条）。
+>
+> ⚠️ **删重复要用真实鼠标事件**：`element.click()` 不一定能开“更多”菜单，用 `cdp('Input.dispatchMouseEvent', ...)` 按 `mouseMoved/mousePressed/mouseReleased` 发真实点击；“更多”菜单里才有 `删除作品` → 确认框点`确定`。
+
+
 **头条无公开内容发布 API，不能 curl/脚本自动发。** 唯一自动路径是 browser 走 user profile（登录态在用户浏览器里）。2026-08-23 已实测跑通（丁真文 531 字发布成功，进"审核中"）。完整操作序列：
 
 1. **检查浏览器**：`browser action="status"`（确认 running/CDP ready）；`browser action="tabs"` 看现有标签
