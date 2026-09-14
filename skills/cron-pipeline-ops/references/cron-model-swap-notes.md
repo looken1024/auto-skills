@@ -35,3 +35,20 @@ for m in ["z-ai/glm-5.3-flash", "google/gemma-4-31b-it:free"]:
 ## 后续
 - 该 job 已 pin glm-5.3-flash；若次日晚班（23:00）再 500，考虑换回 dots-3-note-preview（需用户同意）。
 - 检查 fallback 链位置是否合理（gemma-4-31b 当时在末位）。
+
+---
+
+## 2026-09-15 补录：cline 免费池整链失效实测
+
+当天对 cline 免费池四个候选逐一裸 curl 探活，结果：
+
+| 模型 | 状态 |
+|---|---|
+| `google/gemma-4-26b-it:free` | 404 Not Found |
+| `z-ai/glm-5.3-flash` | 429 Too Many Requests |
+| `google/gemma-4-31b-it:free` | 返回 `{"data":{...}}` 包壳，但无 `choices` 字段（上游空壳） |
+| `cohere/north-mini-code:free` | 500 Internal Server Error |
+
+**结论：cline 免费池在本机整链失效是常态，不是偶发抖动。** 这直接改变了设计决策——**不要把任何依赖 LLM 的链路（包括出图提示词润色）绑在免费模型上**。实测替代方案：关键词本身就是英文具体场景词，拼一句固定风格后缀就够用，零 LLM 依赖。
+
+**判定铁律**：① 先裸 curl 逐个探活（别信聊天里能用）；② 免费池小时级抖动，先等 60s 重测；③ 连续多测仍坏才动配置；④ 换模型必须经用户同意。

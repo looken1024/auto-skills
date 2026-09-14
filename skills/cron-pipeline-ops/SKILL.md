@@ -113,4 +113,4 @@ curl -s -X POST <base_url>/chat/completions -H "Authorization: Bearer $KEY" -H '
 - `scripts/cline_unwrap_proxy.py` — 响应包壳解包代理（本地 OpenAI 兼容 shim，可 systemd 常驻）
 - `references/gzh-article-publish-notes.md` — 公众号文章线：写作 skill 真实名字（发布 skill 里的引用是悬空的）、六步实录命令、发布后 HTML 标签自检表、汇报格式
 - `references/cron-model-swap-notes.md` — 换 cron 任务模型实操（cronjob 接口不支持改 model→直接改 jobs.json、双确认落盘、用户同意规矩）与整链失效根因判定（同模型不同路径可用性不同、免费池小时级抖动先重测再改配置）
-- `references/image-sources.md` — 免 key 配图素材（Pexels 实拍封面 / pollinations 生图 / 无 DashScope 时的看图验证）
+- `references/image-sources.md` — 免 key 配图素材（Pexels 实拍封面 / pollinations 生图 / 无 DashScope 时的看图验证）。含 pollinations 下载方式坑（urllib 403 → 必须 curl + UA）、水印裁切尺寸。

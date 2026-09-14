@@ -5,14 +5,14 @@
     "created_by": "agent",
     "last_patched_at": "2026-09-14T16:15:03.369837+00:00",
     "last_reused_patch_generation": 29,
-    "last_used_at": "2026-09-14T16:48:15.909590+00:00",
-    "last_viewed_at": "2026-09-14T16:48:15.903714+00:00",
+    "last_used_at": "2026-09-14T17:14:56.213427+00:00",
+    "last_viewed_at": "2026-09-14T17:14:56.210745+00:00",
     "patch_count": 29,
     "patch_generation": 29,
     "pinned": false,
     "state": "active",
-    "use_count": 10,
-    "view_count": 10
+    "use_count": 14,
+    "view_count": 14
   },
   "gzh-image-trend-miner": {
     "archived_at": null,
@@ -80,14 +80,14 @@
     "created_by": null,
     "last_patched_at": "2026-09-14T16:52:06.967644+00:00",
     "last_reused_patch_generation": 0,
-    "last_used_at": null,
-    "last_viewed_at": null,
+    "last_used_at": "2026-09-14T17:11:39.357613+00:00",
+    "last_viewed_at": "2026-09-14T17:11:39.352507+00:00",
     "patch_count": 1,
     "patch_generation": 1,
     "pinned": false,
     "state": "active",
-    "use_count": 0,
-    "view_count": 0
+    "use_count": 1,
+    "view_count": 1
   },
   "ima-skill": {
     "archived_at": null,
@@ -200,14 +200,14 @@
     "created_by": null,
     "last_patched_at": null,
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-09-14T15:43:11.195276+00:00",
-    "last_viewed_at": "2026-09-14T15:43:11.191981+00:00",
+    "last_used_at": "2026-09-14T17:10:06.670941+00:00",
+    "last_viewed_at": "2026-09-14T17:10:06.668012+00:00",
     "patch_count": 0,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 12,
-    "view_count": 12
+    "use_count": 13,
+    "view_count": 13
   },
   "weitoutiao-feedback-optimizer": {
     "archived_at": null,

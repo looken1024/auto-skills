@@ -26,6 +26,18 @@ P.pexels_fetch(photos[0]["id"], "/tmp/cover_raw.jpg")
 - 成品右下角常带水印，裁掉底部约 **52px**（`im.crop((0, 0, w, h - 52))`）即可。
 - 写实风提示词加 `photorealistic, natural lighting, no text, no watermark`；要 16:9 用 `?width=1024&height=576` 再等比裁。
 
+### ⚠️ 下载方式：urllib 会 403，必须 curl + User-Agent（2026-09-15 实测）
+
+```python
+# ❌ 直接 urllib.request.urlretrieve 会 403 Forbidden
+urllib.request.urlretrieve("https://image.pollinations.ai/prompt/...", out)
+
+# ✅ curl 加 -A Mozilla/5.0 就通
+subprocess.run(['curl', '-sL', '-A', 'Mozilla/5.0', '-o', out, url], capture_output=True, timeout=180)
+```
+
+出图后必须 `file` 验证是 JPEG 且尺寸正确；不是就换 seed 重试。不要靠 HTTP 状态码判断——curl 返回 0 但文件可能是空的或 HTML 错误页。
+
 ## C. 一律要过看图验证（硬性）
 
 - 明暗自检只能判“过暗废图”（`dark = sum(hist[:85])/total*100 > 90` → 重生成）；**全亮不等于废图**，必须看图。
