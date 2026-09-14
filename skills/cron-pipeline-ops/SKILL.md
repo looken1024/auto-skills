@@ -28,6 +28,7 @@ description: "Use when cron 内容流水线模型接线或发布自动化报错�
 7. **模型能力**：链路通了不等于任务能完成，弱模型会半途交卷/编造内容/空转（见下）。
 8. **输入 token 配额**：主模型小请求能过 ≠ 能当 cron 大脑——上游按分钟算输入 token 上限，而长流程会话上下文会涨到 6 万+，超限就是稳定 429（不是抖动）。429 原文里带 `input_token_count, limit: <N>, model: <X>` 即此症。见下节。
 9. **空转**：`last_status=ok` 也可能是废的——跑满 20 分钟、几十次模型调用，最后只吐几十字符垃圾。拿到最终回复后**必须回外部世界核实**（平台列表/交付文件），别信状态字段。
+10. **整链失效的根因判定（2026-09-15 实战补录）**：主模型 + fallback 全链报错时，先分清「上游模型坏」和「配置错」——用裸 curl 直连上游逐个测（key 从 `~/.hermes/.env` 读）。要点：① 同一模型在不同调用路径可用性可能不同（glm-5.3-flash 当天 cron 路径稳定 500，交互会话正常）；② 免费池抖动是小时级——先等 60s 重测，通了就是瞬时抖动别改配置；③ 换模型前给用户实测证据；④ **用户规矩：换 cron 任务模型必须经用户同意**，换完回读 jobs.json + cron list 双确认；⑤ cronjob 工具接口不支持改 model 字段，直接改 `~/.hermes/cron/jobs.json`。详见 `references/cron-model-swap-notes.md`。
 
 详细命令与实测数据：`references/hermes-cron-model-ops.md`。
 
@@ -101,10 +102,15 @@ curl -s -X POST <base_url>/chat/completions -H "Authorization: Bearer $KEY" -H '
 
 ## 支持文件
 - `references/hermes-cron-model-ops.md` — 四层根因实战记录、判定命令、日志/证据位置、免费模型实测表
-- `references/web-chat-automation.md` — 驱动网页版大模型：browser_exec 手动路径（登录/验证码/发送/抓回复）+ 裸 CDP 脚本化终审（后台标签节流、容器选择、VERDICT 解析、fail 策略）
+- `references/web-chat-automation.md` — 驱动网页版大模型：browser_exec 手动路径（登录/验证码/发送/抓回复）+ 裸 CDP 脚本化终审（后台标签节流、容器选择、VERDICT 解析、fail 策略）+ 裸 CDP 连 9222 通用坑（browser-harness 403 → 裸 websocket `suppress_origin=True`、Chrome 看门狗、列表页等 8s 渲染后用 innerText+分隔符解析）
+- `references/cron-agent-output-discipline.md` — agent 版 cron 输出纪律：报告正文一律落盘、最终回复只给短摘要（超长截断→整轮判 FAILED 的首跑事故实录）
+- `references/pexels-topic-exhaustion.md` — 图集流水线话题池枯竭：md5 台账感知选题（超阈值话题排除），含补丁变量作用域乌龙与 dry-run 立验教训+ 裸 CDP 连 9222 通用坑（browser-harness 403→裸 websocket suppress_origin、Chrome 看门狗、innerText 解析）
+- `references/cron-agent-output-discipline.md` — agent 版 cron 的输出纪律：报告正文落盘、最终回复只给短摘要（超长被截断→整轮判 FAILED 的首跑事故实录）
+- `references/pexels-topic-exhaustion.md` — 图集流水线话题池枯竭问题：md5 台账感知选题（TOPIC_EXHAUSTED 阈值排除已发 ≥30 张的话题），含 UnboundLocalError 自摆乌龙教训（补丁引用了未赋值变量，dry-run 立验）
 - `references/pre-publish-fact-gate.md` — 发布前事实/口径六条门禁、同日多条配额、外部复盘 prompt 模板
 - `references/cron-empty-spin-triage.md` — “任务成功但零交付”的日志级排查（会话 id 反推、模型分布统计、配额 429 原文、输出文件时间戳语义）+ prompt 层防空转条款
 - `scripts/probe_free_models.py` — 免费模型探活：小请求 + 几千字长输入两档，识别“小请求能过、长上下文必 429”的假可用
 - `scripts/cline_unwrap_proxy.py` — 响应包壳解包代理（本地 OpenAI 兼容 shim，可 systemd 常驻）
 - `references/gzh-article-publish-notes.md` — 公众号文章线：写作 skill 真实名字（发布 skill 里的引用是悬空的）、六步实录命令、发布后 HTML 标签自检表、汇报格式
+- `references/cron-model-swap-notes.md` — 换 cron 任务模型实操（cronjob 接口不支持改 model→直接改 jobs.json、双确认落盘、用户同意规矩）与整链失效根因判定（同模型不同路径可用性不同、免费池小时级抖动先重测再改配置）
 - `references/image-sources.md` — 免 key 配图素材（Pexels 实拍封面 / pollinations 生图 / 无 DashScope 时的看图验证）
