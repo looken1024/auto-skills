@@ -80,6 +80,19 @@ hermes cron run <id>        # 立刻跑一次
 - 本机 mihomo（`/etc/mihomo/config.yaml`，mixed-port 9981，mode rule）**没开 external-controller**：运行时切不了节点（要改配置重启）；节点基本都是机房 IP（华为云/腾讯云段），对 Cloudflare 也不管用。测节点是否活：python socket 连 `proxies[].server:port` 即可。
 - 交付口径：给出“能用的替代”并**先跑通再答复**（例：免 key 出图 `https://image.pollinations.ai/prompt/<urlencoded>?width=512&height=512`，实测 3.7s 返回真实 JPEG；出图后照 `wechat-ai-publisher` 的规矩用视觉模型验一遍）。**完整用法/参数/验图步骤/被墙站点清单：`references/free-image-gen.md`。**
 
+## 5b. 浏览器看门狗 + Cookie 注入（headless Chrome 的静默死亡）
+
+脚本化流水线依赖长期存活的 headless Chrome（9222 端口，`--user-data-dir=/tmp/chrome-wx`）。
+**Chrome 会在夜间静默死亡**（无报错、9222 消失），流水线第 1 步连不上 → 整班失败 → 下一班照旧失败 → **连挂 N 小时的静默腐烂**（实测连挂 5 班）。
+
+**排错铁律**：流水线连续失败时，**先查基础设施依赖**（浏览器、代理、daemon），再查模型/业务逻辑。不要看到 `Connection refused` 就去修脚本——脚本没错，是依赖死了。
+
+**修法**：流水线脚本最开头探 9222，挂了就按原参数自动拉起（最多等 30s），拉不起来才发邮件告警。`--user-data-dir` 必须用同一个目录，登录态都在里面。
+
+Chrome 重启后 `/tmp/chrome-wx` 里的 cookie **可能还在也可能过期**，不能假设「目录在 = 登录态在」。用 `scripts/inject_toutiao_cookie.py`（CDP `Network.setCookie` 注入存好的 `sessionid`/`sessionid_ss` → 导航到发布页 → 检查 URL 没跳登录页 + `.ProseMirror` 编辑器就绪）验证。
+
+**完整细节：`references/browser-watchdog-and-cookie-injection.md`。**
+
 ## 6. 与其它 skill 的关系
 
 - 微信侧发布细节（压图、素材库、草稿校验）：`wechat-ai-publisher`
