@@ -312,6 +312,13 @@ UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.3
 
 
 # ---------- 话题级去重（同一天不重复选话题） ----------
+TOPIC_EXHAUSTED = 30   # 单话题累计已发超过此数视为检索池吃穿，选题时排除（2026-09-14）
+
+def load_topic_usage(ledger):
+    """从 md5 台账统计每个话题已发图片数: {"秋天": 79, ...}"""
+    from collections import Counter
+    return Counter(v.get("topic") for v in ledger.get("md5s", {}).values())
+
 def load_topic_day():
     """读取当天已用话题记录: {"2026-08-29": {"topics": ["秋天", ...]}} """
     if os.path.exists(TOPIC_DAY_FILE):
@@ -508,6 +515,13 @@ def main():
         if not available:
             print(f"!!! 当天 {len(used_today)} 个话题已全部用过，重置循环", file=sys.stderr)
             available = TOPICS
+        # 台账感知（2026-09-14 修复）：已发图片多的话题（Pexels 检索深度被吃穿）降权排除
+        topic_used = load_topic_usage(load_ledger())
+        fresh = [t for t in available if topic_used.get(t[0], 0) < TOPIC_EXHAUSTED]
+        if fresh:
+            available = fresh
+        else:
+            print(f"!!! 所有候选话题均已发 ≥{TOPIC_EXHAUSTED} 张，放宽限制", file=sys.stderr)
         topic, query = random.choice(available)
     print(f"话题: {topic}  (Pexels 查询: {query})", file=sys.stderr)
 

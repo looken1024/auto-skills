@@ -35,13 +35,13 @@
     "created_by": null,
     "last_patched_at": null,
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-09-13T15:15:42.045729+00:00",
+    "last_used_at": "2026-09-14T15:00:57.149675+00:00",
     "last_viewed_at": "2026-09-13T15:15:42.043205+00:00",
     "patch_count": 0,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 5,
+    "use_count": 6,
     "view_count": 5
   },
   "hermes-agent": {
@@ -155,13 +155,13 @@
     "created_by": null,
     "last_patched_at": "2026-09-13T15:27:00.450929+00:00",
     "last_reused_patch_generation": 0,
-    "last_used_at": null,
+    "last_used_at": "2026-09-14T15:00:57.177482+00:00",
     "last_viewed_at": null,
     "patch_count": 4,
     "patch_generation": 4,
     "pinned": false,
     "state": "active",
-    "use_count": 0,
+    "use_count": 1,
     "view_count": 0
   },
   "wechat-article-publisher": {
