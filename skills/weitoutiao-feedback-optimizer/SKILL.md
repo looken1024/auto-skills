@@ -60,6 +60,7 @@ python3 ~/.hermes/skills/weitoutiao-feedback-optimizer/scripts/fetch_stats.py
 ## 调度
 - cron：每日 21:30，agent 版（需要 LLM 分析与 patch 修改，不能 no_agent）
 - 每轮分析上下文：stats.jsonl 近 7 天 + writing_rules.md + 最近 2 份报告（continuity），足够且不超载
+- **输出纪律（2026-09-14 首跑事故，硬性）**：报告正文/数据表/规则全文一律写入文件，最终回复只给 ≤300 字摘要。首跑因把报告全文贴进最终回复，输出超长被截断（`Response truncated due to output length limit`），整轮判 FAILED——数据再准也白跑。
 
 ## 红线
 - 只用后台真实数据，不编造/估算数据
