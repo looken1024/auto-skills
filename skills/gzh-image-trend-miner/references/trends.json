@@ -1,47 +1,54 @@
 {
- "last_run": "2026-09-15",
- "entries": [
-  {
-   "cn": "中秋满月",
-   "en": "full moon night sky",
-   "expires": "2026-10-08",
-   "added": "2026-09-14",
-   "evidence": "节令路(中秋封面模板满月/玉兔/灯笼意象)+视觉路(2026秋季golden hour)"
-  },
-  {
-   "cn": "桂花",
-   "en": "osmanthus flowers branch",
-   "expires": "2026-10-08",
-   "added": "2026-09-14",
-   "evidence": "节令路(中秋封面模板满月/玉兔/灯笼意象)+视觉路(2026秋季golden hour)"
-  },
-  {
-   "cn": "灯笼夜景",
-   "en": "chinese lanterns night",
-   "expires": "2026-10-08",
-   "added": "2026-09-14",
-   "evidence": "节令路(中秋封面模板满月/玉兔/灯笼意象)+视觉路(2026秋季golden hour)"
-  },
-  {
-   "cn": "秋日金光",
-   "en": "golden hour autumn sunlight forest",
-   "expires": "",
-   "added": "2026-09-14",
-   "evidence": "节令路(中秋封面模板满月/玉兔/灯笼意象)+视觉路(2026秋季golden hour)"
-  },
-  {
-   "cn": "暗黑学院风",
-   "en": "dark academia library old books candlelight",
-   "expires": "",
-   "added": "2026-09-15",
-   "evidence": "图集路(wallpapers.com 2026趋势 #4 dark academia + designerblogs 9月壁纸包)+视觉路(2026摄影趋势 moody library aesthetic); Pexels 有 Dark Academia 专题 72 张实拍"
-  },
-  {
-   "cn": "苔藓微距",
-   "en": "macro moss forest floor dew drops",
-   "expires": "",
-   "added": "2026-09-15",
-   "evidence": "图集路(wallpapers.com 2026趋势 #4 biophilic nature: macro moss/water droplets/forest floors)+视觉路(2026自然摄影大赛 微距类); Pexels 有 macro moss/dew 实拍横图"
-  }
- ]
+  "last_run": "2026-09-16",
+  "entries": [
+    {
+      "cn": "中秋满月",
+      "en": "full moon night sky",
+      "expires": "2026-10-08",
+      "added": "2026-09-14",
+      "evidence": "节令路(中秋封面模板满月/玉兔/灯笼意象)+视觉路(2026秋季golden hour)"
+    },
+    {
+      "cn": "桂花",
+      "en": "osmanthus flowers branch",
+      "expires": "2026-10-08",
+      "added": "2026-09-14",
+      "evidence": "节令路(中秋封面模板满月/玉兔/灯笼意象)+视觉路(2026秋季golden hour)"
+    },
+    {
+      "cn": "灯笼夜景",
+      "en": "chinese lanterns night",
+      "expires": "2026-10-08",
+      "added": "2026-09-14",
+      "evidence": "节令路(中秋封面模板满月/玉兔/灯笼意象)+视觉路(2026秋季golden hour)"
+    },
+    {
+      "cn": "秋日金光",
+      "en": "golden hour autumn sunlight forest",
+      "expires": "",
+      "added": "2026-09-14",
+      "evidence": "节令路(中秋封面模板满月/玉兔/灯笼意象)+视觉路(2026秋季golden hour)"
+    },
+    {
+      "cn": "暗黑学院风",
+      "en": "dark academia library old books candlelight",
+      "expires": "",
+      "added": "2026-09-15",
+      "evidence": "图集路(wallpapers.com 2026趋势 #4 dark academia + designerblogs 9月壁纸包)+视觉路(2026摄影趋势 moody library aesthetic); Pexels 有 Dark Academia 专题 72 张实拍"
+    },
+    {
+      "cn": "苔藓微距",
+      "en": "macro moss forest floor dew drops",
+      "expires": "",
+      "added": "2026-09-15",
+      "evidence": "图集路(wallpapers.com 2026趋势 #4 biophilic nature: macro moss/water droplets/forest floors)+视觉路(2026自然摄影大赛 微距类); Pexels 有 macro moss/dew 实拍横图"
+    },
+    {
+      "cn": "野兽派混凝土",
+      "en": "brutalist concrete wall texture shadow",
+      "expires": "",
+      "added": "2026-09-16",
+      "evidence": "视觉路(Canva 2026趋势'Imperfect by Design'→纹理检查+brutalist photography 2026趋势:混凝土纹理/高对比几何/阴影游戏; PrintDoors:野兽派墙饰为2026最热装饰趋势之一)+图集路(wallpapers.com 2026趋势中biophilic nature的'richer and more immersive'方向与混凝土+植物对比美学); Pexels brutalism分类298.6K实拍+concrete wall 298.6K实拍"
+    }
+  ]
 }
