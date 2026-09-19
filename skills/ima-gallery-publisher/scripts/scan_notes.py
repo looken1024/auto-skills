@@ -35,19 +35,18 @@ def main():
     r = ima_post('openapi/note/v1/search_note',
                  {'search_type': 0, 'query_info': {'title': '每日图集'}, 'start': 0, 'end': 20})
     hits = r.get('data', {}).get('search_note_infos', [])
+    # 先按标题过滤出真正的图集笔记，再对照台账去重
     new = []
     for h in hits:
         nb = h.get('note_book_info', {})
         nid, title = nb.get('note_id'), nb.get('title', '')
-        if nid and nid not in done:
+        if nid and nid not in done and '每日图集' in title:
             new.append((nid, title))
     if not new:
         print('NO_NEW')
         return
     for nid, title in new:
-        # 只处理真正的图集笔记（标题含"每日图集"），过滤搜索噪音（图片笔记/文档等）
-        if '每日图集' in title:
-            print(f'{nid}\t{title}')
+        print(f'{nid}\t{title}')
 
 
 if __name__ == '__main__':
