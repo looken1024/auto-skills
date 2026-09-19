@@ -116,10 +116,26 @@ def compress_image(
     
     # 如果降到最低质量还是太大，使用最低质量保存
     if quality < min_quality:
-        img.save(output_path, 'JPEG', quality=min_quality, optimize=True)
-        best_quality = min_quality
-        best_size = get_file_size_kb(output_path)
-        print(f"⚠️  使用最低质量 {min_quality} 保存: {best_size:.1f}KB", file=sys.stderr)
+        # 兜底：降到最低质量后仍超目标 → 按比例缩小分辨率，直到满足
+        cur_w, cur_h = width, height
+        for scale in (0.8, 0.6, 0.5, 0.4, 0.3, 0.2):
+            nw, nh = int(cur_w * scale), int(cur_h * scale)
+            test_img = img.resize((nw, nh), Image.LANCZOS)
+            buf = io.BytesIO()
+            test_img.save(buf, 'JPEG', quality=min_quality, optimize=True)
+            if len(buf.getvalue()) / 1024 <= max_size_kb:
+                with open(output_path, 'wb') as f:
+                    f.write(buf.getvalue())
+                best_quality = min_quality
+                best_size = len(buf.getvalue()) / 1024
+                width, height = nw, nh
+                print(f"⚠️  质量{min_quality}仍超目标，缩小分辨率至 {nw}x{nh} 保存: {best_size:.1f}KB", file=sys.stderr)
+                break
+        else:
+            img.save(output_path, 'JPEG', quality=min_quality, optimize=True)
+            best_quality = min_quality
+            best_size = get_file_size_kb(output_path)
+            print(f"⚠️  使用最低质量 {min_quality} 保存: {best_size:.1f}KB", file=sys.stderr)
     
     final_size = get_file_size_kb(output_path)
     compression_ratio = (1 - final_size / original_size) * 100
