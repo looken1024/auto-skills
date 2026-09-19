@@ -14,6 +14,21 @@
     "use_count": 14,
     "view_count": 14
   },
+  "free-image-sources": {
+    "archived_at": null,
+    "created_at": "2026-09-19T06:50:54.990381+00:00",
+    "created_by": "agent",
+    "last_patched_at": null,
+    "last_reused_patch_generation": 0,
+    "last_used_at": null,
+    "last_viewed_at": null,
+    "patch_count": 0,
+    "patch_generation": 0,
+    "pinned": false,
+    "state": "active",
+    "use_count": 0,
+    "view_count": 0
+  },
   "gzh-image-trend-miner": {
     "archived_at": null,
     "created_at": "2026-09-14T14:20:34.832093+00:00",
@@ -80,14 +95,14 @@
     "created_by": null,
     "last_patched_at": null,
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-09-19T05:21:07.951336+00:00",
-    "last_viewed_at": "2026-09-19T05:21:07.947177+00:00",
+    "last_used_at": "2026-09-19T06:21:06.897228+00:00",
+    "last_viewed_at": "2026-09-19T06:21:06.892045+00:00",
     "patch_count": 0,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 6,
-    "view_count": 6
+    "use_count": 7,
+    "view_count": 7
   },
   "ima-image-pipeline": {
     "archived_at": null,
@@ -215,14 +230,14 @@
     "created_by": null,
     "last_patched_at": null,
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-09-18T15:01:11.031527+00:00",
-    "last_viewed_at": "2026-09-18T15:01:11.027238+00:00",
+    "last_used_at": "2026-09-19T06:51:02.365419+00:00",
+    "last_viewed_at": "2026-09-19T06:51:02.361318+00:00",
     "patch_count": 0,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 18,
-    "view_count": 18
+    "use_count": 19,
+    "view_count": 19
   },
   "weitoutiao-feedback-optimizer": {
     "archived_at": null,
