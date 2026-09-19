@@ -95,14 +95,14 @@
     "created_by": null,
     "last_patched_at": null,
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-09-19T15:21:10.515727+00:00",
-    "last_viewed_at": "2026-09-19T15:21:10.512312+00:00",
+    "last_used_at": "2026-09-19T16:24:06.722830+00:00",
+    "last_viewed_at": "2026-09-19T16:24:06.719419+00:00",
     "patch_count": 0,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 16,
-    "view_count": 16
+    "use_count": 17,
+    "view_count": 17
   },
   "ima-image-pipeline": {
     "archived_at": null,
