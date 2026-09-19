@@ -19,7 +19,9 @@ Decision matrix for choosing a free image source when you need photos or AI-gene
 ## Source Details
 
 ### Pexels (primary for photo galleries)
-- API key stored in `~/hermes/skills/douyin-card-pipeline/config.json` (`pexels_api_key`)
+- API key stored in `~/hermes/skills/douyin-card-pipeline/config.json` (`pexels_api_key`), 56 chars, prefix `0iCrtR4z3b01`
+- **Auth format (critical)**: header must be `Authorization: <raw_key>` — **NO "Bearer" prefix**. `Authorization: Bearer <key>` returns 401 Unauthorized even with a valid key. Confirmed: urllib with raw key → HTTP 200; curl with Bearer → 401.
+- **`photographer` field is type-unsafe**: can be a dict `{"name": ...}` or a plain string. Always defensively extract: `ph = p.get('photographer'); name = ph.get('name','') if isinstance(ph, dict) else str(ph)`
 - Quality: best — 1200+px horizontal, photographer metadata, consistent resolution
 - Rate limits: watch for 429s; fallback to LoremFlickr
 - Used by: `wechat-ai-publisher` gallery pipeline, `douyin-card-pipeline`
