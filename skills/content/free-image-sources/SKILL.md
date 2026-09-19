@@ -80,3 +80,4 @@ When evaluating a new image source, test in this order:
 3. Does it support keyword search? (Random-only sources are limited)
 4. What's the licensing? (CC0/CC-BY for commercial use; copyright = unusable for publishing)
 5. What's the image quality and consistency? (Check file sizes for duplicates, resolution for sharpness)
+6. What are the dimensions and aspect ratio? (Ensure min short edge ≥ 2000px for print quality; check if crops/watermarks affect usability)

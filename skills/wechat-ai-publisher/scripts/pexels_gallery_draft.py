@@ -412,12 +412,16 @@ def pexels_search(query, per_page=40):
         return json.loads(r.read()).get("photos", [])
 
 
-def pexels_fetch(photo_id, out):
+def pexels_fetch(photo_id, out, original_url=None):
+    """下载原图。优先用 API 返回的 src.original（全分辨率），否则退回压缩 URL。"""
     import urllib.request
-    url = ("https://images.pexels.com/photos/%d/pexels-photo-%d.jpeg"
-           "?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop" % (photo_id, photo_id))
+    if original_url:
+        url = original_url
+    else:
+        url = ("https://images.pexels.com/photos/%d/pexels-photo-%d.jpeg"
+               "?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop" % (photo_id, photo_id))
     req = urllib.request.Request(url, headers=UA)
-    with urllib.request.urlopen(req, timeout=60) as r:
+    with urllib.request.urlopen(req, timeout=120) as r:
         data = r.read()
     with open(out, "wb") as f:
         f.write(data)
@@ -530,6 +534,9 @@ def main():
     print(f"台账已有 {len(sent_set)} 个已发 md5", file=sys.stderr)
 
     workdir = tempfile.mkdtemp(prefix="pexels_gallery_")
+    # 用户可见输出目录：每次产出落盘 /tmp/gallery_out_<时间戳>/
+    save_dir = os.path.join("/tmp", f"gallery_out_{datetime.now().strftime('%Y%m%d_%H%M%S')}")
+    os.makedirs(save_dir, exist_ok=True)
     try:
         # 1. 搜索 + 下载(跳过已发 md5 的重复图，多取候选补足)
         photos = pexels_search(query, per_page=args.count * 4)
@@ -544,7 +551,7 @@ def main():
                 continue
             out = os.path.join(workdir, f"raw_{len(picked)+1}.jpg")
             try:
-                pexels_fetch(p["id"], out)
+                pexels_fetch(p["id"], out, original_url=p.get("src", {}).get("original"))
             except Exception as e:
                 print(f"  ! 下载失败 {p['id']}: {e}", file=sys.stderr)
                 continue
@@ -554,6 +561,9 @@ def main():
                 print(f"  ! 剔除重复 md5={h[:12]} (pexels {p['id']})", file=sys.stderr)
                 os.remove(out)
                 continue
+            # 原图落盘到 save_dir（不压缩，用户可见）
+            raw_out = os.path.join(save_dir, f"raw_{len(picked)+1}.jpg")
+            shutil.copy(out, raw_out)
             picked.append((out, h, p["id"]))
             print(f"  + 下载 pexels {p['id']} md5={h[:12]} ({os.path.getsize(out)//1024}KB)", file=sys.stderr)
         if len(picked) < 3:
