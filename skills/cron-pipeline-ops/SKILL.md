@@ -105,8 +105,7 @@ curl -s -X POST <base_url>/chat/completions -H "Authorization: Bearer $KEY" -H '
 - `references/web-chat-automation.md` — 驱动网页版大模型：browser_exec 手动路径（登录/验证码/发送/抓回复）+ 裸 CDP 脚本化终审（后台标签节流、容器选择、VERDICT 解析、fail 策略）+ 裸 CDP 连 9222 通用坑（browser-harness 403 → 裸 websocket `suppress_origin=True`、Chrome 看门狗、列表页等 8s 渲染后用 innerText+分隔符解析）
 - `references/cron-agent-output-discipline.md` — agent 版 cron 输出纪律：报告正文一律落盘、最终回复只给短摘要（超长截断→整轮判 FAILED 的首跑事故实录）
 - `references/pexels-topic-exhaustion.md` — 图集流水线话题池枯竭：md5 台账感知选题（超阈值话题排除），含补丁变量作用域乌龙与 dry-run 立验教训+ 裸 CDP 连 9222 通用坑（browser-harness 403→裸 websocket suppress_origin、Chrome 看门狗、innerText 解析）
-- `references/cron-agent-output-discipline.md` — agent 版 cron 的输出纪律：报告正文落盘、最终回复只给短摘要（超长被截断→整轮判 FAILED 的首跑事故实录）
-- `references/pexels-topic-exhaustion.md` — 图集流水线话题池枯竭问题：md5 台账感知选题（TOPIC_EXHAUSTED 阈值排除已发 ≥30 张的话题），含 UnboundLocalError 自摆乌龙教训（补丁引用了未赋值变量，dry-run 立验）
+- `references/pipeline-dual-output.md` — 图集流水线双输出架构：压缩版进草稿箱 + 全尺寸版通过 MEDIA: 推给用户（绕过微信素材库大小限制）。含 compress_image 兜底缩分辨率、process_image 大图降采样、batchget 必须 POST、newspic 图片在 image_info 不在 content 等踩坑。
 - `references/pre-publish-fact-gate.md` — 发布前事实/口径六条门禁、同日多条配额、外部复盘 prompt 模板
 - `references/cron-empty-spin-triage.md` — “任务成功但零交付”的日志级排查（会话 id 反推、模型分布统计、配额 429 原文、输出文件时间戳语义）+ prompt 层防空转条款
 - `scripts/probe_free_models.py` — 免费模型探活：小请求 + 几千字长输入两档，识别“小请求能过、长上下文必 429”的假可用

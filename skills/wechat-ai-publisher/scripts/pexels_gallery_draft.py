@@ -14,7 +14,7 @@ md5 去重（2026-08-29 用户要求）:
 依赖: Pillow + requests + numpy（wechat-ai-publisher 环境已有）
 配置: Pexels key 从 douyin-card-pipeline/config.json 读; 微信 .env 从本 skill 目录读
 """
-import os, sys, json, random, shutil, argparse, tempfile, hashlib
+import os, sys, json, random, shutil, argparse, tempfile, hashlib, glob
 from datetime import datetime
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -429,10 +429,16 @@ def pexels_fetch(photo_id, out, original_url=None):
 
 
 def process_image(src, dst):
-    """左右翻转 + 滤镜（对比度/色彩/亮度微调）+ 轻噪点，不叠字。"""
+    """左右翻转 + 滤镜（对比度/色彩/亮度微调）+ 轻噪点，不叠字。
+    超大图先缩到短边 2500 再处理，避免 10MB+ 图像内存爆炸和双重编码卡死。"""
     from PIL import Image, ImageEnhance
     import numpy as np
     im = Image.open(src).convert("RGB")
+    # 超大图降采样：短边 >2500 → 等比缩到 2500（公众号显示足够，且避免 OOM/超时）
+    w, h = im.size
+    if min(w, h) > 2500:
+        ratio = 2500 / min(w, h)
+        im = im.resize((int(w * ratio), int(h * ratio)), Image.LANCZOS)
     im = im.transpose(Image.FLIP_LEFT_RIGHT)
     im = ImageEnhance.Contrast(im).enhance(random.uniform(1.05, 1.12))
     im = ImageEnhance.Color(im).enhance(random.uniform(0.95, 1.08))
@@ -569,15 +575,21 @@ def main():
         if len(picked) < 3:
             raise Exception(f"去重后有效图片不足3张（仅{len(picked)}张，剔除{skipped}张重复），放弃本次")
 
-        # 2. 左右翻转 + 滤镜 + 压缩
+        # 2. 左右翻转 + 滤镜 → 产出两版：压缩版（≤600KB，草稿箱）+ 全尺寸版（不压缩，发微信）
         processed = []   # [(final_path, md5, pexels_id)]
+        full_size = []   # [(full_path, md5, pexels_id)]  不压缩版
         for i, (src, h, pid) in enumerate(picked):
             dst = os.path.join(workdir, f"proc_{i+1}.jpg")
             process_image(src, dst)
+            # 全尺寸版：翻转滤镜后直接存，不压缩
+            full_dst = os.path.join(save_dir, f"full_{i+1}.jpg")
+            shutil.copy(dst, full_dst)
+            full_size.append((full_dst, h, pid))
+            # 压缩版
             c_dst = os.path.join(workdir, f"final_{i+1}.jpg")
             compress_image.compress_image(dst, c_dst, max_size_kb=600)
             processed.append((c_dst, h, pid))
-        print(f"处理完成 {len(processed)} 张（翻转+滤镜+压缩≤600KB，剔除{skipped}张重复）", file=sys.stderr)
+        print(f"处理完成 {len(processed)} 张（翻转+滤镜，压缩≤600KB + 全尺寸不压缩各一份，剔除{skipped}张重复）", file=sys.stderr)
 
         if args.dry_run:
             print(json.dumps({"dry_run": True, "topic": topic,
@@ -628,7 +640,8 @@ def main():
         with open(os.path.join(LOG_DIR, "gallery_draft.log"), "a", encoding="utf-8") as f:
             f.write(f"{datetime.now().isoformat()} | {title} | 素材{len(media_ids)}张 | 草稿media_id={draft_media_id}\n")
 
-        # stdout 供 cron 汇报
+        # stdout 供 cron 汇报（含不压缩全尺寸图路径，MEDIA: 格式供 cron 直接推送）
+        full_files = sorted(glob.glob(os.path.join(save_dir, "full_*.jpg")))
         print(json.dumps({
             "status": "success",
             "topic": topic,
@@ -637,7 +650,12 @@ def main():
             "title": title,
             "media_id": draft_media_id,
             "image_media_ids": media_ids,
+            "save_dir": save_dir,
+            "full_images": [os.path.basename(f) for f in full_files],
         }, ensure_ascii=False, indent=2))
+        # 不压缩全尺寸图：直接输出 MEDIA: 标记，cron no_agent 模式原样推送
+        for f in full_files:
+            print(f"MEDIA:{f}")
     finally:
         shutil.rmtree(workdir, ignore_errors=True)
 
