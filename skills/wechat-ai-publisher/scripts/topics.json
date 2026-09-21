@@ -1,266 +1,1290 @@
 [
-  [
-    "桂林山水",
-    "guilin li river karst mountains"
-  ],
-  [
-    "喀纳斯秋色",
-    "kanas lake autumn xinjiang"
-  ],
-  [
-    "九寨沟",
-    "jiuzhaigou colorful lake"
-  ],
-  [
-    "黄山云海",
-    "huangshan yellow mountain sea of clouds"
-  ],
-  [
-    "张家界峰林",
-    "zhangjiajie sandstone pillars"
-  ],
-  [
-    "稻城亚丁",
-    "daocheng yading snow mountain"
-  ],
-  [
-    "青海湖",
-    "qinghai lake blue"
-  ],
-  [
-    "茶卡盐湖",
-    "salt lake mirror reflection"
-  ],
-  [
-    "额济纳胡杨",
-    "populus euphratica autumn desert"
-  ],
-  [
-    "坝上草原",
-    "mongolia grassland horses"
-  ],
-  [
-    "桂林梯田",
-    "longji rice terraces"
-  ],
-  [
-    "霞浦滩涂",
-    "xiapu mudflat fishing sunset"
-  ],
-  [
-    "长白山天池",
-    "changbai mountain crater lake"
-  ],
-  [
-    "洱海苍山",
-    "erhai lake dali"
-  ],
-  [
-    "泸沽湖",
-    "lugu lake boats"
-  ],
-  [
-    "乌镇水乡",
-    "wuzhen water town canal"
-  ],
-  [
-    "平遥古城",
-    "pingyao ancient city wall"
-  ],
-  [
-    "凤凰古城",
-    "fenghuang ancient town riverside"
-  ],
-  [
-    "丽江古城",
-    "lijiang old town"
-  ],
-  [
-    "婺源晒秋",
-    "wuyuan autumn harvest village"
-  ],
-  [
-    "宏村徽派",
-    "hongcun huizhou architecture"
-  ],
-  [
-    "阆中古城",
-    "langzhong ancient city"
-  ],
-  [
-    "镇远古镇",
-    "zhenyuan ancient town river"
-  ],
-  [
-    "周庄小桥",
-    "zhouzhu water town bridge"
-  ],
-  [
-    "黄姚古镇",
-    "huangyao ancient town"
-  ],
-  [
-    "敦煌莫高窟",
-    "dunhuang mogao caves desert"
-  ],
-  [
-    "兵马俑",
-    "terracotta warriors xian"
-  ],
-  [
-    "故宫红墙",
-    "forbidden city red wall"
-  ],
-  [
-    "长城秋色",
-    "great wall autumn"
-  ],
-  [
-    "布达拉宫",
-    "potala palace lhasa"
-  ],
-  [
-    "龙门石窟",
-    "longmen grottoes buddha"
-  ],
-  [
-    "云冈石窟",
-    "yungang grottoes"
-  ],
-  [
-    "乐山大佛",
-    "leshan giant buddha"
-  ],
-  [
-    "悬空寺",
-    "hanging temple hengshan"
-  ],
-  [
-    "赵州桥",
-    "ancient stone bridge china"
-  ],
-  [
-    "苗寨风情",
-    "miao ethnic village guizhou"
-  ],
-  [
-    "傣族泼水节",
-    "dai water splashing festival"
-  ],
-  [
-    "藏族经幡",
-    "tibetan prayer flags"
-  ],
-  [
-    "蒙古那达慕",
-    "mongolian naadam festival"
-  ],
-  [
-    "客家土楼",
-    "fujian tulou hakka"
-  ],
-  [
-    "开平碉楼",
-    "kaiping diaolou tower"
-  ],
-  [
-    "闽南红砖厝",
-    "minnan red brick house"
-  ],
-  [
-    "陕北窑洞",
-    "yaodong cave dwelling"
-  ],
-  [
-    "泉州蟳埔村",
-    "xunpu village flower headdress"
-  ],
-  [
-    "潮汕英歌舞",
-    "yingge dance chaoshan"
-  ],
-  [
-    "上海陆家嘴",
-    "shanghai lujiazui skyline night"
-  ],
-  [
-    "香港维港",
-    "hong kong victoria harbour night"
-  ],
-  [
-    "重庆洪崖洞",
-    "chongqing hongya cave night"
-  ],
-  [
-    "广州塔",
-    "canton tower guangzhou night"
-  ],
-  [
-    "深圳湾",
-    "shenzhen bay skyline"
-  ],
-  [
-    "北京CBD",
-    "beijing cbd skyline night"
-  ],
-  [
-    "西安大唐不夜城",
-    "xian tang dynasty night"
-  ],
-  [
-    "成都锦里",
-    "chengdu jinli street night"
-  ],
-  [
-    "长沙湘江夜",
-    "changsha xiangjiang night"
-  ],
-  [
-    "哈尔滨冰雪",
-    "harbin ice festival"
-  ],
-  [
-    "涠洲岛",
-    "weizhou island volcanic coast"
-  ],
-  [
-    "东山岛渔村",
-    "dongshan island fishing village"
-  ],
-  [
-    "鼓浪屿",
-    "gulangyu island xiamen"
-  ],
-  [
-    "舟山群岛",
-    "zhoushan islands sea"
-  ],
-  [
-    "青岛栈桥",
-    "qingdao zhanqiao pier"
-  ],
-  [
-    "厦门环岛路",
-    "xiamen island road palm"
-  ],
-  [
-    "中秋满月",
-    "full moon night sky"
-  ],
-  [
-    "灯笼",
-    "chinese lantern night"
-  ],
-  [
-    "月饼",
-    "mooncake festival table"
-  ],
-  [
-    "春节庙会",
-    "chinese temple fair new year"
-  ],
-  [
-    "烟花庙会",
-    "chinese new year fireworks"
-  ]
+  {
+    "cn": "秋天",
+    "en": "autumn forest"
+  },
+  {
+    "cn": "秋叶",
+    "en": "autumn leaves"
+  },
+  {
+    "cn": "雪景",
+    "en": "winter snow landscape"
+  },
+  {
+    "cn": "星空",
+    "en": "starry night sky"
+  },
+  {
+    "cn": "大海",
+    "en": "ocean waves sunset"
+  },
+  {
+    "cn": "森林",
+    "en": "green forest sunlight"
+  },
+  {
+    "cn": "花朵",
+    "en": "flower meadow"
+  },
+  {
+    "cn": "日出",
+    "en": "sunrise mountains"
+  },
+  {
+    "cn": "城市夜景",
+    "en": "city night lights"
+  },
+  {
+    "cn": "山川",
+    "en": "mountain landscape fog"
+  },
+  {
+    "cn": "春天",
+    "en": "spring blossom trees"
+  },
+  {
+    "cn": "夏日",
+    "en": "summer beach"
+  },
+  {
+    "cn": "黄昏",
+    "en": "sunset sky clouds"
+  },
+  {
+    "cn": "湖泊",
+    "en": "lake reflection mountains"
+  },
+  {
+    "cn": "沙漠",
+    "en": "desert dunes"
+  },
+  {
+    "cn": "极光",
+    "en": "aurora borealis"
+  },
+  {
+    "cn": "云海",
+    "en": "sea of clouds"
+  },
+  {
+    "cn": "溪流",
+    "en": "mountain stream waterfall"
+  },
+  {
+    "cn": "汽车",
+    "en": "classic car highway"
+  },
+  {
+    "cn": "跑车",
+    "en": "sports car speed"
+  },
+  {
+    "cn": "火车",
+    "en": "train railway track"
+  },
+  {
+    "cn": "高铁",
+    "en": "high speed train"
+  },
+  {
+    "cn": "飞机",
+    "en": "airplane wing sky"
+  },
+  {
+    "cn": "直升机",
+    "en": "helicopter flight"
+  },
+  {
+    "cn": "轮船",
+    "en": "ship ocean sailing"
+  },
+  {
+    "cn": "帆船",
+    "en": "sailboat sea"
+  },
+  {
+    "cn": "摩托车",
+    "en": "motorcycle road trip"
+  },
+  {
+    "cn": "自行车",
+    "en": "bicycle city street"
+  },
+  {
+    "cn": "地铁",
+    "en": "subway station"
+  },
+  {
+    "cn": "热气球",
+    "en": "hot air balloon sky"
+  },
+  {
+    "cn": "赛车",
+    "en": "race car track"
+  },
+  {
+    "cn": "卡车",
+    "en": "truck mountain road"
+  },
+  {
+    "cn": "游艇",
+    "en": "yacht sea luxury"
+  },
+  {
+    "cn": "古镇小桥流水",
+    "en": "ancient boat river town"
+  },
+  {
+    "cn": "摩天大楼",
+    "en": "skyscraper city"
+  },
+  {
+    "cn": "现代建筑",
+    "en": "modern architecture"
+  },
+  {
+    "cn": "古建筑",
+    "en": "ancient architecture temple"
+  },
+  {
+    "cn": "教堂",
+    "en": "cathedral church architecture"
+  },
+  {
+    "cn": "桥梁",
+    "en": "bridge architecture"
+  },
+  {
+    "cn": "吊桥",
+    "en": "suspension bridge"
+  },
+  {
+    "cn": "灯塔",
+    "en": "lighthouse coast"
+  },
+  {
+    "cn": "风车",
+    "en": "windmill countryside"
+  },
+  {
+    "cn": "水乡古镇",
+    "en": "chinese ancient town"
+  },
+  {
+    "cn": "城堡",
+    "en": "castle europe"
+  },
+  {
+    "cn": "高楼窗景",
+    "en": "city skyline reflection"
+  },
+  {
+    "cn": "街头巷弄",
+    "en": "old street alley"
+  },
+  {
+    "cn": "图书馆",
+    "en": "library interior"
+  },
+  {
+    "cn": "车站",
+    "en": "train station architecture"
+  },
+  {
+    "cn": "庭院",
+    "en": "courtyard garden architecture"
+  },
+  {
+    "cn": "猫咪",
+    "en": "cat closeup"
+  },
+  {
+    "cn": "狗狗",
+    "en": "dog portrait"
+  },
+  {
+    "cn": "鸟类",
+    "en": "birds in flight"
+  },
+  {
+    "cn": "狮子",
+    "en": "lion wildlife"
+  },
+  {
+    "cn": "老虎",
+    "en": "tiger wildlife"
+  },
+  {
+    "cn": "大象",
+    "en": "elephant savanna"
+  },
+  {
+    "cn": "长颈鹿",
+    "en": "giraffe wildlife"
+  },
+  {
+    "cn": "猴子",
+    "en": "monkey forest"
+  },
+  {
+    "cn": "熊猫",
+    "en": "panda bamboo"
+  },
+  {
+    "cn": "鹿",
+    "en": "deer forest nature"
+  },
+  {
+    "cn": "狐狸",
+    "en": "fox wildlife"
+  },
+  {
+    "cn": "海豚",
+    "en": "dolphin ocean"
+  },
+  {
+    "cn": "鲸鱼",
+    "en": "whale ocean"
+  },
+  {
+    "cn": "蝴蝶",
+    "en": "butterfly flower"
+  },
+  {
+    "cn": "马",
+    "en": "horse running pasture"
+  },
+  {
+    "cn": "羊驼",
+    "en": "alpaca farm"
+  },
+  {
+    "cn": "雪鸮",
+    "en": "snowy owl"
+  },
+  {
+    "cn": "美食",
+    "en": "delicious food table"
+  },
+  {
+    "cn": "烘焙",
+    "en": "fresh baked bread"
+  },
+  {
+    "cn": "咖啡",
+    "en": "coffee latte art"
+  },
+  {
+    "cn": "水果",
+    "en": "fresh fruit market"
+  },
+  {
+    "cn": "寿司",
+    "en": "sushi japanese food"
+  },
+  {
+    "cn": "茶",
+    "en": "tea ceremony"
+  },
+  {
+    "cn": "甜点",
+    "en": "dessert cake"
+  },
+  {
+    "cn": "阅读",
+    "en": "reading book cozy"
+  },
+  {
+    "cn": "咖啡馆",
+    "en": "coffee shop interior"
+  },
+  {
+    "cn": "街头摄影师",
+    "en": "street photography city"
+  },
+  {
+    "cn": "茶室",
+    "en": "teahouse interior"
+  },
+  {
+    "cn": "书店",
+    "en": "bookstore shelves"
+  },
+  {
+    "cn": "集市",
+    "en": "farmers market stalls"
+  },
+  {
+    "cn": "雨天街道",
+    "en": "rainy street umbrella"
+  },
+  {
+    "cn": "夜景人像",
+    "en": "city night person silhouette"
+  },
+  {
+    "cn": "帐篷露营",
+    "en": "camping tent stars"
+  },
+  {
+    "cn": "滑雪",
+    "en": "skiing snow mountain"
+  },
+  {
+    "cn": "海滩日光浴",
+    "en": "beach vacation relax"
+  },
+  {
+    "cn": "艺术",
+    "en": "fine art painting gallery"
+  },
+  {
+    "cn": "油画",
+    "en": "oil painting artwork"
+  },
+  {
+    "cn": "水墨画",
+    "en": "chinese ink painting"
+  },
+  {
+    "cn": "雕塑",
+    "en": "sculpture art museum"
+  },
+  {
+    "cn": "水彩画",
+    "en": "watercolor painting art"
+  },
+  {
+    "cn": "当代艺术",
+    "en": "contemporary art installation"
+  },
+  {
+    "cn": "街头涂鸦",
+    "en": "street art graffiti wall"
+  },
+  {
+    "cn": "壁画",
+    "en": "mural fresco wall art"
+  },
+  {
+    "cn": "画廊展览",
+    "en": "art gallery exhibition"
+  },
+  {
+    "cn": "名画",
+    "en": "famous painting masterpiece"
+  },
+  {
+    "cn": "人物肖像",
+    "en": "portrait face photography"
+  },
+  {
+    "cn": "舞者",
+    "en": "dancer performance stage"
+  },
+  {
+    "cn": "音乐家",
+    "en": "musician playing instrument"
+  },
+  {
+    "cn": "画家创作",
+    "en": "painter artist studio painting"
+  },
+  {
+    "cn": "传统服饰",
+    "en": "traditional costume people"
+  },
+  {
+    "cn": "老手艺匠人",
+    "en": "craftsman artisan workshop"
+  },
+  {
+    "cn": "宇宙",
+    "en": "outer space galaxy nebula"
+  },
+  {
+    "cn": "银河",
+    "en": "milky way night sky"
+  },
+  {
+    "cn": "极光之夜",
+    "en": "aurora winter landscape"
+  },
+  {
+    "cn": "天文望远镜",
+    "en": "astronomy telescope observatory"
+  },
+  {
+    "cn": "星球",
+    "en": "planet solar system space"
+  },
+  {
+    "cn": "古迹遗址",
+    "en": "ancient ruins archaeological site"
+  },
+  {
+    "cn": "雅典卫城",
+    "en": "acropolis athens greece"
+  },
+  {
+    "cn": "吴哥窟",
+    "en": "angkor wat cambodia"
+  },
+  {
+    "cn": "马丘比丘",
+    "en": "machu picchu peru"
+  },
+  {
+    "cn": "巨石阵",
+    "en": "stonehenge england"
+  },
+  {
+    "cn": "帕特农神庙",
+    "en": "parthenon greece"
+  },
+  {
+    "cn": "比萨斜塔",
+    "en": "leaning tower of pisa"
+  },
+  {
+    "cn": "科隆大教堂",
+    "en": "cologne cathedral"
+  },
+  {
+    "cn": "圣家堂",
+    "en": "sagrada familia barcelona"
+  },
+  {
+    "cn": "米兰大教堂",
+    "en": "milan cathedral duomo"
+  },
+  {
+    "cn": "摩索拉斯陵墓",
+    "en": "mausoleum halicarnassus"
+  },
+  {
+    "cn": "长城",
+    "en": "great wall of china"
+  },
+  {
+    "cn": "故宫",
+    "en": "forbidden city beijing"
+  },
+  {
+    "cn": "天坛",
+    "en": "temple of heaven beijing"
+  },
+  {
+    "cn": "西湖",
+    "en": "west lake hangzhou"
+  },
+  {
+    "cn": "黄山",
+    "en": "huangshan mountain"
+  },
+  {
+    "cn": "桂林山水",
+    "en": "guilin karst landscape"
+  },
+  {
+    "cn": "张家界",
+    "en": "zhangjiajie national forest park"
+  },
+  {
+    "cn": "九寨沟",
+    "en": "jiuzhaigou valley"
+  },
+  {
+    "cn": "布达拉宫",
+    "en": "potala palace lhasa"
+  },
+  {
+    "cn": "兵马俑",
+    "en": "terracotta warriors"
+  },
+  {
+    "cn": "敦煌莫高窟",
+    "en": "mogao caves dunhuang"
+  },
+  {
+    "cn": "外滩",
+    "en": "the bund shanghai skyline"
+  },
+  {
+    "cn": "东方明珠",
+    "en": "oriental pearl tower shanghai"
+  },
+  {
+    "cn": "上海陆家嘴",
+    "en": "lujiazui financial district"
+  },
+  {
+    "cn": "广州塔",
+    "en": "canton tower guangzhou"
+  },
+  {
+    "cn": "云南洱海",
+    "en": "erhai lake dali"
+  },
+  {
+    "cn": "稻城亚丁",
+    "en": "yading nature reserve"
+  },
+  {
+    "cn": "喀纳斯",
+    "en": "kanas lake xinjiang"
+  },
+  {
+    "cn": "埃菲尔铁塔",
+    "en": "eiffel tower paris"
+  },
+  {
+    "cn": "金字塔",
+    "en": "pyramids of giza"
+  },
+  {
+    "cn": "泰姬陵",
+    "en": "taj mahal"
+  },
+  {
+    "cn": "富士山",
+    "en": "mount fuji japan"
+  },
+  {
+    "cn": "圣托里尼",
+    "en": "santorini greece"
+  },
+  {
+    "cn": "威尼斯",
+    "en": "venice canals italy"
+  },
+  {
+    "cn": "罗马斗兽场",
+    "en": "colosseum rome"
+  },
+  {
+    "cn": "悉尼歌剧院",
+    "en": "sydney opera house"
+  },
+  {
+    "cn": "自由女神",
+    "en": "statue of liberty"
+  },
+  {
+    "cn": "里约基督像",
+    "en": "christ the redeemer rio"
+  },
+  {
+    "cn": "佩特拉古城",
+    "en": "petra jordan"
+  },
+  {
+    "cn": "梯田",
+    "en": "rice terraces mountain"
+  },
+  {
+    "cn": "峡谷",
+    "en": "canyon gorge river"
+  },
+  {
+    "cn": "瀑布",
+    "en": "waterfall jungle"
+  },
+  {
+    "cn": "湿地",
+    "en": "wetland marsh birds"
+  },
+  {
+    "cn": "草原",
+    "en": "grassland prairie sky"
+  },
+  {
+    "cn": "秋林小径",
+    "en": "autumn path forest walk"
+  },
+  {
+    "cn": "雾凇",
+    "en": "rime ice winter trees"
+  },
+  {
+    "cn": "盐湖",
+    "en": "salt flat reflection"
+  },
+  {
+    "cn": "火山口",
+    "en": "volcano crater lava"
+  },
+  {
+    "cn": "冰川",
+    "en": "glacier ice blue"
+  },
+  {
+    "cn": "雨林",
+    "en": "tropical rainforest canopy"
+  },
+  {
+    "cn": "荷塘",
+    "en": "lotus pond summer"
+  },
+  {
+    "cn": "海边落日",
+    "en": "coastline golden hour"
+  },
+  {
+    "cn": "梯田晨雾",
+    "en": "terrace mist sunrise"
+  },
+  {
+    "cn": "老城区",
+    "en": "old town european street"
+  },
+  {
+    "cn": "玻璃幕墙",
+    "en": "glass facade building"
+  },
+  {
+    "cn": "天台视角",
+    "en": "rooftop view city"
+  },
+  {
+    "cn": "胡同人家",
+    "en": "beijing hutong alley"
+  },
+  {
+    "cn": "石库门",
+    "en": "shikumen lane shanghai"
+  },
+  {
+    "cn": "徽派民居",
+    "en": "huizhou village architecture"
+  },
+  {
+    "cn": "窑洞",
+    "en": "cave dwelling yaodong"
+  },
+  {
+    "cn": "客家土楼",
+    "en": "hakka tulou round house"
+  },
+  {
+    "cn": "栈桥",
+    "en": "wooden pier boardwalk"
+  },
+  {
+    "cn": "缆车",
+    "en": "cable car mountain"
+  },
+  {
+    "cn": "夜市",
+    "en": "night market street food"
+  },
+  {
+    "cn": "地下通道",
+    "en": "pedestrian underpass city"
+  },
+  {
+    "cn": "企鹅",
+    "en": "penguin colony ice"
+  },
+  {
+    "cn": "考拉",
+    "en": "koala eucalyptus"
+  },
+  {
+    "cn": "树懒",
+    "en": "sloth rainforest"
+  },
+  {
+    "cn": "犀牛",
+    "en": "rhino savanna"
+  },
+  {
+    "cn": "河马",
+    "en": "hippo water river"
+  },
+  {
+    "cn": "斑马",
+    "en": "zebra herd savanna"
+  },
+  {
+    "cn": "蝴蝶群",
+    "en": "butterflies swarm"
+  },
+  {
+    "cn": "蜂鸟",
+    "en": "hummingbird flower"
+  },
+  {
+    "cn": "猫头鹰",
+    "en": "owl branch night"
+  },
+  {
+    "cn": "小熊猫",
+    "en": "red panda bamboo"
+  },
+  {
+    "cn": "羊群",
+    "en": "sheep flock hillside"
+  },
+  {
+    "cn": "驯鹿",
+    "en": "reindeer snow forest"
+  },
+  {
+    "cn": "面食",
+    "en": "noodles bowl steam"
+  },
+  {
+    "cn": "火锅",
+    "en": "hot pot spicy"
+  },
+  {
+    "cn": "烤肉",
+    "en": "barbecue grill meat"
+  },
+  {
+    "cn": "甜品冰淇淋",
+    "en": "ice cream dessert"
+  },
+  {
+    "cn": "早餐铺",
+    "en": "breakfast street stall"
+  },
+  {
+    "cn": "海鲜大餐",
+    "en": "seafood platter fresh"
+  },
+  {
+    "cn": "烤面包",
+    "en": "artisan bread bakery"
+  },
+  {
+    "cn": "茶点",
+    "en": "dim sum tea table"
+  },
+  {
+    "cn": "手艺市集",
+    "en": "craft fair handmade"
+  },
+  {
+    "cn": "街头演出",
+    "en": "street performer music"
+  },
+  {
+    "cn": "晨跑",
+    "en": "jogging sunrise park"
+  },
+  {
+    "cn": "垂钓",
+    "en": "fishing lake calm"
+  },
+  {
+    "cn": "登山者",
+    "en": "hiker mountain trail"
+  },
+  {
+    "cn": "家庭厨房",
+    "en": "home kitchen cooking"
+  },
+  {
+    "cn": "街头小吃摊",
+    "en": "street food vendor"
+  },
+  {
+    "cn": "露营篝火",
+    "en": "campfire night tents"
+  },
+  {
+    "cn": "陶艺工坊",
+    "en": "pottery workshop clay"
+  },
+  {
+    "cn": "木工坊",
+    "en": "woodworking carpenter shop"
+  },
+  {
+    "cn": "现代雕塑",
+    "en": "modern sculpture park"
+  },
+  {
+    "cn": "抽象画",
+    "en": "abstract painting canvas"
+  },
+  {
+    "cn": "摄影展",
+    "en": "photography exhibition wall"
+  },
+  {
+    "cn": "版画",
+    "en": "woodblock print art"
+  },
+  {
+    "cn": "陶器艺术",
+    "en": "ceramic art pottery"
+  },
+  {
+    "cn": "建筑速写",
+    "en": "architecture sketch drawing"
+  },
+  {
+    "cn": "黄石公园",
+    "en": "yellowstone national park"
+  },
+  {
+    "cn": "大峡谷",
+    "en": "grand canyon arizona"
+  },
+  {
+    "cn": "尼亚加拉瀑布",
+    "en": "niagara falls"
+  },
+  {
+    "cn": "阿尔卑斯山",
+    "en": "alps mountain village"
+  },
+  {
+    "cn": "马尔代夫",
+    "en": "maldives island resort"
+  },
+  {
+    "cn": "巴厘岛",
+    "en": "bali rice terrace temple"
+  },
+  {
+    "cn": "布拉格",
+    "en": "prague old town bridge"
+  },
+  {
+    "cn": "阿姆斯特丹",
+    "en": "amsterdam canal houses"
+  },
+  {
+    "cn": "冰岛黑沙滩",
+    "en": "iceland black sand beach"
+  },
+  {
+    "cn": "挪威峡湾",
+    "en": "norway fjord"
+  },
+  {
+    "cn": "土耳其热气球",
+    "en": "cappadocia hot air balloon"
+  },
+  {
+    "cn": "撒哈拉沙漠",
+    "en": "sahara desert dunes"
+  },
+  {
+    "cn": "日月潭",
+    "en": "sun moon lake taiwan"
+  },
+  {
+    "cn": "呼伦贝尔",
+    "en": "hulunbuir grassland"
+  },
+  {
+    "cn": "青海湖",
+    "en": "qinghai lake"
+  },
+  {
+    "cn": "泰山",
+    "en": "mount tai shandong"
+  },
+  {
+    "cn": "华山",
+    "en": "mount hua shaanxi"
+  },
+  {
+    "cn": "峨眉山",
+    "en": "mount emei sichuan"
+  },
+  {
+    "cn": "武当山",
+    "en": "wudang mountain"
+  },
+  {
+    "cn": "平遥古城",
+    "en": "pingyao ancient city"
+  },
+  {
+    "cn": "凤凰古城",
+    "en": "fenghuang ancient town"
+  },
+  {
+    "cn": "婺源",
+    "en": "wuyuan village rapeseed"
+  },
+  {
+    "cn": "宏村",
+    "en": "hongcun village anhui"
+  },
+  {
+    "cn": "泸沽湖",
+    "en": "lugu lake yunnan"
+  },
+  {
+    "cn": "香格里拉",
+    "en": "shangri-la meadow"
+  },
+  {
+    "cn": "拉萨",
+    "en": "lhasa tibet street"
+  },
+  {
+    "cn": "香港夜景",
+    "en": "hong kong skyline night"
+  },
+  {
+    "cn": "台北101",
+    "en": "taipei 101 tower"
+  },
+  {
+    "cn": "新加坡滨海湾",
+    "en": "marina bay sands singapore"
+  },
+  {
+    "cn": "迪拜塔",
+    "en": "burj khalifa dubai"
+  },
+  {
+    "cn": "吴哥日出",
+    "en": "angkor sunrise temple"
+  },
+  {
+    "cn": "雅典神庙",
+    "en": "ancient greek temple ruins"
+  },
+  {
+    "cn": "雪山日落",
+    "en": "snow mountain sunset alpenglow"
+  },
+  {
+    "cn": "胡杨林",
+    "en": "poplar forest desert autumn"
+  },
+  {
+    "cn": "红土地",
+    "en": "red earth farmland landscape"
+  },
+  {
+    "cn": "白桦林",
+    "en": "birch forest autumn"
+  },
+  {
+    "cn": "云瀑",
+    "en": "sea of clouds mountain"
+  },
+  {
+    "cn": "火山熔岩",
+    "en": "volcano lava landscape"
+  },
+  {
+    "cn": "展会人流",
+    "en": "trade show exhibition hall crowd"
+  },
+  {
+    "cn": "奥运赛场",
+    "en": "olympic stadium sports event"
+  },
+  {
+    "cn": "烟火大会",
+    "en": "fireworks festival night crowd"
+  },
+  {
+    "cn": "阅兵方阵",
+    "en": "military parade formation"
+  },
+  {
+    "cn": "大选投票站",
+    "en": "election voting booth queue"
+  },
+  {
+    "cn": "科技发布会",
+    "en": "tech product launch keynote"
+  },
+  {
+    "cn": "阿姆斯特丹运河",
+    "en": "amsterdam canal houses"
+  },
+  {
+    "cn": "土耳其棉花堡",
+    "en": "pamukkale terraces turkey"
+  },
+  {
+    "cn": "圣托里尼蓝顶",
+    "en": "santorini blue dome church"
+  },
+  {
+    "cn": "青海湖畔",
+    "en": "qinghai lake shoreline"
+  },
+  {
+    "cn": "吴哥巴戎寺",
+    "en": "bayon temple angkor faces"
+  },
+  {
+    "cn": "凡尔赛宫",
+    "en": "versailles palace gardens"
+  },
+  {
+    "cn": "火星探测车",
+    "en": "mars rover planet surface"
+  },
+  {
+    "cn": "卫星发射塔",
+    "en": "satellite launch tower"
+  },
+  {
+    "cn": "数据中心",
+    "en": "data center server room"
+  },
+  {
+    "cn": "太空望远镜",
+    "en": "space telescope observatory"
+  },
+  {
+    "cn": "服务器机房",
+    "en": "server racks cloud computing"
+  },
+  {
+    "cn": "机器人手臂",
+    "en": "robotic arm factory automation"
+  },
+  {
+    "cn": "芦苇荡",
+    "en": "reed marsh wetland autumn"
+  },
+  {
+    "cn": "瀑布群落",
+    "en": "waterfall cascade jungle"
+  },
+  {
+    "cn": "油菜花田",
+    "en": "rapeseed flower field"
+  },
+  {
+    "cn": "海岸悬崖",
+    "en": "coastal cliffs ocean"
+  },
+  {
+    "cn": "星空银河",
+    "en": "milky way night sky desert"
+  },
+  {
+    "cn": "湿地候鸟",
+    "en": "wetland migratory birds"
+  },
+  {
+    "cn": "车展",
+    "en": "auto show exhibition cars"
+  },
+  {
+    "cn": "毕业典礼",
+    "en": "graduation ceremony caps gowns"
+  },
+  {
+    "cn": "艺术博览会",
+    "en": "art fair exhibition visitors"
+  },
+  {
+    "cn": "航天器组装",
+    "en": "spacecraft assembly clean room"
+  },
+  {
+    "cn": "开幕剪彩",
+    "en": "ribbon cutting ceremony opening"
+  },
+  {
+    "cn": "书展",
+    "en": "book fair exhibition shelves"
+  },
+  {
+    "cn": "大本钟夜景",
+    "en": "big ben night london"
+  },
+  {
+    "cn": "香格里拉草原",
+    "en": "shangri-la grassland plateau"
+  },
+  {
+    "cn": "平遥古城墙",
+    "en": "pingyao ancient city wall"
+  },
+  {
+    "cn": "丽江古城",
+    "en": "lijiang ancient town old street"
+  },
+  {
+    "cn": "布拉格老城",
+    "en": "prague old town square"
+  },
+  {
+    "cn": "罗马许愿池",
+    "en": "trevi fountain rome"
+  },
+  {
+    "cn": "风力发电",
+    "en": "wind turbine farm renewable"
+  },
+  {
+    "cn": "自动驾驶",
+    "en": "autonomous car lidar sensor"
+  },
+  {
+    "cn": "人工智能大脑",
+    "en": "artificial intelligence neural network"
+  },
+  {
+    "cn": "极地科考站",
+    "en": "polar research station arctic"
+  },
+  {
+    "cn": "太阳能电站",
+    "en": "solar panel farm desert"
+  },
+  {
+    "cn": "芯片晶圆",
+    "en": "semiconductor wafer chip macro"
+  },
+  {
+    "cn": "中秋满月",
+    "en": "full moon night sky",
+    "expires": "2026-10-08"
+  },
+  {
+    "cn": "桂花",
+    "en": "osmanthus flowers branch",
+    "expires": "2026-10-08"
+  },
+  {
+    "cn": "灯笼夜景",
+    "en": "chinese lanterns night",
+    "expires": "2026-10-08"
+  },
+  {
+    "cn": "秋日金光",
+    "en": "golden hour autumn sunlight forest",
+    "expires": ""
+  },
+  {
+    "cn": "暗黑学院风",
+    "en": "dark academia library old books candlelight"
+  },
+  {
+    "cn": "苔藓微距",
+    "en": "macro moss forest floor dew drops"
+  },
+  {
+    "cn": "野兽派混凝土",
+    "en": "brutalist concrete wall texture shadow"
+  },
+  {
+    "cn": "暗调酒红",
+    "en": "burgundy velvet texture moody dark"
+  },
+  {
+    "cn": "野性自然",
+    "en": "rough tree bark wild fern forest floor moss"
+  },
+  {
+    "cn": "田园牧歌",
+    "en": "rustic cottage wildflower meadow linen texture golden hour"
+  },
+  {
+    "cn": "亚麻纹理",
+    "en": "natural linen fabric texture coarse weave rustic flat lay"
+  },
+  {
+    "cn": "秋实静物",
+    "en": "autumn still life rustic harvest tomato table",
+    "expires": "2026-10-18"
+  },
+  {
+    "cn": "秋菊",
+    "en": "chrysanthemum flowers autumn bloom",
+    "expires": "2026-10-18"
+  },
+  {
+    "cn": "上海陆家嘴夜景",
+    "en": "shanghai skyline night pudong"
+  },
+  {
+    "cn": "香港维港夜景",
+    "en": "hong kong victoria harbour night"
+  },
+  {
+    "cn": "深圳城市夜景",
+    "en": "shenzhen city skyline night"
+  },
+  {
+    "cn": "重庆洪崖洞夜景",
+    "en": "chongqing city night lights river"
+  },
+  {
+    "cn": "广州塔夜景",
+    "en": "guangzhou canton tower night"
+  },
+  {
+    "cn": "北京CBD夜景",
+    "en": "beijing cbd skyline night"
+  },
+  {
+    "cn": "东京夜景",
+    "en": "tokyo cityscape night lights"
+  },
+  {
+    "cn": "纽约曼哈顿夜景",
+    "en": "new york manhattan skyline night"
+  },
+  {
+    "cn": "都市霓虹街道",
+    "en": "neon city street night rain"
+  },
+  {
+    "cn": "摩天楼群灯火",
+    "en": "skyscrapers night lights aerial"
+  },
+  {
+    "cn": "城市高架车流",
+    "en": "city highway light trails night"
+  },
+  {
+    "cn": "都市天际线黄昏",
+    "en": "city skyline dusk twilight"
+  },
+  {
+    "cn": "中秋",
+    "en": "moon festival lantern"
+  },
+  {
+    "cn": "中秋月夜",
+    "en": "full moon night sky"
+  },
+  {
+    "cn": "灯笼",
+    "en": "chinese lantern night"
+  },
+  {
+    "cn": "月饼",
+    "en": "mooncake festival table"
+  },
+  {
+    "cn": "洞石纹理",
+    "en": "travertine stone texture beige layered porous"
+  },
+  {
+    "cn": "万圣节南瓜",
+    "en": "halloween pumpkin patch jack o lantern autumn harvest",
+    "expires": "2026-11-01",
+    "added": "2026-09-21",
+    "evidence": "节令路(wallpapers.com:October=Halloween season,pumpkins/witches/haunted houses/dark autumn aesthetics为10月最大季节性切换;Giffywalls:Halloween wallpaper trends 2026含jack-o-lantern/pumpkin/ghost等)+图集路(Pexels pumpkins 7.4K实拍+pumpkin patch 11.7K实拍+halloween 23.1K实拍+halloween wallpaper 82.8K实拍,大量横图;Pexels pumpkin patch分类含sunset pumpkin field/hay bales/porch decor等场景实拍)"
+  },
+  {
+    "cn": "拼贴手帐",
+    "en": "scrapbook paper collage craft flat lay handmade texture",
+    "expires": "",
+    "added": "2026-09-21",
+    "evidence": "视觉路(Canva 2026趋势Notes App Chic:DIY/scrapbook风格搜索量+90%,collage/手帐为2026核心视觉趋势;Canva Zinegeist:拼贴布局/反光材质/粗粝纹理,brutalist design搜索+77%;Stills 2026 Design Trend Report:grunge/scrapbook为2026十大图像趋势之一,强调不完美/真实感/手作质感)+图集路(Pexels cut paper collage 70K实拍+scrapbook elements 60K实拍+paper flat lay 90K实拍+craft flat lay 100K实拍,大量横图;Pexels paper texture 400K实拍)"
+  }
 ]
