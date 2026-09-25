@@ -11,7 +11,8 @@ HERE = Path(__file__).resolve().parent.parent
 IMASKILL = Path('/home/ubuntu/.hermes/skills/ima-skill')
 PREFLIGHT = IMASKILL / 'knowledge-base/scripts/preflight-check.cjs'
 COS = IMASKILL / 'knowledge-base/scripts/cos-upload.cjs'
-TOPICS = json.load(open('/home/ubuntu/.hermes/skills/wechat-ai-publisher/scripts/topics.json', encoding='utf-8'))
+_raw = json.load(open('/home/ubuntu/.hermes/skills/wechat-ai-publisher/scripts/topics.json', encoding='utf-8'))
+TOPICS = [{'cn': t[0], 'en': t[1]} for t in _raw] if _raw and isinstance(_raw[0], list) else _raw
 KB = json.load(open(HERE / 'references/ima_kb.json', encoding='utf-8'))
 LEDGER = HERE / 'data' / 'image_ledger.json'
 CLIENT = open('/home/ubuntu/.config/ima/client_id').read().strip()
