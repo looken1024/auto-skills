@@ -170,14 +170,14 @@
     "created_by": null,
     "last_patched_at": null,
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-09-25T07:20:24.190222+00:00",
-    "last_viewed_at": "2026-09-25T07:20:24.186683+00:00",
+    "last_used_at": "2026-09-25T08:20:17.913199+00:00",
+    "last_viewed_at": "2026-09-25T08:20:17.910313+00:00",
     "patch_count": 0,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 152,
-    "view_count": 152
+    "use_count": 153,
+    "view_count": 153
   },
   "ima-image-pipeline": {
     "archived_at": null,
@@ -463,5 +463,20 @@
     "state": "active",
     "use_count": 6,
     "view_count": 6
+  },
+  "wx-cloud-storage": {
+    "archived_at": null,
+    "created_at": "2026-09-25T08:10:20.502712+00:00",
+    "created_by": "agent",
+    "last_patched_at": "2026-09-25T08:49:34.036893+00:00",
+    "last_reused_patch_generation": 2,
+    "last_used_at": "2026-09-25T08:48:27.366070+00:00",
+    "last_viewed_at": "2026-09-25T08:48:27.362994+00:00",
+    "patch_count": 4,
+    "patch_generation": 4,
+    "pinned": false,
+    "state": "active",
+    "use_count": 4,
+    "view_count": 4
   }
 }
