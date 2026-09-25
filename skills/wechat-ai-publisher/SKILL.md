@@ -182,7 +182,11 @@ $PYTHON $SCRIPTS/create_draft.py \
 3. `process_image()`：左右翻转 + 对比度/色彩/亮度微调 + 轻噪点，短边 >2500 先缩到 2500
 4. 产出两版：
    - **压缩版**（`final_*.jpg`，≤600KB）→ 传微信素材库 → 建草稿箱贴图
-   - **全尺寸版**（`full_*.jpg`，不压缩）→ 经 MEDIA: 行推微信
+   - **全尺寸版**（`full_*.jpg`，不压缩）→ 仅落盘，不推送微信（2026-09-25 起取消 MEDIA: 推送）
+
+## 标签映射（2026-09-25 新增）
+
+`cloud_stash()` 写入云数据库时自动按 `topic` 从 `TOPIC_TAG_MAP` 匹配标签，一对多。标签类别：风景、建筑、旅行、植物、星空、运动、美食、科技、人像。映射表在 `pexels_gallery_draft.py` 的 `TOPIC_TAG_MAP` 段，未在表中的话题回退为 `[topic]`。
 
 ## 小程序云存储同步（2026-09-25 新增）
 
@@ -204,3 +208,4 @@ $PYTHON $SCRIPTS/create_draft.py \
 - **COS 上传**：multipart/form-data，字段 `key` / `Signature` / `x-cos-security-token` / `x-cos-meta-fileid` / `file`。
 - **access_token**：云数据库接口偶尔 40001 "invalid credential"，用 `cgi-bin/stable_token`（POST）替代 `cgi-bin/token`（GET）更稳。
 - **databasequery**：query 格式 `db.collection('images').limit(3).get()`，返回 `data` 是 NDJSON 字符串数组。
+- **NameError `full_files`**：删 `MEDIA:` 输出时容易把 `full_files = sorted(glob.glob(...))` 一起删掉，导致 JSON 汇总里引用未定义变量。删输出循环时务必保留变量定义行。
