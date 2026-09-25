@@ -476,6 +476,18 @@ def upload_image_material(app_id, app_secret, image_path):
     return data  # {media_id, url, ...}
 
 
+def _draft_content(topic):
+    """根据话题生成草稿描述（5-6句话人生感悟，无 AI 味）"""
+    return (
+        f"这组照片拍的是「{topic}」。\n\n"
+        "相机里的风景，往往是眼睛先看见，手才跟上。"
+        "真正刻进记忆的从来不是像素，而是那一刻的温度、风声、和自己心里忽然安静下来的瞬间。\n\n"
+        "人这一生会路过很多地方，有些地方你只想快点经过，有些地方却想多停留一会儿。"
+        "照片的意义大概就在于——它让那些本来会溜走的时刻，有了一个可以反复打开的入口。\n\n"
+        "愿你下次出发的时候，不为赶路，只为路过。"
+    )
+
+
 def create_newspic_draft(app_id, app_secret, title, image_media_ids, content=""):
     """建「图片消息」草稿（草稿箱里的贴图，article_type=newspic）。"""
     from retry_util import request_with_retry
@@ -618,11 +630,10 @@ def main():
             raise Exception("全部图片素材上传失败")
         print(f"素材库上传 OK {len(media_ids)} 张（type=image 永久素材）", file=sys.stderr)
 
-        # 4. 建「图片消息」草稿（草稿箱贴图），标题带日期（不含小时分钟）
-        now_dt = datetime.now()
-        today = now_dt.strftime("%Y-%m-%d")
-        title = f"{topic} · 每日图集 ({today})"
-        draft_res = create_newspic_draft(app_id, app_secret, title, media_ids)
+        # 4. 建「图片消息」草稿（草稿箱贴图），标题只用话题名
+        title = topic
+        content = _draft_content(topic)
+        draft_res = create_newspic_draft(app_id, app_secret, title, media_ids, content=content)
         draft_media_id = draft_res.get("media_id")
         if not draft_media_id:
             raise Exception(f"建图片消息草稿失败: {draft_res}")
