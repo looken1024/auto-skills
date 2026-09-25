@@ -14,7 +14,8 @@ md5 去重（2026-08-29 用户要求）:
 依赖: Pillow + requests + numpy（wechat-ai-publisher 环境已有）
 配置: Pexels key 从 douyin-card-pipeline/config.json 读; 微信 .env 从本 skill 目录读
 """
-import os, sys, json, random, shutil, argparse, tempfile, hashlib, glob
+import os, sys, json, random, shutil, argparse, tempfile, hashlib, glob, time
+import requests
 from datetime import datetime
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -60,21 +61,21 @@ _BUILTIN_TOPICS = [
     ("云海", "sea of clouds"),
     ("溪流", "mountain stream waterfall"),
     # --- 交通工具 ---
-    ("汽车", "classic car highway"),
-    ("跑车", "sports car speed"),
-    ("火车", "train railway track"),
-    ("高铁", "high speed train"),
-    ("飞机", "airplane wing sky"),
-    ("直升机", "helicopter flight"),
-    ("轮船", "ship ocean sailing"),
-    ("帆船", "sailboat sea"),
-    ("摩托车", "motorcycle road trip"),
-    ("自行车", "bicycle city street"),
-    ("地铁", "subway station"),
-    ("热气球", "hot air balloon sky"),
-    ("赛车", "race car track"),
-    ("卡车", "truck mountain road"),
-    ("游艇", "yacht sea luxury"),
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     ("古镇小桥流水", "ancient boat river town"),
     # --- 建筑 ---
     ("摩天大楼", "skyscraper city"),
@@ -93,31 +94,31 @@ _BUILTIN_TOPICS = [
     ("车站", "train station architecture"),
     ("庭院", "courtyard garden architecture"),
     # --- 动物 ---
-    ("猫咪", "cat closeup"),
-    ("狗狗", "dog portrait"),
-    ("鸟类", "birds in flight"),
-    ("狮子", "lion wildlife"),
-    ("老虎", "tiger wildlife"),
-    ("大象", "elephant savanna"),
-    ("长颈鹿", "giraffe wildlife"),
-    ("猴子", "monkey forest"),
-    ("熊猫", "panda bamboo"),
-    ("鹿", "deer forest nature"),
-    ("狐狸", "fox wildlife"),
-    ("海豚", "dolphin ocean"),
-    ("鲸鱼", "whale ocean"),
-    ("蝴蝶", "butterfly flower"),
-    ("马", "horse running pasture"),
-    ("羊驼", "alpaca farm"),
-    ("雪鸮", "snowy owl"),
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     # --- 美食 ---
-    ("美食", "delicious food table"),
-    ("烘焙", "fresh baked bread"),
-    ("咖啡", "coffee latte art"),
-    ("水果", "fresh fruit market"),
-    ("寿司", "sushi japanese food"),
-    ("茶", "tea ceremony"),
-    ("甜点", "dessert cake"),
+
+
+
+
+
+
+
     # --- 人文生活 ---
     ("阅读", "reading book cozy"),
     ("咖啡馆", "coffee shop interior"),
@@ -131,29 +132,29 @@ _BUILTIN_TOPICS = [
     ("滑雪", "skiing snow mountain"),
     ("海滩日光浴", "beach vacation relax"),
     # --- 艺术 / 展览 (展厅美学、历史艺术题材往往横图居多) ---
-    ("艺术", "fine art painting gallery"),
-    ("油画", "oil painting artwork"),
-    ("水墨画", "chinese ink painting"),
-    ("雕塑", "sculpture art museum"),
-    ("水彩画", "watercolor painting art"),
-    ("当代艺术", "contemporary art installation"),
-    ("街头涂鸦", "street art graffiti wall"),
-    ("壁画", "mural fresco wall art"),
-    ("画廊展览", "art gallery exhibition"),
-    ("名画", "famous painting masterpiece"),
+
+
+
+
+
+
+
+
+
+
     # --- 人物 / 肖像 ---
-    ("人物肖像", "portrait face photography"),
-    ("舞者", "dancer performance stage"),
-    ("音乐家", "musician playing instrument"),
-    ("画家创作", "painter artist studio painting"),
-    ("传统服饰", "traditional costume people"),
-    ("老手艺匠人", "craftsman artisan workshop"),
+
+
+
+
+
+
     # --- 宇宙 / 天文 ---
-    ("宇宙", "outer space galaxy nebula"),
-    ("银河", "milky way night sky"),
-    ("极光之夜", "aurora winter landscape"),
-    ("天文望远镜", "astronomy telescope observatory"),
-    ("星球", "planet solar system space"),
+
+
+
+
+
     # --- 古建 / 名画中的建筑&古迹 (知名地名/建筑补充) ---
     ("古迹遗址", "ancient ruins archaeological site"),
     ("雅典卫城", "acropolis athens greece"),
@@ -226,27 +227,23 @@ _BUILTIN_TOPICS = [
     ("夜市", "night market street food"),
     ("地下通道", "pedestrian underpass city"),
     # --- 动物新面孔 ---
-    ("企鹅", "penguin colony ice"),
-    ("考拉", "koala eucalyptus"),
-    ("树懒", "sloth rainforest"),
-    ("犀牛", "rhino savanna"),
-    ("河马", "hippo water river"),
-    ("斑马", "zebra herd savanna"),
-    ("蝴蝶群", "butterflies swarm"),
-    ("蜂鸟", "hummingbird flower"),
-    ("猫头鹰", "owl branch night"),
-    ("小熊猫", "red panda bamboo"),
-    ("羊群", "sheep flock hillside"),
-    ("驯鹿", "reindeer snow forest"),
+
+
+
+
+
+
+
+
     # --- 美食新品类 ---
-    ("面食", "noodles bowl steam"),
-    ("火锅", "hot pot spicy"),
-    ("烤肉", "barbecue grill meat"),
-    ("甜品冰淇淋", "ice cream dessert"),
-    ("早餐铺", "breakfast street stall"),
-    ("海鲜大餐", "seafood platter fresh"),
-    ("烤面包", "artisan bread bakery"),
-    ("茶点", "dim sum tea table"),
+
+
+
+
+
+
+
+
     # --- 人文生活新场景 ---
     ("手艺市集", "craft fair handmade"),
     ("街头演出", "street performer music"),
@@ -259,12 +256,12 @@ _BUILTIN_TOPICS = [
     ("陶艺工坊", "pottery workshop clay"),
     ("木工坊", "woodworking carpenter shop"),
     # --- 艺术新题材 ---
-    ("现代雕塑", "modern sculpture park"),
-    ("抽象画", "abstract painting canvas"),
-    ("摄影展", "photography exhibition wall"),
-    ("版画", "woodblock print art"),
-    ("陶器艺术", "ceramic art pottery"),
-    ("建筑速写", "architecture sketch drawing"),
+
+
+
+
+
+
     # --- 景点地标补位 ---
     ("黄石公园", "yellowstone national park"),
     ("大峡谷", "grand canyon arizona"),
@@ -631,6 +628,23 @@ def main():
             raise Exception(f"建图片消息草稿失败: {draft_res}")
         print(f"图片消息草稿 OK media_id={draft_media_id}", file=sys.stderr)
 
+        # 4b. 采集图片尺寸（用于云数据库记录）
+        from PIL import Image as _PILImage
+        image_dims = []
+        for f, h, pid in processed:
+            try:
+                with _PILImage.open(f) as im:
+                    image_dims.append((im.width, im.height))
+            except Exception:
+                image_dims.append((0, 0))
+
+        # 4c. 小程序云存储转存：原图(full_*) + 缩略图(final_*) → COS + 数据库
+        cloud_records = cloud_stash(save_dir, workdir, topic, title, image_dims)
+        if cloud_records:
+            print(f"☁ 小程序云转存完成 {len(cloud_records)} 张", file=sys.stderr)
+        else:
+            print(f"⚠ 小程序云转存全部失败（已忽略，不影响主流程）", file=sys.stderr)
+
         # 5. 草稿成功后才记录 md5 台账 + 当天话题
         record_sent([{"md5": h, "pexels_id": pid, "topic": topic} for h, pid in uploaded])
         record_topic_day(topic)
@@ -640,7 +654,7 @@ def main():
         with open(os.path.join(LOG_DIR, "gallery_draft.log"), "a", encoding="utf-8") as f:
             f.write(f"{datetime.now().isoformat()} | {title} | 素材{len(media_ids)}张 | 草稿media_id={draft_media_id}\n")
 
-        # stdout 供 cron 汇报（含不压缩全尺寸图路径，MEDIA: 格式供 cron 直接推送）
+        # stdout 供 cron 汇报
         full_files = sorted(glob.glob(os.path.join(save_dir, "full_*.jpg")))
         print(json.dumps({
             "status": "success",
@@ -652,12 +666,137 @@ def main():
             "image_media_ids": media_ids,
             "save_dir": save_dir,
             "full_images": [os.path.basename(f) for f in full_files],
+            "cloud_records": cloud_records,
         }, ensure_ascii=False, indent=2))
-        # 不压缩全尺寸图：直接输出 MEDIA: 标记，cron no_agent 模式原样推送
-        for f in full_files:
-            print(f"MEDIA:{f}")
     finally:
         shutil.rmtree(workdir, ignore_errors=True)
+
+
+# ============================================================
+# 小程序云环境：云存储转存 + 数据库记录
+# ============================================================
+
+CLOUD_APPID = "wx489060715b335aaf"
+CLOUD_SECRET = "fad6d8897931fb0a741209c96fc563a8"
+CLOUD_ENV = "cloud1-d9gkyv32i776bf4cc"
+CLOUD_TOKEN_CACHE = {"token": None, "expires_at": 0}
+
+
+def _get_cloud_token():
+    """获取小程序云开发 access_token（带缓存，提前 5 分钟刷新）"""
+    now = time.time()
+    if CLOUD_TOKEN_CACHE["token"] and now < CLOUD_TOKEN_CACHE["expires_at"] - 300:
+        return CLOUD_TOKEN_CACHE["token"]
+    r = requests.get(
+        "https://api.weixin.qq.com/cgi-bin/token",
+        params={"grant_type": "client_credential", "appid": CLOUD_APPID, "secret": CLOUD_SECRET},
+        timeout=15,
+    )
+    data = r.json()
+    tok = data.get("access_token")
+    if not tok:
+        raise Exception(f"云开发 token 获取失败: {data}")
+    CLOUD_TOKEN_CACHE["token"] = tok
+    CLOUD_TOKEN_CACHE["expires_at"] = now + data.get("expires_in", 7200)
+    return tok
+
+
+def upload_to_cloud(image_path, cloud_path):
+    """上传图片到小程序云存储，返回 file_id。
+
+    cloud_path: 云存储路径，如 'images/original/1790320786526-abc123.jpg'
+    """
+    tok = _get_cloud_token()
+    # 1. 获取上传凭证
+    r = requests.post(
+        f"https://api.weixin.qq.com/tcb/uploadfile?access_token={tok}",
+        json={"env": CLOUD_ENV, "path": cloud_path}, timeout=15,
+    )
+    info = r.json()
+    if info.get("errcode") != 0:
+        raise Exception(f"云存储获取上传凭证失败: {info}")
+    # 2. 上传到 COS
+    with open(image_path, "rb") as f:
+        files = {
+            "key": (None, cloud_path),
+            "Signature": (None, info["authorization"]),
+            "x-cos-security-token": (None, info["token"]),
+            "x-cos-meta-fileid": (None, info["cos_file_id"]),
+            "file": (os.path.basename(image_path), f, "image/jpeg"),
+        }
+        up = requests.post(info["url"], files=files, timeout=60)
+    if up.status_code not in (200, 204):
+        raise Exception(f"云存储 COS 上传失败: HTTP {up.status_code} {up.text[:200]}")
+    return info["file_id"]
+
+
+def record_image_to_db(title, category, original_file_id, thumbnail_file_id,
+                       width, height, tags=None, categories=None):
+    """向小程序云数据库 images 集合插入一条图片记录。"""
+    if tags is None:
+        tags = []
+    if categories is None:
+        categories = [category] if category else []
+    tok = _get_cloud_token()
+    now_ms = int(time.time() * 1000)
+    parts = [
+        "db.collection('images').add({",
+        "data: [{",
+        "title: " + json.dumps(title, ensure_ascii=False) + ",",
+        "category: " + json.dumps(category, ensure_ascii=False) + ",",
+        "categories: " + json.dumps(categories, ensure_ascii=False) + ",",
+        "tags: " + json.dumps(tags, ensure_ascii=False) + ",",
+        "originalFileID: " + json.dumps(original_file_id) + ",",
+        "thumbnailFileID: " + json.dumps(thumbnail_file_id) + ",",
+        "width: " + str(width) + ",",
+        "height: " + str(height) + ",",
+        "uploadTime: new Date(" + str(now_ms) + "),",
+        "downloads: 0, status: 1, reviewer: '', reviewTime: null",
+        "}]})"
+    ]
+    q = " ".join(parts)
+    r = requests.post(
+        f"https://api.weixin.qq.com/tcb/databaseadd?access_token={tok}",
+        json={"env": CLOUD_ENV, "query": q},
+        timeout=15,
+    )
+    data = r.json()
+    if data.get("errcode") != 0:
+        raise Exception(f"云数据库写入失败: {data}")
+    return data.get("id_list", [None])[0]
+
+
+def cloud_stash(orig_dir, thumb_dir, topic, title, image_widths_heights, tags=None):
+    """把一批处理好的图片转存到小程序云存储 + 写数据库。
+
+    orig_dir: 包含 full_*.jpg（全尺寸/原图）的目录
+    thumb_dir: 包含 final_*.jpg（压缩版/缩略图）的目录
+    image_widths_heights: 与图片一一对应的 [(width, height), ...]，按 final_1, final_2 顺序
+
+    返回: [(original_file_id, thumbnail_file_id, _id), ...]
+    """
+    category = topic
+    results = []
+    ts = int(time.time() * 1000)
+    for i, (w, h) in enumerate(image_widths_heights, start=1):
+        short = hashlib.md5(f"{ts}-{i}".encode()).hexdigest()[:8]
+        orig_path = os.path.join(orig_dir, f"full_{i}.jpg")
+        thumb_path = os.path.join(thumb_dir, f"final_{i}.jpg")
+        if not os.path.exists(orig_path) or not os.path.exists(thumb_path):
+            print(f"  ! 云转存跳过第 {i} 张（文件缺失）", file=sys.stderr)
+            continue
+        # 原图路径：images/original/
+        orig_cloud_path = f"images/original/{ts}-{short}.jpg"
+        thumb_cloud_path = f"images/thumbnails/{ts}-{short}.jpg"
+        try:
+            orig_fid = upload_to_cloud(orig_path, orig_cloud_path)
+            thumb_fid = upload_to_cloud(thumb_path, thumb_cloud_path)
+            rec_id = record_image_to_db(title, category, orig_fid, thumb_fid, w, h, tags=tags)
+            results.append((orig_fid, thumb_fid, rec_id))
+            print(f"  ☁ 云转存 OK #{i}: orig={orig_fid} thumb={thumb_fid} db_id={rec_id}", file=sys.stderr)
+        except Exception as e:
+            print(f"  ! 云转存失败 #{i}: {e}", file=sys.stderr)
+    return results
 
 
 if __name__ == "__main__":

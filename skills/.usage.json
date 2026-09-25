@@ -44,6 +44,21 @@
     "use_count": 27,
     "view_count": 27
   },
+  "douyin-card-pipeline": {
+    "archived_at": null,
+    "created_at": "2026-09-25T09:27:47.680947+00:00",
+    "created_by": null,
+    "last_patched_at": null,
+    "last_reused_patch_generation": 0,
+    "last_used_at": "2026-09-25T09:27:47.687331+00:00",
+    "last_viewed_at": "2026-09-25T09:27:47.680964+00:00",
+    "patch_count": 0,
+    "patch_generation": 0,
+    "pinned": false,
+    "state": "active",
+    "use_count": 1,
+    "view_count": 1
+  },
   "free-image-sources": {
     "archived_at": null,
     "created_at": "2026-09-19T06:50:54.990381+00:00",
@@ -170,14 +185,14 @@
     "created_by": null,
     "last_patched_at": null,
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-09-25T08:20:17.913199+00:00",
-    "last_viewed_at": "2026-09-25T08:20:17.910313+00:00",
+    "last_used_at": "2026-09-25T09:20:19.278921+00:00",
+    "last_viewed_at": "2026-09-25T09:20:19.275142+00:00",
     "patch_count": 0,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 153,
-    "view_count": 153
+    "use_count": 154,
+    "view_count": 154
   },
   "ima-image-pipeline": {
     "archived_at": null,
@@ -425,14 +440,14 @@
     "created_by": null,
     "last_patched_at": "2026-09-13T15:27:00.450929+00:00",
     "last_reused_patch_generation": 4,
-    "last_used_at": "2026-09-25T07:34:30.629956+00:00",
-    "last_viewed_at": "2026-09-25T07:34:30.627108+00:00",
+    "last_used_at": "2026-09-25T09:45:54.456638+00:00",
+    "last_viewed_at": "2026-09-25T09:45:54.452983+00:00",
     "patch_count": 4,
     "patch_generation": 4,
     "pinned": false,
     "state": "active",
-    "use_count": 14,
-    "view_count": 2
+    "use_count": 17,
+    "view_count": 5
   },
   "wechat-article-publisher": {
     "archived_at": null,
@@ -440,14 +455,29 @@
     "created_by": null,
     "last_patched_at": null,
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-09-25T08:08:12.762842+00:00",
-    "last_viewed_at": "2026-09-25T08:08:12.758370+00:00",
+    "last_used_at": "2026-09-25T09:45:18.788291+00:00",
+    "last_viewed_at": "2026-09-25T09:45:18.784707+00:00",
     "patch_count": 0,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 35,
-    "view_count": 35
+    "use_count": 38,
+    "view_count": 38
+  },
+  "wechat-cloud-base-api": {
+    "archived_at": null,
+    "created_at": "2026-09-25T09:28:40.049394+00:00",
+    "created_by": "agent",
+    "last_patched_at": null,
+    "last_reused_patch_generation": 0,
+    "last_used_at": null,
+    "last_viewed_at": null,
+    "patch_count": 0,
+    "patch_generation": 0,
+    "pinned": false,
+    "state": "active",
+    "use_count": 0,
+    "view_count": 0
   },
   "weitoutiao-feedback-optimizer": {
     "archived_at": null,

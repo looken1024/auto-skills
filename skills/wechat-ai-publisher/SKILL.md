@@ -159,3 +159,48 @@ $PYTHON $SCRIPTS/create_draft.py \
 ## 资源
 - 脚本文档见 `scripts/`。
 - 写作参考：`history-social-writing`、`news-social-writing`。
+
+---
+
+# 图集草稿流水线（pexels_gallery_draft.py）
+
+## 概述
+
+每小时/每 30 分钟产出一期公众号图集草稿：Pexels 抓横图 → 翻转+滤镜 → 两版产出 → 传微信素材库 → 建草稿箱贴图 → 同步小程序云存储。
+
+## 话题池
+
+- 内置列表 `_BUILTIN_TOPICS`（153 条，2026-09-25 从 239 删减后），在 `pexels_gallery_draft.py` 末尾。
+- 可被 `scripts/topics.json` 覆盖（格式：`[{"cn":"...","en":"..."}, ...]`）。当前 topics.json 格式异常（list 而非带 cn/en 的 dict），脚本自动回退内置列表。
+- 已删除的类：交通工具、宇宙天文、人物肖像、艺术展览、动物、美食。
+- 保留：自然景观、建筑、世界地标/古迹、人文生活、夜市。
+
+## 图片处理
+
+1. Pexels 搜索 → 只收横图（width > height）→ 下载原图
+2. md5 去重：查 `logs/gallery_sent_md5.json`，发过的跳过
+3. `process_image()`：左右翻转 + 对比度/色彩/亮度微调 + 轻噪点，短边 >2500 先缩到 2500
+4. 产出两版：
+   - **压缩版**（`final_*.jpg`，≤600KB）→ 传微信素材库 → 建草稿箱贴图
+   - **全尺寸版**（`full_*.jpg`，不压缩）→ 经 MEDIA: 行推微信
+
+## 小程序云存储同步（2026-09-25 新增）
+
+草稿创建成功后自动转存到微信小程序云环境 `cloud1-d9gkyv32i776bf4cc`：
+
+| 版本 | 云存储路径 | 数据库字段 |
+|------|-----------|-----------|
+| 全尺寸原图 | `images/original/<ts>-<rand>.jpg` | `originalFileID` |
+| 压缩缩略图 | `images/thumbnails/<ts>-<rand>.jpg` | `thumbnailFileID` |
+
+写入 `images` 集合，字段：`_id` / `_openid` / `title` / `category` / `categories` / `tags` / `originalFileID` / `thumbnailFileID` / `width` / `height` / `uploadTime` / `downloads` / `status` / `reviewer` / `reviewTime`。
+
+云转存失败不影响主流程（只打日志不抛异常）。
+
+## 关键 API 踩坑
+
+- **tcb 云数据库接口**：body 只有 `env` + `query`（JS 表达式字符串），没有 `collection` 字段。多传 collection 会 47001。
+- **tcb uploadfile**：返回 `token` / `authorization` / `cos_file_id` / `file_id`，不是 `cos` / `fileID`。
+- **COS 上传**：multipart/form-data，字段 `key` / `Signature` / `x-cos-security-token` / `x-cos-meta-fileid` / `file`。
+- **access_token**：云数据库接口偶尔 40001 "invalid credential"，用 `cgi-bin/stable_token`（POST）替代 `cgi-bin/token`（GET）更稳。
+- **databasequery**：query 格式 `db.collection('images').limit(3).get()`，返回 `data` 是 NDJSON 字符串数组。
