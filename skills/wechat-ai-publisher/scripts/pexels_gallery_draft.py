@@ -399,11 +399,11 @@ def get_pexels_key():
     raise Exception("Pexels API key 未配置 (douyin-card-pipeline/config.json)")
 
 
-def pexels_search(query, per_page=40):
+def pexels_search(query, per_page=40, orientation="landscape"):
     import urllib.request, urllib.parse
     key = get_pexels_key()
-    url = "https://api.pexels.com/v1/search?query=%s&per_page=%d&orientation=landscape" % (
-        urllib.parse.quote(query), per_page)
+    url = "https://api.pexels.com/v1/search?query=%s&per_page=%d&orientation=%s" % (
+        urllib.parse.quote(query), per_page, orientation)
     req = urllib.request.Request(url, headers={"Authorization": key, **UA})
     with urllib.request.urlopen(req, timeout=30) as r:
         return json.loads(r.read()).get("photos", [])
@@ -553,16 +553,22 @@ def main():
     save_dir = os.path.join("/tmp", f"gallery_out_{datetime.now().strftime('%Y%m%d_%H%M%S')}")
     os.makedirs(save_dir, exist_ok=True)
     try:
+        # 每次随机取横图或竖图
+        ori = random.choice(["landscape", "portrait"])
+        print(f"方向: {ori}", file=sys.stderr)
         # 1. 搜索 + 下载(跳过已发 md5 的重复图，多取候选补足)
-        photos = pexels_search(query, per_page=args.count * 4)
+        photos = pexels_search(query, per_page=args.count * 4, orientation=ori)
         if len(photos) < args.count * 2:
-            photos += pexels_search(TOPICS[0][1], per_page=args.count * 3)  # 兜底秋天池
+            photos += pexels_search(TOPICS[0][1], per_page=args.count * 3, orientation=ori)  # 兜底秋天池
         picked = []   # [(path, md5, pexels_id)]
         skipped = 0
         for p in photos:
             if len(picked) >= args.count:
                 break
-            if p.get("width", 0) < p.get("height", 0):  # 只收横图
+            # 只收符合本次随机方向的图
+            if ori == "landscape" and p.get("width", 0) < p.get("height", 0):
+                continue
+            if ori == "portrait" and p.get("width", 0) >= p.get("height", 0):
                 continue
             out = os.path.join(workdir, f"raw_{len(picked)+1}.jpg")
             try:
