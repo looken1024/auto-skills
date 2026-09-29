@@ -110,13 +110,13 @@
     "created_by": null,
     "last_patched_at": null,
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-09-28T15:01:33.500636+00:00",
+    "last_used_at": "2026-09-29T15:00:34.011222+00:00",
     "last_viewed_at": "2026-09-28T15:01:33.497403+00:00",
     "patch_count": 0,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 35,
+    "use_count": 36,
     "view_count": 19
   },
   "hermes-agent": {
@@ -185,14 +185,14 @@
     "created_by": null,
     "last_patched_at": null,
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-09-29T14:20:56.198478+00:00",
-    "last_viewed_at": "2026-09-29T14:20:56.193936+00:00",
+    "last_used_at": "2026-09-29T15:21:26.136372+00:00",
+    "last_viewed_at": "2026-09-29T15:21:26.133361+00:00",
     "patch_count": 0,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 255,
-    "view_count": 255
+    "use_count": 256,
+    "view_count": 256
   },
   "ima-image-pipeline": {
     "archived_at": null,
@@ -440,13 +440,13 @@
     "created_by": null,
     "last_patched_at": "2026-09-13T15:27:00.450929+00:00",
     "last_reused_patch_generation": 4,
-    "last_used_at": "2026-09-28T15:00:52.788733+00:00",
+    "last_used_at": "2026-09-29T15:00:34.030340+00:00",
     "last_viewed_at": "2026-09-25T09:45:54.452983+00:00",
     "patch_count": 4,
     "patch_generation": 4,
     "pinned": false,
     "state": "active",
-    "use_count": 21,
+    "use_count": 22,
     "view_count": 5
   },
   "wechat-article-publisher": {
