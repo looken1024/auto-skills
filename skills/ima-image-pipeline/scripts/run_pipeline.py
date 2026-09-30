@@ -52,12 +52,23 @@ def main():
 
     out = f"/tmp/ima_img_{int(time.time())}.jpg"
     url = "https://image.pollinations.ai/prompt/" + urllib.parse.quote(prompt) + f"?width=576&height=1024&nologo=true&seed={random.randint(1,9999)}"
-    r = subprocess.run(['curl', '-sL', '-A', 'Mozilla/5.0', '-o', out, url], capture_output=True, timeout=180)
-    if r.returncode != 0:
-        raise RuntimeError(f"出图失败: {r.stderr[:200]}")
-    r2 = subprocess.run(['file', out], capture_output=True, text=True)
-    if 'JPEG' not in r2.stdout:
-        raise RuntimeError(f"不是 JPEG: {r2.stdout}")
+    ok = False
+    for attempt in range(3):
+        r = subprocess.run(['curl', '-sL', '-A', 'Mozilla/5.0', '-o', out, url], capture_output=True, timeout=180)
+        if r.returncode != 0:
+            print(f"出图失败 (attempt {attempt+1}/3): {r.stderr[:200]}", flush=True)
+            time.sleep(60)
+            continue
+        r2 = subprocess.run(['file', out], capture_output=True, text=True)
+        if 'JPEG' not in r2.stdout:
+            err = r2.stdout.strip()
+            print(f"不是 JPEG (attempt {attempt+1}/3): {err[:200]}", flush=True)
+            time.sleep(60)
+            continue
+        ok = True
+        break
+    if not ok:
+        raise RuntimeError(f"出图失败: 重试3次均失败，最后文件: {r2.stdout[:200]}")
     print(f"[3/5] 图片 OK: {r2.stdout.strip()}", flush=True)
 
     pf = json.loads(subprocess.run(['node', str(PREFLIGHT), '--file', out], capture_output=True, text=True).stdout)
