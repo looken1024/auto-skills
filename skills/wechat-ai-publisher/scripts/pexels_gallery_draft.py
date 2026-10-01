@@ -427,12 +427,20 @@ def pexels_fetch(photo_id, out, original_url=None):
 
 def process_image(src, dst):
     """左右翻转 + 滤镜（对比度/色彩/亮度微调）+ 轻噪点，不叠字。
-    超大图先缩到短边 2500 再处理，避免 10MB+ 图像内存爆炸和双重编码卡死。"""
+
+    内存（2026-10-01 修复 OOM）：本机只有 ~2G 内存，原来 `np.random.normal(...)`
+    会对整图生成 float64 噪声数组（2500×3750×3 → 225MB，加上加法/clip 的临时数组
+    峰值 500MB+），9 张连跑必被 OOM Killer 干掉。改为 **float32 + 分行块** 加噪，
+    峰值降到 ~150MB/张。超大图仍先缩到短边 ≤2500。
+    """
     from PIL import Image, ImageEnhance
     import numpy as np
     im = Image.open(src).convert("RGB")
-    # 超大图降采样：短边 >2500 → 等比缩到 2500（公众号显示足够，且避免 OOM/超时）
     w, h = im.size
+    # 长边也设上限：竖图 2500×3750 的数组仍然很大
+    if max(w, h) > 3000:
+        ratio = 3000 / max(w, h)
+        im = im.resize((int(w * ratio), int(h * ratio)), Image.LANCZOS)
     if min(w, h) > 2500:
         ratio = 2500 / min(w, h)
         im = im.resize((int(w * ratio), int(h * ratio)), Image.LANCZOS)
@@ -440,12 +448,17 @@ def process_image(src, dst):
     im = ImageEnhance.Contrast(im).enhance(random.uniform(1.05, 1.12))
     im = ImageEnhance.Color(im).enhance(random.uniform(0.95, 1.08))
     im = ImageEnhance.Brightness(im).enhance(random.uniform(0.98, 1.05))
-    # 轻噪点（方差 2-3.5）打散指纹
-    arr = np.array(im).astype(np.int16)
-    noise = np.random.normal(0, random.uniform(2.0, 3.5), arr.shape)
-    arr = np.clip(arr + noise, 0, 255).astype(np.uint8)
-    im = Image.fromarray(arr)
-    im.save(dst, "JPEG", quality=88)
+    # 轻噪点（标准差 2-3.5）打散指纹：float32 + 逐行块，避免整图大数组
+    sigma = random.uniform(2.0, 3.5)
+    arr = np.asarray(im).astype(np.float32)
+    band = 256
+    for y in range(0, arr.shape[0], band):
+        blk = arr[y:y + band]
+        blk += np.random.normal(0.0, sigma, blk.shape).astype(np.float32)
+        np.clip(blk, 0, 255, out=blk)
+    out = Image.fromarray(arr.astype(np.uint8))
+    del arr
+    out.save(dst, "JPEG", quality=88)
     return dst
 
 
@@ -476,12 +489,83 @@ def upload_image_material(app_id, app_secret, image_path):
     return data  # {media_id, url, ...}
 
 
-def _draft_content(topic):
-    """固定模板：正文文本 + 小程序链接（同一行，微信识别为可跳转链接）"""
+# ---------- 小程序文字链（2026-10-01 起） ----------
+# 关键：只有「图文消息」(news) 的 content 支持 HTML，才能放可点击的小程序文字链；
+# 「图片消息」(newspic) 的 content 只支持纯文本，写 #小程序:// 也点不动（实测）。
+MP_APPID = "wx489060715b335aaf"
+MP_PATH = "pages/index/index"
+MP_NICKNAME = "棱镜图库"
+LINK_TEXT = "高清原图看这里👉 这组图真的每一张都能当壁纸！"
+
+
+def _link_html():
+    """正文末尾那行小程序文字链（整行可点击跳小程序）。"""
     return (
-        "高清原图看这里👉 这组图真的每一张都能当壁纸！"
-        "#小程序://棱镜图库/Tz4ZusAKDlO6Yra"
+        f'<p><a data-miniprogram-appid="{MP_APPID}" '
+        f'data-miniprogram-path="{MP_PATH}" '
+        f'data-miniprogram-nickname="{MP_NICKNAME}" '
+        f'data-miniprogram-type="text" href="">{LINK_TEXT}</a></p>'
     )
+
+
+def _shrink_for_upload(src, dst, max_kb=900):
+    """uploadimg 对大小敏感，压到 max_kb 以内（不动画质太多）。"""
+    from PIL import Image
+    im = Image.open(src).convert("RGB")
+    q = 90
+    im.save(dst, "JPEG", quality=q)
+    while os.path.getsize(dst) > max_kb * 1024 and q > 50:
+        q -= 10
+        im.save(dst, "JPEG", quality=q)
+    if os.path.getsize(dst) > max_kb * 1024:
+        w, h = im.size
+        im = im.resize((int(w * 0.7), int(h * 0.7)), Image.LANCZOS)
+        im.save(dst, "JPEG", quality=80)
+    return dst
+
+
+def _draft_content(topic):
+    """正文 HTML：图片在上，小程序文字链在末尾（图片由调用方拼在前面）。"""
+    return _link_html()
+
+
+def upload_content_image(app_id, app_secret, image_path):
+    """上传正文内图片（uploadimg 接口），返回 mmbiz.qpic.cn URL。
+
+    news 正文里的 <img> 必须用本接口的 URL，素材库的永久素材 URL 会被过滤。
+    """
+    from retry_util import request_with_retry
+    tok = _get_token(app_id, app_secret)
+    url = f"https://api.weixin.qq.com/cgi-bin/media/uploadimg?access_token={tok}"
+    with open(image_path, "rb") as f:
+        files = {"media": (os.path.basename(image_path), f, "image/jpeg")}
+        r = request_with_retry('POST', url, files=files, timeout=120)
+    data = r.json()
+    if not data.get("url"):
+        raise Exception(f"正文图片上传失败: {data}")
+    return data["url"]
+
+
+def create_news_draft(app_id, app_secret, title, content_html, thumb_media_id):
+    """建「图文消息」草稿（article_type=news）。"""
+    from retry_util import request_with_retry
+    tok = _get_token(app_id, app_secret)
+    article = {
+        "article_type": "news",
+        "title": title,
+        "content": content_html,
+        "thumb_media_id": thumb_media_id,
+        "need_open_comment": 0,
+        "only_fans_can_comment": 0,
+    }
+    url = f"https://api.weixin.qq.com/cgi-bin/draft/add?access_token={tok}"
+    r = request_with_retry('POST', url,
+        data=json.dumps({"articles": [article]}, ensure_ascii=False).encode("utf-8"),
+        headers={"Content-Type": "application/json; charset=utf-8"}, timeout=60)
+    data = r.json()
+    if data.get("errcode", 0) != 0:
+        raise Exception(f"建图文消息草稿失败: {data}")
+    return data
 
 
 def create_newspic_draft(app_id, app_secret, title, image_media_ids, content=""):
@@ -608,39 +692,49 @@ def main():
                               "skipped_dup": skipped}, ensure_ascii=False, indent=2))
             return
 
-        # 3. 上传永久图片素材
+        # 3. 上传：封面（永久素材 → thumb_media_id）+ 正文图（uploadimg → URL）
         cfg = wc_config.get_wechat_config()
         app_id, app_secret = cfg["app_id"], cfg["app_secret"]
         if not app_id or not app_secret:
             raise Exception("微信 .env 配置缺失")
 
-        media_ids = []
-        uploaded = []   # [(md5, pexels_id)]
-        for f, h, pid in processed:
-            try:
-                res = upload_image_material(app_id, app_secret, f)
-            except Exception as e:
-                print(f"  ! 素材上传失败 {f}: {e}", file=sys.stderr)
-                continue
-            mid = res.get("media_id")
-            if not mid:
-                print(f"  ! 素材上传未返回 media_id: {f} → {res}", file=sys.stderr)
-                continue
-            media_ids.append(mid)
-            uploaded.append((h, pid))
-        if not media_ids:
-            raise Exception("全部图片素材上传失败")
-        print(f"素材库上传 OK {len(media_ids)} 张（type=image 永久素材）", file=sys.stderr)
+        # 封面：用第 1 张压缩图（永久素材，≤600KB 稳过 2M 限制）
+        thumb_res = upload_image_material(app_id, app_secret, processed[0][0])
+        thumb_media_id = thumb_res.get("media_id")
+        if not thumb_media_id:
+            raise Exception(f"封面上传未返回 media_id: {thumb_res}")
+        print(f"封面上传 OK media_id={thumb_media_id}", file=sys.stderr)
 
-        # 4. 建「图片消息」草稿（草稿箱贴图），标题格式：话题·每日图集（日期）
+        # 正文图：用 full_* 压到 ≤900KB 走 uploadimg（比草稿箱那版清晰）
+        content_urls = []   # [(url, md5, pexels_id)]
+        uploaded = []       # [(md5, pexels_id)] 台账用
+        for i, (fp, h, pid) in enumerate(full_size, 1):
+            small = os.path.join(workdir, f"up_{i}.jpg")
+            try:
+                _shrink_for_upload(fp, small)
+                u = upload_content_image(app_id, app_secret, small)
+            except Exception as e:
+                print(f"  ! 正文图 {i} 上传失败: {e}", file=sys.stderr)
+                continue
+            content_urls.append((u, h, pid))
+            uploaded.append((h, pid))
+            print(f"  + 正文图 {i} OK ({os.path.getsize(small)//1024}KB)", file=sys.stderr)
+        if not content_urls:
+            raise Exception("正文图片全部上传失败")
+        print(f"正文图上传 OK {len(content_urls)} 张（uploadimg）", file=sys.stderr)
+
+        # 4. 建「图文消息」草稿（news），标题格式：话题·每日图集（日期）
+        #    只有 news 的 content 支持 HTML → 那行字才是可点击的小程序链接
         today_str = datetime.now().strftime("%Y-%m-%d")
         title = f"{topic}·每日图集（{today_str}）"
-        content = _draft_content(topic)
-        draft_res = create_newspic_draft(app_id, app_secret, title, media_ids, content=content)
+        imgs_html = "".join(f'<p><img src="{u}" style="width:100%;"/></p>'
+                            for u, _, _ in content_urls)
+        content = imgs_html + _draft_content(topic)
+        draft_res = create_news_draft(app_id, app_secret, title, content, thumb_media_id)
         draft_media_id = draft_res.get("media_id")
         if not draft_media_id:
-            raise Exception(f"建图片消息草稿失败: {draft_res}")
-        print(f"图片消息草稿 OK media_id={draft_media_id}", file=sys.stderr)
+            raise Exception(f"建图文消息草稿失败: {draft_res}")
+        print(f"图文消息草稿 OK media_id={draft_media_id}（正文{len(content_urls)}图+小程序文字链）", file=sys.stderr)
 
         # 4b. 采集图片尺寸（用于云数据库记录）
         from PIL import Image as _PILImage
@@ -666,18 +760,20 @@ def main():
         # 6. 追加日志
         os.makedirs(LOG_DIR, exist_ok=True)
         with open(os.path.join(LOG_DIR, "gallery_draft.log"), "a", encoding="utf-8") as f:
-            f.write(f"{datetime.now().isoformat()} | {title} | 素材{len(media_ids)}张 | 草稿media_id={draft_media_id}\n")
+            f.write(f"{datetime.now().isoformat()} | {title} | 正文图{len(content_urls)}张 | "
+                    f"草稿media_id={draft_media_id} | type=news\n")
 
         # stdout 供 cron 汇报
         full_files = sorted(glob.glob(os.path.join(save_dir, "full_*.jpg")))
         print(json.dumps({
             "status": "success",
             "topic": topic,
-            "images": len(media_ids),
+            "images": len(content_urls),
+            "article_type": "news",
             "skipped_dup": skipped,
             "title": title,
             "media_id": draft_media_id,
-            "image_media_ids": media_ids,
+            "thumb_media_id": thumb_media_id,
             "save_dir": save_dir,
             "full_images": [os.path.basename(f) for f in full_files],
             "cloud_records": cloud_records,

@@ -68,6 +68,13 @@ curl -s -X POST <base_url>/chat/completions -H "Authorization: Bearer $KEY" -H '
 
 **B. 空转 → 垃圾回复**：任务显示成功，实际零交付。日志级排查 4 步（输出/会话/模型分布/结局）与 prompt 层三条加固（禁止空转、限时收尾、禁止垃圾回复）见 `references/cron-empty-spin-triage.md`。
 
+**C. reasoning 模型在「流式」下会把正文塞进 `reasoning`，脚本解析不出内容（2026-10-01 定位，重要）。** 症状：脚本化流水线的选题/写稿步骤反复报「❌ 选题失败（免费模型全挂或返回不可解析）」，但同一模型在别处能用；手工 curl 看得到输出来，所以很像"没返回"而不是"返回了但拿不到"。根因：`dots-studio/dots-3-note-preview:free` 这类 reasoning 模型，**`stream=True` 时正文和思考过程一起落在 `reasoning` 字段，`content` 为空**；脚本只读 `content` 就是空字符串。
+修法（已验证）：对 dots/reasoning 模型改用 **`stream=False` + `reasoning_effort="low"` + `max_tokens≥8000`**，此时 `content` 字段直接是干净 JSON、`reasoning` 里只剩思考过程。三个参数缺一不可——单加 `reasoning_effort` 而不改 `stream` 无效；`max_tokens` 给太小（如 2000）会让 reasoning 吃满、content 没空间。
+→ 教训：**「模型没返回」和「脚本没读对字段」要先分清楚**；修此类问题时要先把原始响应（完整 SSE/JSON）打出来看字段分布，别直接换模型。
+
+## 长流程任务：别用前台等（420s 上限）
+整条「抓榜→选题→抓事实→写稿→终审改稿×2→发布」实测 **8-12 分钟**。前台 `terminal` 有 420s 上限，会在跑到一半时被 kill，看起来像「失败」其实只是被截断。正确姿势：`terminal(background=true)` 起，再用 `process(action='wait')` / `poll` 收结果；进度看落盘日志。别反复前台重跑同一班——脚本里的 `flock` 只会让后来者跳过，白等一轮。
+
 ## 调度频率不是越高越好（用户改频率时先算三笔账）
 
 把任务从「每 2 小时」改成「每小时」之前先算：
@@ -112,4 +119,5 @@ curl -s -X POST <base_url>/chat/completions -H "Authorization: Bearer $KEY" -H '
 - `scripts/cline_unwrap_proxy.py` — 响应包壳解包代理（本地 OpenAI 兼容 shim，可 systemd 常驻）
 - `references/gzh-article-publish-notes.md` — 公众号文章线：写作 skill 真实名字（发布 skill 里的引用是悬空的）、六步实录命令、发布后 HTML 标签自检表、汇报格式
 - `references/cron-model-swap-notes.md` — 换 cron 任务模型实操（cronjob 接口不支持改 model→直接改 jobs.json、双确认落盘、用户同意规矩）与整链失效根因判定（同模型不同路径可用性不同、免费池小时级抖动先重测再改配置）
+- `references/wechat-draft-api-content-types.md` — 公众号草稿 API：`newspic` vs `news` 的 content 能力差异（图片消息只存纯文本→小程序链接必须走图文消息）、三种小程序链接 HTML 写法、`draft/batchget` vs `draft/getdraft` 接口名坑、`freepublish/batchget` 48001、逐条验证矩阵
 - `references/image-sources.md` — 免 key 配图素材（Pexels 实拍封面 / pollinations 生图 / 无 DashScope 时的看图验证）。含 pollinations 下载方式坑（urllib 403 → 必须 curl + UA）、水印裁切尺寸。

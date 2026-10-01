@@ -166,7 +166,9 @@ $PYTHON $SCRIPTS/create_draft.py \
 
 ## 概述
 
-每小时/每 30 分钟产出一期公众号图集草稿：Pexels 抓横图 → 翻转+滤镜 → 两版产出 → 传微信素材库 → 建草稿箱贴图 → 同步小程序云存储。
+每小时/每 30 分钟产出一期公众号图集草稿：Pexels 抓图 → 翻转+滤镜 → 两版产出 → 传封面+正文图 → 建**图文消息(news)**草稿（正文末尾带可点击的小程序文字链）→ 同步小程序云存储。
+
+> ⚠️ **类型必须是 news，不能是 newspic（2026-10-01 踩坑·硬性）**：见下方「小程序文字链」一节。用 `newspic` 时正文里写 `#小程序://...` 发布后是**死文字点不动**，别再用。
 
 ## 话题池
 
@@ -181,8 +183,48 @@ $PYTHON $SCRIPTS/create_draft.py \
 2. md5 去重：查 `logs/gallery_sent_md5.json`，发过的跳过
 3. `process_image()`：左右翻转 + 对比度/色彩/亮度微调 + 轻噪点，短边 >2500 先缩到 2500
 4. 产出两版：
-   - **压缩版**（`final_*.jpg`，≤600KB）→ 传微信素材库 → 建草稿箱贴图
-   - **全尺寸版**（`full_*.jpg`，不压缩）→ 仅落盘，不推送微信（2026-09-25 起取消 MEDIA: 推送）
+   - **压缩版**（`final_*.jpg`，≤600KB）→ 传微信**永久素材**，取 `media_id` 当**封面**（`thumb_media_id`）
+   - **全尺寸版**（`full_*.jpg`，不压缩）→ 落盘；再压到 ≤900KB 走 `uploadimg` 拿 URL，进**正文 HTML**（2026-10-01 起）
+
+## 小程序文字链（2026-10-01 起）
+
+正文末尾固定一行，整行可点击跳小程序：
+
+```
+高清原图看这里👉 这组图真的每一张都能当壁纸！
+```
+
+### 为什么之前点不动（根因）
+
+| 文章类型 | content 字段能力 | 小程序链接 |
+|---|---|---|
+| `newspic`（图片消息/小绿书） | **只支持纯文本**（+商品标签） | 写 `#小程序://` 是死文字，**发布后点不动** |
+| `news`（图文消息） | **支持 HTML** | 用 `<a data-miniprogram-appid=...>` 才可点击 |
+
+官方文档原话（draft/add）：*"图片消息则仅支持纯文本和部分特殊功能标签如商品"*。
+所以 `newspic` 里塞 `#小程序://棱镜图库/xxx`、`weixin://`、`<a href>` 全都白费——HTML 在 newspic 下直接报 `45166 invalid content`。
+
+### 正确写法（`news` 的 content）
+
+```html
+<p><img src="<uploadimg 返回的 mmbiz URL>" style="width:100%;"/></p>
+...
+<p><a data-miniprogram-appid="wx489060715b335aaf"
+      data-miniprogram-path="pages/index/index"
+      data-miniprogram-nickname="棱镜图库"
+      data-miniprogram-type="text" href="">高清原图看这里👉 这组图真的每一张都能当壁纸！</a></p>
+```
+
+- `data-miniprogram-path` 不带开头的斜杠（后台界面显示 `/pages/index/index`，API 写 `pages/index/index`）。
+- 正文 `<img>` 的 URL **必须**来自 `POST /cgi-bin/media/uploadimg`；素材库永久素材的 URL 会被过滤。
+- 封面用 `POST /cgi-bin/material/add_material?type=image` 的 `media_id`（≤2MB）。
+
+### 其他坑
+
+- **`draft/update` 不能改文章类型**：`newspic` → `news` 会报 `53403 不支持修改文章类型`。要换类型只能**新建草稿 + 删旧的**（`draft/delete`）。
+- **`draft/batchget` 才是列草稿的接口**；写成 `draft/getdraft` 会报 `40066 invalid url`（误导性报错）。单篇用 `draft/get`。
+- **回读校验**：建完草稿后 `draft/get` 检查 content 里 `data-miniprogram-appid` 是否还在（被过滤就会丢）。
+- **发布后草稿会从草稿箱消失**，所以在草稿箱里找不到≠没建过。
 
 ## 标签映射（2026-09-25 新增）
 
