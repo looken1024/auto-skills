@@ -218,6 +218,7 @@ $PYTHON $SCRIPTS/create_draft.py \
 - `data-miniprogram-path` 不带开头的斜杠（后台界面显示 `/pages/index/index`，API 写 `pages/index/index`）。
 - 正文 `<img>` 的 URL **必须**来自 `POST /cgi-bin/media/uploadimg`；素材库永久素材的 URL 会被过滤。
 - 封面用 `POST /cgi-bin/material/add_material?type=image` 的 `media_id`（≤2MB）。
+- **图与图之间、以及最后链接之前各留一个空行**：用 `<p><br/></p>` 当分隔符拼接（`"<p><br/></p>".join(blocks)`）。直接 `"".join()` 连排会挤成一片。微信存库时会规范成 `<br  />`，回读校验别按 `<br/>` 原文匹配。
 
 ### 其他坑
 

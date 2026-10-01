@@ -727,9 +727,10 @@ def main():
         #    只有 news 的 content 支持 HTML → 那行字才是可点击的小程序链接
         today_str = datetime.now().strftime("%Y-%m-%d")
         title = f"{topic}·每日图集（{today_str}）"
-        imgs_html = "".join(f'<p><img src="{u}" style="width:100%;"/></p>'
-                            for u, _, _ in content_urls)
-        content = imgs_html + _draft_content(topic)
+        # 图片之间、以及最后小程序链接之前，各留一个空行（微信里用空段落实现）
+        blocks = [f'<p><img src="{u}" style="width:100%;"/></p>' for u, _, _ in content_urls]
+        blocks.append(_draft_content(topic))
+        content = '<p><br/></p>'.join(blocks)
         draft_res = create_news_draft(app_id, app_secret, title, content, thumb_media_id)
         draft_media_id = draft_res.get("media_id")
         if not draft_media_id:
