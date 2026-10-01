@@ -477,14 +477,10 @@ def upload_image_material(app_id, app_secret, image_path):
 
 
 def _draft_content(topic):
-    """根据话题生成草稿描述（5-6句话人生感悟，无 AI 味）"""
+    """固定模板：正文文本 + 小程序链接（同一行，微信识别为可跳转链接）"""
     return (
-        f"这组照片拍的是「{topic}」。\n\n"
-        "相机里的风景，往往是眼睛先看见，手才跟上。"
-        "真正刻进记忆的从来不是像素，而是那一刻的温度、风声、和自己心里忽然安静下来的瞬间。\n\n"
-        "人这一生会路过很多地方，有些地方你只想快点经过，有些地方却想多停留一会儿。"
-        "照片的意义大概就在于——它让那些本来会溜走的时刻，有了一个可以反复打开的入口。\n\n"
-        "愿你下次出发的时候，不为赶路，只为路过。"
+        "高清原图看这里👉 这组图真的每一张都能当壁纸！"
+        "#小程序://棱镜图库/Tz4ZusAKDlO6Yra"
     )
 
 
@@ -636,8 +632,9 @@ def main():
             raise Exception("全部图片素材上传失败")
         print(f"素材库上传 OK {len(media_ids)} 张（type=image 永久素材）", file=sys.stderr)
 
-        # 4. 建「图片消息」草稿（草稿箱贴图），标题只用话题名
-        title = topic
+        # 4. 建「图片消息」草稿（草稿箱贴图），标题格式：话题·每日图集（日期）
+        today_str = datetime.now().strftime("%Y-%m-%d")
+        title = f"{topic}·每日图集（{today_str}）"
         content = _draft_content(topic)
         draft_res = create_newspic_draft(app_id, app_secret, title, media_ids, content=content)
         draft_media_id = draft_res.get("media_id")
