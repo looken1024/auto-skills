@@ -42,7 +42,11 @@ def _api_key():
 
 
 def llm(prompt, system=None, max_tokens=2000, temperature=0.8, models=None, timeout=180, verbose=True):
-    """小上下文单次调用。返回 (text, model_used)；全部失败抛 RuntimeError。"""
+    """小上下文单次调用。返回 (text, model_used)；全部失败抛 RuntimeError。
+
+    用 stream=True 调用，同时收集 content 和 reasoning（dots 等 reasoning 模型
+    的正文在 content 字段，reasoning 在 reasoning 字段，两者分开流式推送）。
+    """
     key = _api_key()
     msgs = []
     if system:
@@ -52,24 +56,54 @@ def llm(prompt, system=None, max_tokens=2000, temperature=0.8, models=None, time
     for m in (models or MODEL_CHAIN):
         try:
             t0 = time.time()
+            # reasoning 模型需要足够 token，否则 reasoning 吃满、content 没空间
+            eff_max = max(max_tokens, 2000)
             r = requests.post(PROXY, headers={"Authorization": f"Bearer {key}",
                                               "Content-Type": "application/json"},
-                              json={"model": m, "messages": msgs, "max_tokens": max_tokens,
-                                    "temperature": temperature, "stream": False},
-                              timeout=timeout)
+                              json={"model": m, "messages": msgs, "max_tokens": eff_max,
+                                    "temperature": temperature, "stream": True},
+                              timeout=timeout, stream=True)
             dt = time.time() - t0
             if r.status_code != 200:
                 errs.append(f"{m}: HTTP {r.status_code} {r.text[:80]}")
                 if verbose:
                     print(f"   [llm] {m} 失败 HTTP {r.status_code}", file=sys.stderr)
                 continue
-            d = r.json()
-            txt = ((d.get("choices") or [{}])[0].get("message") or {}).get("content") or ""
+
+            # 流式读取：同时收集 content 和 reasoning
+            content_parts = []
+            reasoning_parts = []
+            for line in r.iter_lines():
+                if not line:
+                    continue
+                line = line.decode()
+                if not line.startswith("data: "):
+                    continue
+                ds = line[6:]
+                if ds == "[DONE]":
+                    break
+                try:
+                    d = json.loads(ds)
+                    for c in (d.get("choices") or []):
+                        delta = c.get("delta") or {}
+                        if delta.get("content"):
+                            content_parts.append(delta["content"])
+                        if delta.get("reasoning"):
+                            reasoning_parts.append(delta["reasoning"])
+                except Exception:
+                    pass
+
+            txt = "".join(content_parts).strip()
+            # content 为空时用 reasoning 兜底（dots 模型 reasoning 里可能有正文）
+            if not txt:
+                txt = "".join(reasoning_parts).strip()
+
             if not txt.strip():
                 errs.append(f"{m}: 空回复")
                 if verbose:
                     print(f"   [llm] {m} 空回复", file=sys.stderr)
                 continue
+
             if verbose:
                 print(f"   [llm] {m} OK {dt:.1f}s ({len(prompt)} 字符入 / {len(txt)} 出)", file=sys.stderr)
             return txt.strip(), m

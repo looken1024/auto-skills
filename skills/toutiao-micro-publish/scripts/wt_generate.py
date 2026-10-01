@@ -50,7 +50,9 @@ STYLE = """写作硬要求（今日头条微头条，账号「棱镜折射」）
 
 def pick_topic(hot, recent):
     hotlist = "\n".join(f"{i}. {h['title']}" for i, h in enumerate(hot, 1))
-    prompt = f"""你是今日头条微头条账号「棱镜折射」的选题编辑。下面有两块信息。
+    prompt = f"""只输出 JSON，不要任何其他内容。不要思考过程，不要解释，不要 markdown 标记。
+
+你是今日头条微头条账号「棱镜折射」的选题编辑。下面有两块信息。
 
 【今天的热榜】
 {hotlist}
@@ -65,16 +67,34 @@ def pick_topic(hot, recent):
 只输出 JSON，不要别的：
 {{"topic": "选中的题目（照抄热榜原句）", "angle": "我们打算切的角度，一句话", "core_view": "核心观点，一句话", "known_facts": ["写稿时必须用到的已知事实/数字，没把握的不要写"], "rejected": "为什么没选其它题目，一句话"}}"""
     txt, model = llm(prompt, max_tokens=900, temperature=0.4)
-    m = re.search(r"\{.*\}", txt, re.S)
-    if not m:
-        raise RuntimeError(f"选题模型没返回 JSON：{txt[:200]}")
-    data = json.loads(m.group(0))
+    # dots 是 reasoning 模型，content 可能混入英文思考过程，JSON 可能在 reasoning 里。
+    # 把 content + reasoning 拼一起找 JSON，剥掉 markdown 代码块。
+    combined = txt
+    # 剥 markdown 代码块
+    combined = re.sub(r"```(?:json)?\s*", "", combined)
+    combined = re.sub(r"```\s*$", "", combined)
+    # 找 JSON 对象（从第一个 { 到最后一个 }）
+    start = combined.find("{")
+    end = combined.rfind("}")
+    if start == -1 or end == -1 or end <= start:
+        raise RuntimeError(f"选题模型没返回 JSON：{txt[:300]}")
+    json_str = combined[start:end+1]
+    try:
+        data = json.loads(json_str)
+    except json.JSONDecodeError:
+        # 试更宽松的正则
+        m = re.search(r"\{.*\}", combined, re.S)
+        if not m:
+            raise RuntimeError(f"选题模型没返回 JSON：{txt[:300]}")
+        data = json.loads(m.group(0))
     data["_model"] = model
     return data
 
 
 def write_draft(topic_info, recent):
-    prompt = f"""给今日头条微头条账号「棱镜折射」写一条微头条。
+    prompt = f"""只输出正文，不要任何其他内容。不要思考过程，不要解释，不要 markdown 标记。
+
+给今日头条微头条账号「棱镜折射」写一条微头条。
 
 【题目】{topic_info['topic']}
 【切入角度】{topic_info.get('angle','')}
