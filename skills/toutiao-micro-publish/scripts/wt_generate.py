@@ -66,27 +66,34 @@ def pick_topic(hot, recent):
 
 只输出 JSON，不要别的：
 {{"topic": "选中的题目（照抄热榜原句）", "angle": "我们打算切的角度，一句话", "core_view": "核心观点，一句话", "known_facts": ["写稿时必须用到的已知事实/数字，没把握的不要写"], "rejected": "为什么没选其它题目，一句话"}}"""
-    txt, model = llm(prompt, max_tokens=900, temperature=0.4)
-    # dots 是 reasoning 模型，content 可能混入英文思考过程，JSON 可能在 reasoning 里。
-    # 把 content + reasoning 拼一起找 JSON，剥掉 markdown 代码块。
+    txt, model = llm(prompt, max_tokens=2000, temperature=0.4)
+    # dots 是 reasoning 模型：content 字段可能包含思考过程，JSON 在最后。
+    # 从后往前找最后一个合法的 JSON 对象。
     combined = txt
-    # 剥 markdown 代码块
     combined = re.sub(r"```(?:json)?\s*", "", combined)
     combined = re.sub(r"```\s*$", "", combined)
-    # 找 JSON 对象（从第一个 { 到最后一个 }）
-    start = combined.find("{")
+    # 从后往前找 } 和 {，提取最后一个完整 JSON 对象
     end = combined.rfind("}")
-    if start == -1 or end == -1 or end <= start:
+    if end == -1:
+        raise RuntimeError(f"选题模型没返回 JSON：{txt[:300]}")
+    # 从 end 往前找匹配的 {
+    depth = 0
+    start = -1
+    for i in range(end, -1, -1):
+        if combined[i] == "}":
+            depth += 1
+        elif combined[i] == "{":
+            depth -= 1
+            if depth == 0:
+                start = i
+                break
+    if start == -1:
         raise RuntimeError(f"选题模型没返回 JSON：{txt[:300]}")
     json_str = combined[start:end+1]
     try:
         data = json.loads(json_str)
-    except json.JSONDecodeError:
-        # 试更宽松的正则
-        m = re.search(r"\{.*\}", combined, re.S)
-        if not m:
-            raise RuntimeError(f"选题模型没返回 JSON：{txt[:300]}")
-        data = json.loads(m.group(0))
+    except json.JSONDecodeError as e:
+        raise RuntimeError(f"选题模型 JSON 解析失败：{e} | JSON: {json_str[:200]}")
     data["_model"] = model
     return data
 
@@ -107,10 +114,22 @@ def write_draft(topic_info, recent):
 {STYLE}
 
 现在直接写正文。"""
-    txt, model = llm(prompt, max_tokens=1600, temperature=0.85)
+    txt, model = llm(prompt, max_tokens=2000, temperature=0.85)
     txt = txt.strip().strip('"').strip()
     # 去掉可能出现的标题行
     txt = re.sub(r"^(标题|题目)[:：].*\n+", "", txt)
+    # dots reasoning 模型可能在 content 里带 "Thinking Process:" 前缀，
+    # 剥离英文思考过程，只保留中文正文
+    thinking_match = re.search(r"^(?:Thinking Process|思考过程|Reasoning|推理过程)[\s\S]*?(?=\n\n|\n(?=[\u4e00-\u9fff])|$)", txt, re.I)
+    if thinking_match:
+        remaining = txt[thinking_match.end():].strip()
+        if remaining:
+            txt = remaining
+    # 也尝试找最后一个中文段落（以中文字符开头）
+    zh_lines = [l for l in txt.split('\n') if l.strip() and re.search(r'[\u4e00-\u9fff]', l)]
+    if zh_lines and len(zh_lines) < len(txt.split('\n')):
+        # 有英文/思考过程混入，只保留中文行
+        txt = '\n'.join(zh_lines).strip()
     return txt, model
 
 

@@ -58,10 +58,14 @@ def llm(prompt, system=None, max_tokens=2000, temperature=0.8, models=None, time
             t0 = time.time()
             # reasoning 模型需要足够 token，否则 reasoning 吃满、content 没空间
             eff_max = max(max_tokens, 2000)
+            # dots 等 reasoning 模型：加 reasoning_effort=low 让正文落到 content 字段
+            req_json = {"model": m, "messages": msgs, "max_tokens": eff_max,
+                        "temperature": temperature, "stream": True}
+            if "dots" in m or "reasoning" in m.lower():
+                req_json["reasoning_effort"] = "low"
             r = requests.post(PROXY, headers={"Authorization": f"Bearer {key}",
                                               "Content-Type": "application/json"},
-                              json={"model": m, "messages": msgs, "max_tokens": eff_max,
-                                    "temperature": temperature, "stream": True},
+                              json=req_json,
                               timeout=timeout, stream=True)
             dt = time.time() - t0
             if r.status_code != 200:
@@ -97,6 +101,30 @@ def llm(prompt, system=None, max_tokens=2000, temperature=0.8, models=None, time
             # content 为空时用 reasoning 兜底（dots 模型 reasoning 里可能有正文）
             if not txt:
                 txt = "".join(reasoning_parts).strip()
+            # reasoning/content 可能包含思考过程 + JSON，尝试提取最后一个合法 JSON 对象
+            if txt and "{" in txt and "}" in txt:
+                combined = txt
+                combined = re.sub(r"```(?:json)?\s*", "", combined)
+                combined = re.sub(r"```\s*$", "", combined)
+                # 从后往前找最后一个 }，再往前找匹配的 {
+                end = combined.rfind("}")
+                depth = 0
+                start = -1
+                for i in range(end, -1, -1):
+                    if combined[i] == "}":
+                        depth += 1
+                    elif combined[i] == "{":
+                        depth -= 1
+                        if depth == 0:
+                            start = i
+                            break
+                if start >= 0 and end > start:
+                    json_candidate = combined[start:end+1]
+                    try:
+                        json.loads(json_candidate)
+                        txt = json_candidate  # 只保留 JSON 部分
+                    except json.JSONDecodeError:
+                        pass
 
             if not txt.strip():
                 errs.append(f"{m}: 空回复")
