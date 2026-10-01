@@ -57,16 +57,21 @@ def llm(prompt, system=None, max_tokens=2000, temperature=0.8, models=None, time
         try:
             t0 = time.time()
             # reasoning 模型需要足够 token，否则 reasoning 吃满、content 没空间
-            eff_max = max(max_tokens, 2000)
+            eff_max = max(max_tokens, 8000)  # dots reasoning 模型需要足够 token 空间
             # dots 等 reasoning 模型：加 reasoning_effort=low 让正文落到 content 字段
             req_json = {"model": m, "messages": msgs, "max_tokens": eff_max,
-                        "temperature": temperature, "stream": True}
+                        "temperature": temperature}
             if "dots" in m or "reasoning" in m.lower():
                 req_json["reasoning_effort"] = "low"
+                # dots streaming 会把 content 和 reasoning 都塞进 reasoning 字段，
+                # 必须用非流式才能正确分离
+                req_json["stream"] = False
+            else:
+                req_json["stream"] = True
             r = requests.post(PROXY, headers={"Authorization": f"Bearer {key}",
                                               "Content-Type": "application/json"},
                               json=req_json,
-                              timeout=timeout, stream=True)
+                              timeout=timeout, stream=req_json.get("stream", True))
             dt = time.time() - t0
             if r.status_code != 200:
                 errs.append(f"{m}: HTTP {r.status_code} {r.text[:80]}")
@@ -74,33 +79,39 @@ def llm(prompt, system=None, max_tokens=2000, temperature=0.8, models=None, time
                     print(f"   [llm] {m} 失败 HTTP {r.status_code}", file=sys.stderr)
                 continue
 
-            # 流式读取：同时收集 content 和 reasoning
-            content_parts = []
-            reasoning_parts = []
-            for line in r.iter_lines():
-                if not line:
-                    continue
-                line = line.decode()
-                if not line.startswith("data: "):
-                    continue
-                ds = line[6:]
-                if ds == "[DONE]":
-                    break
-                try:
-                    d = json.loads(ds)
-                    for c in (d.get("choices") or []):
-                        delta = c.get("delta") or {}
-                        if delta.get("content"):
-                            content_parts.append(delta["content"])
-                        if delta.get("reasoning"):
-                            reasoning_parts.append(delta["reasoning"])
-                except Exception:
-                    pass
-
-            txt = "".join(content_parts).strip()
-            # content 为空时用 reasoning 兜底（dots 模型 reasoning 里可能有正文）
-            if not txt:
-                txt = "".join(reasoning_parts).strip()
+            if req_json.get("stream"):
+                # 流式读取：同时收集 content 和 reasoning
+                content_parts = []
+                reasoning_parts = []
+                for line in r.iter_lines():
+                    if not line:
+                        continue
+                    line = line.decode()
+                    if not line.startswith("data: "):
+                        continue
+                    ds = line[6:]
+                    if ds == "[DONE]":
+                        break
+                    try:
+                        d = json.loads(ds)
+                        for c in (d.get("choices") or []):
+                            delta = c.get("delta") or {}
+                            if delta.get("content"):
+                                content_parts.append(delta["content"])
+                            if delta.get("reasoning"):
+                                reasoning_parts.append(delta["reasoning"])
+                    except Exception:
+                        pass
+                txt = "".join(content_parts).strip()
+                if not txt:
+                    txt = "".join(reasoning_parts).strip()
+            else:
+                # 非流式：直接从 message 字段取
+                d = r.json()
+                msg = (d.get("choices") or [{}])[0].get("message") or {}
+                txt = (msg.get("content") or "").strip()
+                if not txt:
+                    txt = (msg.get("reasoning") or "").strip()
             # reasoning/content 可能包含思考过程 + JSON，尝试提取最后一个合法 JSON 对象
             if txt and "{" in txt and "}" in txt:
                 combined = txt
