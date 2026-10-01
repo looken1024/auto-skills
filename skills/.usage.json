@@ -185,14 +185,14 @@
     "created_by": null,
     "last_patched_at": null,
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-10-01T00:20:28.245289+00:00",
-    "last_viewed_at": "2026-10-01T00:20:28.241544+00:00",
+    "last_used_at": "2026-10-01T01:20:25.945532+00:00",
+    "last_viewed_at": "2026-10-01T01:20:25.942596+00:00",
     "patch_count": 0,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 289,
-    "view_count": 289
+    "use_count": 290,
+    "view_count": 290
   },
   "ima-image-pipeline": {
     "archived_at": null,
@@ -223,6 +223,21 @@
     "state": "active",
     "use_count": 7,
     "view_count": 7
+  },
+  "lieflat-less-ai-tone": {
+    "archived_at": null,
+    "created_at": "2026-10-01T01:01:35.780200+00:00",
+    "created_by": null,
+    "last_patched_at": null,
+    "last_reused_patch_generation": 0,
+    "last_used_at": "2026-10-01T01:01:35.783810+00:00",
+    "last_viewed_at": "2026-10-01T01:01:35.780223+00:00",
+    "patch_count": 0,
+    "patch_generation": 0,
+    "pinned": false,
+    "state": "active",
+    "use_count": 1,
+    "view_count": 1
   },
   "maps": {
     "archived_at": null,
@@ -410,14 +425,14 @@
     "created_by": null,
     "last_patched_at": "2026-09-13T15:44:25.832427+00:00",
     "last_reused_patch_generation": 7,
-    "last_used_at": "2026-09-14T13:03:36.929493+00:00",
-    "last_viewed_at": "2026-09-14T13:03:36.926887+00:00",
+    "last_used_at": "2026-10-01T01:25:57.253069+00:00",
+    "last_viewed_at": "2026-10-01T01:25:57.249598+00:00",
     "patch_count": 7,
     "patch_generation": 7,
     "pinned": false,
     "state": "active",
-    "use_count": 17,
-    "view_count": 17
+    "use_count": 18,
+    "view_count": 18
   },
   "web-tools-guide": {
     "archived_at": null,
