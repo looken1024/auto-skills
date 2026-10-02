@@ -16,10 +16,6 @@
     "en": "rapeseed flower field"
   },
   {
-    "cn": "红树林",
-    "en": "mangrove forest roots water"
-  },
-  {
     "cn": "萤火虫森林",
     "en": "fireflies night forest"
   },
@@ -44,16 +40,8 @@
     "en": "wildflower alpine meadow"
   },
   {
-    "cn": "湿地芦苇",
-    "en": "reed marsh sunset"
-  },
-  {
     "cn": "热带海岛航拍",
     "en": "tropical island aerial"
-  },
-  {
-    "cn": "滩涂倒影",
-    "en": "tidal flat reflection"
   },
   {
     "cn": "蓝冰洞",
@@ -96,10 +84,6 @@
     "en": "aurora lake reflection"
   },
   {
-    "cn": "秋日葡萄园",
-    "en": "vineyard autumn rows"
-  },
-  {
     "cn": "茶山",
     "en": "tea plantation hills"
   },
@@ -108,32 +92,12 @@
     "en": "pine forest morning fog"
   },
   {
-    "cn": "海边礁石",
-    "en": "rocky coast waves crash"
-  },
-  {
     "cn": "珊瑚礁",
     "en": "coral reef underwater fish"
   },
   {
-    "cn": "芦苇荡夕阳",
-    "en": "reed field golden sunset"
-  },
-  {
-    "cn": "骑楼老街",
-    "en": "arcade shophouse street"
-  },
-  {
-    "cn": "碉楼",
-    "en": "watchtower fortress village"
-  },
-  {
     "cn": "四合院",
     "en": "chinese courtyard house"
-  },
-  {
-    "cn": "红砖厝",
-    "en": "minnan red brick house"
   },
   {
     "cn": "江南园林",
@@ -152,32 +116,8 @@
     "en": "covered wooden bridge"
   },
   {
-    "cn": "老钟楼",
-    "en": "clock tower old town"
-  },
-  {
-    "cn": "旋转楼梯",
-    "en": "spiral staircase architecture"
-  },
-  {
-    "cn": "拱廊",
-    "en": "colonnade arches corridor"
-  },
-  {
-    "cn": "红砖厂房",
-    "en": "red brick industrial building"
-  },
-  {
     "cn": "玻璃穹顶",
     "en": "glass dome ceiling"
-  },
-  {
-    "cn": "清水混凝土教堂",
-    "en": "brutalist concrete church"
-  },
-  {
-    "cn": "阶梯住宅",
-    "en": "terraced hillside houses"
   },
   {
     "cn": "水上木屋",
@@ -192,28 +132,12 @@
     "en": "alpine chalet village"
   },
   {
-    "cn": "山城阶梯",
-    "en": "hillside steps city"
-  },
-  {
-    "cn": "老城门",
-    "en": "ancient city gate wall"
-  },
-  {
     "cn": "伊斯兰穹顶",
     "en": "islamic dome mosque architecture"
   },
   {
     "cn": "彩色房子",
     "en": "colorful houses street"
-  },
-  {
-    "cn": "石板小巷",
-    "en": "cobblestone alley old town"
-  },
-  {
-    "cn": "铁艺阳台",
-    "en": "wrought iron balcony facade"
   },
   {
     "cn": "礁石灯塔",
@@ -250,10 +174,6 @@
   {
     "cn": "许愿池",
     "en": "trevi fountain rome"
-  },
-  {
-    "cn": "奥林匹亚遗址",
-    "en": "olympia greece ruins"
   },
   {
     "cn": "卡兹尼神殿",
@@ -380,152 +300,24 @@
     "en": "dolomites italy mountains"
   },
   {
-    "cn": "早市摊位",
-    "en": "morning market stalls vegetables"
-  },
-  {
     "cn": "花店门口",
     "en": "flower shop storefront"
-  },
-  {
-    "cn": "面包店",
-    "en": "bakery shop interior"
-  },
-  {
-    "cn": "老理发店",
-    "en": "old barbershop interior"
-  },
-  {
-    "cn": "唱片店",
-    "en": "vinyl record store"
-  },
-  {
-    "cn": "旧书摊",
-    "en": "secondhand book stall street"
-  },
-  {
-    "cn": "街头画家",
-    "en": "street artist painting easel"
-  },
-  {
-    "cn": "街头下棋",
-    "en": "elderly playing chess street"
   },
   {
     "cn": "早茶点心",
     "en": "dim sum tea house"
   },
   {
-    "cn": "面馆烟火",
-    "en": "noodle shop steam kitchen"
-  },
-  {
-    "cn": "烧烤摊",
-    "en": "street bbq grill night"
-  },
-  {
-    "cn": "糖画手艺人",
-    "en": "sugar painting artisan"
-  },
-  {
-    "cn": "竹编工匠",
-    "en": "bamboo weaving craftsman"
-  },
-  {
-    "cn": "染布坊",
-    "en": "indigo dye fabric workshop"
-  },
-  {
-    "cn": "皮影戏",
-    "en": "shadow puppet performance"
-  },
-  {
-    "cn": "木偶戏",
-    "en": "puppet show stage"
-  },
-  {
     "cn": "龙舟训练",
     "en": "dragon boat rowing team"
-  },
-  {
-    "cn": "赶海",
-    "en": "tidal flat shellfish gathering"
-  },
-  {
-    "cn": "采茶人",
-    "en": "tea picking hands basket"
-  },
-  {
-    "cn": "渔港归来",
-    "en": "fishing boat returning harbor"
-  },
-  {
-    "cn": "修表匠",
-    "en": "watch repair craftsman"
-  },
-  {
-    "cn": "缝纫老店",
-    "en": "tailor shop sewing machine"
-  },
-  {
-    "cn": "修鞋摊",
-    "en": "shoe repair street stall"
-  },
-  {
-    "cn": "老照相馆",
-    "en": "old photo studio interior"
-  },
-  {
-    "cn": "旧邮局窗",
-    "en": "vintage post office window"
-  },
-  {
-    "cn": "火车窗景",
-    "en": "view from train window"
-  },
-  {
-    "cn": "骑行小路",
-    "en": "cycling path countryside"
-  },
-  {
-    "cn": "露台夜谈",
-    "en": "rooftop evening gathering"
-  },
-  {
-    "cn": "冬日窗边",
-    "en": "winter window reading cozy"
   },
   {
     "cn": "灯笼夜市",
     "en": "lantern night market"
   },
   {
-    "cn": "台湾夜市",
-    "en": "taiwan night market stalls"
-  },
-  {
-    "cn": "曼谷夜市",
-    "en": "bangkok night market street"
-  },
-  {
-    "cn": "海鲜夜市",
-    "en": "seafood night market"
-  },
-  {
-    "cn": "夜市烧烤摊",
-    "en": "bbq night market grills"
-  },
-  {
-    "cn": "糖葫芦摊",
-    "en": "candied fruit street stall"
-  },
-  {
     "cn": "灯会",
     "en": "chinese lantern festival night"
-  },
-  {
-    "cn": "庙会",
-    "en": "temple fair crowd"
   },
   {
     "cn": "圣诞市集",
@@ -540,24 +332,12 @@
     "en": "neon signs street night"
   },
   {
-    "cn": "夜宵摊",
-    "en": "late night food stall"
-  },
-  {
-    "cn": "夜市游戏摊",
-    "en": "carnival game booth night"
-  },
-  {
     "cn": "河灯",
     "en": "floating lantern river night"
   },
   {
     "cn": "颐和园",
     "en": "summer palace beijing"
-  },
-  {
-    "cn": "圆明园",
-    "en": "yuanmingyuan ruins"
   },
   {
     "cn": "北海公园",
@@ -574,10 +354,6 @@
   {
     "cn": "央视大楼",
     "en": "cctv headquarters beijing"
-  },
-  {
-    "cn": "南锣鼓巷",
-    "en": "beijing hutong alley"
   },
   {
     "cn": "香山红叶",
@@ -598,14 +374,6 @@
   {
     "cn": "豫园",
     "en": "yu garden shanghai"
-  },
-  {
-    "cn": "田子坊",
-    "en": "tianzifang shanghai"
-  },
-  {
-    "cn": "武康路",
-    "en": "wukang road shanghai"
   },
   {
     "cn": "外白渡桥",
@@ -668,10 +436,6 @@
     "en": "putuo mountain"
   },
   {
-    "cn": "楠溪江",
-    "en": "nanxi river"
-  },
-  {
     "cn": "皖南古村落",
     "en": "anhui ancient village"
   },
@@ -706,10 +470,6 @@
   {
     "cn": "霞浦滩涂",
     "en": "xiapu china fishing"
-  },
-  {
-    "cn": "潮州牌坊街",
-    "en": "chaozhou arch street"
   },
   {
     "cn": "珠海大剧院",
@@ -770,10 +530,6 @@
   {
     "cn": "洪崖洞",
     "en": "hongya cave chongqing"
-  },
-  {
-    "cn": "重庆轻轨",
-    "en": "chongqing monorail"
   },
   {
     "cn": "长江索道",
@@ -850,10 +606,6 @@
   {
     "cn": "火焰山",
     "en": "flaming mountains turpan"
-  },
-  {
-    "cn": "喀什老城",
-    "en": "kashgar old town"
   },
   {
     "cn": "贺兰山",
@@ -952,24 +704,12 @@
     "en": "tianjin eye ferris wheel"
   },
   {
-    "cn": "吊脚楼",
-    "en": "stilted house riverside"
-  },
-  {
     "cn": "蒙古包",
     "en": "mongolian yurt"
   },
   {
-    "cn": "藏式民居",
-    "en": "tibetan house village"
-  },
-  {
     "cn": "侗族鼓楼",
     "en": "dong minority village guizhou"
-  },
-  {
-    "cn": "白族民居",
-    "en": "bai minority house"
   },
   {
     "cn": "藏族寺庙",
