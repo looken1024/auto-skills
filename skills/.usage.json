@@ -110,14 +110,14 @@
     "created_by": null,
     "last_patched_at": null,
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-10-01T15:08:51.809299+00:00",
-    "last_viewed_at": "2026-10-01T15:08:51.805952+00:00",
+    "last_used_at": "2026-10-02T15:00:38.216967+00:00",
+    "last_viewed_at": "2026-10-02T15:00:38.212213+00:00",
     "patch_count": 0,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 41,
-    "view_count": 22
+    "use_count": 43,
+    "view_count": 23
   },
   "hermes-agent": {
     "archived_at": null,
@@ -470,13 +470,13 @@
     "created_by": null,
     "last_patched_at": "2026-09-13T15:27:00.450929+00:00",
     "last_reused_patch_generation": 4,
-    "last_used_at": "2026-10-01T15:00:44.061069+00:00",
+    "last_used_at": "2026-10-02T15:00:13.804163+00:00",
     "last_viewed_at": "2026-10-01T08:09:38.775143+00:00",
     "patch_count": 4,
     "patch_generation": 4,
     "pinned": false,
     "state": "active",
-    "use_count": 25,
+    "use_count": 26,
     "view_count": 6
   },
   "wechat-article-publisher": {
@@ -485,14 +485,14 @@
     "created_by": null,
     "last_patched_at": null,
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-10-02T05:44:56.493872+00:00",
-    "last_viewed_at": "2026-10-02T05:44:56.490091+00:00",
+    "last_used_at": "2026-10-02T15:00:38.227443+00:00",
+    "last_viewed_at": "2026-10-02T15:00:38.221971+00:00",
     "patch_count": 0,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 48,
-    "view_count": 48
+    "use_count": 49,
+    "view_count": 49
   },
   "wechat-cloud-base-api": {
     "archived_at": null,
