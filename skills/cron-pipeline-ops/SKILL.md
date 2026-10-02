@@ -107,11 +107,25 @@ curl -s -X POST <base_url>/chat/completions -H "Authorization: Bearer $KEY" -H '
 
 发布类任务的最后一道闸门：复审脚本只抓「AI 味」，**抓不出事实错误**。实测一次外部复盘就从当天 5 条里找出 5 处事实/口径问题（数据口径写错、统计数字论证方向反了、二手名次当事实、自建估算未标注、选择性引用）。完整六条门禁 + 同日多条的结尾/情绪/结构配额 + 复盘 prompt 模板见 `references/pre-publish-fact-gate.md`；可把它当作发布前的 checklist 跑一遍。
 
+## 识图能力（`vision_analyze`）的后端接线
+
+识图走 `auxiliary.vision`，与主模型是**两套**配置。`provider: auto` 时可能落到额度耗尽的第三方，报 `402 insufficient_credits`——**看起来像「没有识图能力」，实际是接错后端**。
+
+```bash
+hermes config set auxiliary.vision.provider deepseek
+hermes config set auxiliary.vision.model deepseek-flash
+```
+
+- ⚠️ **`~/.hermes/config.yaml` 受保护，agent 直接 write/patch 会被拒**（会提示“编辑 ~/.hermes/config.yaml 或使用 hermes config”），必须走 `hermes config set`。
+- 修好后优先用 `vision_analyze` 而不是“让别的模型描述再读描述”：它把图**载入 agent 自己的上下文**，看得准；外部描述会前后矛盾（实测同一张图被判“朝右/朝左/正前”各一次），会把不合格成品判成合格。
+- 兜底：图转 base64 data URL 塞进主模型 `chat/completions` 的 `image_url`（主模型支持读图时可用）。
+- 详细的成对图生成、pollinations 限流与水印、Pexels 相关性抽查见 `references/image-sources.md`。
+
 ## 支持文件
 - `references/hermes-cron-model-ops.md` — 四层根因实战记录、判定命令、日志/证据位置、免费模型实测表
 - `references/web-chat-automation.md` — 驱动网页版大模型：browser_exec 手动路径（登录/验证码/发送/抓回复）+ 裸 CDP 脚本化终审（后台标签节流、容器选择、VERDICT 解析、fail 策略）+ 裸 CDP 连 9222 通用坑（browser-harness 403 → 裸 websocket `suppress_origin=True`、Chrome 看门狗、列表页等 8s 渲染后用 innerText+分隔符解析）
 - `references/cron-agent-output-discipline.md` — agent 版 cron 输出纪律：报告正文一律落盘、最终回复只给短摘要（超长截断→整轮判 FAILED 的首跑事故实录）
-- `references/pexels-topic-exhaustion.md` — 图集流水线话题池枯竭：md5 台账感知选题（超阈值话题排除），含补丁变量作用域乌龙与 dry-run 立验教训+ 裸 CDP 连 9222 通用坑（browser-harness 403→裸 websocket suppress_origin、Chrome 看门狗、innerText 解析）
+- `references/pexels-topic-exhaustion.md` — 图集话题池：枯竭根因（台账消耗 ≈ 检索深度）+ md5 台账感知选题（超阈值排除）、**什么时候该换池（反复打“所有候选话题均已发≥30张”）、换池/扩充完整工作流与相关性抽查（英文词搜得到≠图对，含实例）、topics.json 格式不匹配会静默失效**、补丁变量作用域乌龙与 dry-run 立验教训
 - `references/pipeline-dual-output.md` — 图集流水线双输出架构：压缩版进草稿箱 + 全尺寸版通过 MEDIA: 推给用户（绕过微信素材库大小限制）。含 compress_image 兜底缩分辨率、process_image 大图降采样、batchget 必须 POST、newspic 图片在 image_info 不在 content 等踩坑。
 - `references/pre-publish-fact-gate.md` — 发布前事实/口径六条门禁、同日多条配额、外部复盘 prompt 模板
 - `references/cron-empty-spin-triage.md` — “任务成功但零交付”的日志级排查（会话 id 反推、模型分布统计、配额 429 原文、输出文件时间戳语义）+ prompt 层防空转条款
@@ -120,4 +134,5 @@ curl -s -X POST <base_url>/chat/completions -H "Authorization: Bearer $KEY" -H '
 - `references/gzh-article-publish-notes.md` — 公众号文章线：写作 skill 真实名字（发布 skill 里的引用是悬空的）、六步实录命令、发布后 HTML 标签自检表、汇报格式
 - `references/cron-model-swap-notes.md` — 换 cron 任务模型实操（cronjob 接口不支持改 model→直接改 jobs.json、双确认落盘、用户同意规矩）与整链失效根因判定（同模型不同路径可用性不同、免费池小时级抖动先重测再改配置）
 - `references/wechat-draft-api-content-types.md` — 公众号草稿 API：`newspic` vs `news` 的 content 能力差异（图片消息只存纯文本→小程序链接必须走图文消息）、三种小程序链接 HTML 写法、`draft/batchget` vs `draft/getdraft` 接口名坑、`freepublish/batchget` 48001、逐条验证矩阵
-- `references/image-sources.md` — 免 key 配图素材（Pexels 实拍封面 / pollinations 生图 / 无 DashScope 时的看图验证）。含 pollinations 下载方式坑（urllib 403 → 必须 curl + UA）、水印裁切尺寸。
+- `references/image-sources.md` — 免 key 配图素材全谱：(A) Pexels 实拍（含相关性抽查坑：地名英文词“搜得到≠图对”、额度 200/小时）(B) pollinations 生图（尺寸上限、水印必存+裁切尺寸、约一半请求空文件需重试、提示词约束力有限）(C) 看图验证硬规矩 **(D) 成对图/情侣头像：一次生成整幅再切开 + PIL 分区染色 + 90% 安全边距 + 圆形裁切自查（别分两次生成）** (E) `vision_analyze` 后端接错导致 402 的修法。urllib 403 → 必须 curl + UA。
+- `references/gallery-draftbox-ops.md` — 公众号图集/草稿线运维：**草稿箱批量清理**（按 `update_time` 切分 + 先分类保护用户手写稿 + 分类规则写窄的坑 + 后台计数与 API 对不上）、`process_image()` OOM 修法（整图 float64 噪声 → 分块 float32，2G 小机器必踩）、**贴图(newspic) vs 图文(news) 版式取舍已定案**（要可点小程序链只能 news）。

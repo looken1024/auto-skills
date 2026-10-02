@@ -550,5 +550,437 @@
   {
     "cn": "河灯",
     "en": "floating lantern river night"
+  },
+  {
+    "cn": "颐和园",
+    "en": "summer palace beijing"
+  },
+  {
+    "cn": "圆明园",
+    "en": "yuanmingyuan ruins"
+  },
+  {
+    "cn": "北海公园",
+    "en": "beihai park beijing"
+  },
+  {
+    "cn": "什刹海",
+    "en": "shichahai lake beijing"
+  },
+  {
+    "cn": "鸟巢",
+    "en": "beijing national stadium"
+  },
+  {
+    "cn": "央视大楼",
+    "en": "cctv headquarters beijing"
+  },
+  {
+    "cn": "南锣鼓巷",
+    "en": "beijing hutong alley"
+  },
+  {
+    "cn": "香山红叶",
+    "en": "autumn red leaves mountain china"
+  },
+  {
+    "cn": "慕田峪长城",
+    "en": "mutianyu great wall"
+  },
+  {
+    "cn": "明十三陵",
+    "en": "ming tombs beijing"
+  },
+  {
+    "cn": "雍和宫",
+    "en": "lama temple beijing"
+  },
+  {
+    "cn": "豫园",
+    "en": "yu garden shanghai"
+  },
+  {
+    "cn": "田子坊",
+    "en": "tianzifang shanghai"
+  },
+  {
+    "cn": "武康路",
+    "en": "wukang road shanghai"
+  },
+  {
+    "cn": "外白渡桥",
+    "en": "waibaidu bridge shanghai"
+  },
+  {
+    "cn": "上海中心大厦",
+    "en": "shanghai tower"
+  },
+  {
+    "cn": "苏州园林",
+    "en": "suzhou garden"
+  },
+  {
+    "cn": "拙政园",
+    "en": "humble administrator garden"
+  },
+  {
+    "cn": "周庄",
+    "en": "zhouzhuang water town"
+  },
+  {
+    "cn": "乌镇",
+    "en": "wuzhen water town"
+  },
+  {
+    "cn": "西塘",
+    "en": "xitang water town"
+  },
+  {
+    "cn": "夫子庙",
+    "en": "nanjing confucius temple"
+  },
+  {
+    "cn": "中山陵",
+    "en": "sun yat sen mausoleum"
+  },
+  {
+    "cn": "瘦西湖",
+    "en": "slender west lake"
+  },
+  {
+    "cn": "鼋头渚",
+    "en": "wuxi taihu lake"
+  },
+  {
+    "cn": "灵隐寺",
+    "en": "lingyin temple hangzhou"
+  },
+  {
+    "cn": "千岛湖",
+    "en": "qiandao lake"
+  },
+  {
+    "cn": "雁荡山",
+    "en": "yandang mountain"
+  },
+  {
+    "cn": "普陀山",
+    "en": "putuo mountain"
+  },
+  {
+    "cn": "楠溪江",
+    "en": "nanxi river"
+  },
+  {
+    "cn": "皖南古村落",
+    "en": "anhui ancient village"
+  },
+  {
+    "cn": "三清山",
+    "en": "sanqingshan mountain"
+  },
+  {
+    "cn": "庐山",
+    "en": "mount lu"
+  },
+  {
+    "cn": "景德镇",
+    "en": "jingdezhen porcelain"
+  },
+  {
+    "cn": "龙虎山",
+    "en": "longhu mountain"
+  },
+  {
+    "cn": "鄱阳湖",
+    "en": "poyang lake"
+  },
+  {
+    "cn": "鼓浪屿",
+    "en": "gulangyu island xiamen"
+  },
+  {
+    "cn": "武夷山",
+    "en": "wuyi mountain"
+  },
+  {
+    "cn": "霞浦滩涂",
+    "en": "xiapu china fishing"
+  },
+  {
+    "cn": "潮州牌坊街",
+    "en": "chaozhou arch street"
+  },
+  {
+    "cn": "珠海大剧院",
+    "en": "zhuhai opera house"
+  },
+  {
+    "cn": "丹霞山",
+    "en": "danxia landform"
+  },
+  {
+    "cn": "深圳天际线",
+    "en": "shenzhen skyline"
+  },
+  {
+    "cn": "岳麓山",
+    "en": "yuelu mountain"
+  },
+  {
+    "cn": "洞庭湖",
+    "en": "dongting lake"
+  },
+  {
+    "cn": "神农架",
+    "en": "shennongjia forest"
+  },
+  {
+    "cn": "三峡",
+    "en": "three gorges yangtze"
+  },
+  {
+    "cn": "黄鹤楼",
+    "en": "yellow crane tower"
+  },
+  {
+    "cn": "恩施大峡谷",
+    "en": "enshi grand canyon"
+  },
+  {
+    "cn": "都江堰",
+    "en": "dujiangyan irrigation"
+  },
+  {
+    "cn": "青城山",
+    "en": "qingcheng mountain"
+  },
+  {
+    "cn": "乐山大佛",
+    "en": "leshan giant buddha"
+  },
+  {
+    "cn": "四姑娘山",
+    "en": "siguniang mountain"
+  },
+  {
+    "cn": "海螺沟",
+    "en": "hailuogou glacier"
+  },
+  {
+    "cn": "洪崖洞",
+    "en": "hongya cave chongqing"
+  },
+  {
+    "cn": "重庆轻轨",
+    "en": "chongqing monorail"
+  },
+  {
+    "cn": "长江索道",
+    "en": "yangtze river cableway"
+  },
+  {
+    "cn": "牛背山",
+    "en": "niubei mountain"
+  },
+  {
+    "cn": "元阳梯田",
+    "en": "yuanyang rice terraces"
+  },
+  {
+    "cn": "玉龙雪山",
+    "en": "jade dragon snow mountain"
+  },
+  {
+    "cn": "大理古城",
+    "en": "dali ancient town"
+  },
+  {
+    "cn": "西双版纳",
+    "en": "xishuangbanna rainforest"
+  },
+  {
+    "cn": "黄果树瀑布",
+    "en": "huangguoshu waterfall"
+  },
+  {
+    "cn": "千户苗寨",
+    "en": "xijiang miao village"
+  },
+  {
+    "cn": "荔波小七孔",
+    "en": "libo xiaoqikong"
+  },
+  {
+    "cn": "万峰林",
+    "en": "wanfenglin karst"
+  },
+  {
+    "cn": "张掖丹霞",
+    "en": "zhangye danxia"
+  },
+  {
+    "cn": "嘉峪关",
+    "en": "jiayuguan pass"
+  },
+  {
+    "cn": "月牙泉",
+    "en": "crescent lake dunhuang"
+  },
+  {
+    "cn": "茶卡盐湖",
+    "en": "chaka salt lake"
+  },
+  {
+    "cn": "天山天池",
+    "en": "tianchi lake xinjiang"
+  },
+  {
+    "cn": "帕米尔高原",
+    "en": "pamir plateau"
+  },
+  {
+    "cn": "赛里木湖",
+    "en": "sayram lake"
+  },
+  {
+    "cn": "塔克拉玛干",
+    "en": "taklamakan desert"
+  },
+  {
+    "cn": "火焰山",
+    "en": "flaming mountains turpan"
+  },
+  {
+    "cn": "喀什老城",
+    "en": "kashgar old town"
+  },
+  {
+    "cn": "贺兰山",
+    "en": "helan mountains"
+  },
+  {
+    "cn": "沙坡头",
+    "en": "shapotou desert"
+  },
+  {
+    "cn": "秦岭",
+    "en": "qinling mountains"
+  },
+  {
+    "cn": "长白山",
+    "en": "changbai mountain"
+  },
+  {
+    "cn": "松花江雾凇",
+    "en": "rime ice jilin"
+  },
+  {
+    "cn": "哈尔滨冰雪大世界",
+    "en": "harbin ice festival"
+  },
+  {
+    "cn": "圣索菲亚教堂",
+    "en": "saint sophia cathedral harbin"
+  },
+  {
+    "cn": "漠河北极村",
+    "en": "mohe northern village"
+  },
+  {
+    "cn": "大连星海广场",
+    "en": "dalian xinghai square"
+  },
+  {
+    "cn": "纳木错",
+    "en": "namtso lake"
+  },
+  {
+    "cn": "珠峰大本营",
+    "en": "everest base camp"
+  },
+  {
+    "cn": "羊卓雍措",
+    "en": "yamdrok lake"
+  },
+  {
+    "cn": "冈仁波齐",
+    "en": "mount kailash"
+  },
+  {
+    "cn": "阿尔山",
+    "en": "arshan forest"
+  },
+  {
+    "cn": "巴丹吉林沙漠",
+    "en": "badain jaran desert"
+  },
+  {
+    "cn": "澳门大三巴",
+    "en": "ruins of st paul macau"
+  },
+  {
+    "cn": "九份",
+    "en": "jiufen old street"
+  },
+  {
+    "cn": "阿里山",
+    "en": "alishan mountain"
+  },
+  {
+    "cn": "垦丁",
+    "en": "kenting beach taiwan"
+  },
+  {
+    "cn": "太鲁阁",
+    "en": "taroko gorge"
+  },
+  {
+    "cn": "国家大剧院",
+    "en": "national centre performing arts"
+  },
+  {
+    "cn": "苏州博物馆",
+    "en": "suzhou museum"
+  },
+  {
+    "cn": "哈尔滨大剧院",
+    "en": "harbin opera house"
+  },
+  {
+    "cn": "天津之眼",
+    "en": "tianjin eye ferris wheel"
+  },
+  {
+    "cn": "吊脚楼",
+    "en": "stilted house riverside"
+  },
+  {
+    "cn": "蒙古包",
+    "en": "mongolian yurt"
+  },
+  {
+    "cn": "藏式民居",
+    "en": "tibetan house village"
+  },
+  {
+    "cn": "侗族鼓楼",
+    "en": "dong minority village guizhou"
+  },
+  {
+    "cn": "白族民居",
+    "en": "bai minority house"
+  },
+  {
+    "cn": "藏族寺庙",
+    "en": "tibetan monastery"
+  },
+  {
+    "cn": "苗寨",
+    "en": "miao village"
+  },
+  {
+    "cn": "徽州牌坊",
+    "en": "huizhou memorial arch"
   }
 ]
