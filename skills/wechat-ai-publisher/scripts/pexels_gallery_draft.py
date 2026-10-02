@@ -32,7 +32,16 @@ def load_topics():
     if os.path.exists(TOPICS_JSON):
         try:
             data = json.load(open(TOPICS_JSON, encoding="utf-8"))
-            pairs = [(d["cn"], d["en"]) for d in data if d.get("cn") and d.get("en")]
+            pairs = []
+            for d in data:
+                if isinstance(d, dict):
+                    cn, en = d.get("cn"), d.get("en")
+                elif isinstance(d, (list, tuple)) and len(d) >= 2:
+                    cn, en = d[0], d[1]
+                else:
+                    continue
+                if cn and en:
+                    pairs.append((cn, en))
             if pairs:
                 return pairs
         except Exception as e:
@@ -42,259 +51,148 @@ def load_topics():
 
 _BUILTIN_TOPICS = [
     # --- 自然景观 ---
-    ("秋天", "autumn forest"),
-    ("秋叶", "autumn leaves"),
-    ("雪景", "winter snow landscape"),
-    ("星空", "starry night sky"),
-    ("大海", "ocean waves sunset"),
-    ("森林", "green forest sunlight"),
-    ("花朵", "flower meadow"),
-    ("日出", "sunrise mountains"),
-    ("城市夜景", "city night lights"),
-    ("山川", "mountain landscape fog"),
-    ("春天", "spring blossom trees"),
-    ("夏日", "summer beach"),
-    ("黄昏", "sunset sky clouds"),
-    ("湖泊", "lake reflection mountains"),
-    ("沙漠", "desert dunes"),
-    ("极光", "aurora borealis"),
-    ("云海", "sea of clouds"),
-    ("溪流", "mountain stream waterfall"),
-    # --- 交通工具 ---
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    ("古镇小桥流水", "ancient boat river town"),
+    ("雪山金顶", "snow mountain golden sunrise"),
+    ("冰川湖", "glacial lake turquoise"),
+    ("薰衣草花田", "lavender field rows"),
+    ("油菜花田", "rapeseed flower field"),
+    ("红树林", "mangrove forest roots water"),
+    ("萤火虫森林", "fireflies night forest"),
+    ("樱花小径", "cherry blossom path"),
+    ("桃花林", "peach blossom orchard"),
+    ("胡杨林", "poplar forest desert autumn"),
+    ("白桦林", "white birch trees forest"),
+    ("高山野花", "wildflower alpine meadow"),
+    ("湿地芦苇", "reed marsh sunset"),
+    ("热带海岛航拍", "tropical island aerial"),
+    ("滩涂倒影", "tidal flat reflection"),
+    ("蓝冰洞", "glacier ice cave"),
+    ("雪原日出", "snowfield sunrise cold"),
+    ("高原湖泊", "plateau lake mountains"),
+    ("温泉雾气", "hot spring steam winter"),
+    ("峡谷晨曦", "canyon sunrise mist"),
+    ("沙漠绿洲", "desert oasis palm trees"),
+    ("瀑布彩虹", "waterfall rainbow mist"),
+    ("云瀑", "cloud waterfall mountain ridge"),
+    ("银河星空", "milky way night sky"),
+    ("极光湖面", "aurora lake reflection"),
+    ("秋日葡萄园", "vineyard autumn rows"),
+    ("茶山", "tea plantation hills"),
+    ("松林晨雾", "pine forest morning fog"),
+    ("海边礁石", "rocky coast waves crash"),
+    ("珊瑚礁", "coral reef underwater fish"),
+    ("芦苇荡夕阳", "reed field golden sunset"),
     # --- 建筑 ---
-    ("摩天大楼", "skyscraper city"),
-    ("现代建筑", "modern architecture"),
-    ("古建筑", "ancient architecture temple"),
-    ("教堂", "cathedral church architecture"),
-    ("桥梁", "bridge architecture"),
-    ("吊桥", "suspension bridge"),
-    ("灯塔", "lighthouse coast"),
-    ("风车", "windmill countryside"),
-    ("水乡古镇", "chinese ancient town"),
-    ("城堡", "castle europe"),
-    ("高楼窗景", "city skyline reflection"),
-    ("街头巷弄", "old street alley"),
-    ("图书馆", "library interior"),
-    ("车站", "train station architecture"),
-    ("庭院", "courtyard garden architecture"),
-    # --- 动物 ---
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    # --- 美食 ---
-
-
-
-
-
-
-
+    ("骑楼老街", "arcade shophouse street"),
+    ("碉楼", "watchtower fortress village"),
+    ("四合院", "chinese courtyard house"),
+    ("红砖厝", "minnan red brick house"),
+    ("江南园林", "chinese classical garden"),
+    ("木构寺庙", "wooden temple hall"),
+    ("石拱桥", "ancient stone arch bridge"),
+    ("廊桥", "covered wooden bridge"),
+    ("老钟楼", "clock tower old town"),
+    ("旋转楼梯", "spiral staircase architecture"),
+    ("拱廊", "colonnade arches corridor"),
+    ("红砖厂房", "red brick industrial building"),
+    ("玻璃穹顶", "glass dome ceiling"),
+    ("清水混凝土教堂", "brutalist concrete church"),
+    ("阶梯住宅", "terraced hillside houses"),
+    ("水上木屋", "stilt house over water"),
+    ("白墙黑瓦", "white wall black tile house"),
+    ("尖顶山村", "alpine chalet village"),
+    ("山城阶梯", "hillside steps city"),
+    ("老城门", "ancient city gate wall"),
+    ("伊斯兰穹顶", "islamic dome mosque architecture"),
+    ("彩色房子", "colorful houses street"),
+    ("石板小巷", "cobblestone alley old town"),
+    ("铁艺阳台", "wrought iron balcony facade"),
+    ("礁石灯塔", "lighthouse rocky coast"),
+    # --- 世界地标 / 古迹 ---
+    ("新天鹅堡", "neuschwanstein castle"),
+    ("圣瓦西里大教堂", "saint basil cathedral moscow"),
+    ("查理大桥", "charles bridge prague"),
+    ("佛罗伦萨大教堂", "florence duomo"),
+    ("圣彼得大教堂", "st peters basilica vatican"),
+    ("威斯敏斯特教堂", "westminster abbey london"),
+    ("巴黎圣母院", "notre dame cathedral paris"),
+    ("许愿池", "trevi fountain rome"),
+    ("奥林匹亚遗址", "olympia greece ruins"),
+    ("卡兹尼神殿", "petra treasury jordan"),
+    ("卢克索神庙", "luxor temple egypt"),
+    ("阿布辛贝神庙", "abu simbel temple"),
+    ("卡纳克神庙", "karnak temple columns"),
+    ("泰姬陵花园", "taj mahal garden"),
+    ("巴戎寺", "bayon temple faces"),
+    ("蒲甘佛塔", "bagan temples myanmar"),
+    ("婆罗浮屠", "borobudur temple"),
+    ("富士山湖景", "mount fuji lake reflection"),
+    ("清水寺", "kiyomizu temple kyoto"),
+    ("伏见稻荷", "fushimi inari torii gates"),
+    ("严岛神社", "itsukushima shrine torii"),
+    ("东大寺", "todaiji temple nara"),
+    ("景福宫", "gyeongbokgung palace seoul"),
+    ("大皇宫", "grand palace bangkok"),
+    ("纽约中央公园", "central park new york autumn"),
+    ("金门大桥", "golden gate bridge fog"),
+    ("布鲁克林大桥", "brooklyn bridge new york"),
+    ("云门", "cloud gate chicago"),
+    ("蓝顶教堂", "santorini blue dome"),
+    ("五渔村", "cinque terre italy village"),
+    ("哈尔施塔特", "hallstatt austria lake"),
+    ("布莱德湖", "lake bled slovenia"),
+    ("罗滕堡", "rothenburg germany old town"),
+    ("科尔马", "colmar france canal houses"),
+    ("古埃尔公园", "park guell barcelona"),
+    ("里斯本电车", "lisbon tram yellow"),
+    ("伊斯坦布尔天际线", "istanbul mosque skyline"),
+    ("红场", "red square moscow"),
+    ("马特洪峰", "matterhorn switzerland"),
+    ("多洛米蒂", "dolomites italy mountains"),
     # --- 人文生活 ---
-    ("阅读", "reading book cozy"),
-    ("咖啡馆", "coffee shop interior"),
-    ("街头摄影师", "street photography city"),
-    ("茶室", "teahouse interior"),
-    ("书店", "bookstore shelves"),
-    ("集市", "farmers market stalls"),
-    ("雨天街道", "rainy street umbrella"),
-    ("夜景人像", "city night person silhouette"),
-    ("帐篷露营", "camping tent stars"),
-    ("滑雪", "skiing snow mountain"),
-    ("海滩日光浴", "beach vacation relax"),
-    # --- 艺术 / 展览 (展厅美学、历史艺术题材往往横图居多) ---
-
-
-
-
-
-
-
-
-
-
-    # --- 人物 / 肖像 ---
-
-
-
-
-
-
-    # --- 宇宙 / 天文 ---
-
-
-
-
-
-    # --- 古建 / 名画中的建筑&古迹 (知名地名/建筑补充) ---
-    ("古迹遗址", "ancient ruins archaeological site"),
-    ("雅典卫城", "acropolis athens greece"),
-    ("吴哥窟", "angkor wat cambodia"),
-    ("马丘比丘", "machu picchu peru"),
-    ("巨石阵", "stonehenge england"),
-    ("帕特农神庙", "parthenon greece"),
-    ("比萨斜塔", "leaning tower of pisa"),
-    ("科隆大教堂", "cologne cathedral"),
-    ("圣家堂", "sagrada familia barcelona"),
-    ("米兰大教堂", "milan cathedral duomo"),
-    ("摩索拉斯陵墓", "mausoleum halicarnassus"),
-    # --- 景点地标 ---
-    ("长城", "great wall of china"),
-    ("故宫", "forbidden city beijing"),
-    ("天坛", "temple of heaven beijing"),
-    ("西湖", "west lake hangzhou"),
-    ("黄山", "huangshan mountain"),
-    ("桂林山水", "guilin karst landscape"),
-    ("张家界", "zhangjiajie national forest park"),
-    ("九寨沟", "jiuzhaigou valley"),
-    ("布达拉宫", "potala palace lhasa"),
-    ("兵马俑", "terracotta warriors"),
-    ("敦煌莫高窟", "mogao caves dunhuang"),
-    ("外滩", "the bund shanghai skyline"),
-    ("东方明珠", "oriental pearl tower shanghai"),
-    ("上海陆家嘴", "lujiazui financial district"),
-    ("广州塔", "canton tower guangzhou"),
-    ("云南洱海", "erhai lake dali"),
-    ("稻城亚丁", "yading nature reserve"),
-    ("喀纳斯", "kanas lake xinjiang"),
-    ("埃菲尔铁塔", "eiffel tower paris"),
-    ("金字塔", "pyramids of giza"),
-    ("泰姬陵", "taj mahal"),
-    ("富士山", "mount fuji japan"),
-    ("圣托里尼", "santorini greece"),
-    ("威尼斯", "venice canals italy"),
-    ("罗马斗兽场", "colosseum rome"),
-    ("悉尼歌剧院", "sydney opera house"),
-    ("自由女神", "statue of liberty"),
-    ("里约基督像", "christ the redeemer rio"),
-    ("佩特拉古城", "petra jordan"),
-
-    # --- 高频补充：景观&自然（避开已高频话题，换新视角）---
-    ("梯田", "rice terraces mountain"),
-    ("峡谷", "canyon gorge river"),
-    ("瀑布", "waterfall jungle"),
-    ("湿地", "wetland marsh birds"),
-    ("草原", "grassland prairie sky"),
-    ("秋林小径", "autumn path forest walk"),
-    ("雾凇", "rime ice winter trees"),
-    ("盐湖", "salt flat reflection"),
-    ("火山口", "volcano crater lava"),
-    ("冰川", "glacier ice blue"),
-    ("雨林", "tropical rainforest canopy"),
-    ("荷塘", "lotus pond summer"),
-    ("海边落日", "coastline golden hour"),
-    ("梯田晨雾", "terrace mist sunrise"),
-    # --- 建筑&城市新视角 ---
-    ("老城区", "old town european street"),
-    ("玻璃幕墙", "glass facade building"),
-    ("天台视角", "rooftop view city"),
-    ("胡同人家", "beijing hutong alley"),
-    ("石库门", "shikumen lane shanghai"),
-    ("徽派民居", "huizhou village architecture"),
-    ("窑洞", "cave dwelling yaodong"),
-    ("客家土楼", "hakka tulou round house"),
-    ("栈桥", "wooden pier boardwalk"),
-    ("缆车", "cable car mountain"),
-    ("夜市", "night market street food"),
-    ("地下通道", "pedestrian underpass city"),
-    # --- 动物新面孔 ---
-
-
-
-
-
-
-
-
-    # --- 美食新品类 ---
-
-
-
-
-
-
-
-
-    # --- 人文生活新场景 ---
-    ("手艺市集", "craft fair handmade"),
-    ("街头演出", "street performer music"),
-    ("晨跑", "jogging sunrise park"),
-    ("垂钓", "fishing lake calm"),
-    ("登山者", "hiker mountain trail"),
-    ("家庭厨房", "home kitchen cooking"),
-    ("街头小吃摊", "street food vendor"),
-    ("露营篝火", "campfire night tents"),
-    ("陶艺工坊", "pottery workshop clay"),
-    ("木工坊", "woodworking carpenter shop"),
-    # --- 艺术新题材 ---
-
-
-
-
-
-
-    # --- 景点地标补位 ---
-    ("黄石公园", "yellowstone national park"),
-    ("大峡谷", "grand canyon arizona"),
-    ("尼亚加拉瀑布", "niagara falls"),
-    ("阿尔卑斯山", "alps mountain village"),
-    ("马尔代夫", "maldives island resort"),
-    ("巴厘岛", "bali rice terrace temple"),
-    ("布拉格", "prague old town bridge"),
-    ("阿姆斯特丹", "amsterdam canal houses"),
-    ("冰岛黑沙滩", "iceland black sand beach"),
-    ("挪威峡湾", "norway fjord"),
-    ("土耳其热气球", "cappadocia hot air balloon"),
-    ("撒哈拉沙漠", "sahara desert dunes"),
-    ("日月潭", "sun moon lake taiwan"),
-    ("呼伦贝尔", "hulunbuir grassland"),
-    ("青海湖", "qinghai lake"),
-    ("泰山", "mount tai shandong"),
-    ("华山", "mount hua shaanxi"),
-    ("峨眉山", "mount emei sichuan"),
-    ("武当山", "wudang mountain"),
-    ("平遥古城", "pingyao ancient city"),
-    ("凤凰古城", "fenghuang ancient town"),
-    ("婺源", "wuyuan village rapeseed"),
-    ("宏村", "hongcun village anhui"),
-    ("泸沽湖", "lugu lake yunnan"),
-    ("香格里拉", "shangri-la meadow"),
-    ("拉萨", "lhasa tibet street"),
-    ("香港夜景", "hong kong skyline night"),
-    ("台北101", "taipei 101 tower"),
-    ("新加坡滨海湾", "marina bay sands singapore"),
-    ("迪拜塔", "burj khalifa dubai"),
-    ("吴哥日出", "angkor sunrise temple"),
-    ("雅典神庙", "ancient greek temple ruins"),
+    ("早市摊位", "morning market stalls vegetables"),
+    ("花店门口", "flower shop storefront"),
+    ("面包店", "bakery shop interior"),
+    ("老理发店", "old barbershop interior"),
+    ("唱片店", "vinyl record store"),
+    ("旧书摊", "secondhand book stall street"),
+    ("街头画家", "street artist painting easel"),
+    ("街头下棋", "elderly playing chess street"),
+    ("早茶点心", "dim sum tea house"),
+    ("面馆烟火", "noodle shop steam kitchen"),
+    ("烧烤摊", "street bbq grill night"),
+    ("糖画手艺人", "sugar painting artisan"),
+    ("竹编工匠", "bamboo weaving craftsman"),
+    ("染布坊", "indigo dye fabric workshop"),
+    ("皮影戏", "shadow puppet performance"),
+    ("木偶戏", "puppet show stage"),
+    ("龙舟训练", "dragon boat rowing team"),
+    ("赶海", "tidal flat shellfish gathering"),
+    ("采茶人", "tea picking hands basket"),
+    ("渔港归来", "fishing boat returning harbor"),
+    ("修表匠", "watch repair craftsman"),
+    ("缝纫老店", "tailor shop sewing machine"),
+    ("修鞋摊", "shoe repair street stall"),
+    ("老照相馆", "old photo studio interior"),
+    ("旧邮局窗", "vintage post office window"),
+    ("火车窗景", "view from train window"),
+    ("骑行小路", "cycling path countryside"),
+    ("露台夜谈", "rooftop evening gathering"),
+    ("冬日窗边", "winter window reading cozy"),
+    # --- 夜市 ---
+    ("灯笼夜市", "lantern night market"),
+    ("台湾夜市", "taiwan night market stalls"),
+    ("曼谷夜市", "bangkok night market street"),
+    ("海鲜夜市", "seafood night market"),
+    ("夜市烧烤摊", "bbq night market grills"),
+    ("糖葫芦摊", "candied fruit street stall"),
+    ("灯会", "chinese lantern festival night"),
+    ("庙会", "temple fair crowd"),
+    ("圣诞市集", "christmas market stalls night"),
+    ("灯光装置", "light installation street art"),
+    ("霓虹招牌", "neon signs street night"),
+    ("夜宵摊", "late night food stall"),
+    ("夜市游戏摊", "carnival game booth night"),
+    ("河灯", "floating lantern river night"),
 ]
 
 TOPICS = load_topics()

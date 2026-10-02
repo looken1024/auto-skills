@@ -172,8 +172,10 @@ $PYTHON $SCRIPTS/create_draft.py \
 
 ## 话题池
 
-- 内置列表 `_BUILTIN_TOPICS`（153 条，2026-09-25 从 239 删减后），在 `pexels_gallery_draft.py` 末尾。
-- 可被 `scripts/topics.json` 覆盖（格式：`[{"cn":"...","en":"..."}, ...]`）。当前 topics.json 格式异常（list 而非带 cn/en 的 dict），脚本自动回退内置列表。
+- 活跃池在 `scripts/topics.json`（脚本优先读它），`_BUILTIN_TOPICS` 是兜底，两者内容保持一致。
+- **2026-10-01 换池**：全批换成 138 条新话题（自然景观 30 / 建筑 25 / 世界地标古迹 40 / 人文生活 29 / 夜市 14）。旧池 153 条基本都发满 ≥30 张（`TOPIC_EXHAUSTED`），一直在「放宽限制」分支里兜圈；换新后 `dup_skipped` 归零。
+- `load_topics()` 兼容 `[{"cn","en"}]` 和 `[["cn","en"]]` 两种格式（旧版只认 dict，遇到数组抛 AttributeError 就静默回退内置表——现存的 topics.json 曾是这个格式）。
+- 换池前用 Pexels API 抽查英文词（`per_page=8`，`<5` 条算偏瘦要换词）：免费额度 200 次/小时，别全量打。
 - 已删除的类：交通工具、宇宙天文、人物肖像、艺术展览、动物、美食。
 - 保留：自然景观、建筑、世界地标/古迹、人文生活、夜市。
 

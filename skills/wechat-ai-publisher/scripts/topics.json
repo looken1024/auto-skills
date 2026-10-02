@@ -1,370 +1,554 @@
 [
-  [
-    "桂林山水",
-    "guilin li river karst mountains"
-  ],
-  [
-    "九寨沟彩池",
-    "jiuzhaigou colorful lake"
-  ],
-  [
-    "黄山云海",
-    "huangshan mountain sea of clouds"
-  ],
-  [
-    "张家界峰林",
-    "zhangjiajie sandstone pillars"
-  ],
-  [
-    "稻城亚丁",
-    "yading snow mountain tibet"
-  ],
-  [
-    "茶卡盐湖",
-    "salt lake mirror reflection sky"
-  ],
-  [
-    "青海湖",
-    "qinghai lake blue"
-  ],
-  [
-    "喀纳斯秋色",
-    "kanas lake autumn"
-  ],
-  [
-    "额济纳胡杨林",
-    "populus euphratica autumn golden"
-  ],
-  [
-    "坝上草原",
-    "mongolian grassland horses"
-  ],
-  [
-    "龙脊梯田",
-    "longji rice terraces village"
-  ],
-  [
-    "霞浦滩涂",
-    "xiapu mudflat sunset fishing"
-  ],
-  [
-    "长白山天池",
-    "changbai mountain crater lake"
-  ],
-  [
-    "洱海苍山",
-    "erhai lake dali boats"
-  ],
-  [
-    "泸沽湖",
-    "lugu lake mountain boats"
-  ],
-  [
-    "洱海日落",
-    "erhai lake sunset"
-  ],
-  [
-    "张家界天门山",
-    "tianmen mountain stairs"
-  ],
-  [
-    "华山栈道",
-    "huashan cliff plank walk"
-  ],
-  [
-    "长江三峡",
-    "three gorges yangtze river"
-  ],
-  [
-    "壶口瀑布",
-    "hukou waterfall yellow river"
-  ],
-  [
-    "故宫红墙",
-    "forbidden city red wall golden roof"
-  ],
-  [
-    "天坛祈年殿",
-    "temple of heaven beijing"
-  ],
-  [
-    "颐和园长廊",
-    "summer palace long corridor"
-  ],
-  [
-    "长城秋色",
-    "great wall autumn mountains"
-  ],
-  [
-    "角楼暮色",
-    "forbidden city corner tower sunset"
-  ],
-  [
-    "天安门广场",
-    "tiananmen square beijing"
-  ],
-  [
-    "拙政园",
-    "suzhou classical garden"
-  ],
-  [
-    "留园假山",
-    "suzhou garden rockery"
-  ],
-  [
-    "寒山寺",
-    "hanshan temple suzhou"
-  ],
-  [
-    "应县木塔",
-    "yingxian wooden pagoda"
-  ],
-  [
-    "赵州桥",
-    "ancient stone arch bridge"
-  ],
-  [
-    "少林寺",
-    "shaolin temple"
-  ],
-  [
-    "悬空寺",
-    "hanging temple cliff hengshan"
-  ],
-  [
-    "永乐宫壁画",
-    "chinese temple mural painting"
-  ],
-  [
-    "敦煌莫高窟",
-    "dunhuang mogao caves"
-  ],
-  [
-    "云冈石窟",
-    "yungang grottoes buddha"
-  ],
-  [
-    "龙门石窟",
-    "longmen grottoes luoyang"
-  ],
-  [
-    "大足石刻",
-    "dazu rock carvings"
-  ],
-  [
-    "兵马俑",
-    "terracotta warriors xian"
-  ],
-  [
-    "西安古城墙",
-    "xian ancient city wall"
-  ],
-  [
-    "大雁塔",
-    "giant wild goose pagoda xian"
-  ],
-  [
-    "布达拉宫",
-    "potala palace lhasa"
-  ],
-  [
-    "大昭寺",
-    "jokhang temple lhasa"
-  ],
-  [
-    "扎什伦布寺",
-    "tashilhunpo monastery tibet"
-  ],
-  [
-    "福建土楼",
-    "fujian tulou circular building"
-  ],
-  [
-    "开平碉楼",
-    "kaiping watchtower diaolou"
-  ],
-  [
-    "乔家大院",
-    "qiao family courtyard shanxi"
-  ],
-  [
-    "平遥古城墙",
-    "pingyao ancient city wall"
-  ],
-  [
-    "故宫雪景",
-    "forbidden city snow"
-  ],
-  [
-    "苏州园林",
-    "suzhou classical garden pavilion"
-  ],
-  [
-    "乌镇水乡",
-    "wuzhen water town canal bridge"
-  ],
-  [
-    "周庄双桥",
-    "zhouzhu water town stone bridge"
-  ],
-  [
-    "西塘夜色",
-    "xitang water town night lantern"
-  ],
-  [
-    "南浔百间楼",
-    "nanxun water town"
-  ],
-  [
-    "凤凰古城",
-    "fenghuang ancient town riverside"
-  ],
-  [
-    "芙蓉镇瀑布",
-    "furong town waterfall village"
-  ],
-  [
-    "丽江古城",
-    "lijiang old town rooftop"
-  ],
-  [
-    "束河古镇",
-    "shuhe ancient town yunnan"
-  ],
-  [
-    "大理古城",
-    "dali ancient town street"
-  ],
-  [
-    "平乐古镇",
-    "pingyao ancient street lantern"
-  ],
-  [
-    "阆中古城",
-    "langzhong ancient city aerial"
-  ],
-  [
-    "镇远古镇",
-    "zhenyuan ancient town river night"
-  ],
-  [
-    "黄姚古镇",
-    "huangyao ancient town stone street"
-  ],
-  [
-    "婺源晒秋",
-    "wuyuan autumn harvest rooftop"
-  ],
-  [
-    "宏村徽派",
-    "hongcun huizhou architecture lake"
-  ],
-  [
-    "西递古村",
-    "xidi village huizhou"
-  ],
-  [
-    "三江侗寨",
-    "dong ethnic village bridge"
-  ],
-  [
-    "千户苗寨",
-    "miao ethnic village night guizhou"
-  ],
-  [
-    "黄鹤楼",
-    "yellow crane tower wuhan"
-  ],
-  [
-    "岳阳楼",
-    "yueyang tower dongting lake"
-  ],
-  [
-    "滕王阁",
-    "tengwang pavilion nanchang"
-  ],
-  [
-    "大雁塔广场",
-    "giant wild goose pagoda square"
-  ],
-  [
-    "雷峰塔",
-    "leifeng pagoda west lake"
-  ],
-  [
-    "六和塔",
-    "liuhe pagoda hangzhou"
-  ],
-  [
-    "肉桂暖调",
-    "cinnamon spice flat lay warm amber tones rustic wood cozy autumn still life"
-  ],
-  [
-    "金色银杏",
-    "golden ginkgo tree autumn leaves sunlight temple boulevard"
-  ],
-  [
-    "南瓜丰收",
-    "pumpkin patch autumn harvest field orange pumpkins golden hour"
-  ],
-  [
-    "雾林晨曦",
-    "misty foggy forest dawn moody atmosphere cinematic nature"
-  ],
-  [
-    "电影感秋色",
-    "cinematic autumn landscape wide angle golden hour forest lake"
-  ],
-  [
-    "手工纸纹",
-    "handmade paper texture rustic background warm neutral fibers imperfection"
-  ],
-  [
-    "国庆山河",
-    "china mountain landscape aerial view"
-  ],
-  [
-    "红旗飘扬",
-    "chinese flag waving national day"
-  ],
-  [
-    "寒露柿子",
-    "persimmon tree autumn branch orange"
-  ],
-  [
-    "霜降红叶",
-    "autumn frost red leaves forest floor"
-  ],
-  [
-    "多巴胺撞色",
-    "saturated colorful abstract gradient"
-  ],
-  [
-    "重阳菊花",
-    "vibrant chrysanthemum autumn bloom garden colorful"
-  ],
-  [
-    "登高秋色",
-    "autumn mountain hiking trail senior family sunset"
-  ],
-  [
-    "万圣节南瓜灯",
-    "halloween jack o lantern pumpkin porch spooky candle"
-  ],
-  [
-    "秋日咖啡",
-    "cozy autumn coffee latte cup warm rustic wood cinnamon leaves"
-  ],
-  [
-    "赤陶大地",
-    "terracotta clay pot earthy tone rustic pottery warm ceramic"
-  ],
-  [
-    "国庆烟花",
-    "national day fireworks celebration night sky colorful sparks"
-  ],
-  [
-    "红灯笼",
-    "vibrant red chinese lanterns night festival glowing warm"
-  ]
+  {
+    "cn": "雪山金顶",
+    "en": "snow mountain golden sunrise"
+  },
+  {
+    "cn": "冰川湖",
+    "en": "glacial lake turquoise"
+  },
+  {
+    "cn": "薰衣草花田",
+    "en": "lavender field rows"
+  },
+  {
+    "cn": "油菜花田",
+    "en": "rapeseed flower field"
+  },
+  {
+    "cn": "红树林",
+    "en": "mangrove forest roots water"
+  },
+  {
+    "cn": "萤火虫森林",
+    "en": "fireflies night forest"
+  },
+  {
+    "cn": "樱花小径",
+    "en": "cherry blossom path"
+  },
+  {
+    "cn": "桃花林",
+    "en": "peach blossom orchard"
+  },
+  {
+    "cn": "胡杨林",
+    "en": "poplar forest desert autumn"
+  },
+  {
+    "cn": "白桦林",
+    "en": "white birch trees forest"
+  },
+  {
+    "cn": "高山野花",
+    "en": "wildflower alpine meadow"
+  },
+  {
+    "cn": "湿地芦苇",
+    "en": "reed marsh sunset"
+  },
+  {
+    "cn": "热带海岛航拍",
+    "en": "tropical island aerial"
+  },
+  {
+    "cn": "滩涂倒影",
+    "en": "tidal flat reflection"
+  },
+  {
+    "cn": "蓝冰洞",
+    "en": "glacier ice cave"
+  },
+  {
+    "cn": "雪原日出",
+    "en": "snowfield sunrise cold"
+  },
+  {
+    "cn": "高原湖泊",
+    "en": "plateau lake mountains"
+  },
+  {
+    "cn": "温泉雾气",
+    "en": "hot spring steam winter"
+  },
+  {
+    "cn": "峡谷晨曦",
+    "en": "canyon sunrise mist"
+  },
+  {
+    "cn": "沙漠绿洲",
+    "en": "desert oasis palm trees"
+  },
+  {
+    "cn": "瀑布彩虹",
+    "en": "waterfall rainbow mist"
+  },
+  {
+    "cn": "云瀑",
+    "en": "cloud waterfall mountain ridge"
+  },
+  {
+    "cn": "银河星空",
+    "en": "milky way night sky"
+  },
+  {
+    "cn": "极光湖面",
+    "en": "aurora lake reflection"
+  },
+  {
+    "cn": "秋日葡萄园",
+    "en": "vineyard autumn rows"
+  },
+  {
+    "cn": "茶山",
+    "en": "tea plantation hills"
+  },
+  {
+    "cn": "松林晨雾",
+    "en": "pine forest morning fog"
+  },
+  {
+    "cn": "海边礁石",
+    "en": "rocky coast waves crash"
+  },
+  {
+    "cn": "珊瑚礁",
+    "en": "coral reef underwater fish"
+  },
+  {
+    "cn": "芦苇荡夕阳",
+    "en": "reed field golden sunset"
+  },
+  {
+    "cn": "骑楼老街",
+    "en": "arcade shophouse street"
+  },
+  {
+    "cn": "碉楼",
+    "en": "watchtower fortress village"
+  },
+  {
+    "cn": "四合院",
+    "en": "chinese courtyard house"
+  },
+  {
+    "cn": "红砖厝",
+    "en": "minnan red brick house"
+  },
+  {
+    "cn": "江南园林",
+    "en": "chinese classical garden"
+  },
+  {
+    "cn": "木构寺庙",
+    "en": "wooden temple hall"
+  },
+  {
+    "cn": "石拱桥",
+    "en": "ancient stone arch bridge"
+  },
+  {
+    "cn": "廊桥",
+    "en": "covered wooden bridge"
+  },
+  {
+    "cn": "老钟楼",
+    "en": "clock tower old town"
+  },
+  {
+    "cn": "旋转楼梯",
+    "en": "spiral staircase architecture"
+  },
+  {
+    "cn": "拱廊",
+    "en": "colonnade arches corridor"
+  },
+  {
+    "cn": "红砖厂房",
+    "en": "red brick industrial building"
+  },
+  {
+    "cn": "玻璃穹顶",
+    "en": "glass dome ceiling"
+  },
+  {
+    "cn": "清水混凝土教堂",
+    "en": "brutalist concrete church"
+  },
+  {
+    "cn": "阶梯住宅",
+    "en": "terraced hillside houses"
+  },
+  {
+    "cn": "水上木屋",
+    "en": "stilt house over water"
+  },
+  {
+    "cn": "白墙黑瓦",
+    "en": "white wall black tile house"
+  },
+  {
+    "cn": "尖顶山村",
+    "en": "alpine chalet village"
+  },
+  {
+    "cn": "山城阶梯",
+    "en": "hillside steps city"
+  },
+  {
+    "cn": "老城门",
+    "en": "ancient city gate wall"
+  },
+  {
+    "cn": "伊斯兰穹顶",
+    "en": "islamic dome mosque architecture"
+  },
+  {
+    "cn": "彩色房子",
+    "en": "colorful houses street"
+  },
+  {
+    "cn": "石板小巷",
+    "en": "cobblestone alley old town"
+  },
+  {
+    "cn": "铁艺阳台",
+    "en": "wrought iron balcony facade"
+  },
+  {
+    "cn": "礁石灯塔",
+    "en": "lighthouse rocky coast"
+  },
+  {
+    "cn": "新天鹅堡",
+    "en": "neuschwanstein castle"
+  },
+  {
+    "cn": "圣瓦西里大教堂",
+    "en": "saint basil cathedral moscow"
+  },
+  {
+    "cn": "查理大桥",
+    "en": "charles bridge prague"
+  },
+  {
+    "cn": "佛罗伦萨大教堂",
+    "en": "florence duomo"
+  },
+  {
+    "cn": "圣彼得大教堂",
+    "en": "st peters basilica vatican"
+  },
+  {
+    "cn": "威斯敏斯特教堂",
+    "en": "westminster abbey london"
+  },
+  {
+    "cn": "巴黎圣母院",
+    "en": "notre dame cathedral paris"
+  },
+  {
+    "cn": "许愿池",
+    "en": "trevi fountain rome"
+  },
+  {
+    "cn": "奥林匹亚遗址",
+    "en": "olympia greece ruins"
+  },
+  {
+    "cn": "卡兹尼神殿",
+    "en": "petra treasury jordan"
+  },
+  {
+    "cn": "卢克索神庙",
+    "en": "luxor temple egypt"
+  },
+  {
+    "cn": "阿布辛贝神庙",
+    "en": "abu simbel temple"
+  },
+  {
+    "cn": "卡纳克神庙",
+    "en": "karnak temple columns"
+  },
+  {
+    "cn": "泰姬陵花园",
+    "en": "taj mahal garden"
+  },
+  {
+    "cn": "巴戎寺",
+    "en": "bayon temple faces"
+  },
+  {
+    "cn": "蒲甘佛塔",
+    "en": "bagan temples myanmar"
+  },
+  {
+    "cn": "婆罗浮屠",
+    "en": "borobudur temple"
+  },
+  {
+    "cn": "富士山湖景",
+    "en": "mount fuji lake reflection"
+  },
+  {
+    "cn": "清水寺",
+    "en": "kiyomizu temple kyoto"
+  },
+  {
+    "cn": "伏见稻荷",
+    "en": "fushimi inari torii gates"
+  },
+  {
+    "cn": "严岛神社",
+    "en": "itsukushima shrine torii"
+  },
+  {
+    "cn": "东大寺",
+    "en": "todaiji temple nara"
+  },
+  {
+    "cn": "景福宫",
+    "en": "gyeongbokgung palace seoul"
+  },
+  {
+    "cn": "大皇宫",
+    "en": "grand palace bangkok"
+  },
+  {
+    "cn": "纽约中央公园",
+    "en": "central park new york autumn"
+  },
+  {
+    "cn": "金门大桥",
+    "en": "golden gate bridge fog"
+  },
+  {
+    "cn": "布鲁克林大桥",
+    "en": "brooklyn bridge new york"
+  },
+  {
+    "cn": "云门",
+    "en": "cloud gate chicago"
+  },
+  {
+    "cn": "蓝顶教堂",
+    "en": "santorini blue dome"
+  },
+  {
+    "cn": "五渔村",
+    "en": "cinque terre italy village"
+  },
+  {
+    "cn": "哈尔施塔特",
+    "en": "hallstatt austria lake"
+  },
+  {
+    "cn": "布莱德湖",
+    "en": "lake bled slovenia"
+  },
+  {
+    "cn": "罗滕堡",
+    "en": "rothenburg germany old town"
+  },
+  {
+    "cn": "科尔马",
+    "en": "colmar france canal houses"
+  },
+  {
+    "cn": "古埃尔公园",
+    "en": "park guell barcelona"
+  },
+  {
+    "cn": "里斯本电车",
+    "en": "lisbon tram yellow"
+  },
+  {
+    "cn": "伊斯坦布尔天际线",
+    "en": "istanbul mosque skyline"
+  },
+  {
+    "cn": "红场",
+    "en": "red square moscow"
+  },
+  {
+    "cn": "马特洪峰",
+    "en": "matterhorn switzerland"
+  },
+  {
+    "cn": "多洛米蒂",
+    "en": "dolomites italy mountains"
+  },
+  {
+    "cn": "早市摊位",
+    "en": "morning market stalls vegetables"
+  },
+  {
+    "cn": "花店门口",
+    "en": "flower shop storefront"
+  },
+  {
+    "cn": "面包店",
+    "en": "bakery shop interior"
+  },
+  {
+    "cn": "老理发店",
+    "en": "old barbershop interior"
+  },
+  {
+    "cn": "唱片店",
+    "en": "vinyl record store"
+  },
+  {
+    "cn": "旧书摊",
+    "en": "secondhand book stall street"
+  },
+  {
+    "cn": "街头画家",
+    "en": "street artist painting easel"
+  },
+  {
+    "cn": "街头下棋",
+    "en": "elderly playing chess street"
+  },
+  {
+    "cn": "早茶点心",
+    "en": "dim sum tea house"
+  },
+  {
+    "cn": "面馆烟火",
+    "en": "noodle shop steam kitchen"
+  },
+  {
+    "cn": "烧烤摊",
+    "en": "street bbq grill night"
+  },
+  {
+    "cn": "糖画手艺人",
+    "en": "sugar painting artisan"
+  },
+  {
+    "cn": "竹编工匠",
+    "en": "bamboo weaving craftsman"
+  },
+  {
+    "cn": "染布坊",
+    "en": "indigo dye fabric workshop"
+  },
+  {
+    "cn": "皮影戏",
+    "en": "shadow puppet performance"
+  },
+  {
+    "cn": "木偶戏",
+    "en": "puppet show stage"
+  },
+  {
+    "cn": "龙舟训练",
+    "en": "dragon boat rowing team"
+  },
+  {
+    "cn": "赶海",
+    "en": "tidal flat shellfish gathering"
+  },
+  {
+    "cn": "采茶人",
+    "en": "tea picking hands basket"
+  },
+  {
+    "cn": "渔港归来",
+    "en": "fishing boat returning harbor"
+  },
+  {
+    "cn": "修表匠",
+    "en": "watch repair craftsman"
+  },
+  {
+    "cn": "缝纫老店",
+    "en": "tailor shop sewing machine"
+  },
+  {
+    "cn": "修鞋摊",
+    "en": "shoe repair street stall"
+  },
+  {
+    "cn": "老照相馆",
+    "en": "old photo studio interior"
+  },
+  {
+    "cn": "旧邮局窗",
+    "en": "vintage post office window"
+  },
+  {
+    "cn": "火车窗景",
+    "en": "view from train window"
+  },
+  {
+    "cn": "骑行小路",
+    "en": "cycling path countryside"
+  },
+  {
+    "cn": "露台夜谈",
+    "en": "rooftop evening gathering"
+  },
+  {
+    "cn": "冬日窗边",
+    "en": "winter window reading cozy"
+  },
+  {
+    "cn": "灯笼夜市",
+    "en": "lantern night market"
+  },
+  {
+    "cn": "台湾夜市",
+    "en": "taiwan night market stalls"
+  },
+  {
+    "cn": "曼谷夜市",
+    "en": "bangkok night market street"
+  },
+  {
+    "cn": "海鲜夜市",
+    "en": "seafood night market"
+  },
+  {
+    "cn": "夜市烧烤摊",
+    "en": "bbq night market grills"
+  },
+  {
+    "cn": "糖葫芦摊",
+    "en": "candied fruit street stall"
+  },
+  {
+    "cn": "灯会",
+    "en": "chinese lantern festival night"
+  },
+  {
+    "cn": "庙会",
+    "en": "temple fair crowd"
+  },
+  {
+    "cn": "圣诞市集",
+    "en": "christmas market stalls night"
+  },
+  {
+    "cn": "灯光装置",
+    "en": "light installation street art"
+  },
+  {
+    "cn": "霓虹招牌",
+    "en": "neon signs street night"
+  },
+  {
+    "cn": "夜宵摊",
+    "en": "late night food stall"
+  },
+  {
+    "cn": "夜市游戏摊",
+    "en": "carnival game booth night"
+  },
+  {
+    "cn": "河灯",
+    "en": "floating lantern river night"
+  }
 ]
