@@ -42,6 +42,21 @@ hermes fallback list   # 复核
 测法（挑刺召回 + **对好文的误报测** + 写作合规）与实测结论：`references/free-model-eval.md`。
 一句话结论：**审稿要“能挑刺且不误报”**（弱模型常把好文判返工）；**写稿要长度合规 + 事实不串**；agentic 多步任务要长度合规 + 会持续调工具（不是写两句就交卷）。
 
+### 1.4 辅助模型（识图/vision 等）必须显式钉住（2026-10-03 踩坑）
+
+`auxiliary.vision` 留空（`None`）时，`vision_analyze` 走 `auto` 解析 → 落到**当时配置的默认 provider**。本机曾落到**套餐欠费**的 `custom_cline` 上报 402，症状是一个劲地说“你没有识图能力？”，**看起来像功能缺失，实际是模型接线问题**。
+
+```bash
+hermes config set auxiliary.vision.provider deepseek
+hermes config set auxiliary.vision.model deepseek-flash
+```
+
+改完**立刻用一张已知内容的图验一次**（问“画面里是什么”看答得对不对），别只看配置写进去了。
+
+**排错顺序**：识图报错先怀疑 402/额度/模型名，再怀疑图片路径或工具本身。`auxiliary.*` 这类“空着就接管默认”的配置，出问题第一件事是**显式钉死**，不要靠 auto。
+
+> 📎 需要第二条识图通道（免 API 额度、可交叉验证）时，**DeepSeek 网页版也能上传图片识图**——实测配方与验证记录见 `references/deepseek-web-image-upload.md`。
+
 ## 2. 判断“这次到底跑成没跑成”
 
 - `hermes cron list` 的 `last_status: ok` **只说明流程没报错**，不代表业务做成了（实例：微头条任务 ok，实际没发布、没写台账）。
@@ -93,6 +108,16 @@ Chrome 重启后 `/tmp/chrome-wx` 里的 cookie **可能还在也可能过期**�
 
 **完整细节：`references/browser-watchdog-and-cookie-injection.md`。**
 
+## 5c. 小内存机器：OOM Killer 的静默症状（2026-10-01 踩坑）
+
+本机只有 ~1.9G RAM + 2G swap。图片处理类流水线（如图集脚本的 `process_image`）只要对**整图**做 numpy 运算，就会被 OOM Killer 干掉。
+
+- **症状很有误导性**：进程 `exit -9`、**没有任何 Python traceback**，日志里看着像“跑着跑着自己退了”。别先查逻辑，先算内存。
+- **改法**：把整图的 float64 运算改 **float32 + 分行块**处理（实测单张峰值 500MB+ → ~150MB）。
+- **确认手法**：跑前 `free -m`；事后 `dmesg | grep -i "killed process"` 确认是 OOM 而非别的。
+- **Chrome 标签是隐形内存黑洞**：长期存活的 headless Chrome 会堆标签（曾到 27 个，内存 260MB→672MB）。`curl 127.0.0.1:9222/json/list` 列表，`curl 127.0.0.1:9222/json/close/<targetId>` 逐个关。
+- 通用经验：**“整图/整文件一次性运算”的写法在这台机器上先想峰值内存**，宁可分块。
+
 ## 6. 与其它 skill 的关系
 
 - 微信侧发布细节（压图、素材库、草稿校验）：`wechat-ai-publisher`
@@ -100,3 +125,6 @@ Chrome 重启后 `/tmp/chrome-wx` 里的 cookie **可能还在也可能过期**�
 - 本 skill 只管“cron/模型链/任务健康度”这一层，不重复业务步骤。
 
 > 注：`openclaw-ops-troubleshooting` 覆盖同类网关/cron 排错，但本机是 Hermes，第 5 节那些坑它没有；两者可考虑合并（需用户 `hermes curator adopt` 后才能自动改）。
+
+> ⚠️ **2026-10-03：`wechat-ai-publisher`、`toutiao-micro-publish`、`bar-chart-video` 都是用户自有 skill（`created_by=None`），后台 curator 写入会被拒。**
+> 涉及它们的新知识（公众号图集 OOM、微头条流水线变更、数据可视化）先落在本 skill 或 `data-chart-scripting` 里，并提醒用户 `hermes curator adopt <name>` 后再回填。
