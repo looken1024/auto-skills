@@ -86,6 +86,16 @@ curl -s -X POST <base_url>/chat/completions -H "Authorization: Bearer $KEY" -H '
 
 比单纯提频率更划算的做法：加「同一小时已有发布记录就跳过」的护栏 + 要求相邻两条不同赛道。改完把间隔、单条耗时、下一步触发时间一起回报给用户。
 
+### 关键词池的处置：已定案（2026-10-03）——别再提案
+
+上面那三条路用户已经拍过板：**永久删、不冷却、不自动补池**。原话：「永久删。不用自己补，需要补的时候我会找你的」。
+
+- **不要自作主张加「冷却 / 用过回收」机制，也不要挂自动补池任务。** 补词是用户的决定，他会在需要时开口。（曾经把「冷却」当作推荐方案提出来，被明确否掉。）
+- 代价用户已知晓并接受：池子见底后图集线靠种子词兜底继续跑，题材变单调，但不会崩。
+- 因此**每次清理都要主动播报池子余量**，把「该补词了」这件事从用户的记忆里卸下来：脚本加一个 `pool_status(retired_today)`，打印
+  `话题池剩 N 个关键词（今天淘汰 X 个，按此速度还能撑约 D 天）`，`N < 40` 时前缀 ⚠️ + 「该补词了，跟我说一声」。**每一条退出路径都要打印**（草稿箱为空 / 无需改动 / dry-run / 正常删完）——只在「删了东西」时打印的话，草稿箱恰好空的那几天不报，用户会以为任务没跑。
+  → 通用做法：**定时消耗有限资源池**的流水线，每班输出里都带「剩余额度 + 还能撑几天」和阈值告警。用户偏好「自己决定何时补充」，那就把「什么时候该补」算给他看，而不是替他补。
+
 ## 浏览器发布类步骤的硬规矩
 
 1. **调度会话里禁止手写 heredoc 跑浏览器脚本**：heredoc 会被截断（`here-document ... delimited by end-of-file`），脚本只跑一半。改用现成的浏览器工具（如 `browser_exec`，含 `goto_url / wait_for_load / js / cdp / click_at_xy`）。
@@ -142,4 +152,4 @@ hermes config set auxiliary.vision.model deepseek-flash
 - `references/cron-model-swap-notes.md` — 换 cron 任务模型实操（cronjob 接口不支持改 model→直接改 jobs.json、双确认落盘、用户同意规矩）与整链失效根因判定（同模型不同路径可用性不同、免费池小时级抖动先重测再改配置）
 - `references/wechat-draft-api-content-types.md` — 公众号草稿 API：`newspic` vs `news` 的 content 能力差异（图片消息只存纯文本→小程序链接必须走图文消息）、三种小程序链接 HTML 写法、`draft/batchget` vs `draft/getdraft` 接口名坑、`freepublish/batchget` 48001、逐条验证矩阵
 - `references/image-sources.md` — 免 key 配图素材全谱：(A) Pexels 实拍（含相关性抽查坑：地名英文词“搜得到≠图对”、额度 200/小时）(B) pollinations 生图（尺寸上限、水印必存+裁切尺寸、约一半请求空文件需重试、提示词约束力有限）(C) 看图验证硬规矩 **(D) 成对图/情侣头像：一次生成整幅再切开 + PIL 分区染色 + 90% 安全边距 + 圆形裁切自查（别分两次生成）** (E) `vision_analyze` 后端接错导致 402 的修法。urllib 403 → 必须 curl + UA。
-- `references/gallery-draftbox-ops.md` — 公众号图集/草稿线运维：**草稿箱批量清理**（按 `update_time` 切分 + 先分类保护用户手写稿 + 分类规则写窄的坑 + 后台计数与 API 对不上）、**保留策略自动化**（`prune_drafts.py` / cron `e11f232f4c79`；“图集草稿 vs 日更文章稿”两类要分清；双源同步必须双备份；空池子越界兜底；端到端验证套路）、`process_image()` OOM 修法（整图 float64 噪声 → 分块 float32，2G 小机器必踩）、**贴图(newspic) vs 图文(news) 版式取舍已定案**（要可点小程序链只能 news）。
+- `references/gallery-draftbox-ops.md` — 公众号图集/草稿线运维：**草稿箱批量清理**（按 `update_time` 切分 + 先分类保护用户手写稿 + 分类规则写窄的坑 + 后台计数与 API 对不上）、**保留策略自动化**（`prune_drafts.py` / cron `e11f232f4c79`；“图集草稿 vs 日更文章稿”两类要分清；双源同步必须双备份；空池子越界兜底；端到端验证套路；**关键词池“永久删、不冷却、不自动补池”已定案 + 每班播报剩余额度/还能撑几天**）、`process_image()` OOM 修法（整图 float64 噪声 → 分块 float32，2G 小机器必踩）、**贴图(newspic) vs 图文(news) 版式取舍已定案**（要可点小程序链只能 news）。

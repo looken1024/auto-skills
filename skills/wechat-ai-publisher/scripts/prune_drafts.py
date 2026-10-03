@@ -120,6 +120,20 @@ def sync_pool(removed):
     return gone
 
 
+def pool_status(retired_today=0, warn_below=40):
+    """池子余量播报：用户要自己决定何时补词，所以每跑一次都报清楚到哪天见底。"""
+    try:
+        n = len(json.load(open(TOPICS_JSON, encoding="utf-8")))
+    except Exception:
+        return "话题池：读不到 topics.json"
+    msg = f"话题池剩 {n} 个关键词"
+    if retired_today > 0:
+        msg += f"（今天淘汰 {retired_today} 个，按此速度还能撑约 {n / retired_today:.0f} 天）"
+    if n < warn_below:
+        msg = "⚠️ " + msg + " —— 该补词了，跟我说一声"
+    return msg
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--days", type=int, default=2, help="删多少天前的（默认 2）")
@@ -137,8 +151,10 @@ def main():
         ).read().decode("utf-8"))["access_token"]
 
     drafts = list_drafts(tok)
+    stamp = datetime.now().strftime("%Y-%m-%d %H:%M")
     if not drafts:
-        print("草稿箱是空的，无需清理。")
+        print(f"[{stamp}] 草稿箱是空的，无需清理。")
+        print(pool_status(0))
         return
 
     cutoff = time.time() - a.days * 86400
@@ -147,9 +163,9 @@ def main():
     articles = [d for d in targets if not topic_of(d)]
     todo = gallery + (articles if a.include_articles else [])
 
-    stamp = datetime.now().strftime("%Y-%m-%d %H:%M")
     if not todo:
-        print(f"[{stamp}] 草稿箱 {len(drafts)} 条，没有超过 {a.days} 天的图集草稿，未做改动。")
+        print(f"[{stamp}] 草稿箱 {len(drafts)} 条，没有超过 {a.days} 天的草稿，未做改动。")
+        print(pool_status(0))
         return
 
     if a.dry_run:
@@ -157,6 +173,7 @@ def main():
               f"（图集 {len(gallery)}，文章 {len(todo)-len(gallery)}）：")
         for d in todo:
             print(f"  · {d['title']}")
+        print(pool_status(0))
         return
 
     deleted, failed = [], []
@@ -177,6 +194,7 @@ def main():
         print("  话题池无需改动")
     if failed:
         print(f"  ⚠️ {len(failed)} 条删除失败：" + "、".join(d["title"] for d in failed))
+    print(pool_status(len(gone)))
 
 
 if __name__ == "__main__":
