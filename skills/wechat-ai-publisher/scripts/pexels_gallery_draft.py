@@ -46,14 +46,16 @@ def load_topics():
                 return pairs
         except Exception as e:
             print(f"! 读取 topics.json 失败({e})，回退内置列表", file=sys.stderr)
-    return _BUILTIN_TOPICS
+    return _BUILTIN_TOPICS or list(_SEED_TOPIC)
+
+
+# 池子被掏空（topics.json 与内置表同时为空）时的种子，保证脚本不越界崩溃
+_SEED_TOPIC = [("雪山金顶", "snow mountain golden sunrise")]
 
 
 _BUILTIN_TOPICS = [
-    # --- 自然景观 ---
     ("雪山金顶", "snow mountain golden sunrise"),
     ("冰川湖", "glacial lake turquoise"),
-    ("薰衣草花田", "lavender field rows"),
     ("油菜花田", "rapeseed flower field"),
     ("萤火虫森林", "fireflies night forest"),
     ("樱花小径", "cherry blossom path"),
@@ -75,8 +77,6 @@ _BUILTIN_TOPICS = [
     ("茶山", "tea plantation hills"),
     ("松林晨雾", "pine forest morning fog"),
     ("珊瑚礁", "coral reef underwater fish"),
-    # --- 建筑 ---
-    ("四合院", "chinese courtyard house"),
     ("江南园林", "chinese classical garden"),
     ("木构寺庙", "wooden temple hall"),
     ("石拱桥", "ancient stone arch bridge"),
@@ -88,10 +88,8 @@ _BUILTIN_TOPICS = [
     ("伊斯兰穹顶", "islamic dome mosque architecture"),
     ("彩色房子", "colorful houses street"),
     ("礁石灯塔", "lighthouse rocky coast"),
-    # --- 世界地标 / 古迹 ---
     ("新天鹅堡", "neuschwanstein castle"),
     ("圣瓦西里大教堂", "saint basil cathedral moscow"),
-    ("查理大桥", "charles bridge prague"),
     ("佛罗伦萨大教堂", "florence duomo"),
     ("圣彼得大教堂", "st peters basilica vatican"),
     ("威斯敏斯特教堂", "westminster abbey london"),
@@ -103,19 +101,15 @@ _BUILTIN_TOPICS = [
     ("卡纳克神庙", "karnak temple columns"),
     ("泰姬陵花园", "taj mahal garden"),
     ("巴戎寺", "bayon temple faces"),
-    ("蒲甘佛塔", "bagan temples myanmar"),
     ("婆罗浮屠", "borobudur temple"),
     ("富士山湖景", "mount fuji lake reflection"),
     ("清水寺", "kiyomizu temple kyoto"),
     ("伏见稻荷", "fushimi inari torii gates"),
-    ("严岛神社", "itsukushima shrine torii"),
     ("东大寺", "todaiji temple nara"),
     ("景福宫", "gyeongbokgung palace seoul"),
-    ("大皇宫", "grand palace bangkok"),
     ("纽约中央公园", "central park new york autumn"),
     ("金门大桥", "golden gate bridge fog"),
     ("布鲁克林大桥", "brooklyn bridge new york"),
-    ("云门", "cloud gate chicago"),
     ("蓝顶教堂", "santorini blue dome"),
     ("五渔村", "cinque terre italy village"),
     ("哈尔施塔特", "hallstatt austria lake"),
@@ -128,18 +122,15 @@ _BUILTIN_TOPICS = [
     ("红场", "red square moscow"),
     ("马特洪峰", "matterhorn switzerland"),
     ("多洛米蒂", "dolomites italy mountains"),
-    # --- 人文生活 ---
     ("花店门口", "flower shop storefront"),
     ("早茶点心", "dim sum tea house"),
     ("龙舟训练", "dragon boat rowing team"),
-    # --- 夜市 ---
     ("灯笼夜市", "lantern night market"),
     ("灯会", "chinese lantern festival night"),
     ("圣诞市集", "christmas market stalls night"),
     ("灯光装置", "light installation street art"),
     ("霓虹招牌", "neon signs street night"),
     ("河灯", "floating lantern river night"),
-    # --- 国内景点 / 国内建筑 ---
     ("颐和园", "summer palace beijing"),
     ("北海公园", "beihai park beijing"),
     ("什刹海", "shichahai lake beijing"),
@@ -149,7 +140,6 @@ _BUILTIN_TOPICS = [
     ("慕田峪长城", "mutianyu great wall"),
     ("明十三陵", "ming tombs beijing"),
     ("雍和宫", "lama temple beijing"),
-    ("豫园", "yu garden shanghai"),
     ("外白渡桥", "waibaidu bridge shanghai"),
     ("上海中心大厦", "shanghai tower"),
     ("苏州园林", "suzhou garden"),
@@ -171,11 +161,10 @@ _BUILTIN_TOPICS = [
     ("景德镇", "jingdezhen porcelain"),
     ("龙虎山", "longhu mountain"),
     ("鄱阳湖", "poyang lake"),
-    ("鼓浪屿", "gulangyu island xiamen"),
+    ("鼓浪屿", "gulangyu island"),
     ("武夷山", "wuyi mountain"),
     ("霞浦滩涂", "xiapu china fishing"),
     ("珠海大剧院", "zhuhai opera house"),
-    ("丹霞山", "danxia landform"),
     ("深圳天际线", "shenzhen skyline"),
     ("岳麓山", "yuelu mountain"),
     ("洞庭湖", "dongting lake"),
@@ -228,7 +217,6 @@ _BUILTIN_TOPICS = [
     ("阿里山", "alishan mountain"),
     ("垦丁", "kenting beach taiwan"),
     ("太鲁阁", "taroko gorge"),
-    ("国家大剧院", "national centre performing arts"),
     ("苏州博物馆", "suzhou museum"),
     ("哈尔滨大剧院", "harbin opera house"),
     ("天津之眼", "tianjin eye ferris wheel"),
@@ -581,7 +569,8 @@ def main():
         # 1. 搜索 + 下载(跳过已发 md5 的重复图，多取候选补足)
         photos = pexels_search(query, per_page=args.count * 4, orientation=ori)
         if len(photos) < args.count * 2:
-            photos += pexels_search(TOPICS[0][1], per_page=args.count * 3, orientation=ori)  # 兜底秋天池
+            fallback_q = TOPICS[0][1] if TOPICS else _SEED_TOPIC[0][1]
+            photos += pexels_search(fallback_q, per_page=args.count * 3, orientation=ori)  # 兜底
         picked = []   # [(path, md5, pexels_id)]
         skipped = 0
         for p in photos:

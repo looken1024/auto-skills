@@ -110,6 +110,9 @@ $PYTHON $SCRIPTS/create_draft.py \
   - 依赖：无头 Chrome(9222) 已登录 chat.deepseek.com（登录会过期，过期需重新扫码）；脚本自动取本号最近 10 篇标题做查重
 
 ### 新增脚本
+- `scripts/prune_drafts.py`：**草稿箱清理**（2026-10-03 起）。删 N 天前的**图集**草稿并把对应话题从 `topics.json` + 脚本内置表同步摘掉；默认 `--days 2`、默认**不动非图集草稿**（手写/日更文章），加 `--include-articles` 才会连文章一起删。另有 `--dry-run`。
+  - cron job `e11f232f4c79`「草稿箱清理-每天09:00（图集）」→ 包一层 `~/.hermes/scripts/prune_gzh_drafts.sh`，`no_agent=true`，stdout 即投递内容。
+  - `sync_pool()` 会同时给 `topics.json` 和 `pexels_gallery_draft.py` 各留一份 `.bak-<时间戳>` —— 只还原一个会造成两源不一致（踩过）。
 - `scripts/prep_gzh_images.py`：Pexels 抓图 → 封面 2.35:1(940×400) + 正文图 16:9(1080×608)，带暗/亮像素自检（防过曝废图）。
 - `scripts/verify_gzh_draft.py`：用 `draft/batchget` 验证草稿（title / 封面非空 / 正文 `<img>`≥1 / `<li>`=0），**必须 `r.content.decode("utf-8")`**（直接 `r.json()`/`r.text` 会中文乱码）。
 - `scripts/delete_draft.py <media_id>`：删草稿（改稿后换新版时用）。**坑：报 `53407 定时发布中，无法删除或修改`** = 该草稿已在公众号后台被设为定时群发，API 动不了；此时不要建重复稿，让用户去后台取消定时后再说。

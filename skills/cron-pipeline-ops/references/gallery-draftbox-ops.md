@@ -32,3 +32,24 @@
 - 所以“正文里一行字可点击跳小程序”**只能用 `news`**；用 `newspic` 写 `#小程序://` 是死文字。
 - 代价：图集从「贴图」变成「图文消息」，版式不同了（用户当时就问过“我原来是贴图，现在怎么变成了图文”）。已向用户说明并确认：“要推小程序链接就只能用图文”。
 - 已实测的写法细节（`<a data-miniprogram-appid=...>`、`uploadimg` 取正文图 URL、`draft/update` 不能改类型报 `53403`、`draft/batchget` 才是列草稿接口）见 `references/wechat-draft-api-content-types.md`。
+
+## 4. 保留策略自动化（2026-10-03 起）
+
+需求：“每天删 2 天前的草稿箱作品，同时把关键词删掉”。落地：`prune_drafts.py` + cron `e11f232f4c79`（每天 09:00，`no_agent=true`，包一层 `~/.hermes/scripts/prune_gzh_drafts.sh`）。
+
+- 流程：`draft/batchget` 拉全量 → `update_time < now - N*86400` 的图集草稿 → `draft/delete` → 把对应话题从 `topics.json` **和** 脚本内置表同步摘掉。
+- 话题解析：标题匹配 `^(.+)·每日图集（\d{4}-\d{2}-\d{2}）$` 取组 1；老式 `newspic` 草稿标题即话题（这类标题里没有“图集”二字）。
+- 默认 `--days 2` 且 **默认不动非图集草稿**；`--include-articles` / `--dry-run` 另给。
+
+### 关键：草稿箱里有两类东西，别一刀切
+- 图集草稿 = 本流水线产出（标题带 `·每日图集（日期）`）。
+- 文章草稿 = **cron `4b552ab71572` 每天 23:00 自动写好的稿**（三国/历史/社会类，只存草稿不群发，等用户手动发）。**之前误以为这些是用户手写的**——用户说要“文章也删掉”时是指这一批已过期的，不是让以后每天自动清文章。所以清理任务默认只清图集；连文章一起删必须先问用户。
+  > 通用教训：草稿箱里“看起来像人写的”内容也可能是自己家 cron 产的。**先 `cronjob list` 看看有没有日更写稿任务**，再决定哪些能自动删。
+
+### 踩过的坑
+- **同步两个数据源时必须两个都备份**：`sync_pool()` 第一版只给 `topics.json` 留了 `.bak`，测试时只还原了 json 没还原 `.py`，两个源立刻不一致（172 vs 170）。改成同时备份 `topics.json` + `pexels_gallery_draft.py` 后则可整体回滚。
+- **双源一致性要用代码校验**，别凭记忆：正则抽 `.py` 里所有 `("cn", "en"),` 行成集合，与 json 的 `cn` 集合求对称差，应为空。
+- **空池子会越界崩**：`TOPICS[0][1]` 兜底那行在池子被掏空时 `IndexError`。修法：`load_topics()` 末尾 `return _BUILTIN_TOPICS or list(_SEED_TOPIC)`，取图兜底改 `fallback_q = TOPICS[0][1] if TOPICS else _SEED_TOPIC[0][1]`。
+- **验证“双源全空”要可还原**：临时把 `topics.json` 写成 `[]` 并用正则把 `_BUILTIN_TOPICS = [...]` 换成 `[]`，`import` 看 `TOPICS` 是否为种子，**finally 里两个文件都写回原内容**。
+- **端到端验证的完整套路**（值得照抄）：用真图集脚本现生成一条 → `--days 0 --dry-run` 看它是否被正确识别为“图集 1，文章 0” → 真跑 `--days 0` → 复查 `topics.json` 少了该词、内置表同步少了、草稿箱回到 0 条。既验了清理脚本，也顺带证明图集脚本未被改坏。
+- **cron 的 `no_agent` 脚本用标准库写**（`urllib` 即可，别依赖 venv/requests），凭据从技能目录 `.env` 读；这样包装脚本能用系统 `python3` 直接跑，不挑解释器。

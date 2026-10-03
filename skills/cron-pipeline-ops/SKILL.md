@@ -80,6 +80,8 @@ curl -s -X POST <base_url>/chat/completions -H "Authorization: Bearer $KEY" -H '
 把任务从「每 2 小时」改成「每小时」之前先算：
 1. **单条实际耗时 ≤ 间隔**：写稿+复审+终审+发布实测 15-25 分钟，间隔压到 1 小时就会与下一班撞（执行锁不会并发出两条，但会出现"这班没跑完、下班被跳过"）。
 2. **查重压力**：一天 24 条时选题池几天被抽空，同主题/同角度重复率陡增，台账查重会越来越难。
+   实测推演（2026-10-03）：池子 171 条 + 图集 job 每小时 1 条，再叠上“草稿箱清理任务把删掉的图集草稿对应话题**永久摘掉**” → **每天淘汰约 24 个关键词，约 7 天见底**。见底后若 `TOPICS` 为空会 `TOPICS[0]` 越界崩，所以 `load_topics()` 末尾要有 `or list(_SEED_TOPIC)` 兜底（已加）——但兜底只防崩，实际等于反复用同一个词、**流水线停摆**。给用户提的三条路：① 加每日补池任务（每天 ~30 条、维持 200 条）② 降频（每天 6 条可撑 ~28 天）③ 关键词改“用过就标记”，转完一圈整体重置。
+   → 教训：**“清草稿”和“删关键词”联在一起时，要顺手算一遍池子消耗速度**；否则两周后回来处理的是“流水线卡死”，而不是“草稿箱太满”。
 3. **平台风控与日发上限**：高频批量发布易被判"营销号/低质批量"；免费模型额度也可能扛不住（表现为重试变多、整体变慢）。
 
 比单纯提频率更划算的做法：加「同一小时已有发布记录就跳过」的护栏 + 要求相邻两条不同赛道。改完把间隔、单条耗时、下一步触发时间一起回报给用户。
@@ -119,6 +121,11 @@ hermes config set auxiliary.vision.model deepseek-flash
 - ⚠️ **`~/.hermes/config.yaml` 受保护，agent 直接 write/patch 会被拒**（会提示“编辑 ~/.hermes/config.yaml 或使用 hermes config”），必须走 `hermes config set`。
 - 修好后优先用 `vision_analyze` 而不是“让别的模型描述再读描述”：它把图**载入 agent 自己的上下文**，看得准；外部描述会前后矛盾（实测同一张图被判“朝右/朝左/正前”各一次），会把不合格成品判成合格。
 - 兜底：图转 base64 data URL 塞进主模型 `chat/completions` 的 `image_url`（主模型支持读图时可用）。
+- **第二条免 key 识图通道：`chat.deepseek.com` 网页版能上传图片并真的能看图**（2026-10-03 实测）。
+  - 页面里有隐藏的 `input[type=file]`（accept 含 `.png/.jpg/.jpeg/.webp`），用裸 CDP 的 `DOM.setFileInputFiles(files=[路径], nodeId=...)` 直接塞文件（`DOM.getDocument` → `DOM.querySelector` 拿 nodeId），**不用模拟点击**；附上后 composer 会出现 blob 缩略图。
+  - 实测提问“这张图里是什么？”→ 回答准确（认出“粉色圆滚滚的卡通老鼠”，不是“我看到图片了”式敷衍），说明是真看图。
+  - 填字要用 **native setter**：DeepSeek 是 React 受控 textarea，`ta.value = x` 不生效，得 `Object.getOwnPropertyDescriptor(HTMLTextAreaElement.prototype,'value').set.call(ta, x)` + 派发 `input` 事件；发送用 `Input.dispatchKeyEvent` 回车；正文仍取 `[class*=markdown]`。
+  - 定位：免额度、不烧 token，但要起浏览器/要登录态/更慢 → 日常用 `vision_analyze`（走 API），需要交叉验证或 API 报错时切网页版。
 - 详细的成对图生成、pollinations 限流与水印、Pexels 相关性抽查见 `references/image-sources.md`。
 
 ## 支持文件
@@ -135,4 +142,4 @@ hermes config set auxiliary.vision.model deepseek-flash
 - `references/cron-model-swap-notes.md` — 换 cron 任务模型实操（cronjob 接口不支持改 model→直接改 jobs.json、双确认落盘、用户同意规矩）与整链失效根因判定（同模型不同路径可用性不同、免费池小时级抖动先重测再改配置）
 - `references/wechat-draft-api-content-types.md` — 公众号草稿 API：`newspic` vs `news` 的 content 能力差异（图片消息只存纯文本→小程序链接必须走图文消息）、三种小程序链接 HTML 写法、`draft/batchget` vs `draft/getdraft` 接口名坑、`freepublish/batchget` 48001、逐条验证矩阵
 - `references/image-sources.md` — 免 key 配图素材全谱：(A) Pexels 实拍（含相关性抽查坑：地名英文词“搜得到≠图对”、额度 200/小时）(B) pollinations 生图（尺寸上限、水印必存+裁切尺寸、约一半请求空文件需重试、提示词约束力有限）(C) 看图验证硬规矩 **(D) 成对图/情侣头像：一次生成整幅再切开 + PIL 分区染色 + 90% 安全边距 + 圆形裁切自查（别分两次生成）** (E) `vision_analyze` 后端接错导致 402 的修法。urllib 403 → 必须 curl + UA。
-- `references/gallery-draftbox-ops.md` — 公众号图集/草稿线运维：**草稿箱批量清理**（按 `update_time` 切分 + 先分类保护用户手写稿 + 分类规则写窄的坑 + 后台计数与 API 对不上）、`process_image()` OOM 修法（整图 float64 噪声 → 分块 float32，2G 小机器必踩）、**贴图(newspic) vs 图文(news) 版式取舍已定案**（要可点小程序链只能 news）。
+- `references/gallery-draftbox-ops.md` — 公众号图集/草稿线运维：**草稿箱批量清理**（按 `update_time` 切分 + 先分类保护用户手写稿 + 分类规则写窄的坑 + 后台计数与 API 对不上）、**保留策略自动化**（`prune_drafts.py` / cron `e11f232f4c79`；“图集草稿 vs 日更文章稿”两类要分清；双源同步必须双备份；空池子越界兜底；端到端验证套路）、`process_image()` OOM 修法（整图 float64 噪声 → 分块 float32，2G 小机器必踩）、**贴图(newspic) vs 图文(news) 版式取舍已定案**（要可点小程序链只能 news）。
