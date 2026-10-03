@@ -77,119 +77,39 @@ _BUILTIN_TOPICS = [
     ("茶山", "tea plantation hills"),
     ("松林晨雾", "pine forest morning fog"),
     ("珊瑚礁", "coral reef underwater fish"),
-    ("江南园林", "chinese classical garden"),
-    ("木构寺庙", "wooden temple hall"),
-    ("石拱桥", "ancient stone arch bridge"),
-    ("廊桥", "covered wooden bridge"),
-    ("玻璃穹顶", "glass dome ceiling"),
-    ("水上木屋", "stilt house over water"),
-    ("白墙黑瓦", "white wall black tile house"),
-    ("尖顶山村", "alpine chalet village"),
-    ("伊斯兰穹顶", "islamic dome mosque architecture"),
-    ("彩色房子", "colorful houses street"),
-    ("礁石灯塔", "lighthouse rocky coast"),
-    ("新天鹅堡", "neuschwanstein castle"),
-    ("圣瓦西里大教堂", "saint basil cathedral moscow"),
-    ("佛罗伦萨大教堂", "florence duomo"),
-    ("圣彼得大教堂", "st peters basilica vatican"),
-    ("威斯敏斯特教堂", "westminster abbey london"),
-    ("巴黎圣母院", "notre dame cathedral paris"),
-    ("许愿池", "trevi fountain rome"),
-    ("卡兹尼神殿", "petra treasury jordan"),
-    ("卢克索神庙", "luxor temple egypt"),
-    ("阿布辛贝神庙", "abu simbel temple"),
-    ("卡纳克神庙", "karnak temple columns"),
-    ("泰姬陵花园", "taj mahal garden"),
-    ("巴戎寺", "bayon temple faces"),
-    ("婆罗浮屠", "borobudur temple"),
     ("富士山湖景", "mount fuji lake reflection"),
-    ("清水寺", "kiyomizu temple kyoto"),
-    ("伏见稻荷", "fushimi inari torii gates"),
-    ("东大寺", "todaiji temple nara"),
-    ("景福宫", "gyeongbokgung palace seoul"),
     ("纽约中央公园", "central park new york autumn"),
-    ("金门大桥", "golden gate bridge fog"),
-    ("布鲁克林大桥", "brooklyn bridge new york"),
-    ("蓝顶教堂", "santorini blue dome"),
-    ("五渔村", "cinque terre italy village"),
-    ("哈尔施塔特", "hallstatt austria lake"),
     ("布莱德湖", "lake bled slovenia"),
-    ("罗滕堡", "rothenburg germany old town"),
-    ("科尔马", "colmar france canal houses"),
-    ("古埃尔公园", "park guell barcelona"),
-    ("里斯本电车", "lisbon tram yellow"),
-    ("伊斯坦布尔天际线", "istanbul mosque skyline"),
-    ("红场", "red square moscow"),
     ("马特洪峰", "matterhorn switzerland"),
     ("多洛米蒂", "dolomites italy mountains"),
-    ("花店门口", "flower shop storefront"),
-    ("早茶点心", "dim sum tea house"),
-    ("龙舟训练", "dragon boat rowing team"),
-    ("灯笼夜市", "lantern night market"),
-    ("灯会", "chinese lantern festival night"),
-    ("圣诞市集", "christmas market stalls night"),
-    ("灯光装置", "light installation street art"),
-    ("霓虹招牌", "neon signs street night"),
-    ("河灯", "floating lantern river night"),
-    ("颐和园", "summer palace beijing"),
-    ("北海公园", "beihai park beijing"),
-    ("什刹海", "shichahai lake beijing"),
-    ("鸟巢", "beijing national stadium"),
-    ("央视大楼", "cctv headquarters beijing"),
     ("香山红叶", "autumn red leaves mountain china"),
-    ("慕田峪长城", "mutianyu great wall"),
-    ("明十三陵", "ming tombs beijing"),
-    ("雍和宫", "lama temple beijing"),
-    ("外白渡桥", "waibaidu bridge shanghai"),
-    ("上海中心大厦", "shanghai tower"),
-    ("苏州园林", "suzhou garden"),
-    ("拙政园", "humble administrator garden"),
-    ("周庄", "zhouzhuang water town"),
-    ("乌镇", "wuzhen water town"),
-    ("西塘", "xitang water town"),
-    ("夫子庙", "nanjing confucius temple"),
-    ("中山陵", "sun yat sen mausoleum"),
     ("瘦西湖", "slender west lake"),
     ("鼋头渚", "wuxi taihu lake"),
-    ("灵隐寺", "lingyin temple hangzhou"),
     ("千岛湖", "qiandao lake"),
     ("雁荡山", "yandang mountain"),
     ("普陀山", "putuo mountain"),
-    ("皖南古村落", "anhui ancient village"),
     ("三清山", "sanqingshan mountain"),
     ("庐山", "mount lu"),
-    ("景德镇", "jingdezhen porcelain"),
     ("龙虎山", "longhu mountain"),
     ("鄱阳湖", "poyang lake"),
-    ("鼓浪屿", "gulangyu island"),
     ("武夷山", "wuyi mountain"),
     ("霞浦滩涂", "xiapu china fishing"),
-    ("珠海大剧院", "zhuhai opera house"),
-    ("深圳天际线", "shenzhen skyline"),
     ("岳麓山", "yuelu mountain"),
     ("洞庭湖", "dongting lake"),
     ("神农架", "shennongjia forest"),
     ("三峡", "three gorges yangtze"),
-    ("黄鹤楼", "yellow crane tower"),
     ("恩施大峡谷", "enshi grand canyon"),
-    ("都江堰", "dujiangyan irrigation"),
     ("青城山", "qingcheng mountain"),
-    ("乐山大佛", "leshan giant buddha"),
     ("四姑娘山", "siguniang mountain"),
     ("海螺沟", "hailuogou glacier"),
-    ("洪崖洞", "hongya cave chongqing"),
-    ("长江索道", "yangtze river cableway"),
     ("牛背山", "niubei mountain"),
     ("元阳梯田", "yuanyang rice terraces"),
     ("玉龙雪山", "jade dragon snow mountain"),
-    ("大理古城", "dali ancient town"),
     ("西双版纳", "xishuangbanna rainforest"),
     ("黄果树瀑布", "huangguoshu waterfall"),
-    ("千户苗寨", "xijiang miao village"),
     ("荔波小七孔", "libo xiaoqikong"),
     ("万峰林", "wanfenglin karst"),
     ("张掖丹霞", "zhangye danxia"),
-    ("嘉峪关", "jiayuguan pass"),
     ("月牙泉", "crescent lake dunhuang"),
     ("茶卡盐湖", "chaka salt lake"),
     ("天山天池", "tianchi lake xinjiang"),
@@ -202,29 +122,52 @@ _BUILTIN_TOPICS = [
     ("秦岭", "qinling mountains"),
     ("长白山", "changbai mountain"),
     ("松花江雾凇", "rime ice jilin"),
-    ("哈尔滨冰雪大世界", "harbin ice festival"),
-    ("圣索菲亚教堂", "saint sophia cathedral harbin"),
-    ("漠河北极村", "mohe northern village"),
-    ("大连星海广场", "dalian xinghai square"),
     ("纳木错", "namtso lake"),
     ("珠峰大本营", "everest base camp"),
     ("羊卓雍措", "yamdrok lake"),
     ("冈仁波齐", "mount kailash"),
     ("阿尔山", "arshan forest"),
     ("巴丹吉林沙漠", "badain jaran desert"),
-    ("澳门大三巴", "ruins of st paul macau"),
-    ("九份", "jiufen old street"),
     ("阿里山", "alishan mountain"),
     ("垦丁", "kenting beach taiwan"),
     ("太鲁阁", "taroko gorge"),
-    ("苏州博物馆", "suzhou museum"),
-    ("哈尔滨大剧院", "harbin opera house"),
-    ("天津之眼", "tianjin eye ferris wheel"),
-    ("蒙古包", "mongolian yurt"),
-    ("侗族鼓楼", "dong minority village guizhou"),
-    ("藏族寺庙", "tibetan monastery"),
-    ("苗寨", "miao village"),
-    ("徽州牌坊", "huizhou memorial arch"),
+    ("非洲象", "african elephant savanna sunset"),
+    ("长颈鹿", "giraffe savanna sunset acacia"),
+    ("狮子", "lion savanna golden light"),
+    ("猎豹", "cheetah running savanna"),
+    ("斑马群", "zebra herd savanna"),
+    ("狼群", "wolves snow winter pack"),
+    ("红狐", "red fox winter snow"),
+    ("驯鹿迁徙", "reindeer migration tundra"),
+    ("野马群", "wild horses running steppe"),
+    ("骏马奔驰", "horses galloping beach sunset"),
+    ("鹿群", "deer herd meadow morning mist"),
+    ("羊群", "sheep flock green hillside"),
+    ("牦牛", "yak tibetan plateau grassland"),
+    ("骆驼商队", "camel caravan desert dunes"),
+    ("藏羚羊", "tibetan antelope plateau"),
+    ("北极熊", "polar bear ice arctic"),
+    ("雪豹", "snow leopard mountain rock"),
+    ("大熊猫", "giant panda bamboo forest"),
+    ("金丝猴", "golden monkey forest"),
+    ("东北虎", "siberian tiger snow forest"),
+    ("火烈鸟群", "flamingo flock pink lake"),
+    ("天鹅湖", "swans lake mist morning"),
+    ("丹顶鹤", "red crowned crane wetland"),
+    ("孔雀开屏", "peacock displaying feathers"),
+    ("蜂鸟", "hummingbird flower macro"),
+    ("候鸟迁徙", "migratory birds flock sky"),
+    ("雄鹰翱翔", "eagle soaring mountain sky"),
+    ("猫头鹰", "owl forest branch"),
+    ("鹦鹉", "macaw parrot tropical"),
+    ("企鹅群", "penguin colony antarctica ice"),
+    ("海豹", "seal ice arctic"),
+    ("座头鲸", "humpback whale ocean breach"),
+    ("海豚", "dolphins jumping ocean"),
+    ("鲨鱼", "shark underwater ocean"),
+    ("海龟", "sea turtle coral reef"),
+    ("发光水母", "jellyfish underwater glowing"),
+    ("蝴蝶花海", "butterflies meadow flowers"),
 ]
 
 TOPICS = load_topics()
@@ -392,6 +335,64 @@ def process_image(src, dst):
     return dst
 
 
+# ---------- 画质闸门（2026-10-03 新增，用户要求：不要模糊 / 灰暗陈旧的图）----------
+# 锐度用「原图 3×3 分块里最锐的一块」的拉普拉斯方差，避免裁到大片天空/水面就误判成糊；
+# 阈值按真实产物标定过：真图最低 65，人造模糊最高 140 → 取 150 可全拦模糊、误杀约 10%。
+QC_SHARP_MIN = 150.0        # 常用阈值
+QC_SHARP_MIN_HAZY = 60.0    # 雾景/夜景/星空本就柔，放宽
+QC_SAT_MIN = 50.0           # 饱和度低于此
+QC_CONTRAST_MIN = 45.0      # 且对比度也低于此 → 判为灰暗
+QC_HAZY_TOPICS = {"松林晨雾", "云瀑", "温泉雾气", "峡谷晨曦", "雪原日出",
+                  "银河星空", "极光湖面", "萤火虫森林", "蓝冰洞", "瀑布彩虹"}
+
+
+def qc_sharpness(src, patch=512):
+    """原图分块取最锐一块的拉普拉斯方差；比缩放到固定宽度可靠得多。"""
+    import numpy as np
+    from PIL import Image          # 本脚本 PIL 一贯函数内懒加载，模块级没有 Image
+    im = Image.open(src)
+    g = np.asarray(im.convert("L"), dtype=np.uint8)
+    H, W = g.shape
+    if min(H, W) < patch:                       # 小图退回整图计算
+        gg = g.astype(np.float32)
+        lap = -4 * gg + np.roll(gg, 1, 0) + np.roll(gg, -1, 0) + np.roll(gg, 1, 1) + np.roll(gg, -1, 1)
+        return float(lap.var())
+    best = 0.0
+    for r in range(3):
+        for c in range(3):
+            y, x = (H - patch) * r // 2, (W - patch) * c // 2
+            gg = g[y:y + patch, x:x + patch].astype(np.float32)
+            lap = -4 * gg + np.roll(gg, 1, 0) + np.roll(gg, -1, 0) + np.roll(gg, 1, 1) + np.roll(gg, -1, 1)
+            best = max(best, float(lap.var()))
+    return best
+
+
+def qc_dull(src, w=800):
+    """缩到固定宽度估饱和度 / 对比度，用于识别灰蒙蒙、发闷的图。"""
+    import numpy as np
+    from PIL import Image
+    im = Image.open(src)
+    im.draft("RGB", (w * 2, w * 2))
+    im = im.convert("RGB")
+    if im.width != w:
+        im = im.resize((w, max(1, round(im.height * w / im.width))), Image.LANCZOS)
+    g = np.asarray(im.convert("L"), dtype=np.float32)
+    sat = float(np.asarray(im.convert("HSV"), dtype=np.float32)[:, :, 1].mean())
+    return sat, float(g.std())
+
+
+def image_quality_ok(path, topic=""):
+    """出图前的画质闸门 → (是否通过, 说明)。"""
+    floor = QC_SHARP_MIN_HAZY if topic in QC_HAZY_TOPICS else QC_SHARP_MIN
+    sharp = qc_sharpness(path)
+    if sharp < floor:
+        return False, f"模糊 sharp={sharp:.0f}<{floor:.0f}"
+    sat, contrast = qc_dull(path)
+    if sat < QC_SAT_MIN and contrast < QC_CONTRAST_MIN:
+        return False, f"灰暗 sat={sat:.0f} contrast={contrast:.0f}"
+    return True, f"ok sharp={sharp:.0f} sat={sat:.0f} contrast={contrast:.0f}"
+
+
 # ---------- 微信 ----------
 def _get_token(app_id, app_secret):
     from retry_util import request_with_retry
@@ -529,6 +530,7 @@ def main():
     ap.add_argument("--topic", default=None, help="指定话题（默认随机）")
     ap.add_argument("--count", type=int, default=9, help="图片数量（默认9）")
     ap.add_argument("--dry-run", action="store_true", help="只下载处理不上传不建草稿")
+    ap.add_argument("--no-qc", action="store_true", help="关闭画质闸门（排错用）")
     args = ap.parse_args()
 
     if args.topic:
@@ -567,12 +569,13 @@ def main():
         ori = random.choice(["landscape", "portrait"])
         print(f"方向: {ori}", file=sys.stderr)
         # 1. 搜索 + 下载(跳过已发 md5 的重复图，多取候选补足)
-        photos = pexels_search(query, per_page=args.count * 4, orientation=ori)
+        photos = pexels_search(query, per_page=args.count * 6, orientation=ori)
         if len(photos) < args.count * 2:
             fallback_q = TOPICS[0][1] if TOPICS else _SEED_TOPIC[0][1]
             photos += pexels_search(fallback_q, per_page=args.count * 3, orientation=ori)  # 兜底
         picked = []   # [(path, md5, pexels_id)]
         skipped = 0
+        rejected = 0
         for p in photos:
             if len(picked) >= args.count:
                 break
@@ -593,13 +596,22 @@ def main():
                 print(f"  ! 剔除重复 md5={h[:12]} (pexels {p['id']})", file=sys.stderr)
                 os.remove(out)
                 continue
+            # 画质闸门：糊的 / 灰暗的直接换下一张候选
+            if not args.no_qc:
+                ok, why = image_quality_ok(out, topic)
+                if not ok:
+                    rejected += 1
+                    print(f"  × 画质不合格（{why}）pexels {p['id']}，换下一张", file=sys.stderr)
+                    os.remove(out)
+                    continue
+                print(f"  ✓ 画质 {why}", file=sys.stderr)
             # 原图落盘到 save_dir（不压缩，用户可见）
             raw_out = os.path.join(save_dir, f"raw_{len(picked)+1}.jpg")
             shutil.copy(out, raw_out)
             picked.append((out, h, p["id"]))
             print(f"  + 下载 pexels {p['id']} md5={h[:12]} ({os.path.getsize(out)//1024}KB)", file=sys.stderr)
         if len(picked) < 3:
-            raise Exception(f"去重后有效图片不足3张（仅{len(picked)}张，剔除{skipped}张重复），放弃本次")
+            raise Exception(f"有效图片不足3张（仅{len(picked)}张；剔除重复{skipped}张、画质不合格{rejected}张），放弃本次")
 
         # 2. 左右翻转 + 滤镜 → 产出两版：压缩版（≤600KB，草稿箱）+ 全尺寸版（不压缩，发微信）
         processed = []   # [(final_path, md5, pexels_id)]
@@ -615,12 +627,12 @@ def main():
             c_dst = os.path.join(workdir, f"final_{i+1}.jpg")
             compress_image.compress_image(dst, c_dst, max_size_kb=600)
             processed.append((c_dst, h, pid))
-        print(f"处理完成 {len(processed)} 张（翻转+滤镜，压缩≤600KB + 全尺寸不压缩各一份，剔除{skipped}张重复）", file=sys.stderr)
+        print(f"处理完成 {len(processed)} 张（翻转+滤镜；剔除重复{skipped}张、画质不合格{rejected}张）", file=sys.stderr)
 
         if args.dry_run:
             print(json.dumps({"dry_run": True, "topic": topic,
                               "files": [p for p, _, _ in processed],
-                              "skipped_dup": skipped}, ensure_ascii=False, indent=2))
+                              "skipped_dup": skipped, "rejected_qc": rejected}, ensure_ascii=False, indent=2))
             return
 
         # 3. 上传：封面（永久素材 → thumb_media_id）+ 正文图（uploadimg → URL）
@@ -703,6 +715,7 @@ def main():
             "images": len(content_urls),
             "article_type": "news",
             "skipped_dup": skipped,
+            "rejected_qc": rejected,
             "title": title,
             "media_id": draft_media_id,
             "thumb_media_id": thumb_media_id,

@@ -65,14 +65,14 @@
     "created_by": "agent",
     "last_patched_at": "2026-10-03T01:59:57.419430+00:00",
     "last_reused_patch_generation": 2,
-    "last_used_at": "2026-10-03T04:18:07.275085+00:00",
-    "last_viewed_at": "2026-10-03T04:18:07.271857+00:00",
+    "last_used_at": "2026-10-03T08:53:44.951108+00:00",
+    "last_viewed_at": "2026-10-03T08:53:44.947177+00:00",
     "patch_count": 2,
     "patch_generation": 2,
     "pinned": false,
     "state": "active",
-    "use_count": 3,
-    "view_count": 3
+    "use_count": 4,
+    "view_count": 4
   },
   "douyin-card-pipeline": {
     "archived_at": null,
@@ -515,14 +515,14 @@
     "created_by": null,
     "last_patched_at": null,
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-10-03T04:12:47.169109+00:00",
-    "last_viewed_at": "2026-10-03T04:12:47.157016+00:00",
+    "last_used_at": "2026-10-03T08:53:48.511855+00:00",
+    "last_viewed_at": "2026-10-03T08:53:48.507426+00:00",
     "patch_count": 0,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 51,
-    "view_count": 51
+    "use_count": 52,
+    "view_count": 52
   },
   "wechat-cloud-base-api": {
     "archived_at": null,
