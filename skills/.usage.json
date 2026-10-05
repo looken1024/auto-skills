@@ -65,14 +65,14 @@
     "created_by": "agent",
     "last_patched_at": "2026-10-03T01:59:57.419430+00:00",
     "last_reused_patch_generation": 2,
-    "last_used_at": "2026-10-03T08:53:44.951108+00:00",
-    "last_viewed_at": "2026-10-03T08:53:44.947177+00:00",
+    "last_used_at": "2026-10-05T03:01:47.168611+00:00",
+    "last_viewed_at": "2026-10-05T03:01:47.163669+00:00",
     "patch_count": 2,
     "patch_generation": 2,
     "pinned": false,
     "state": "active",
-    "use_count": 4,
-    "view_count": 4
+    "use_count": 5,
+    "view_count": 5
   },
   "douyin-card-pipeline": {
     "archived_at": null,
@@ -500,14 +500,14 @@
     "created_by": null,
     "last_patched_at": "2026-09-13T15:27:00.450929+00:00",
     "last_reused_patch_generation": 4,
-    "last_used_at": "2026-10-02T15:00:13.804163+00:00",
-    "last_viewed_at": "2026-10-01T08:09:38.775143+00:00",
+    "last_used_at": "2026-10-05T03:02:14.636667+00:00",
+    "last_viewed_at": "2026-10-05T03:02:14.633187+00:00",
     "patch_count": 4,
     "patch_generation": 4,
     "pinned": false,
     "state": "active",
-    "use_count": 26,
-    "view_count": 6
+    "use_count": 27,
+    "view_count": 7
   },
   "wechat-article-publisher": {
     "archived_at": null,
@@ -515,14 +515,14 @@
     "created_by": null,
     "last_patched_at": null,
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-10-03T08:53:48.511855+00:00",
-    "last_viewed_at": "2026-10-03T08:53:48.507426+00:00",
+    "last_used_at": "2026-10-05T03:01:47.158791+00:00",
+    "last_viewed_at": "2026-10-05T03:01:47.154454+00:00",
     "patch_count": 0,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 52,
-    "view_count": 52
+    "use_count": 53,
+    "view_count": 53
   },
   "wechat-cloud-base-api": {
     "archived_at": null,

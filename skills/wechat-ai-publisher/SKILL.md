@@ -102,12 +102,28 @@ $PYTHON $SCRIPTS/create_draft.py \
 
 ## 日更定时任务（2026-09-13 起）
 
-- cron job `4b552ab71572`「公众号文章日更-存草稿」：**每天 23:00**，产出 1 篇文章，**只存草稿箱、不群发**；模型 pin `cline_local / google/gemma-4-26b-a4b-it:free`（免费，与微头条任务一致）。
+- cron job `4b552ab71572`「公众号文章日更-存草稿」：原为每天 23:00，**2026-10-03 用户要求停掉，已 ⏸ 暂停**。恢复时注意：清理 job `e11f232f4c79` 每天 09:00 会删掉 2 天前的**所有**草稿（含文章），文章日更若恢复需自行权衡保留期。
 - 完整流程：选题(多源热搜+双渠道查重) → 核事实(≥2 信源，政策类核到文号/条款原文) → 写作(`gzh-viral-writer`，3 标题候选+01/02/03 结构+去 AI 味) → 配图(`scripts/prep_gzh_images.py` + vision 验证非废图) → **DeepSeek 网页版终审** → `run_pipeline` 存草稿 → `scripts/verify_gzh_draft.py` 验证。
 - **DeepSeek 终审（硬性）**：`python3 ~/.hermes/skills/toutiao-micro-publish/scripts/ds_web_review.py <文稿.md> --mode gzh --timeout 540 --json`
   - `verdict=FIX` → 按回答里的「必改项」逐条改稿并**重跑**（最多 2 轮）；`PASS` 才允许存草稿
   - 报错含「未登录/sign_in」→ 停止并发邮件；其它报错重试 1 次，仍失败不阻断但要在回执里注明「DeepSeek 终审未执行」
   - 依赖：无头 Chrome(9222) 已登录 chat.deepseek.com（登录会过期，过期需重新扫码）；脚本自动取本号最近 10 篇标题做查重
+
+### 图集脚本双模式（2026-10-03 改造）
+`pexels_gallery_draft.py` 现在**一个脚本、两种产出**，由 `--mode` 控制：
+- `news`（默认）= 图文消息，正文 9 图 + 末尾可点击小程序文字链
+- `newspic` = 纯贴图，**无正文、无链接**（content 只支持纯文本，写链接也点不动）
+
+两种模式共用同一批图（搜索→下载→画质闸门→翻转滤镜→压缩），区别只在建稿那一步：
+- `news`：正文图走 `uploadimg` 取 URL 拼 HTML；`create_news_draft()`
+- `newspic`：图走**永久素材**取 `media_id`（`newspic` 要 `image_media_id`，不能用 uploadimg 的 URL）；`create_newspic_draft()`
+
+**横版**：`ori` 已硬编码为 `landscape`（用户要求图集一律横版），不再随机选方向。
+
+### 调度拆分（2026-10-03）
+- cron `9d58e7843134`「公众号图集-每天一次（图文消息）」→ `0 10 * * *`，跑 `gallery_draft_daily.sh`（`--mode news`）
+- cron `6b86d039a651`「公众号贴图-每小时（纯贴图，无正文）」→ `every 60m`，跑 `gallery_draft_hourly.sh`（`--mode newspic`）
+- 实测（金丝猴，贴图模式）：`article_type=newspic`、正文 0 图、无文字、无小程序标签、封面有、云转存 9 ✅
 
 ### 出图画质闸门（2026-10-03 新增）
 用户要求「构景优美，不要模糊／灰暗陈旧的图」，故在**下载候选后、落盘前**加了一道闸门（`image_quality_ok()`）：
@@ -202,8 +218,9 @@ $PYTHON $SCRIPTS/create_draft.py \
 - ⚠️ **涉军/阅兵题材做不了（2026-10-02 实测）**：Pexels 按国家搜阅兵会大量张冠李戴——`chinese honor guard` 返土耳其兵、`us army parade` 返墨西哥兵、`north korea parade` 返阿根廷兵+韩国警察、`italian military parade` 返西班牙骑兵、`russian victory day` 主要是苏联勋章特写。**搜索词能命中 ≠ 图对**，必须按 `photos[].alt` 过滤国家关键词再逐张看图。可靠的只有法国(巴士底日)/印度(共和国日)/英国(皇家卫队)/土耳其(Anıtkabir)。
 - `load_topics()` 兼容 `[{"cn","en"}]` 和 `[["cn","en"]]` 两种格式（旧版只认 dict，遇到数组抛 AttributeError 就静默回退内置表——现存的 topics.json 曾是这个格式）。
 - 换池前用 Pexels API 抽查英文词（`per_page=8~15`，`<8` 条算偏瘦要换词）：免费额度 200 次/小时，别在别处把额度用光。注意 `per_page=15` 全返 15 只说明"≥15"，不代表真的多。
-- 已删除的类：交通工具、宇宙天文、人物肖像、艺术展览、动物、美食。
-- 保留：自然景观、建筑、世界地标/古迹、人文生活、夜市。
+- **2026-10-03 二次筛选（用户要求）**：181 → **77 条纯自然风景**。用户口径：*只留风景（山水/花草/树木/冰雪/沙漠/湖海），建筑/城市/人文/节庆一律去掉*。摘掉 94 条：教堂神庙宫殿城堡、桥楼塔场馆、古镇村落街巷、园林寺庙牌坊、人文节庆、城市地标。备份：`topics.json.bak-<时间戳>`。
+- **2026-10-03 +37 条动物（用户主动要求加回）**：非洲象、长颈鹿、雪豹、大熊猫、北极熊、座头鲸、火烈鸟群、丹顶鹤、企鹅群、发光水母……→ **共 114 条**。动物的英文查询都带风景/光线词（`lion savanna golden light`、`horses galloping beach sunset`、`deer herd meadow morning mist`），避免搜出动物园特写。
+- 保留：自然风景 + 动物。建筑、城市、人文、节庆、美食、肖像等已全部剔除。
 
 ## 图片处理
 
