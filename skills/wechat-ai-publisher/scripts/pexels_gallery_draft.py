@@ -531,6 +531,8 @@ def main():
     ap.add_argument("--count", type=int, default=9, help="图片数量（默认9）")
     ap.add_argument("--dry-run", action="store_true", help="只下载处理不上传不建草稿")
     ap.add_argument("--no-qc", action="store_true", help="关闭画质闸门（排错用）")
+    ap.add_argument("--mode", choices=["news", "newspic"], default="news",
+                    help="news=图文消息(可带小程序文字链) / newspic=贴图(无正文)。默认 news")
     args = ap.parse_args()
 
     if args.topic:
@@ -566,7 +568,7 @@ def main():
     os.makedirs(save_dir, exist_ok=True)
     try:
         # 每次随机取横图或竖图
-        ori = random.choice(["landscape", "portrait"])
+        ori = "landscape"   # 2026-10-03 用户要求：图集一律横版
         print(f"方向: {ori}", file=sys.stderr)
         # 1. 搜索 + 下载(跳过已发 md5 的重复图，多取候选补足)
         photos = pexels_search(query, per_page=args.count * 6, orientation=ori)
@@ -666,19 +668,34 @@ def main():
             raise Exception("正文图片全部上传失败")
         print(f"正文图上传 OK {len(content_urls)} 张（uploadimg）", file=sys.stderr)
 
-        # 4. 建「图文消息」草稿（news），标题格式：话题·每日图集（日期）
-        #    只有 news 的 content 支持 HTML → 那行字才是可点击的小程序链接
+        # 4. 建草稿：两种模式共用同一批图，只是"要不要正文/要不要链接"不同
+        #    news  = 图文消息，正文带可点击的小程序文字链（content 支持 HTML）
+        #    newspic = 纯贴图，无正文（content 只支持纯文本，写链接也点不动）
         today_str = datetime.now().strftime("%Y-%m-%d")
         title = f"{topic}·每日图集（{today_str}）"
-        # 图片之间、以及最后小程序链接之前，各留一个空行（微信里用空段落实现）
-        blocks = [f'<p><img src="{u}" style="width:100%;"/></p>' for u, _, _ in content_urls]
-        blocks.append(_draft_content(topic))
-        content = '<p><br/></p>'.join(blocks)
-        draft_res = create_news_draft(app_id, app_secret, title, content, thumb_media_id)
+        if args.mode == "news":
+            blocks = [f'<p><img src="{u}" style="width:100%;"/></p>' for u, _, _ in content_urls]
+            blocks.append(_draft_content(topic))
+            content = '<p><br/></p>'.join(blocks)
+            draft_res = create_news_draft(app_id, app_secret, title, content, thumb_media_id)
+            print(f"图文消息草稿 OK media_id={draft_res.get('media_id')}（正文{len(content_urls)}图+小程序文字链）", file=sys.stderr)
+        else:
+            # 贴图：正文图走永久素材 media_id（newspic 要 image_media_id，不能用 uploadimg 的 URL）
+            image_media_ids = [thumb_res.get("media_id")]
+            for i, (fp, h, pid) in enumerate(full_size, 1):
+                small = os.path.join(workdir, f"pic_{i}.jpg")
+                try:
+                    _shrink_for_upload(fp, small)
+                    res = upload_image_material(app_id, app_secret, small)
+                    if res.get("media_id"):
+                        image_media_ids.append(res["media_id"])
+                except Exception as e:
+                    print(f"  ! 贴图素材 {i} 上传失败: {e}", file=sys.stderr)
+            draft_res = create_newspic_draft(app_id, app_secret, title, image_media_ids)
+            print(f"贴图草稿 OK media_id={draft_res.get('media_id')}（{len(image_media_ids)}张，无正文）", file=sys.stderr)
         draft_media_id = draft_res.get("media_id")
         if not draft_media_id:
-            raise Exception(f"建图文消息草稿失败: {draft_res}")
-        print(f"图文消息草稿 OK media_id={draft_media_id}（正文{len(content_urls)}图+小程序文字链）", file=sys.stderr)
+            raise Exception(f"建草稿失败: {draft_res}")
 
         # 4b. 采集图片尺寸（用于云数据库记录）
         from PIL import Image as _PILImage
@@ -704,16 +721,18 @@ def main():
         # 6. 追加日志
         os.makedirs(LOG_DIR, exist_ok=True)
         with open(os.path.join(LOG_DIR, "gallery_draft.log"), "a", encoding="utf-8") as f:
-            f.write(f"{datetime.now().isoformat()} | {title} | 正文图{len(content_urls)}张 | "
-                    f"草稿media_id={draft_media_id} | type=news\n")
+            f.write(f"{datetime.now().isoformat()} | {title} | "
+                    f"{'正文图' if args.mode == 'news' else '贴图'}{len(content_urls)}张 | "
+                    f"草稿media_id={draft_media_id} | type={args.mode}\n")
 
         # stdout 供 cron 汇报
         full_files = sorted(glob.glob(os.path.join(save_dir, "full_*.jpg")))
         print(json.dumps({
             "status": "success",
             "topic": topic,
+            "mode": args.mode,
             "images": len(content_urls),
-            "article_type": "news",
+            "article_type": "news" if args.mode == "news" else "newspic",
             "skipped_dup": skipped,
             "rejected_qc": rejected,
             "title": title,
