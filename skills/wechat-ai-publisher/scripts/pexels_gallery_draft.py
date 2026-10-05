@@ -680,8 +680,10 @@ def main():
             draft_res = create_news_draft(app_id, app_secret, title, content, thumb_media_id)
             print(f"图文消息草稿 OK media_id={draft_res.get('media_id')}（正文{len(content_urls)}图+小程序文字链）", file=sys.stderr)
         else:
-            # 贴图：正文图走永久素材 media_id（newspic 要 image_media_id，不能用 uploadimg 的 URL）
-            image_media_ids = [thumb_res.get("media_id")]
+            # 贴图：newspic 的 image_list 就是全部贴图，不需要单独的封面
+            # （封面 thumb_media_id 是 news 模式才用的）。直接用 full_size 的图，
+            # 否则第 1 张（封面素材）和第 2 张（full_1）会是同一张原图的两个压缩版本。
+            image_media_ids = []
             for i, (fp, h, pid) in enumerate(full_size, 1):
                 small = os.path.join(workdir, f"pic_{i}.jpg")
                 try:
@@ -691,6 +693,8 @@ def main():
                         image_media_ids.append(res["media_id"])
                 except Exception as e:
                     print(f"  ! 贴图素材 {i} 上传失败: {e}", file=sys.stderr)
+            if len(image_media_ids) < 3:
+                raise Exception(f"贴图有效图片不足3张（仅{len(image_media_ids)}张）")
             draft_res = create_newspic_draft(app_id, app_secret, title, image_media_ids)
             print(f"贴图草稿 OK media_id={draft_res.get('media_id')}（{len(image_media_ids)}张，无正文）", file=sys.stderr)
         draft_media_id = draft_res.get("media_id")
