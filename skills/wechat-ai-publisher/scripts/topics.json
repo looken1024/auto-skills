@@ -24,14 +24,6 @@
     "en": "peach blossom orchard"
   },
   {
-    "cn": "胡杨林",
-    "en": "poplar forest desert autumn"
-  },
-  {
-    "cn": "白桦林",
-    "en": "white birch trees forest"
-  },
-  {
     "cn": "高山野花",
     "en": "wildflower alpine meadow"
   },
@@ -64,10 +56,6 @@
     "en": "desert oasis palm trees"
   },
   {
-    "cn": "瀑布彩虹",
-    "en": "waterfall rainbow mist"
-  },
-  {
     "cn": "云瀑",
     "en": "cloud waterfall mountain ridge"
   },
@@ -78,14 +66,6 @@
   {
     "cn": "茶山",
     "en": "tea plantation hills"
-  },
-  {
-    "cn": "松林晨雾",
-    "en": "pine forest morning fog"
-  },
-  {
-    "cn": "珊瑚礁",
-    "en": "coral reef underwater fish"
   },
   {
     "cn": "富士山湖景",
@@ -138,10 +118,6 @@
   {
     "cn": "龙虎山",
     "en": "longhu mountain"
-  },
-  {
-    "cn": "武夷山",
-    "en": "wuyi mountain"
   },
   {
     "cn": "霞浦滩涂",
@@ -216,10 +192,6 @@
     "en": "chaka salt lake"
   },
   {
-    "cn": "天山天池",
-    "en": "tianchi lake xinjiang"
-  },
-  {
     "cn": "帕米尔高原",
     "en": "pamir plateau"
   },
@@ -230,10 +202,6 @@
   {
     "cn": "塔克拉玛干",
     "en": "taklamakan desert"
-  },
-  {
-    "cn": "火焰山",
-    "en": "flaming mountains turpan"
   },
   {
     "cn": "沙坡头",
@@ -254,10 +222,6 @@
   {
     "cn": "纳木错",
     "en": "namtso lake"
-  },
-  {
-    "cn": "珠峰大本营",
-    "en": "everest base camp"
   },
   {
     "cn": "羊卓雍措",
@@ -336,10 +300,6 @@
     "en": "camel caravan desert dunes"
   },
   {
-    "cn": "藏羚羊",
-    "en": "tibetan antelope plateau"
-  },
-  {
     "cn": "北极熊",
     "en": "polar bear ice arctic"
   },
@@ -358,10 +318,6 @@
   {
     "cn": "东北虎",
     "en": "siberian tiger snow forest"
-  },
-  {
-    "cn": "火烈鸟群",
-    "en": "flamingo flock pink lake"
   },
   {
     "cn": "天鹅湖",
@@ -392,16 +348,8 @@
     "en": "owl forest branch"
   },
   {
-    "cn": "鹦鹉",
-    "en": "macaw parrot tropical"
-  },
-  {
     "cn": "企鹅群",
     "en": "penguin colony antarctica ice"
-  },
-  {
-    "cn": "海豹",
-    "en": "seal ice arctic"
   },
   {
     "cn": "座头鲸",
