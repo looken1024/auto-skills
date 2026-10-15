@@ -53,6 +53,26 @@ def load_topics():
 _SEED_TOPIC = [("雪山金顶", "snow mountain golden sunrise")]
 
 
+def _purge_old_galleries(keep_days=3):
+    """每次跑图集前，删掉 /tmp 里 3 天前的 gallery_out_* 目录。
+
+    本机磁盘只有 50G，图集每次落盘 10+MB（原图不压缩），不清理会把磁盘塞满，
+    下载直接报 [Errno 28] No space left on device（2026-10-15 实测：717 个目录 31GB+）。
+    """
+    import glob, time
+    cutoff = time.time() - keep_days * 86400
+    removed = 0
+    for d in glob.glob("/tmp/gallery_out_*"):
+        try:
+            if os.path.getmtime(d) < cutoff:
+                shutil.rmtree(d, ignore_errors=True)
+                removed += 1
+        except Exception:
+            pass
+    if removed:
+        print(f"🧹 清理历史产物：删掉 {removed} 个 3 天前的 gallery_out_* 目录", file=sys.stderr)
+
+
 _BUILTIN_TOPICS = [
     ("伊犁杏花", "ili apricot blossom valley"),
     ("呼伦贝尔草原", "hulun buir grassland"),
@@ -577,6 +597,9 @@ def main():
     # 用户可见输出目录：每次产出落盘 /tmp/gallery_out_<时间戳>/
     save_dir = os.path.join("/tmp", f"gallery_out_{datetime.now().strftime('%Y%m%d_%H%M%S')}")
     os.makedirs(save_dir, exist_ok=True)
+    # 清理历史产物：本机磁盘只有 50G，图集每次落盘 10+MB，不清理会把磁盘塞满
+    # （2026-10-15 实测：717 个 gallery_out_* 目录累计 31GB+，磁盘 100% → 下载直接报 No space）
+    _purge_old_galleries(keep_days=3)
     try:
         # 每次随机取横图或竖图
         ori = "landscape"   # 2026-10-03 用户要求：图集一律横版
