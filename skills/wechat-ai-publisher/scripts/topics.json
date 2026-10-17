@@ -12,10 +12,6 @@
     "en": "rapeseed flower field"
   },
   {
-    "cn": "萤火虫森林",
-    "en": "fireflies night forest"
-  },
-  {
     "cn": "樱花小径",
     "en": "cherry blossom path"
   },
@@ -44,10 +40,6 @@
     "en": "plateau lake mountains"
   },
   {
-    "cn": "温泉雾气",
-    "en": "hot spring steam winter"
-  },
-  {
     "cn": "峡谷晨曦",
     "en": "canyon sunrise mist"
   },
@@ -56,20 +48,8 @@
     "en": "desert oasis palm trees"
   },
   {
-    "cn": "云瀑",
-    "en": "cloud waterfall mountain ridge"
-  },
-  {
-    "cn": "茶山",
-    "en": "tea plantation hills"
-  },
-  {
     "cn": "富士山湖景",
     "en": "mount fuji lake reflection"
-  },
-  {
-    "cn": "纽约中央公园",
-    "en": "central park new york autumn"
   },
   {
     "cn": "布莱德湖",
@@ -84,24 +64,8 @@
     "en": "dolomites italy mountains"
   },
   {
-    "cn": "香山红叶",
-    "en": "autumn red leaves mountain china"
-  },
-  {
     "cn": "瘦西湖",
     "en": "slender west lake"
-  },
-  {
-    "cn": "鼋头渚",
-    "en": "wuxi taihu lake"
-  },
-  {
-    "cn": "千岛湖",
-    "en": "qiandao lake"
-  },
-  {
-    "cn": "普陀山",
-    "en": "putuo mountain"
   },
   {
     "cn": "三清山",
@@ -112,24 +76,12 @@
     "en": "mount lu"
   },
   {
-    "cn": "龙虎山",
-    "en": "longhu mountain"
-  },
-  {
     "cn": "霞浦滩涂",
     "en": "xiapu china fishing"
   },
   {
     "cn": "岳麓山",
     "en": "yuelu mountain"
-  },
-  {
-    "cn": "洞庭湖",
-    "en": "dongting lake"
-  },
-  {
-    "cn": "神农架",
-    "en": "shennongjia forest"
   },
   {
     "cn": "三峡",
@@ -146,14 +98,6 @@
   {
     "cn": "四姑娘山",
     "en": "siguniang mountain"
-  },
-  {
-    "cn": "海螺沟",
-    "en": "hailuogou glacier"
-  },
-  {
-    "cn": "牛背山",
-    "en": "niubei mountain"
   },
   {
     "cn": "元阳梯田",
@@ -180,10 +124,6 @@
     "en": "zhangye danxia"
   },
   {
-    "cn": "月牙泉",
-    "en": "crescent lake dunhuang"
-  },
-  {
     "cn": "茶卡盐湖",
     "en": "chaka salt lake"
   },
@@ -198,10 +138,6 @@
   {
     "cn": "塔克拉玛干",
     "en": "taklamakan desert"
-  },
-  {
-    "cn": "沙坡头",
-    "en": "shapotou desert"
   },
   {
     "cn": "秦岭",
@@ -234,14 +170,6 @@
   {
     "cn": "巴丹吉林沙漠",
     "en": "badain jaran desert"
-  },
-  {
-    "cn": "阿里山",
-    "en": "alishan mountain"
-  },
-  {
-    "cn": "垦丁",
-    "en": "kenting beach taiwan"
   },
   {
     "cn": "非洲象",
@@ -358,10 +286,6 @@
   {
     "cn": "发光水母",
     "en": "jellyfish underwater glowing"
-  },
-  {
-    "cn": "蝴蝶花海",
-    "en": "butterflies meadow flowers"
   },
   {
     "cn": "梯田晨雾",
@@ -498,5 +422,93 @@
   {
     "cn": "伊犁杏花",
     "en": "ili apricot blossom valley"
+  },
+  {
+    "cn": "塞尼亚岛",
+    "en": "senja norway fjord"
+  },
+  {
+    "cn": "法罗群岛",
+    "en": "faroe islands cliff"
+  },
+  {
+    "cn": "乌尤尼盐沼",
+    "en": "salar de uyuni mirror sky"
+  },
+  {
+    "cn": "潘塔纳尔湿地",
+    "en": "pantanal wetland jaguar"
+  },
+  {
+    "cn": "众神之谷",
+    "en": "valley of the gods utah"
+  },
+  {
+    "cn": "鸟取沙丘",
+    "en": "tottori sand dunes japan"
+  },
+  {
+    "cn": "十六湖",
+    "en": "plitvice lakes croatia"
+  },
+  {
+    "cn": "盖朗厄尔峡湾",
+    "en": "geirangerfjord norway"
+  },
+  {
+    "cn": "斯科加瀑布",
+    "en": "skogafoss waterfall rainbow"
+  },
+  {
+    "cn": "斯奈山半岛",
+    "en": "snaefellsnes peninsula iceland"
+  },
+  {
+    "cn": "小熊猫",
+    "en": "red panda bamboo"
+  },
+  {
+    "cn": "雪鸮",
+    "en": "snowy owl arctic"
+  },
+  {
+    "cn": "美西螈",
+    "en": "axolotl underwater"
+  },
+  {
+    "cn": "一角鲸",
+    "en": "narwhal arctic ocean"
+  },
+  {
+    "cn": "叶海龙",
+    "en": "leafy sea dragon coral"
+  },
+  {
+    "cn": "冰洲鸥",
+    "en": "glaucous gull arctic"
+  },
+  {
+    "cn": "麝牛",
+    "en": "musk ox tundra"
+  },
+  {
+    "cn": "黑马羚",
+    "en": "sable antelope savanna"
+  },
+  {
+    "cn": "霍加狇",
+    "en": "okapi forest congo"
+  },
+  {
+    "cn": "短尾矮袋鼠",
+    "en": "quokka island"
+  },
+  {
+    "cn": "耳廓狐",
+    "en": "fennec fox desert"
+  },
+  {
+    "cn": "眼镜猴",
+    "en": "tarsier jungle"
   }
 ]
