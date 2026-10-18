@@ -83,7 +83,6 @@ _BUILTIN_TOPICS = [
     ("桂林山水", "guilin karst landscape"),
     ("梯田晨雾", "rice terraces morning mist"),
     ("武隆天生桥", "wulong natural bridge karst"),
-    ("沙漠胡杨", "poplar forest desert autumn"),
     ("海岸悬崖", "coastal cliffs ocean"),
     ("海蚀地貌", "sea rock coastline erosion"),
     ("湿地候鸟", "wetland migratory birds"),
