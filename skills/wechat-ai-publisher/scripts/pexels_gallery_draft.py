@@ -84,7 +84,6 @@ _BUILTIN_TOPICS = [
     ("梯田晨雾", "rice terraces morning mist"),
     ("武隆天生桥", "wulong natural bridge karst"),
     ("海岸悬崖", "coastal cliffs ocean"),
-    ("海蚀地貌", "sea rock coastline erosion"),
     ("湿地候鸟", "wetland migratory birds"),
     ("瀑布群落", "waterfall cascade jungle"),
     ("火山熔岩", "volcano lava landscape"),
