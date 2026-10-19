@@ -1,23 +1,11 @@
 [
   {
-    "cn": "雪山金顶",
-    "en": "snow mountain golden sunrise"
-  },
-  {
     "cn": "冰川湖",
     "en": "glacial lake turquoise"
   },
   {
     "cn": "油菜花田",
     "en": "rapeseed flower field"
-  },
-  {
-    "cn": "樱花小径",
-    "en": "cherry blossom path"
-  },
-  {
-    "cn": "桃花林",
-    "en": "peach blossom orchard"
   },
   {
     "cn": "高山野花",
@@ -32,76 +20,16 @@
     "en": "glacier ice cave"
   },
   {
-    "cn": "雪原日出",
-    "en": "snowfield sunrise cold"
-  },
-  {
     "cn": "高原湖泊",
     "en": "plateau lake mountains"
-  },
-  {
-    "cn": "峡谷晨曦",
-    "en": "canyon sunrise mist"
-  },
-  {
-    "cn": "沙漠绿洲",
-    "en": "desert oasis palm trees"
-  },
-  {
-    "cn": "富士山湖景",
-    "en": "mount fuji lake reflection"
-  },
-  {
-    "cn": "布莱德湖",
-    "en": "lake bled slovenia"
-  },
-  {
-    "cn": "马特洪峰",
-    "en": "matterhorn switzerland"
-  },
-  {
-    "cn": "多洛米蒂",
-    "en": "dolomites italy mountains"
-  },
-  {
-    "cn": "瘦西湖",
-    "en": "slender west lake"
-  },
-  {
-    "cn": "三清山",
-    "en": "sanqingshan mountain"
   },
   {
     "cn": "庐山",
     "en": "mount lu"
   },
   {
-    "cn": "霞浦滩涂",
-    "en": "xiapu china fishing"
-  },
-  {
-    "cn": "岳麓山",
-    "en": "yuelu mountain"
-  },
-  {
-    "cn": "三峡",
-    "en": "three gorges yangtze"
-  },
-  {
-    "cn": "恩施大峡谷",
-    "en": "enshi grand canyon"
-  },
-  {
     "cn": "青城山",
     "en": "qingcheng mountain"
-  },
-  {
-    "cn": "四姑娘山",
-    "en": "siguniang mountain"
-  },
-  {
-    "cn": "元阳梯田",
-    "en": "yuanyang rice terraces"
   },
   {
     "cn": "玉龙雪山",
@@ -112,216 +40,60 @@
     "en": "xishuangbanna rainforest"
   },
   {
-    "cn": "荔波小七孔",
-    "en": "libo xiaoqikong"
-  },
-  {
-    "cn": "万峰林",
-    "en": "wanfenglin karst"
-  },
-  {
     "cn": "张掖丹霞",
     "en": "zhangye danxia"
-  },
-  {
-    "cn": "茶卡盐湖",
-    "en": "chaka salt lake"
-  },
-  {
-    "cn": "帕米尔高原",
-    "en": "pamir plateau"
-  },
-  {
-    "cn": "赛里木湖",
-    "en": "sayram lake"
-  },
-  {
-    "cn": "塔克拉玛干",
-    "en": "taklamakan desert"
   },
   {
     "cn": "秦岭",
     "en": "qinling mountains"
   },
   {
-    "cn": "长白山",
-    "en": "changbai mountain"
-  },
-  {
     "cn": "松花江雾凇",
     "en": "rime ice jilin"
-  },
-  {
-    "cn": "纳木错",
-    "en": "namtso lake"
-  },
-  {
-    "cn": "羊卓雍措",
-    "en": "yamdrok lake"
-  },
-  {
-    "cn": "冈仁波齐",
-    "en": "mount kailash"
   },
   {
     "cn": "阿尔山",
     "en": "arshan forest"
   },
   {
-    "cn": "巴丹吉林沙漠",
-    "en": "badain jaran desert"
-  },
-  {
     "cn": "非洲象",
     "en": "african elephant savanna sunset"
-  },
-  {
-    "cn": "长颈鹿",
-    "en": "giraffe savanna sunset acacia"
-  },
-  {
-    "cn": "狮子",
-    "en": "lion savanna golden light"
-  },
-  {
-    "cn": "斑马群",
-    "en": "zebra herd savanna"
-  },
-  {
-    "cn": "狼群",
-    "en": "wolves snow winter pack"
   },
   {
     "cn": "红狐",
     "en": "red fox winter snow"
   },
   {
-    "cn": "驯鹿迁徙",
-    "en": "reindeer migration tundra"
-  },
-  {
-    "cn": "野马群",
-    "en": "wild horses running steppe"
-  },
-  {
-    "cn": "骏马奔驰",
-    "en": "horses galloping beach sunset"
-  },
-  {
-    "cn": "羊群",
-    "en": "sheep flock green hillside"
-  },
-  {
-    "cn": "牦牛",
-    "en": "yak tibetan plateau grassland"
-  },
-  {
     "cn": "骆驼商队",
     "en": "camel caravan desert dunes"
-  },
-  {
-    "cn": "北极熊",
-    "en": "polar bear ice arctic"
-  },
-  {
-    "cn": "雪豹",
-    "en": "snow leopard mountain rock"
-  },
-  {
-    "cn": "大熊猫",
-    "en": "giant panda bamboo forest"
-  },
-  {
-    "cn": "金丝猴",
-    "en": "golden monkey forest"
-  },
-  {
-    "cn": "东北虎",
-    "en": "siberian tiger snow forest"
   },
   {
     "cn": "天鹅湖",
     "en": "swans lake mist morning"
   },
   {
-    "cn": "丹顶鹤",
-    "en": "red crowned crane wetland"
-  },
-  {
-    "cn": "孔雀开屏",
-    "en": "peacock displaying feathers"
-  },
-  {
-    "cn": "蜂鸟",
-    "en": "hummingbird flower macro"
-  },
-  {
     "cn": "候鸟迁徙",
     "en": "migratory birds flock sky"
-  },
-  {
-    "cn": "雄鹰翱翔",
-    "en": "eagle soaring mountain sky"
-  },
-  {
-    "cn": "猫头鹰",
-    "en": "owl forest branch"
   },
   {
     "cn": "座头鲸",
     "en": "humpback whale ocean breach"
   },
   {
-    "cn": "海豚",
-    "en": "dolphins jumping ocean"
-  },
-  {
     "cn": "鲨鱼",
     "en": "shark underwater ocean"
-  },
-  {
-    "cn": "海龟",
-    "en": "sea turtle coral reef"
   },
   {
     "cn": "发光水母",
     "en": "jellyfish underwater glowing"
   },
   {
-    "cn": "梯田晨雾",
-    "en": "rice terraces morning mist"
-  },
-  {
-    "cn": "海岸悬崖",
-    "en": "coastal cliffs ocean"
-  },
-  {
     "cn": "薰衣草田",
     "en": "lavender field provence"
   },
   {
-    "cn": "白桦林",
-    "en": "birch forest autumn"
-  },
-  {
-    "cn": "草原晨光",
-    "en": "grassland sunrise prairie"
-  },
-  {
-    "cn": "雪山日落",
-    "en": "snow mountain sunset alpenglow"
-  },
-  {
     "cn": "雨林溪流",
     "en": "rainforest stream waterfall"
-  },
-  {
-    "cn": "芦苇荡",
-    "en": "reed marsh wetland autumn"
-  },
-  {
-    "cn": "火山熔岩",
-    "en": "volcano lava landscape"
   },
   {
     "cn": "盐湖倒影",
@@ -330,10 +102,6 @@
   {
     "cn": "高山杜鹃",
     "en": "alpine rhododendron bloom"
-  },
-  {
-    "cn": "瀑布群落",
-    "en": "waterfall cascade jungle"
   },
   {
     "cn": "极光雪原",
@@ -348,10 +116,6 @@
     "en": "maple forest red autumn"
   },
   {
-    "cn": "湿地候鸟",
-    "en": "wetland migratory birds"
-  },
-  {
     "cn": "黄河九曲",
     "en": "yellow river bends landscape"
   },
@@ -360,20 +124,8 @@
     "en": "hukou waterfall yellow river"
   },
   {
-    "cn": "黄河入海",
-    "en": "yellow river meets sea sunset"
-  },
-  {
-    "cn": "长城日落",
-    "en": "great wall sunset"
-  },
-  {
     "cn": "黄山云海",
     "en": "mount huang sea of clouds"
-  },
-  {
-    "cn": "桂林山水",
-    "en": "guilin karst landscape"
   },
   {
     "cn": "武隆天生桥",
@@ -382,10 +134,6 @@
   {
     "cn": "雅鲁藏布",
     "en": "ygrand canyon river gorge"
-  },
-  {
-    "cn": "青海湖",
-    "en": "qinghai lake blue"
   },
   {
     "cn": "喀纳斯湖",
@@ -398,14 +146,6 @@
   {
     "cn": "扎龙湿地",
     "en": "zhalong wetland red crown"
-  },
-  {
-    "cn": "呼伦贝尔草原",
-    "en": "hulun buir grassland"
-  },
-  {
-    "cn": "那拉提草原",
-    "en": "nalati grassland"
   },
   {
     "cn": "巴音布鲁克",
@@ -456,14 +196,6 @@
     "en": "snaefellsnes peninsula iceland"
   },
   {
-    "cn": "小熊猫",
-    "en": "red panda bamboo"
-  },
-  {
-    "cn": "雪鸮",
-    "en": "snowy owl arctic"
-  },
-  {
     "cn": "美西螈",
     "en": "axolotl underwater"
   },
@@ -502,5 +234,217 @@
   {
     "cn": "眼镜猴",
     "en": "tarsier jungle"
+  },
+  {
+    "cn": "漓江晨雾",
+    "en": "li river mist karst"
+  },
+  {
+    "cn": "虎跳峡",
+    "en": "tiger leaping gorge"
+  },
+  {
+    "cn": "天山天池",
+    "en": "tianchi lake tianshan"
+  },
+  {
+    "cn": "峨眉山金顶",
+    "en": "emei mountain golden summit"
+  },
+  {
+    "cn": "华山云海",
+    "en": "huashan mountain sea of clouds"
+  },
+  {
+    "cn": "武功山草甸",
+    "en": "wugong mountain meadow"
+  },
+  {
+    "cn": "梵净山",
+    "en": "fanjing mountain"
+  },
+  {
+    "cn": "雁荡山",
+    "en": "yandang mountain"
+  },
+  {
+    "cn": "太行山",
+    "en": "taihang mountains"
+  },
+  {
+    "cn": "丹霞山",
+    "en": "danxia mountain"
+  },
+  {
+    "cn": "泸沽湖",
+    "en": "lugu lake yunnan"
+  },
+  {
+    "cn": "涠洲岛",
+    "en": "weizhou island"
+  },
+  {
+    "cn": "东极岛",
+    "en": "dongji island"
+  },
+  {
+    "cn": "蜈支洲岛",
+    "en": "wuzhizhou island"
+  },
+  {
+    "cn": "亚龙湾",
+    "en": "yalong bay beach"
+  },
+  {
+    "cn": "荷花池",
+    "en": "lotus pond bloom"
+  },
+  {
+    "cn": "向日葵花海",
+    "en": "sunflower field summer"
+  },
+  {
+    "cn": "郁金香花田",
+    "en": "tulip field netherlands"
+  },
+  {
+    "cn": "银杏大道",
+    "en": "ginkgo avenue autumn"
+  },
+  {
+    "cn": "竹林小径",
+    "en": "bamboo forest path"
+  },
+  {
+    "cn": "梅花盛开",
+    "en": "plum blossom winter"
+  },
+  {
+    "cn": "水杉林",
+    "en": "dawn redwood forest"
+  },
+  {
+    "cn": "格桑花海",
+    "en": "cosmos flower field plateau"
+  },
+  {
+    "cn": "马鞭草花海",
+    "en": "verbena flower field"
+  },
+  {
+    "cn": "绣球花",
+    "en": "hydrangea garden bloom"
+  },
+  {
+    "cn": "冰瀑",
+    "en": "frozen waterfall ice"
+  },
+  {
+    "cn": "雪山星空",
+    "en": "snow mountain starry night"
+  },
+  {
+    "cn": "鸣沙山",
+    "en": "mingsha sand dunes"
+  },
+  {
+    "cn": "沙坡头",
+    "en": "shapotou desert"
+  },
+  {
+    "cn": "腾格里沙漠",
+    "en": "tengger desert dunes"
+  },
+  {
+    "cn": "藏羚羊",
+    "en": "tibetan antelope plateau"
+  },
+  {
+    "cn": "朱鹮",
+    "en": "crested ibis"
+  },
+  {
+    "cn": "白鹭",
+    "en": "egret wetland"
+  },
+  {
+    "cn": "火烈鸟",
+    "en": "flamingos lake"
+  },
+  {
+    "cn": "企鹅",
+    "en": "penguins antarctica"
+  },
+  {
+    "cn": "海豹",
+    "en": "seal ice"
+  },
+  {
+    "cn": "鲸鲨",
+    "en": "whale shark underwater"
+  },
+  {
+    "cn": "蝴蝶",
+    "en": "butterfly flower macro"
+  },
+  {
+    "cn": "麋鹿",
+    "en": "elk wetland"
+  },
+  {
+    "cn": "梅花鹿",
+    "en": "sika deer forest"
+  },
+  {
+    "cn": "冰岛黑沙滩",
+    "en": "iceland black sand beach"
+  },
+  {
+    "cn": "挪威松恩峡湾",
+    "en": "sognefjord norway"
+  },
+  {
+    "cn": "瑞士少女峰",
+    "en": "jungfrau switzerland"
+  },
+  {
+    "cn": "新西兰南岛",
+    "en": "new zealand south island landscape"
+  },
+  {
+    "cn": "巴塔哥尼亚",
+    "en": "patagonia mountains"
+  },
+  {
+    "cn": "大堡礁",
+    "en": "great barrier reef aerial"
+  },
+  {
+    "cn": "马尔代夫环礁",
+    "en": "maldives atoll aerial"
+  },
+  {
+    "cn": "塞伦盖蒂草原",
+    "en": "serengeti savanna"
+  },
+  {
+    "cn": "黄石大棱镜",
+    "en": "grand prismatic spring yellowstone"
+  },
+  {
+    "cn": "羚羊峡谷",
+    "en": "antelope canyon light beams"
+  },
+  {
+    "cn": "死亡谷",
+    "en": "death valley desert"
+  },
+  {
+    "cn": "大苏尔海岸",
+    "en": "big sur coast"
+  },
+  {
+    "cn": "阿尔卑斯山",
+    "en": "alps mountain landscape"
   }
 ]
