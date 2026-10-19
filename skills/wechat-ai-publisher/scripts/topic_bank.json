@@ -1,0 +1,766 @@
+{
+  "pending": [
+    {
+      "cn": "天山神秘大峡谷",
+      "en": "tianshan canyon red rock"
+    },
+    {
+      "cn": "库车大峡谷",
+      "en": "kuqa canyon"
+    },
+    {
+      "cn": "温宿大峡谷",
+      "en": "wensu canyon"
+    },
+    {
+      "cn": "五彩滩",
+      "en": "wucaitan rainbow beach"
+    },
+    {
+      "cn": "可可托海",
+      "en": "koktokay lake"
+    },
+    {
+      "cn": "禾木晨雾",
+      "en": "hemu village morning mist"
+    },
+    {
+      "cn": "塔里木胡杨林",
+      "en": "tarim poplar forest"
+    },
+    {
+      "cn": "阿尔金山",
+      "en": "altun mountains"
+    },
+    {
+      "cn": "祁连山",
+      "en": "qilian mountains snow"
+    },
+    {
+      "cn": "门源油菜花",
+      "en": "menyuan rapeseed flower"
+    },
+    {
+      "cn": "大柴旦翡翠湖",
+      "en": "dachaidan emerald lake"
+    },
+    {
+      "cn": "东台吉乃尔湖",
+      "en": "dongtai jinaier lake"
+    },
+    {
+      "cn": "水上雅丹",
+      "en": "water yardang landform"
+    },
+    {
+      "cn": "俄博梁",
+      "en": "eboliang yardang"
+    },
+    {
+      "cn": "茫崖翡翠湖",
+      "en": "mangya emerald lake"
+    },
+    {
+      "cn": "黄河石林",
+      "en": "yellow river stone forest"
+    },
+    {
+      "cn": "崆峒山",
+      "en": "kongtong mountain"
+    },
+    {
+      "cn": "官鹅沟",
+      "en": "guane valley lake"
+    },
+    {
+      "cn": "黄龙五彩池",
+      "en": "huanglong colorful pool"
+    },
+    {
+      "cn": "贡嘎雪山",
+      "en": "gongga snow mountain"
+    },
+    {
+      "cn": "牛奶海",
+      "en": "niunai lake snow mountain"
+    },
+    {
+      "cn": "五色海",
+      "en": "wuse lake plateau"
+    },
+    {
+      "cn": "新都桥",
+      "en": "xinduqiao landscape"
+    },
+    {
+      "cn": "塔公草原",
+      "en": "tagong grassland"
+    },
+    {
+      "cn": "毕棚沟",
+      "en": "bipenggou valley"
+    },
+    {
+      "cn": "达古冰川",
+      "en": "dagu glacier"
+    },
+    {
+      "cn": "米亚罗",
+      "en": "miyaluo autumn forest"
+    },
+    {
+      "cn": "光雾山",
+      "en": "guangwu mountain autumn"
+    },
+    {
+      "cn": "瓦屋山",
+      "en": "wawu mountain"
+    },
+    {
+      "cn": "蜀南竹海",
+      "en": "shunan bamboo forest"
+    },
+    {
+      "cn": "兴文石海",
+      "en": "xingwen stone sea"
+    },
+    {
+      "cn": "赤水丹霞",
+      "en": "chishui danxia"
+    },
+    {
+      "cn": "马岭河峡谷",
+      "en": "maling river canyon"
+    },
+    {
+      "cn": "普者黑",
+      "en": "puzhehei lake lotus"
+    },
+    {
+      "cn": "罗平油菜花",
+      "en": "luoping rapeseed field"
+    },
+    {
+      "cn": "东川红土地",
+      "en": "dongchuan red earth"
+    },
+    {
+      "cn": "腾冲火山",
+      "en": "tengchong volcano"
+    },
+    {
+      "cn": "德天瀑布",
+      "en": "detian waterfall"
+    },
+    {
+      "cn": "明仕田园",
+      "en": "mingshi pastoral river"
+    },
+    {
+      "cn": "遇龙河",
+      "en": "yulong river yangshuo"
+    },
+    {
+      "cn": "龙脊梯田",
+      "en": "longji rice terraces"
+    },
+    {
+      "cn": "姑婆山",
+      "en": "gupo mountain"
+    },
+    {
+      "cn": "罗浮山",
+      "en": "luofu mountain"
+    },
+    {
+      "cn": "鼎湖山",
+      "en": "dinghu mountain"
+    },
+    {
+      "cn": "南澳岛",
+      "en": "nanao island"
+    },
+    {
+      "cn": "巽寮湾",
+      "en": "xunliao bay beach"
+    },
+    {
+      "cn": "双月湾",
+      "en": "double moon bay"
+    },
+    {
+      "cn": "海陵岛",
+      "en": "hailing island"
+    },
+    {
+      "cn": "东山岛",
+      "en": "dongshan island"
+    },
+    {
+      "cn": "平潭岛",
+      "en": "pingtan island"
+    },
+    {
+      "cn": "太姥山",
+      "en": "taimu mountain"
+    },
+    {
+      "cn": "泰宁丹霞",
+      "en": "taining danxia"
+    },
+    {
+      "cn": "白水洋",
+      "en": "baishuiyang water"
+    },
+    {
+      "cn": "楠溪江",
+      "en": "nanxi river"
+    },
+    {
+      "cn": "神仙居",
+      "en": "shenxianju mountain"
+    },
+    {
+      "cn": "天台山",
+      "en": "tiantai mountain"
+    },
+    {
+      "cn": "富春江",
+      "en": "fuchun river"
+    },
+    {
+      "cn": "莫干山",
+      "en": "moganshan bamboo"
+    },
+    {
+      "cn": "天目山",
+      "en": "tianmu mountain"
+    },
+    {
+      "cn": "大明山",
+      "en": "damingshan mountain"
+    },
+    {
+      "cn": "嵊泗列岛",
+      "en": "shengsi islands"
+    },
+    {
+      "cn": "花岙岛",
+      "en": "huaao island"
+    },
+    {
+      "cn": "齐云山",
+      "en": "qiyun mountain"
+    },
+    {
+      "cn": "牯牛降",
+      "en": "guniujiang mountain"
+    },
+    {
+      "cn": "天堂寨",
+      "en": "tiantangzhai mountain"
+    },
+    {
+      "cn": "大别山",
+      "en": "dabie mountains"
+    },
+    {
+      "cn": "天柱山",
+      "en": "tianzhu mountain"
+    },
+    {
+      "cn": "九华山",
+      "en": "jiuhua mountain"
+    },
+    {
+      "cn": "琅琊山",
+      "en": "langya mountain"
+    },
+    {
+      "cn": "云台山",
+      "en": "yuntai mountain"
+    },
+    {
+      "cn": "老君山",
+      "en": "laojun mountain"
+    },
+    {
+      "cn": "嵩山",
+      "en": "song mountain"
+    },
+    {
+      "cn": "王屋山",
+      "en": "wangwu mountain"
+    },
+    {
+      "cn": "太行大峡谷",
+      "en": "taihang grand canyon"
+    },
+    {
+      "cn": "蟒河",
+      "en": "manghe valley"
+    },
+    {
+      "cn": "芦芽山",
+      "en": "luya mountain"
+    },
+    {
+      "cn": "五台山",
+      "en": "wutai mountain"
+    },
+    {
+      "cn": "恒山",
+      "en": "hengshan mountain"
+    },
+    {
+      "cn": "老牛湾",
+      "en": "laoniuwan yellow river"
+    },
+    {
+      "cn": "库布齐沙漠",
+      "en": "kubuqi desert"
+    },
+    {
+      "cn": "响沙湾",
+      "en": "xiangshawan desert"
+    },
+    {
+      "cn": "乌兰布统",
+      "en": "wulanbutong grassland"
+    },
+    {
+      "cn": "塞罕坝",
+      "en": "saihanba forest"
+    },
+    {
+      "cn": "坝上草原",
+      "en": "bashang grassland"
+    },
+    {
+      "cn": "草原天路",
+      "en": "grassland highway"
+    },
+    {
+      "cn": "呼伦湖",
+      "en": "hulun lake"
+    },
+    {
+      "cn": "莫尔道嘎",
+      "en": "moerdaoga forest"
+    },
+    {
+      "cn": "根河湿地",
+      "en": "genhe wetland"
+    },
+    {
+      "cn": "额尔古纳湿地",
+      "en": "erguna wetland"
+    },
+    {
+      "cn": "镜泊湖",
+      "en": "jingpo lake"
+    },
+    {
+      "cn": "吊水楼瀑布",
+      "en": "diaoshuilou waterfall"
+    },
+    {
+      "cn": "五大连池",
+      "en": "wudalianchi lake"
+    },
+    {
+      "cn": "龙江第一湾",
+      "en": "heilongjiang first bend"
+    },
+    {
+      "cn": "雾凇岛",
+      "en": "rime island"
+    },
+    {
+      "cn": "伊春林海",
+      "en": "yichun forest sea"
+    },
+    {
+      "cn": "汤旺河石林",
+      "en": "tangwanghe stone forest"
+    },
+    {
+      "cn": "冰岛黄金瀑布",
+      "en": "gullfoss iceland"
+    },
+    {
+      "cn": "冰岛钻石沙滩",
+      "en": "diamond beach iceland"
+    },
+    {
+      "cn": "冰岛米湖",
+      "en": "myvatn lake iceland"
+    },
+    {
+      "cn": "罗弗敦群岛",
+      "en": "lofoten islands norway"
+    },
+    {
+      "cn": "布道石",
+      "en": "preikestolen norway"
+    },
+    {
+      "cn": "恶魔之舌",
+      "en": "trolltunga norway"
+    },
+    {
+      "cn": "苏格兰高地",
+      "en": "scottish highlands"
+    },
+    {
+      "cn": "莫赫悬崖",
+      "en": "cliffs of moher"
+    },
+    {
+      "cn": "普罗旺斯",
+      "en": "provence lavender field"
+    },
+    {
+      "cn": "托斯卡纳",
+      "en": "tuscany landscape"
+    },
+    {
+      "cn": "科莫湖",
+      "en": "lake como italy"
+    },
+    {
+      "cn": "国王湖",
+      "en": "konigssee germany"
+    },
+    {
+      "cn": "因特拉肯",
+      "en": "interlaken switzerland"
+    },
+    {
+      "cn": "卡帕多奇亚",
+      "en": "cappadocia landscape"
+    },
+    {
+      "cn": "棉花堡",
+      "en": "pamukkale terrace"
+    },
+    {
+      "cn": "卡兹别克",
+      "en": "kazbegi mountain georgia"
+    },
+    {
+      "cn": "塞凡湖",
+      "en": "sevan lake armenia"
+    },
+    {
+      "cn": "贝加尔湖",
+      "en": "lake baikal ice"
+    },
+    {
+      "cn": "堪察加",
+      "en": "kamchatka volcano"
+    },
+    {
+      "cn": "北海道薰衣草",
+      "en": "hokkaido lavender field"
+    },
+    {
+      "cn": "屋久岛",
+      "en": "yakushima forest"
+    },
+    {
+      "cn": "济州岛",
+      "en": "jeju island coast"
+    },
+    {
+      "cn": "下龙湾",
+      "en": "halong bay vietnam"
+    },
+    {
+      "cn": "皮皮岛",
+      "en": "phi phi island"
+    },
+    {
+      "cn": "拜县",
+      "en": "pai valley thailand"
+    },
+    {
+      "cn": "科莫多岛",
+      "en": "komodo island"
+    },
+    {
+      "cn": "巴拉望",
+      "en": "palawan island"
+    },
+    {
+      "cn": "仙本那",
+      "en": "semporna island"
+    },
+    {
+      "cn": "安纳普尔纳",
+      "en": "annapurna mountain"
+    },
+    {
+      "cn": "斯里兰卡茶园",
+      "en": "sri lanka tea plantation"
+    },
+    {
+      "cn": "塞舌尔",
+      "en": "seychelles beach"
+    },
+    {
+      "cn": "毛里求斯",
+      "en": "mauritius waterfall"
+    },
+    {
+      "cn": "猴面包树",
+      "en": "baobab trees madagascar"
+    },
+    {
+      "cn": "马赛马拉",
+      "en": "masai mara savanna"
+    },
+    {
+      "cn": "乞力马扎罗",
+      "en": "kilimanjaro mountain"
+    },
+    {
+      "cn": "摩洛哥撒哈拉",
+      "en": "sahara desert morocco"
+    },
+    {
+      "cn": "桌山",
+      "en": "table mountain cape town"
+    },
+    {
+      "cn": "乌鲁鲁",
+      "en": "uluru australia"
+    },
+    {
+      "cn": "十二门徒",
+      "en": "twelve apostles australia"
+    },
+    {
+      "cn": "米尔福德峡湾",
+      "en": "milford sound"
+    },
+    {
+      "cn": "瓦纳卡湖",
+      "en": "lake wanaka"
+    },
+    {
+      "cn": "库克山",
+      "en": "mount cook new zealand"
+    },
+    {
+      "cn": "班夫",
+      "en": "banff lake"
+    },
+    {
+      "cn": "路易斯湖",
+      "en": "lake louise"
+    },
+    {
+      "cn": "优胜美地",
+      "en": "yosemite valley"
+    },
+    {
+      "cn": "锡安",
+      "en": "zion national park"
+    },
+    {
+      "cn": "布莱斯峡谷",
+      "en": "bryce canyon"
+    },
+    {
+      "cn": "冰川国家公园",
+      "en": "glacier national park"
+    },
+    {
+      "cn": "夏威夷",
+      "en": "hawaii coast"
+    },
+    {
+      "cn": "坎昆",
+      "en": "cancun beach"
+    },
+    {
+      "cn": "哥斯达黎加雨林",
+      "en": "costa rica rainforest"
+    },
+    {
+      "cn": "百内",
+      "en": "torres del paine"
+    },
+    {
+      "cn": "莫雷诺冰川",
+      "en": "perito moreno glacier"
+    },
+    {
+      "cn": "伊瓜苏瀑布",
+      "en": "iguazu falls"
+    },
+    {
+      "cn": "天使瀑布",
+      "en": "angel falls venezuela"
+    },
+    {
+      "cn": "格陵兰冰山",
+      "en": "greenland iceberg"
+    },
+    {
+      "cn": "阿拉斯加冰川",
+      "en": "alaska glacier"
+    },
+    {
+      "cn": "南极冰山",
+      "en": "antarctica iceberg"
+    },
+    {
+      "cn": "北极浮冰",
+      "en": "arctic pack ice"
+    },
+    {
+      "cn": "红海珊瑚礁",
+      "en": "red sea coral reef"
+    },
+    {
+      "cn": "大溪地",
+      "en": "tahiti island"
+    },
+    {
+      "cn": "斐济群岛",
+      "en": "fiji islands"
+    },
+    {
+      "cn": "帕劳水母湖",
+      "en": "palau jellyfish lake"
+    },
+    {
+      "cn": "塞班岛",
+      "en": "saipan island"
+    },
+    {
+      "cn": "北极狐",
+      "en": "arctic fox snow"
+    },
+    {
+      "cn": "北极狼",
+      "en": "arctic wolf"
+    },
+    {
+      "cn": "棕熊",
+      "en": "brown bear river"
+    },
+    {
+      "cn": "美洲豹",
+      "en": "jaguar jungle"
+    },
+    {
+      "cn": "花豹",
+      "en": "leopard tree"
+    },
+    {
+      "cn": "长臂猿",
+      "en": "gibbon forest"
+    },
+    {
+      "cn": "猩猩",
+      "en": "orangutan forest"
+    },
+    {
+      "cn": "穿山甲",
+      "en": "pangolin"
+    },
+    {
+      "cn": "犀鸟",
+      "en": "hornbill bird"
+    },
+    {
+      "cn": "巨嘴鸟",
+      "en": "toucan bird"
+    },
+    {
+      "cn": "鹈鹕",
+      "en": "pelican lake"
+    },
+    {
+      "cn": "锤头鲨",
+      "en": "hammerhead shark"
+    },
+    {
+      "cn": "蝠鲼",
+      "en": "manta ray ocean"
+    },
+    {
+      "cn": "章鱼",
+      "en": "octopus underwater"
+    },
+    {
+      "cn": "海马",
+      "en": "seahorse underwater"
+    },
+    {
+      "cn": "小丑鱼",
+      "en": "clownfish coral"
+    },
+    {
+      "cn": "珊瑚",
+      "en": "coral reef colorful"
+    },
+    {
+      "cn": "海獭",
+      "en": "sea otter floating"
+    },
+    {
+      "cn": "海狮",
+      "en": "sea lion rock"
+    },
+    {
+      "cn": "信天翁",
+      "en": "albatross ocean"
+    },
+    {
+      "cn": "蓝闪蝶",
+      "en": "blue morpho butterfly"
+    },
+    {
+      "cn": "变色龙",
+      "en": "chameleon branch"
+    },
+    {
+      "cn": "树蛙",
+      "en": "tree frog leaf"
+    },
+    {
+      "cn": "雪兔",
+      "en": "snow hare winter"
+    },
+    {
+      "cn": "藏野驴",
+      "en": "tibetan wild ass plateau"
+    },
+    {
+      "cn": "白唇鹿",
+      "en": "white lipped deer"
+    }
+  ],
+  "used": [
+    {
+      "cn": "喀拉峻草原",
+      "en": "kalajun grassland",
+      "ts": "2026-10-19T22:42:09.254509"
+    },
+    {
+      "cn": "唐布拉草原",
+      "en": "tangbula grassland",
+      "ts": "2026-10-19T22:42:09.254524"
+    },
+    {
+      "cn": "江布拉克",
+      "en": "jiangbulake grassland",
+      "ts": "2026-10-19T22:42:09.254526"
+    }
+  ],
+  "rejected": []
+}

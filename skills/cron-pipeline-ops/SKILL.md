@@ -142,7 +142,7 @@ hermes config set auxiliary.vision.model deepseek-flash
 - `references/hermes-cron-model-ops.md` — 四层根因实战记录、判定命令、日志/证据位置、免费模型实测表
 - `references/web-chat-automation.md` — 驱动网页版大模型：browser_exec 手动路径（登录/验证码/发送/抓回复）+ 裸 CDP 脚本化终审（后台标签节流、容器选择、VERDICT 解析、fail 策略）+ 裸 CDP 连 9222 通用坑（browser-harness 403 → 裸 websocket `suppress_origin=True`、Chrome 看门狗、列表页等 8s 渲染后用 innerText+分隔符解析）
 - `references/cron-agent-output-discipline.md` — agent 版 cron 输出纪律：报告正文一律落盘、最终回复只给短摘要（超长截断→整轮判 FAILED 的首跑事故实录）
-- `references/pexels-topic-exhaustion.md` — 图集话题池：枯竭根因（台账消耗 ≈ 检索深度）+ md5 台账感知选题（超阈值排除）、**什么时候该换池（反复打“所有候选话题均已发≥30张”）、换池/扩充完整工作流与相关性抽查（英文词搜得到≠图对，含实例）、topics.json 格式不匹配会静默失效**、补丁变量作用域乌龙与 dry-run 立验教训
+- `references/pexels-topic-exhaustion.md` — 图集话题池：枯竭根因（台账消耗 ≈ 检索深度）+ md5 台账感知选题（超阈值排除）、**什么时候该换池（反复打“所有候选话题均已发≥30张”）、换池/扩充完整工作流与相关性抽查（英文词搜得到≠图对，含实例）、topics.json 格式不匹配会静默失效**、补丁变量作用域乌龙与 dry-run 立验教训、**2026-10-19 按「经常出现」批量换血（台账 ≥27 张剔除 + 新词串行探活，勿并发打 Pexels）**
 - `references/pipeline-dual-output.md` — 图集流水线双输出架构：压缩版进草稿箱 + 全尺寸版通过 MEDIA: 推给用户（绕过微信素材库大小限制）。含 compress_image 兜底缩分辨率、process_image 大图降采样、batchget 必须 POST、newspic 图片在 image_info 不在 content 等踩坑。
 - `references/pre-publish-fact-gate.md` — 发布前事实/口径六条门禁、同日多条配额、外部复盘 prompt 模板
 - `references/cron-empty-spin-triage.md` — “任务成功但零交付”的日志级排查（会话 id 反推、模型分布统计、配额 429 原文、输出文件时间戳语义）+ prompt 层防空转条款

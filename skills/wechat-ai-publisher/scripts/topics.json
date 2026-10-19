@@ -12,10 +12,6 @@
     "en": "wildflower alpine meadow"
   },
   {
-    "cn": "热带海岛航拍",
-    "en": "tropical island aerial"
-  },
-  {
     "cn": "蓝冰洞",
     "en": "glacier ice cave"
   },
@@ -104,10 +100,6 @@
     "en": "alpine rhododendron bloom"
   },
   {
-    "cn": "极光雪原",
-    "en": "aurora borealis snow field"
-  },
-  {
     "cn": "雾漫山峦",
     "en": "foggy mountain range layers"
   },
@@ -190,10 +182,6 @@
   {
     "cn": "斯科加瀑布",
     "en": "skogafoss waterfall rainbow"
-  },
-  {
-    "cn": "斯奈山半岛",
-    "en": "snaefellsnes peninsula iceland"
   },
   {
     "cn": "美西螈",
@@ -446,5 +434,17 @@
   {
     "cn": "阿尔卑斯山",
     "en": "alps mountain landscape"
+  },
+  {
+    "cn": "喀拉峻草原",
+    "en": "kalajun grassland"
+  },
+  {
+    "cn": "唐布拉草原",
+    "en": "tangbula grassland"
+  },
+  {
+    "cn": "江布拉克",
+    "en": "jiangbulake grassland"
   }
 ]
