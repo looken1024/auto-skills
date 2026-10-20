@@ -19,18 +19,37 @@ import urllib.request
 import requests
 
 PROXY = "http://127.0.0.1:8899/v1/chat/completions"
+# 2026-10-19：主模型切到 opencode-go（与 Hermes 主模型一致），失败再退免费池
+OPENCODE_URL = "https://opencode.ai/inference/go/openai/v1/chat/completions"
+OPENCODE_MODELS = {
+    "deepseek-v4.1-flash", "deepseek-v4-pro", "kimi-k3", "glm-5.3",
+    "space-bunny", "mimo-v2.6-pro", "qwen3.8-max",
+    "longcat-2.5-preview-free", "beam-free",
+}
 CHROME = "http://127.0.0.1:9222"
 SKILL = os.path.expanduser("~/.hermes/skills/toutiao-micro-publish")
 LEDGER = os.path.join(SKILL, "logs", "published.log")
 
-# 小上下文优先用 gemma-26b（快、中文好），限流了再往后排
+# 小上下文优先用主模型，失败再退免费池
 MODEL_CHAIN = [
+    "deepseek-v4.1-flash",
     "google/gemma-4-26b-a4b-it:free",
     "dots-studio/dots-3-note-preview:free",
     "cohere/north-mini-code:free",
     "google/gemma-4-31b-it:free",
     "nvidia/nemotron-3-super-120b-a12b:free",
 ]
+
+
+def _opencode_key():
+    key = os.environ.get("OPENCODE_GO_API_KEY", "").strip()
+    if key:
+        return key
+    txt = open(os.path.expanduser("~/.hermes/.env"), encoding="utf-8").read()
+    m = re.search(r"^OPENCODE_GO_API_KEY=(.+)$", txt, re.M)
+    if not m:
+        raise RuntimeError("找不到 OPENCODE_GO_API_KEY")
+    return m.group(1).strip()
 
 
 def _api_key():
@@ -47,7 +66,6 @@ def llm(prompt, system=None, max_tokens=2000, temperature=0.8, models=None, time
     用 stream=True 调用，同时收集 content 和 reasoning（dots 等 reasoning 模型
     的正文在 content 字段，reasoning 在 reasoning 字段，两者分开流式推送）。
     """
-    key = _api_key()
     msgs = []
     if system:
         msgs.append({"role": "system", "content": system})
@@ -56,20 +74,29 @@ def llm(prompt, system=None, max_tokens=2000, temperature=0.8, models=None, time
     for m in (models or MODEL_CHAIN):
         try:
             t0 = time.time()
+            use_opencode = m in OPENCODE_MODELS
+            endpoint = OPENCODE_URL if use_opencode else PROXY
+            hdrs = {"Authorization": f"Bearer {_opencode_key() if use_opencode else _api_key()}",
+                    "Content-Type": "application/json"}
+            if use_opencode:
+                hdrs["x-opencode-session"] = "hermes-main"
             # reasoning 模型需要足够 token，否则 reasoning 吃满、content 没空间
             eff_max = max(max_tokens, 8000)  # dots reasoning 模型需要足够 token 空间
             # dots 等 reasoning 模型：加 reasoning_effort=low 让正文落到 content 字段
             req_json = {"model": m, "messages": msgs, "max_tokens": eff_max,
                         "temperature": temperature}
-            if "dots" in m or "reasoning" in m.lower():
+            if use_opencode:
+                # opencode 的 deepseek 是 reasoning 模型：非流式 + 低推理，正文才干净
+                req_json["reasoning_effort"] = "low"
+                req_json["stream"] = False
+            elif "dots" in m or "reasoning" in m.lower():
                 req_json["reasoning_effort"] = "low"
                 # dots streaming 会把 content 和 reasoning 都塞进 reasoning 字段，
                 # 必须用非流式才能正确分离
                 req_json["stream"] = False
             else:
                 req_json["stream"] = True
-            r = requests.post(PROXY, headers={"Authorization": f"Bearer {key}",
-                                              "Content-Type": "application/json"},
+            r = requests.post(endpoint, headers=hdrs,
                               json=req_json,
                               timeout=timeout, stream=req_json.get("stream", True))
             dt = time.time() - t0
