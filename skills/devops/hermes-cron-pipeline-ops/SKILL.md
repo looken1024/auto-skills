@@ -44,6 +44,8 @@ grep "OpenAI client created" ~/.hermes/logs/agent.log | tail -3   # 真实 provi
 
 **OpenCode Go 连接参数**：base_url `https://opencode.ai/inference/go/openai/v1`；必须带 `x-opencode-session` 头（缺了 400 MissingSessionID）；key 形如 `oc_sk_*`；`GET /models` 可能 404，验活直接 `POST /chat/completions`（`max_tokens≥500`，reasoning 会先吃 token）。
 
+**脚本化调用（2026-10-20 实测）**：`deepseek-v4.1-flash` 是 reasoning 模型，脚本里必须 `stream=False` + `reasoning_effort="low"` + `max_tokens` 给足。约 1.2 万字符的终审 prompt 用 8000 token 会返回**空 content**（思考吃满），提到 12000 才稳定拿到 1100+ 字正文。多模型链还要按模型切端点和 key（opencode 模型走 opencode URL + `OPENCODE_GO_API_KEY`，免费模型走本地 8899 解包代理）。详见 `references/publish-gate-and-login-recovery.md`。
+
 ### 1.1 pin 任务模型
 ```bash
 hermes cron edit <job_id> --provider <provider> --model <model>
@@ -129,6 +131,8 @@ hermes cron run <id>        # 立刻跑一次
 Chrome 重启后 `/tmp/chrome-wx` 里的 cookie **可能还在也可能过期**，不能假设「目录在 = 登录态在」。用 `scripts/inject_toutiao_cookie.py`（CDP `Network.setCookie` 注入存好的 `sessionid`/`sessionid_ss` → 导航到发布页 → 检查 URL 没跳登录页 + `.ProseMirror` 编辑器就绪）验证。
 
 **完整细节：`references/browser-watchdog-and-cookie-injection.md`。**
+
+**登录态过期 → 取二维码给用户扫（2026-10-20 实测）**：先跑 `inject_toutiao_cookie.py --verify` 确认旧 `sessionid` 真的失效（别凭“用户以前发过”就要求重发）；确认失效后，从无头 Chrome 登录页直接抠出 `data:image/png` 的二维码 `<img>`（取 naturalWidth×naturalHeight 最大的一张）存成 PNG，用 `MEDIA:` 发给用户。二维码几分钟失效，生成后立刻发；页面出现“二维码已失效”就重新 navigate 再取。完整代码与验证步骤见 `references/publish-gate-and-login-recovery.md`。
 
 ## 5c. 小内存机器：OOM Killer 的静默症状（2026-10-01 踩坑）
 
