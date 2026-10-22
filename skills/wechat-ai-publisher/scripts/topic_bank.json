@@ -1,126 +1,6 @@
 {
   "pending": [
     {
-      "cn": "天山神秘大峡谷",
-      "en": "tianshan canyon red rock"
-    },
-    {
-      "cn": "库车大峡谷",
-      "en": "kuqa canyon"
-    },
-    {
-      "cn": "温宿大峡谷",
-      "en": "wensu canyon"
-    },
-    {
-      "cn": "五彩滩",
-      "en": "wucaitan rainbow beach"
-    },
-    {
-      "cn": "可可托海",
-      "en": "koktokay lake"
-    },
-    {
-      "cn": "禾木晨雾",
-      "en": "hemu village morning mist"
-    },
-    {
-      "cn": "塔里木胡杨林",
-      "en": "tarim poplar forest"
-    },
-    {
-      "cn": "阿尔金山",
-      "en": "altun mountains"
-    },
-    {
-      "cn": "祁连山",
-      "en": "qilian mountains snow"
-    },
-    {
-      "cn": "门源油菜花",
-      "en": "menyuan rapeseed flower"
-    },
-    {
-      "cn": "大柴旦翡翠湖",
-      "en": "dachaidan emerald lake"
-    },
-    {
-      "cn": "东台吉乃尔湖",
-      "en": "dongtai jinaier lake"
-    },
-    {
-      "cn": "水上雅丹",
-      "en": "water yardang landform"
-    },
-    {
-      "cn": "俄博梁",
-      "en": "eboliang yardang"
-    },
-    {
-      "cn": "茫崖翡翠湖",
-      "en": "mangya emerald lake"
-    },
-    {
-      "cn": "黄河石林",
-      "en": "yellow river stone forest"
-    },
-    {
-      "cn": "崆峒山",
-      "en": "kongtong mountain"
-    },
-    {
-      "cn": "官鹅沟",
-      "en": "guane valley lake"
-    },
-    {
-      "cn": "黄龙五彩池",
-      "en": "huanglong colorful pool"
-    },
-    {
-      "cn": "贡嘎雪山",
-      "en": "gongga snow mountain"
-    },
-    {
-      "cn": "牛奶海",
-      "en": "niunai lake snow mountain"
-    },
-    {
-      "cn": "五色海",
-      "en": "wuse lake plateau"
-    },
-    {
-      "cn": "新都桥",
-      "en": "xinduqiao landscape"
-    },
-    {
-      "cn": "塔公草原",
-      "en": "tagong grassland"
-    },
-    {
-      "cn": "毕棚沟",
-      "en": "bipenggou valley"
-    },
-    {
-      "cn": "达古冰川",
-      "en": "dagu glacier"
-    },
-    {
-      "cn": "米亚罗",
-      "en": "miyaluo autumn forest"
-    },
-    {
-      "cn": "光雾山",
-      "en": "guangwu mountain autumn"
-    },
-    {
-      "cn": "瓦屋山",
-      "en": "wawu mountain"
-    },
-    {
-      "cn": "蜀南竹海",
-      "en": "shunan bamboo forest"
-    },
-    {
       "cn": "兴文石海",
       "en": "xingwen stone sea"
     },
@@ -760,6 +640,156 @@
       "cn": "江布拉克",
       "en": "jiangbulake grassland",
       "ts": "2026-10-19T22:42:09.254526"
+    },
+    {
+      "cn": "天山神秘大峡谷",
+      "en": "tianshan canyon red rock",
+      "ts": "2026-10-22T22:43:46.895936"
+    },
+    {
+      "cn": "库车大峡谷",
+      "en": "kuqa canyon",
+      "ts": "2026-10-22T22:43:46.895954"
+    },
+    {
+      "cn": "温宿大峡谷",
+      "en": "wensu canyon",
+      "ts": "2026-10-22T22:43:46.895957"
+    },
+    {
+      "cn": "五彩滩",
+      "en": "wucaitan rainbow beach",
+      "ts": "2026-10-22T22:43:46.895960"
+    },
+    {
+      "cn": "可可托海",
+      "en": "koktokay lake",
+      "ts": "2026-10-22T22:43:46.895963"
+    },
+    {
+      "cn": "禾木晨雾",
+      "en": "hemu village morning mist",
+      "ts": "2026-10-22T22:43:46.895965"
+    },
+    {
+      "cn": "塔里木胡杨林",
+      "en": "tarim poplar forest",
+      "ts": "2026-10-22T22:43:46.895968"
+    },
+    {
+      "cn": "阿尔金山",
+      "en": "altun mountains",
+      "ts": "2026-10-22T22:43:46.895971"
+    },
+    {
+      "cn": "祁连山",
+      "en": "qilian mountains snow",
+      "ts": "2026-10-22T22:43:46.895974"
+    },
+    {
+      "cn": "门源油菜花",
+      "en": "menyuan rapeseed flower",
+      "ts": "2026-10-22T22:43:46.895977"
+    },
+    {
+      "cn": "大柴旦翡翠湖",
+      "en": "dachaidan emerald lake",
+      "ts": "2026-10-22T22:43:46.895979"
+    },
+    {
+      "cn": "东台吉乃尔湖",
+      "en": "dongtai jinaier lake",
+      "ts": "2026-10-22T22:43:46.895981"
+    },
+    {
+      "cn": "水上雅丹",
+      "en": "water yardang landform",
+      "ts": "2026-10-22T22:43:46.895984"
+    },
+    {
+      "cn": "俄博梁",
+      "en": "eboliang yardang",
+      "ts": "2026-10-22T22:43:46.895986"
+    },
+    {
+      "cn": "茫崖翡翠湖",
+      "en": "mangya emerald lake",
+      "ts": "2026-10-22T22:43:46.895989"
+    },
+    {
+      "cn": "黄河石林",
+      "en": "yellow river stone forest",
+      "ts": "2026-10-22T22:43:46.895991"
+    },
+    {
+      "cn": "崆峒山",
+      "en": "kongtong mountain",
+      "ts": "2026-10-22T22:43:46.895993"
+    },
+    {
+      "cn": "官鹅沟",
+      "en": "guane valley lake",
+      "ts": "2026-10-22T22:43:46.895996"
+    },
+    {
+      "cn": "黄龙五彩池",
+      "en": "huanglong colorful pool",
+      "ts": "2026-10-22T22:43:46.895998"
+    },
+    {
+      "cn": "贡嘎雪山",
+      "en": "gongga snow mountain",
+      "ts": "2026-10-22T22:43:46.896000"
+    },
+    {
+      "cn": "牛奶海",
+      "en": "niunai lake snow mountain",
+      "ts": "2026-10-22T22:43:46.896003"
+    },
+    {
+      "cn": "五色海",
+      "en": "wuse lake plateau",
+      "ts": "2026-10-22T22:43:46.896005"
+    },
+    {
+      "cn": "新都桥",
+      "en": "xinduqiao landscape",
+      "ts": "2026-10-22T22:43:46.896008"
+    },
+    {
+      "cn": "塔公草原",
+      "en": "tagong grassland",
+      "ts": "2026-10-22T22:43:46.896010"
+    },
+    {
+      "cn": "毕棚沟",
+      "en": "bipenggou valley",
+      "ts": "2026-10-22T22:43:46.896012"
+    },
+    {
+      "cn": "达古冰川",
+      "en": "dagu glacier",
+      "ts": "2026-10-22T22:43:46.896014"
+    },
+    {
+      "cn": "米亚罗",
+      "en": "miyaluo autumn forest",
+      "ts": "2026-10-22T22:43:46.896017"
+    },
+    {
+      "cn": "光雾山",
+      "en": "guangwu mountain autumn",
+      "ts": "2026-10-22T22:43:46.896019"
+    },
+    {
+      "cn": "瓦屋山",
+      "en": "wawu mountain",
+      "ts": "2026-10-22T22:43:46.896022"
+    },
+    {
+      "cn": "蜀南竹海",
+      "en": "shunan bamboo forest",
+      "ts": "2026-10-22T22:43:46.896024"
     }
   ],
   "rejected": []
