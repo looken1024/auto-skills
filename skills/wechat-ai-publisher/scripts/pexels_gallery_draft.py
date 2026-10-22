@@ -203,7 +203,6 @@ _BUILTIN_TOPICS = [
     ("小熊猫", "red panda bamboo"),
     ("雪鸮", "snowy owl arctic"),
     ("美西螈", "axolotl underwater"),
-    ("一角鲸", "narwhal arctic ocean"),
     ("叶海龙", "leafy sea dragon coral"),
     ("冰洲鸥", "glaucous gull arctic"),
     ("麝牛", "musk ox tundra"),
