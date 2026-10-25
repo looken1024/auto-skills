@@ -1,9 +1,5 @@
 [
   {
-    "cn": "冰川湖",
-    "en": "glacial lake turquoise"
-  },
-  {
     "cn": "油菜花田",
     "en": "rapeseed flower field"
   },
@@ -24,16 +20,8 @@
     "en": "mount lu"
   },
   {
-    "cn": "青城山",
-    "en": "qingcheng mountain"
-  },
-  {
     "cn": "张掖丹霞",
     "en": "zhangye danxia"
-  },
-  {
-    "cn": "非洲象",
-    "en": "african elephant savanna sunset"
   },
   {
     "cn": "红狐",
@@ -56,36 +44,12 @@
     "en": "lavender field provence"
   },
   {
-    "cn": "雨林溪流",
-    "en": "rainforest stream waterfall"
-  },
-  {
-    "cn": "盐湖倒影",
-    "en": "salt flat mirror reflection"
-  },
-  {
     "cn": "雾漫山峦",
     "en": "foggy mountain range layers"
   },
   {
     "cn": "秋日枫林",
     "en": "maple forest red autumn"
-  },
-  {
-    "cn": "黄河九曲",
-    "en": "yellow river bends landscape"
-  },
-  {
-    "cn": "黄山云海",
-    "en": "mount huang sea of clouds"
-  },
-  {
-    "cn": "武隆天生桥",
-    "en": "wulong natural bridge karst"
-  },
-  {
-    "cn": "额济纳胡杨",
-    "en": "ejina poplar forest autumn"
   },
   {
     "cn": "扎龙湿地",
@@ -96,14 +60,6 @@
     "en": "senja norway fjord"
   },
   {
-    "cn": "法罗群岛",
-    "en": "faroe islands cliff"
-  },
-  {
-    "cn": "乌尤尼盐沼",
-    "en": "salar de uyuni mirror sky"
-  },
-  {
     "cn": "众神之谷",
     "en": "valley of the gods utah"
   },
@@ -112,16 +68,8 @@
     "en": "plitvice lakes croatia"
   },
   {
-    "cn": "盖朗厄尔峡湾",
-    "en": "geirangerfjord norway"
-  },
-  {
     "cn": "黑马羚",
     "en": "sable antelope savanna"
-  },
-  {
-    "cn": "短尾矮袋鼠",
-    "en": "quokka island"
   },
   {
     "cn": "耳廓狐",
@@ -130,14 +78,6 @@
   {
     "cn": "漓江晨雾",
     "en": "li river mist karst"
-  },
-  {
-    "cn": "虎跳峡",
-    "en": "tiger leaping gorge"
-  },
-  {
-    "cn": "峨眉山金顶",
-    "en": "emei mountain golden summit"
   },
   {
     "cn": "华山云海",
@@ -152,14 +92,6 @@
     "en": "lugu lake yunnan"
   },
   {
-    "cn": "涠洲岛",
-    "en": "weizhou island"
-  },
-  {
-    "cn": "东极岛",
-    "en": "dongji island"
-  },
-  {
     "cn": "蜈支洲岛",
     "en": "wuzhizhou island"
   },
@@ -168,20 +100,8 @@
     "en": "yalong bay beach"
   },
   {
-    "cn": "荷花池",
-    "en": "lotus pond bloom"
-  },
-  {
-    "cn": "向日葵花海",
-    "en": "sunflower field summer"
-  },
-  {
     "cn": "郁金香花田",
     "en": "tulip field netherlands"
-  },
-  {
-    "cn": "银杏大道",
-    "en": "ginkgo avenue autumn"
   },
   {
     "cn": "竹林小径",
@@ -228,10 +148,6 @@
     "en": "tengger desert dunes"
   },
   {
-    "cn": "藏羚羊",
-    "en": "tibetan antelope plateau"
-  },
-  {
     "cn": "朱鹮",
     "en": "crested ibis"
   },
@@ -244,16 +160,8 @@
     "en": "penguins antarctica"
   },
   {
-    "cn": "海豹",
-    "en": "seal ice"
-  },
-  {
     "cn": "麋鹿",
     "en": "elk wetland"
-  },
-  {
-    "cn": "梅花鹿",
-    "en": "sika deer forest"
   },
   {
     "cn": "冰岛黑沙滩",
@@ -270,10 +178,6 @@
   {
     "cn": "新西兰南岛",
     "en": "new zealand south island landscape"
-  },
-  {
-    "cn": "巴塔哥尼亚",
-    "en": "patagonia mountains"
   },
   {
     "cn": "大堡礁",
@@ -320,10 +224,6 @@
     "en": "jiangbulake grassland"
   },
   {
-    "cn": "天山神秘大峡谷",
-    "en": "tianshan canyon red rock"
-  },
-  {
     "cn": "库车大峡谷",
     "en": "kuqa canyon"
   },
@@ -340,10 +240,6 @@
     "en": "koktokay lake"
   },
   {
-    "cn": "禾木晨雾",
-    "en": "hemu village morning mist"
-  },
-  {
     "cn": "塔里木胡杨林",
     "en": "tarim poplar forest"
   },
@@ -358,14 +254,6 @@
   {
     "cn": "门源油菜花",
     "en": "menyuan rapeseed flower"
-  },
-  {
-    "cn": "大柴旦翡翠湖",
-    "en": "dachaidan emerald lake"
-  },
-  {
-    "cn": "东台吉乃尔湖",
-    "en": "dongtai jinaier lake"
   },
   {
     "cn": "水上雅丹",
@@ -396,10 +284,6 @@
     "en": "huanglong colorful pool"
   },
   {
-    "cn": "贡嘎雪山",
-    "en": "gongga snow mountain"
-  },
-  {
     "cn": "牛奶海",
     "en": "niunai lake snow mountain"
   },
@@ -424,10 +308,6 @@
     "en": "dagu glacier"
   },
   {
-    "cn": "米亚罗",
-    "en": "miyaluo autumn forest"
-  },
-  {
     "cn": "光雾山",
     "en": "guangwu mountain autumn"
   },
@@ -438,5 +318,125 @@
   {
     "cn": "蜀南竹海",
     "en": "shunan bamboo forest"
+  },
+  {
+    "cn": "兴文石海",
+    "en": "xingwen stone sea"
+  },
+  {
+    "cn": "赤水丹霞",
+    "en": "chishui danxia"
+  },
+  {
+    "cn": "马岭河峡谷",
+    "en": "maling river canyon"
+  },
+  {
+    "cn": "普者黑",
+    "en": "puzhehei lake lotus"
+  },
+  {
+    "cn": "罗平油菜花",
+    "en": "luoping rapeseed field"
+  },
+  {
+    "cn": "东川红土地",
+    "en": "dongchuan red earth"
+  },
+  {
+    "cn": "腾冲火山",
+    "en": "tengchong volcano"
+  },
+  {
+    "cn": "德天瀑布",
+    "en": "detian waterfall"
+  },
+  {
+    "cn": "明仕田园",
+    "en": "mingshi pastoral river"
+  },
+  {
+    "cn": "遇龙河",
+    "en": "yulong river yangshuo"
+  },
+  {
+    "cn": "龙脊梯田",
+    "en": "longji rice terraces"
+  },
+  {
+    "cn": "姑婆山",
+    "en": "gupo mountain"
+  },
+  {
+    "cn": "罗浮山",
+    "en": "luofu mountain"
+  },
+  {
+    "cn": "鼎湖山",
+    "en": "dinghu mountain"
+  },
+  {
+    "cn": "南澳岛",
+    "en": "nanao island"
+  },
+  {
+    "cn": "巽寮湾",
+    "en": "xunliao bay beach"
+  },
+  {
+    "cn": "双月湾",
+    "en": "double moon bay"
+  },
+  {
+    "cn": "海陵岛",
+    "en": "hailing island"
+  },
+  {
+    "cn": "东山岛",
+    "en": "dongshan island"
+  },
+  {
+    "cn": "平潭岛",
+    "en": "pingtan island"
+  },
+  {
+    "cn": "太姥山",
+    "en": "taimu mountain"
+  },
+  {
+    "cn": "泰宁丹霞",
+    "en": "taining danxia"
+  },
+  {
+    "cn": "白水洋",
+    "en": "baishuiyang water"
+  },
+  {
+    "cn": "楠溪江",
+    "en": "nanxi river"
+  },
+  {
+    "cn": "神仙居",
+    "en": "shenxianju mountain"
+  },
+  {
+    "cn": "天台山",
+    "en": "tiantai mountain"
+  },
+  {
+    "cn": "富春江",
+    "en": "fuchun river"
+  },
+  {
+    "cn": "莫干山",
+    "en": "moganshan bamboo"
+  },
+  {
+    "cn": "天目山",
+    "en": "tianmu mountain"
+  },
+  {
+    "cn": "大明山",
+    "en": "damingshan mountain"
   }
 ]

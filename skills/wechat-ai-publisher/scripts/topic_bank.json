@@ -1,126 +1,6 @@
 {
   "pending": [
     {
-      "cn": "兴文石海",
-      "en": "xingwen stone sea"
-    },
-    {
-      "cn": "赤水丹霞",
-      "en": "chishui danxia"
-    },
-    {
-      "cn": "马岭河峡谷",
-      "en": "maling river canyon"
-    },
-    {
-      "cn": "普者黑",
-      "en": "puzhehei lake lotus"
-    },
-    {
-      "cn": "罗平油菜花",
-      "en": "luoping rapeseed field"
-    },
-    {
-      "cn": "东川红土地",
-      "en": "dongchuan red earth"
-    },
-    {
-      "cn": "腾冲火山",
-      "en": "tengchong volcano"
-    },
-    {
-      "cn": "德天瀑布",
-      "en": "detian waterfall"
-    },
-    {
-      "cn": "明仕田园",
-      "en": "mingshi pastoral river"
-    },
-    {
-      "cn": "遇龙河",
-      "en": "yulong river yangshuo"
-    },
-    {
-      "cn": "龙脊梯田",
-      "en": "longji rice terraces"
-    },
-    {
-      "cn": "姑婆山",
-      "en": "gupo mountain"
-    },
-    {
-      "cn": "罗浮山",
-      "en": "luofu mountain"
-    },
-    {
-      "cn": "鼎湖山",
-      "en": "dinghu mountain"
-    },
-    {
-      "cn": "南澳岛",
-      "en": "nanao island"
-    },
-    {
-      "cn": "巽寮湾",
-      "en": "xunliao bay beach"
-    },
-    {
-      "cn": "双月湾",
-      "en": "double moon bay"
-    },
-    {
-      "cn": "海陵岛",
-      "en": "hailing island"
-    },
-    {
-      "cn": "东山岛",
-      "en": "dongshan island"
-    },
-    {
-      "cn": "平潭岛",
-      "en": "pingtan island"
-    },
-    {
-      "cn": "太姥山",
-      "en": "taimu mountain"
-    },
-    {
-      "cn": "泰宁丹霞",
-      "en": "taining danxia"
-    },
-    {
-      "cn": "白水洋",
-      "en": "baishuiyang water"
-    },
-    {
-      "cn": "楠溪江",
-      "en": "nanxi river"
-    },
-    {
-      "cn": "神仙居",
-      "en": "shenxianju mountain"
-    },
-    {
-      "cn": "天台山",
-      "en": "tiantai mountain"
-    },
-    {
-      "cn": "富春江",
-      "en": "fuchun river"
-    },
-    {
-      "cn": "莫干山",
-      "en": "moganshan bamboo"
-    },
-    {
-      "cn": "天目山",
-      "en": "tianmu mountain"
-    },
-    {
-      "cn": "大明山",
-      "en": "damingshan mountain"
-    },
-    {
       "cn": "嵊泗列岛",
       "en": "shengsi islands"
     },
@@ -790,6 +670,156 @@
       "cn": "蜀南竹海",
       "en": "shunan bamboo forest",
       "ts": "2026-10-22T22:43:46.896024"
+    },
+    {
+      "cn": "兴文石海",
+      "en": "xingwen stone sea",
+      "ts": "2026-10-25T22:45:32.836681"
+    },
+    {
+      "cn": "赤水丹霞",
+      "en": "chishui danxia",
+      "ts": "2026-10-25T22:45:32.836696"
+    },
+    {
+      "cn": "马岭河峡谷",
+      "en": "maling river canyon",
+      "ts": "2026-10-25T22:45:32.836699"
+    },
+    {
+      "cn": "普者黑",
+      "en": "puzhehei lake lotus",
+      "ts": "2026-10-25T22:45:32.836700"
+    },
+    {
+      "cn": "罗平油菜花",
+      "en": "luoping rapeseed field",
+      "ts": "2026-10-25T22:45:32.836702"
+    },
+    {
+      "cn": "东川红土地",
+      "en": "dongchuan red earth",
+      "ts": "2026-10-25T22:45:32.836703"
+    },
+    {
+      "cn": "腾冲火山",
+      "en": "tengchong volcano",
+      "ts": "2026-10-25T22:45:32.836705"
+    },
+    {
+      "cn": "德天瀑布",
+      "en": "detian waterfall",
+      "ts": "2026-10-25T22:45:32.836707"
+    },
+    {
+      "cn": "明仕田园",
+      "en": "mingshi pastoral river",
+      "ts": "2026-10-25T22:45:32.836709"
+    },
+    {
+      "cn": "遇龙河",
+      "en": "yulong river yangshuo",
+      "ts": "2026-10-25T22:45:32.836710"
+    },
+    {
+      "cn": "龙脊梯田",
+      "en": "longji rice terraces",
+      "ts": "2026-10-25T22:45:32.836712"
+    },
+    {
+      "cn": "姑婆山",
+      "en": "gupo mountain",
+      "ts": "2026-10-25T22:45:32.836714"
+    },
+    {
+      "cn": "罗浮山",
+      "en": "luofu mountain",
+      "ts": "2026-10-25T22:45:32.836715"
+    },
+    {
+      "cn": "鼎湖山",
+      "en": "dinghu mountain",
+      "ts": "2026-10-25T22:45:32.836717"
+    },
+    {
+      "cn": "南澳岛",
+      "en": "nanao island",
+      "ts": "2026-10-25T22:45:32.836718"
+    },
+    {
+      "cn": "巽寮湾",
+      "en": "xunliao bay beach",
+      "ts": "2026-10-25T22:45:32.836720"
+    },
+    {
+      "cn": "双月湾",
+      "en": "double moon bay",
+      "ts": "2026-10-25T22:45:32.836721"
+    },
+    {
+      "cn": "海陵岛",
+      "en": "hailing island",
+      "ts": "2026-10-25T22:45:32.836723"
+    },
+    {
+      "cn": "东山岛",
+      "en": "dongshan island",
+      "ts": "2026-10-25T22:45:32.836725"
+    },
+    {
+      "cn": "平潭岛",
+      "en": "pingtan island",
+      "ts": "2026-10-25T22:45:32.836726"
+    },
+    {
+      "cn": "太姥山",
+      "en": "taimu mountain",
+      "ts": "2026-10-25T22:45:32.836728"
+    },
+    {
+      "cn": "泰宁丹霞",
+      "en": "taining danxia",
+      "ts": "2026-10-25T22:45:32.836729"
+    },
+    {
+      "cn": "白水洋",
+      "en": "baishuiyang water",
+      "ts": "2026-10-25T22:45:32.836731"
+    },
+    {
+      "cn": "楠溪江",
+      "en": "nanxi river",
+      "ts": "2026-10-25T22:45:32.836732"
+    },
+    {
+      "cn": "神仙居",
+      "en": "shenxianju mountain",
+      "ts": "2026-10-25T22:45:32.836734"
+    },
+    {
+      "cn": "天台山",
+      "en": "tiantai mountain",
+      "ts": "2026-10-25T22:45:32.836736"
+    },
+    {
+      "cn": "富春江",
+      "en": "fuchun river",
+      "ts": "2026-10-25T22:45:32.836737"
+    },
+    {
+      "cn": "莫干山",
+      "en": "moganshan bamboo",
+      "ts": "2026-10-25T22:45:32.836739"
+    },
+    {
+      "cn": "天目山",
+      "en": "tianmu mountain",
+      "ts": "2026-10-25T22:45:32.836740"
+    },
+    {
+      "cn": "大明山",
+      "en": "damingshan mountain",
+      "ts": "2026-10-25T22:45:32.836742"
     }
   ],
   "rejected": []
