@@ -1,126 +1,6 @@
 {
   "pending": [
     {
-      "cn": "嵊泗列岛",
-      "en": "shengsi islands"
-    },
-    {
-      "cn": "花岙岛",
-      "en": "huaao island"
-    },
-    {
-      "cn": "齐云山",
-      "en": "qiyun mountain"
-    },
-    {
-      "cn": "牯牛降",
-      "en": "guniujiang mountain"
-    },
-    {
-      "cn": "天堂寨",
-      "en": "tiantangzhai mountain"
-    },
-    {
-      "cn": "大别山",
-      "en": "dabie mountains"
-    },
-    {
-      "cn": "天柱山",
-      "en": "tianzhu mountain"
-    },
-    {
-      "cn": "九华山",
-      "en": "jiuhua mountain"
-    },
-    {
-      "cn": "琅琊山",
-      "en": "langya mountain"
-    },
-    {
-      "cn": "云台山",
-      "en": "yuntai mountain"
-    },
-    {
-      "cn": "老君山",
-      "en": "laojun mountain"
-    },
-    {
-      "cn": "嵩山",
-      "en": "song mountain"
-    },
-    {
-      "cn": "王屋山",
-      "en": "wangwu mountain"
-    },
-    {
-      "cn": "太行大峡谷",
-      "en": "taihang grand canyon"
-    },
-    {
-      "cn": "蟒河",
-      "en": "manghe valley"
-    },
-    {
-      "cn": "芦芽山",
-      "en": "luya mountain"
-    },
-    {
-      "cn": "五台山",
-      "en": "wutai mountain"
-    },
-    {
-      "cn": "恒山",
-      "en": "hengshan mountain"
-    },
-    {
-      "cn": "老牛湾",
-      "en": "laoniuwan yellow river"
-    },
-    {
-      "cn": "库布齐沙漠",
-      "en": "kubuqi desert"
-    },
-    {
-      "cn": "响沙湾",
-      "en": "xiangshawan desert"
-    },
-    {
-      "cn": "乌兰布统",
-      "en": "wulanbutong grassland"
-    },
-    {
-      "cn": "塞罕坝",
-      "en": "saihanba forest"
-    },
-    {
-      "cn": "坝上草原",
-      "en": "bashang grassland"
-    },
-    {
-      "cn": "草原天路",
-      "en": "grassland highway"
-    },
-    {
-      "cn": "呼伦湖",
-      "en": "hulun lake"
-    },
-    {
-      "cn": "莫尔道嘎",
-      "en": "moerdaoga forest"
-    },
-    {
-      "cn": "根河湿地",
-      "en": "genhe wetland"
-    },
-    {
-      "cn": "额尔古纳湿地",
-      "en": "erguna wetland"
-    },
-    {
-      "cn": "镜泊湖",
-      "en": "jingpo lake"
-    },
-    {
       "cn": "吊水楼瀑布",
       "en": "diaoshuilou waterfall"
     },
@@ -820,6 +700,156 @@
       "cn": "大明山",
       "en": "damingshan mountain",
       "ts": "2026-10-25T22:45:32.836742"
+    },
+    {
+      "cn": "嵊泗列岛",
+      "en": "shengsi islands",
+      "ts": "2026-10-28T23:01:45.644983"
+    },
+    {
+      "cn": "花岙岛",
+      "en": "huaao island",
+      "ts": "2026-10-28T23:01:45.644999"
+    },
+    {
+      "cn": "齐云山",
+      "en": "qiyun mountain",
+      "ts": "2026-10-28T23:01:45.645001"
+    },
+    {
+      "cn": "牯牛降",
+      "en": "guniujiang mountain",
+      "ts": "2026-10-28T23:01:45.645002"
+    },
+    {
+      "cn": "天堂寨",
+      "en": "tiantangzhai mountain",
+      "ts": "2026-10-28T23:01:45.645003"
+    },
+    {
+      "cn": "大别山",
+      "en": "dabie mountains",
+      "ts": "2026-10-28T23:01:45.645005"
+    },
+    {
+      "cn": "天柱山",
+      "en": "tianzhu mountain",
+      "ts": "2026-10-28T23:01:45.645006"
+    },
+    {
+      "cn": "九华山",
+      "en": "jiuhua mountain",
+      "ts": "2026-10-28T23:01:45.645008"
+    },
+    {
+      "cn": "琅琊山",
+      "en": "langya mountain",
+      "ts": "2026-10-28T23:01:45.645009"
+    },
+    {
+      "cn": "云台山",
+      "en": "yuntai mountain",
+      "ts": "2026-10-28T23:01:45.645011"
+    },
+    {
+      "cn": "老君山",
+      "en": "laojun mountain",
+      "ts": "2026-10-28T23:01:45.645012"
+    },
+    {
+      "cn": "嵩山",
+      "en": "song mountain",
+      "ts": "2026-10-28T23:01:45.645013"
+    },
+    {
+      "cn": "王屋山",
+      "en": "wangwu mountain",
+      "ts": "2026-10-28T23:01:45.645015"
+    },
+    {
+      "cn": "太行大峡谷",
+      "en": "taihang grand canyon",
+      "ts": "2026-10-28T23:01:45.645016"
+    },
+    {
+      "cn": "蟒河",
+      "en": "manghe valley",
+      "ts": "2026-10-28T23:01:45.645017"
+    },
+    {
+      "cn": "芦芽山",
+      "en": "luya mountain",
+      "ts": "2026-10-28T23:01:45.645019"
+    },
+    {
+      "cn": "五台山",
+      "en": "wutai mountain",
+      "ts": "2026-10-28T23:01:45.645020"
+    },
+    {
+      "cn": "恒山",
+      "en": "hengshan mountain",
+      "ts": "2026-10-28T23:01:45.645021"
+    },
+    {
+      "cn": "老牛湾",
+      "en": "laoniuwan yellow river",
+      "ts": "2026-10-28T23:01:45.645023"
+    },
+    {
+      "cn": "库布齐沙漠",
+      "en": "kubuqi desert",
+      "ts": "2026-10-28T23:01:45.645024"
+    },
+    {
+      "cn": "响沙湾",
+      "en": "xiangshawan desert",
+      "ts": "2026-10-28T23:01:45.645025"
+    },
+    {
+      "cn": "乌兰布统",
+      "en": "wulanbutong grassland",
+      "ts": "2026-10-28T23:01:45.645026"
+    },
+    {
+      "cn": "塞罕坝",
+      "en": "saihanba forest",
+      "ts": "2026-10-28T23:01:45.645027"
+    },
+    {
+      "cn": "坝上草原",
+      "en": "bashang grassland",
+      "ts": "2026-10-28T23:01:45.645029"
+    },
+    {
+      "cn": "草原天路",
+      "en": "grassland highway",
+      "ts": "2026-10-28T23:01:45.645030"
+    },
+    {
+      "cn": "呼伦湖",
+      "en": "hulun lake",
+      "ts": "2026-10-28T23:01:45.645031"
+    },
+    {
+      "cn": "莫尔道嘎",
+      "en": "moerdaoga forest",
+      "ts": "2026-10-28T23:01:45.645033"
+    },
+    {
+      "cn": "根河湿地",
+      "en": "genhe wetland",
+      "ts": "2026-10-28T23:01:45.645034"
+    },
+    {
+      "cn": "额尔古纳湿地",
+      "en": "erguna wetland",
+      "ts": "2026-10-28T23:01:45.645035"
+    },
+    {
+      "cn": "镜泊湖",
+      "en": "jingpo lake",
+      "ts": "2026-10-28T23:01:45.645037"
     }
   ],
   "rejected": []

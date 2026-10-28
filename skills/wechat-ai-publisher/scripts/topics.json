@@ -8,10 +8,6 @@
     "en": "wildflower alpine meadow"
   },
   {
-    "cn": "蓝冰洞",
-    "en": "glacier ice cave"
-  },
-  {
     "cn": "高原湖泊",
     "en": "plateau lake mountains"
   },
@@ -22,10 +18,6 @@
   {
     "cn": "张掖丹霞",
     "en": "zhangye danxia"
-  },
-  {
-    "cn": "红狐",
-    "en": "red fox winter snow"
   },
   {
     "cn": "天鹅湖",
@@ -40,20 +32,12 @@
     "en": "shark underwater ocean"
   },
   {
-    "cn": "薰衣草田",
-    "en": "lavender field provence"
-  },
-  {
     "cn": "雾漫山峦",
     "en": "foggy mountain range layers"
   },
   {
     "cn": "秋日枫林",
     "en": "maple forest red autumn"
-  },
-  {
-    "cn": "扎龙湿地",
-    "en": "zhalong wetland red crown"
   },
   {
     "cn": "塞尼亚岛",
@@ -66,22 +50,6 @@
   {
     "cn": "十六湖",
     "en": "plitvice lakes croatia"
-  },
-  {
-    "cn": "黑马羚",
-    "en": "sable antelope savanna"
-  },
-  {
-    "cn": "耳廓狐",
-    "en": "fennec fox desert"
-  },
-  {
-    "cn": "漓江晨雾",
-    "en": "li river mist karst"
-  },
-  {
-    "cn": "华山云海",
-    "en": "huashan mountain sea of clouds"
   },
   {
     "cn": "梵净山",
@@ -100,10 +68,6 @@
     "en": "yalong bay beach"
   },
   {
-    "cn": "郁金香花田",
-    "en": "tulip field netherlands"
-  },
-  {
     "cn": "竹林小径",
     "en": "bamboo forest path"
   },
@@ -112,16 +76,8 @@
     "en": "plum blossom winter"
   },
   {
-    "cn": "水杉林",
-    "en": "dawn redwood forest"
-  },
-  {
     "cn": "格桑花海",
     "en": "cosmos flower field plateau"
-  },
-  {
-    "cn": "马鞭草花海",
-    "en": "verbena flower field"
   },
   {
     "cn": "绣球花",
@@ -144,10 +100,6 @@
     "en": "shapotou desert"
   },
   {
-    "cn": "腾格里沙漠",
-    "en": "tengger desert dunes"
-  },
-  {
     "cn": "朱鹮",
     "en": "crested ibis"
   },
@@ -164,28 +116,8 @@
     "en": "iceland black sand beach"
   },
   {
-    "cn": "挪威松恩峡湾",
-    "en": "sognefjord norway"
-  },
-  {
-    "cn": "瑞士少女峰",
-    "en": "jungfrau switzerland"
-  },
-  {
     "cn": "新西兰南岛",
     "en": "new zealand south island landscape"
-  },
-  {
-    "cn": "大堡礁",
-    "en": "great barrier reef aerial"
-  },
-  {
-    "cn": "马尔代夫环礁",
-    "en": "maldives atoll aerial"
-  },
-  {
-    "cn": "塞伦盖蒂草原",
-    "en": "serengeti savanna"
   },
   {
     "cn": "黄石大棱镜",
@@ -200,10 +132,6 @@
     "en": "death valley desert"
   },
   {
-    "cn": "大苏尔海岸",
-    "en": "big sur coast"
-  },
-  {
     "cn": "阿尔卑斯山",
     "en": "alps mountain landscape"
   },
@@ -216,40 +144,12 @@
     "en": "tangbula grassland"
   },
   {
-    "cn": "江布拉克",
-    "en": "jiangbulake grassland"
-  },
-  {
     "cn": "库车大峡谷",
     "en": "kuqa canyon"
   },
   {
-    "cn": "温宿大峡谷",
-    "en": "wensu canyon"
-  },
-  {
-    "cn": "五彩滩",
-    "en": "wucaitan rainbow beach"
-  },
-  {
-    "cn": "可可托海",
-    "en": "koktokay lake"
-  },
-  {
-    "cn": "塔里木胡杨林",
-    "en": "tarim poplar forest"
-  },
-  {
-    "cn": "阿尔金山",
-    "en": "altun mountains"
-  },
-  {
     "cn": "祁连山",
     "en": "qilian mountains snow"
-  },
-  {
-    "cn": "门源油菜花",
-    "en": "menyuan rapeseed flower"
   },
   {
     "cn": "水上雅丹",
@@ -280,28 +180,12 @@
     "en": "huanglong colorful pool"
   },
   {
-    "cn": "牛奶海",
-    "en": "niunai lake snow mountain"
-  },
-  {
     "cn": "五色海",
     "en": "wuse lake plateau"
   },
   {
-    "cn": "新都桥",
-    "en": "xinduqiao landscape"
-  },
-  {
     "cn": "塔公草原",
     "en": "tagong grassland"
-  },
-  {
-    "cn": "毕棚沟",
-    "en": "bipenggou valley"
-  },
-  {
-    "cn": "达古冰川",
-    "en": "dagu glacier"
   },
   {
     "cn": "光雾山",
@@ -428,11 +312,127 @@
     "en": "moganshan bamboo"
   },
   {
-    "cn": "天目山",
-    "en": "tianmu mountain"
-  },
-  {
     "cn": "大明山",
     "en": "damingshan mountain"
+  },
+  {
+    "cn": "嵊泗列岛",
+    "en": "shengsi islands"
+  },
+  {
+    "cn": "花岙岛",
+    "en": "huaao island"
+  },
+  {
+    "cn": "齐云山",
+    "en": "qiyun mountain"
+  },
+  {
+    "cn": "牯牛降",
+    "en": "guniujiang mountain"
+  },
+  {
+    "cn": "天堂寨",
+    "en": "tiantangzhai mountain"
+  },
+  {
+    "cn": "大别山",
+    "en": "dabie mountains"
+  },
+  {
+    "cn": "天柱山",
+    "en": "tianzhu mountain"
+  },
+  {
+    "cn": "九华山",
+    "en": "jiuhua mountain"
+  },
+  {
+    "cn": "琅琊山",
+    "en": "langya mountain"
+  },
+  {
+    "cn": "云台山",
+    "en": "yuntai mountain"
+  },
+  {
+    "cn": "老君山",
+    "en": "laojun mountain"
+  },
+  {
+    "cn": "嵩山",
+    "en": "song mountain"
+  },
+  {
+    "cn": "王屋山",
+    "en": "wangwu mountain"
+  },
+  {
+    "cn": "太行大峡谷",
+    "en": "taihang grand canyon"
+  },
+  {
+    "cn": "蟒河",
+    "en": "manghe valley"
+  },
+  {
+    "cn": "芦芽山",
+    "en": "luya mountain"
+  },
+  {
+    "cn": "五台山",
+    "en": "wutai mountain"
+  },
+  {
+    "cn": "恒山",
+    "en": "hengshan mountain"
+  },
+  {
+    "cn": "老牛湾",
+    "en": "laoniuwan yellow river"
+  },
+  {
+    "cn": "库布齐沙漠",
+    "en": "kubuqi desert"
+  },
+  {
+    "cn": "响沙湾",
+    "en": "xiangshawan desert"
+  },
+  {
+    "cn": "乌兰布统",
+    "en": "wulanbutong grassland"
+  },
+  {
+    "cn": "塞罕坝",
+    "en": "saihanba forest"
+  },
+  {
+    "cn": "坝上草原",
+    "en": "bashang grassland"
+  },
+  {
+    "cn": "草原天路",
+    "en": "grassland highway"
+  },
+  {
+    "cn": "呼伦湖",
+    "en": "hulun lake"
+  },
+  {
+    "cn": "莫尔道嘎",
+    "en": "moerdaoga forest"
+  },
+  {
+    "cn": "根河湿地",
+    "en": "genhe wetland"
+  },
+  {
+    "cn": "额尔古纳湿地",
+    "en": "erguna wetland"
+  },
+  {
+    "cn": "镜泊湖",
+    "en": "jingpo lake"
   }
 ]
