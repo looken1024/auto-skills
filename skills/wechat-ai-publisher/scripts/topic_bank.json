@@ -1,126 +1,6 @@
 {
   "pending": [
     {
-      "cn": "吊水楼瀑布",
-      "en": "diaoshuilou waterfall"
-    },
-    {
-      "cn": "五大连池",
-      "en": "wudalianchi lake"
-    },
-    {
-      "cn": "龙江第一湾",
-      "en": "heilongjiang first bend"
-    },
-    {
-      "cn": "雾凇岛",
-      "en": "rime island"
-    },
-    {
-      "cn": "伊春林海",
-      "en": "yichun forest sea"
-    },
-    {
-      "cn": "汤旺河石林",
-      "en": "tangwanghe stone forest"
-    },
-    {
-      "cn": "冰岛黄金瀑布",
-      "en": "gullfoss iceland"
-    },
-    {
-      "cn": "冰岛钻石沙滩",
-      "en": "diamond beach iceland"
-    },
-    {
-      "cn": "冰岛米湖",
-      "en": "myvatn lake iceland"
-    },
-    {
-      "cn": "罗弗敦群岛",
-      "en": "lofoten islands norway"
-    },
-    {
-      "cn": "布道石",
-      "en": "preikestolen norway"
-    },
-    {
-      "cn": "恶魔之舌",
-      "en": "trolltunga norway"
-    },
-    {
-      "cn": "苏格兰高地",
-      "en": "scottish highlands"
-    },
-    {
-      "cn": "莫赫悬崖",
-      "en": "cliffs of moher"
-    },
-    {
-      "cn": "普罗旺斯",
-      "en": "provence lavender field"
-    },
-    {
-      "cn": "托斯卡纳",
-      "en": "tuscany landscape"
-    },
-    {
-      "cn": "科莫湖",
-      "en": "lake como italy"
-    },
-    {
-      "cn": "国王湖",
-      "en": "konigssee germany"
-    },
-    {
-      "cn": "因特拉肯",
-      "en": "interlaken switzerland"
-    },
-    {
-      "cn": "卡帕多奇亚",
-      "en": "cappadocia landscape"
-    },
-    {
-      "cn": "棉花堡",
-      "en": "pamukkale terrace"
-    },
-    {
-      "cn": "卡兹别克",
-      "en": "kazbegi mountain georgia"
-    },
-    {
-      "cn": "塞凡湖",
-      "en": "sevan lake armenia"
-    },
-    {
-      "cn": "贝加尔湖",
-      "en": "lake baikal ice"
-    },
-    {
-      "cn": "堪察加",
-      "en": "kamchatka volcano"
-    },
-    {
-      "cn": "北海道薰衣草",
-      "en": "hokkaido lavender field"
-    },
-    {
-      "cn": "屋久岛",
-      "en": "yakushima forest"
-    },
-    {
-      "cn": "济州岛",
-      "en": "jeju island coast"
-    },
-    {
-      "cn": "下龙湾",
-      "en": "halong bay vietnam"
-    },
-    {
-      "cn": "皮皮岛",
-      "en": "phi phi island"
-    },
-    {
       "cn": "拜县",
       "en": "pai valley thailand"
     },
@@ -850,6 +730,156 @@
       "cn": "镜泊湖",
       "en": "jingpo lake",
       "ts": "2026-10-28T23:01:45.645037"
+    },
+    {
+      "cn": "吊水楼瀑布",
+      "en": "diaoshuilou waterfall",
+      "ts": "2026-10-31T23:04:05.492934"
+    },
+    {
+      "cn": "五大连池",
+      "en": "wudalianchi lake",
+      "ts": "2026-10-31T23:04:05.492949"
+    },
+    {
+      "cn": "龙江第一湾",
+      "en": "heilongjiang first bend",
+      "ts": "2026-10-31T23:04:05.492951"
+    },
+    {
+      "cn": "雾凇岛",
+      "en": "rime island",
+      "ts": "2026-10-31T23:04:05.492952"
+    },
+    {
+      "cn": "伊春林海",
+      "en": "yichun forest sea",
+      "ts": "2026-10-31T23:04:05.492953"
+    },
+    {
+      "cn": "汤旺河石林",
+      "en": "tangwanghe stone forest",
+      "ts": "2026-10-31T23:04:05.492955"
+    },
+    {
+      "cn": "冰岛黄金瀑布",
+      "en": "gullfoss iceland",
+      "ts": "2026-10-31T23:04:05.492956"
+    },
+    {
+      "cn": "冰岛钻石沙滩",
+      "en": "diamond beach iceland",
+      "ts": "2026-10-31T23:04:05.492958"
+    },
+    {
+      "cn": "冰岛米湖",
+      "en": "myvatn lake iceland",
+      "ts": "2026-10-31T23:04:05.492959"
+    },
+    {
+      "cn": "罗弗敦群岛",
+      "en": "lofoten islands norway",
+      "ts": "2026-10-31T23:04:05.492961"
+    },
+    {
+      "cn": "布道石",
+      "en": "preikestolen norway",
+      "ts": "2026-10-31T23:04:05.492962"
+    },
+    {
+      "cn": "恶魔之舌",
+      "en": "trolltunga norway",
+      "ts": "2026-10-31T23:04:05.492964"
+    },
+    {
+      "cn": "苏格兰高地",
+      "en": "scottish highlands",
+      "ts": "2026-10-31T23:04:05.492965"
+    },
+    {
+      "cn": "莫赫悬崖",
+      "en": "cliffs of moher",
+      "ts": "2026-10-31T23:04:05.492968"
+    },
+    {
+      "cn": "普罗旺斯",
+      "en": "provence lavender field",
+      "ts": "2026-10-31T23:04:05.492970"
+    },
+    {
+      "cn": "托斯卡纳",
+      "en": "tuscany landscape",
+      "ts": "2026-10-31T23:04:05.492973"
+    },
+    {
+      "cn": "科莫湖",
+      "en": "lake como italy",
+      "ts": "2026-10-31T23:04:05.492975"
+    },
+    {
+      "cn": "国王湖",
+      "en": "konigssee germany",
+      "ts": "2026-10-31T23:04:05.492978"
+    },
+    {
+      "cn": "因特拉肯",
+      "en": "interlaken switzerland",
+      "ts": "2026-10-31T23:04:05.492980"
+    },
+    {
+      "cn": "卡帕多奇亚",
+      "en": "cappadocia landscape",
+      "ts": "2026-10-31T23:04:05.492983"
+    },
+    {
+      "cn": "棉花堡",
+      "en": "pamukkale terrace",
+      "ts": "2026-10-31T23:04:05.492985"
+    },
+    {
+      "cn": "卡兹别克",
+      "en": "kazbegi mountain georgia",
+      "ts": "2026-10-31T23:04:05.492989"
+    },
+    {
+      "cn": "塞凡湖",
+      "en": "sevan lake armenia",
+      "ts": "2026-10-31T23:04:05.492991"
+    },
+    {
+      "cn": "贝加尔湖",
+      "en": "lake baikal ice",
+      "ts": "2026-10-31T23:04:05.492993"
+    },
+    {
+      "cn": "堪察加",
+      "en": "kamchatka volcano",
+      "ts": "2026-10-31T23:04:05.492994"
+    },
+    {
+      "cn": "北海道薰衣草",
+      "en": "hokkaido lavender field",
+      "ts": "2026-10-31T23:04:05.492996"
+    },
+    {
+      "cn": "屋久岛",
+      "en": "yakushima forest",
+      "ts": "2026-10-31T23:04:05.492997"
+    },
+    {
+      "cn": "济州岛",
+      "en": "jeju island coast",
+      "ts": "2026-10-31T23:04:05.492999"
+    },
+    {
+      "cn": "下龙湾",
+      "en": "halong bay vietnam",
+      "ts": "2026-10-31T23:04:05.493000"
+    },
+    {
+      "cn": "皮皮岛",
+      "en": "phi phi island",
+      "ts": "2026-10-31T23:04:05.493002"
     }
   ],
   "rejected": []

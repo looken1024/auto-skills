@@ -4,20 +4,8 @@
     "en": "rapeseed flower field"
   },
   {
-    "cn": "高山野花",
-    "en": "wildflower alpine meadow"
-  },
-  {
-    "cn": "高原湖泊",
-    "en": "plateau lake mountains"
-  },
-  {
     "cn": "庐山",
     "en": "mount lu"
-  },
-  {
-    "cn": "张掖丹霞",
-    "en": "zhangye danxia"
   },
   {
     "cn": "天鹅湖",
@@ -34,10 +22,6 @@
   {
     "cn": "雾漫山峦",
     "en": "foggy mountain range layers"
-  },
-  {
-    "cn": "秋日枫林",
-    "en": "maple forest red autumn"
   },
   {
     "cn": "塞尼亚岛",
@@ -64,24 +48,12 @@
     "en": "wuzhizhou island"
   },
   {
-    "cn": "亚龙湾",
-    "en": "yalong bay beach"
-  },
-  {
-    "cn": "竹林小径",
-    "en": "bamboo forest path"
-  },
-  {
     "cn": "梅花盛开",
     "en": "plum blossom winter"
   },
   {
     "cn": "格桑花海",
     "en": "cosmos flower field plateau"
-  },
-  {
-    "cn": "绣球花",
-    "en": "hydrangea garden bloom"
   },
   {
     "cn": "冰瀑",
@@ -94,10 +66,6 @@
   {
     "cn": "鸣沙山",
     "en": "mingsha sand dunes"
-  },
-  {
-    "cn": "朱鹮",
-    "en": "crested ibis"
   },
   {
     "cn": "火烈鸟",
@@ -116,16 +84,8 @@
     "en": "new zealand south island landscape"
   },
   {
-    "cn": "黄石大棱镜",
-    "en": "grand prismatic spring yellowstone"
-  },
-  {
     "cn": "羚羊峡谷",
     "en": "antelope canyon light beams"
-  },
-  {
-    "cn": "死亡谷",
-    "en": "death valley desert"
   },
   {
     "cn": "阿尔卑斯山",
@@ -142,14 +102,6 @@
   {
     "cn": "库车大峡谷",
     "en": "kuqa canyon"
-  },
-  {
-    "cn": "祁连山",
-    "en": "qilian mountains snow"
-  },
-  {
-    "cn": "水上雅丹",
-    "en": "water yardang landform"
   },
   {
     "cn": "俄博梁",
@@ -192,10 +144,6 @@
     "en": "wawu mountain"
   },
   {
-    "cn": "蜀南竹海",
-    "en": "shunan bamboo forest"
-  },
-  {
     "cn": "兴文石海",
     "en": "xingwen stone sea"
   },
@@ -204,40 +152,12 @@
     "en": "chishui danxia"
   },
   {
-    "cn": "马岭河峡谷",
-    "en": "maling river canyon"
-  },
-  {
-    "cn": "普者黑",
-    "en": "puzhehei lake lotus"
-  },
-  {
-    "cn": "罗平油菜花",
-    "en": "luoping rapeseed field"
-  },
-  {
-    "cn": "东川红土地",
-    "en": "dongchuan red earth"
-  },
-  {
     "cn": "腾冲火山",
     "en": "tengchong volcano"
   },
   {
     "cn": "德天瀑布",
     "en": "detian waterfall"
-  },
-  {
-    "cn": "明仕田园",
-    "en": "mingshi pastoral river"
-  },
-  {
-    "cn": "遇龙河",
-    "en": "yulong river yangshuo"
-  },
-  {
-    "cn": "龙脊梯田",
-    "en": "longji rice terraces"
   },
   {
     "cn": "姑婆山",
@@ -256,36 +176,8 @@
     "en": "nanao island"
   },
   {
-    "cn": "巽寮湾",
-    "en": "xunliao bay beach"
-  },
-  {
-    "cn": "双月湾",
-    "en": "double moon bay"
-  },
-  {
-    "cn": "海陵岛",
-    "en": "hailing island"
-  },
-  {
-    "cn": "东山岛",
-    "en": "dongshan island"
-  },
-  {
-    "cn": "平潭岛",
-    "en": "pingtan island"
-  },
-  {
     "cn": "太姥山",
     "en": "taimu mountain"
-  },
-  {
-    "cn": "泰宁丹霞",
-    "en": "taining danxia"
-  },
-  {
-    "cn": "白水洋",
-    "en": "baishuiyang water"
   },
   {
     "cn": "楠溪江",
@@ -300,10 +192,6 @@
     "en": "tiantai mountain"
   },
   {
-    "cn": "富春江",
-    "en": "fuchun river"
-  },
-  {
     "cn": "莫干山",
     "en": "moganshan bamboo"
   },
@@ -314,10 +202,6 @@
   {
     "cn": "嵊泗列岛",
     "en": "shengsi islands"
-  },
-  {
-    "cn": "花岙岛",
-    "en": "huaao island"
   },
   {
     "cn": "齐云山",
@@ -380,10 +264,6 @@
     "en": "wutai mountain"
   },
   {
-    "cn": "恒山",
-    "en": "hengshan mountain"
-  },
-  {
     "cn": "老牛湾",
     "en": "laoniuwan yellow river"
   },
@@ -430,5 +310,125 @@
   {
     "cn": "镜泊湖",
     "en": "jingpo lake"
+  },
+  {
+    "cn": "吊水楼瀑布",
+    "en": "diaoshuilou waterfall"
+  },
+  {
+    "cn": "五大连池",
+    "en": "wudalianchi lake"
+  },
+  {
+    "cn": "龙江第一湾",
+    "en": "heilongjiang first bend"
+  },
+  {
+    "cn": "雾凇岛",
+    "en": "rime island"
+  },
+  {
+    "cn": "伊春林海",
+    "en": "yichun forest sea"
+  },
+  {
+    "cn": "汤旺河石林",
+    "en": "tangwanghe stone forest"
+  },
+  {
+    "cn": "冰岛黄金瀑布",
+    "en": "gullfoss iceland"
+  },
+  {
+    "cn": "冰岛钻石沙滩",
+    "en": "diamond beach iceland"
+  },
+  {
+    "cn": "冰岛米湖",
+    "en": "myvatn lake iceland"
+  },
+  {
+    "cn": "罗弗敦群岛",
+    "en": "lofoten islands norway"
+  },
+  {
+    "cn": "布道石",
+    "en": "preikestolen norway"
+  },
+  {
+    "cn": "恶魔之舌",
+    "en": "trolltunga norway"
+  },
+  {
+    "cn": "苏格兰高地",
+    "en": "scottish highlands"
+  },
+  {
+    "cn": "莫赫悬崖",
+    "en": "cliffs of moher"
+  },
+  {
+    "cn": "普罗旺斯",
+    "en": "provence lavender field"
+  },
+  {
+    "cn": "托斯卡纳",
+    "en": "tuscany landscape"
+  },
+  {
+    "cn": "科莫湖",
+    "en": "lake como italy"
+  },
+  {
+    "cn": "国王湖",
+    "en": "konigssee germany"
+  },
+  {
+    "cn": "因特拉肯",
+    "en": "interlaken switzerland"
+  },
+  {
+    "cn": "卡帕多奇亚",
+    "en": "cappadocia landscape"
+  },
+  {
+    "cn": "棉花堡",
+    "en": "pamukkale terrace"
+  },
+  {
+    "cn": "卡兹别克",
+    "en": "kazbegi mountain georgia"
+  },
+  {
+    "cn": "塞凡湖",
+    "en": "sevan lake armenia"
+  },
+  {
+    "cn": "贝加尔湖",
+    "en": "lake baikal ice"
+  },
+  {
+    "cn": "堪察加",
+    "en": "kamchatka volcano"
+  },
+  {
+    "cn": "北海道薰衣草",
+    "en": "hokkaido lavender field"
+  },
+  {
+    "cn": "屋久岛",
+    "en": "yakushima forest"
+  },
+  {
+    "cn": "济州岛",
+    "en": "jeju island coast"
+  },
+  {
+    "cn": "下龙湾",
+    "en": "halong bay vietnam"
+  },
+  {
+    "cn": "皮皮岛",
+    "en": "phi phi island"
   }
 ]
