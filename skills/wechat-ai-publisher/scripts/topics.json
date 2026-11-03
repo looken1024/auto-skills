@@ -36,10 +36,6 @@
     "en": "fanjing mountain"
   },
   {
-    "cn": "泸沽湖",
-    "en": "lugu lake yunnan"
-  },
-  {
     "cn": "梅花盛开",
     "en": "plum blossom winter"
   },
@@ -56,32 +52,12 @@
     "en": "flamingos lake"
   },
   {
-    "cn": "企鹅",
-    "en": "penguins antarctica"
-  },
-  {
-    "cn": "冰岛黑沙滩",
-    "en": "iceland black sand beach"
-  },
-  {
-    "cn": "新西兰南岛",
-    "en": "new zealand south island landscape"
-  },
-  {
-    "cn": "阿尔卑斯山",
-    "en": "alps mountain landscape"
-  },
-  {
     "cn": "喀拉峻草原",
     "en": "kalajun grassland"
   },
   {
     "cn": "唐布拉草原",
     "en": "tangbula grassland"
-  },
-  {
-    "cn": "库车大峡谷",
-    "en": "kuqa canyon"
   },
   {
     "cn": "俄博梁",
@@ -128,10 +104,6 @@
     "en": "gupo mountain"
   },
   {
-    "cn": "罗浮山",
-    "en": "luofu mountain"
-  },
-  {
     "cn": "鼎湖山",
     "en": "dinghu mountain"
   },
@@ -140,20 +112,8 @@
     "en": "nanao island"
   },
   {
-    "cn": "太姥山",
-    "en": "taimu mountain"
-  },
-  {
-    "cn": "神仙居",
-    "en": "shenxianju mountain"
-  },
-  {
     "cn": "天台山",
     "en": "tiantai mountain"
-  },
-  {
-    "cn": "莫干山",
-    "en": "moganshan bamboo"
   },
   {
     "cn": "大明山",
@@ -176,10 +136,6 @@
     "en": "tiantangzhai mountain"
   },
   {
-    "cn": "大别山",
-    "en": "dabie mountains"
-  },
-  {
     "cn": "天柱山",
     "en": "tianzhu mountain"
   },
@@ -190,10 +146,6 @@
   {
     "cn": "琅琊山",
     "en": "langya mountain"
-  },
-  {
-    "cn": "老君山",
-    "en": "laojun mountain"
   },
   {
     "cn": "王屋山",
@@ -218,14 +170,6 @@
   {
     "cn": "库布齐沙漠",
     "en": "kubuqi desert"
-  },
-  {
-    "cn": "响沙湾",
-    "en": "xiangshawan desert"
-  },
-  {
-    "cn": "乌兰布统",
-    "en": "wulanbutong grassland"
   },
   {
     "cn": "塞罕坝",
@@ -308,10 +252,6 @@
     "en": "phi phi island"
   },
   {
-    "cn": "古典大理石雕塑",
-    "en": "classical marble sculpture"
-  },
-  {
     "cn": "希腊雕塑",
     "en": "greek marble statue"
   },
@@ -326,10 +266,6 @@
   {
     "cn": "镜面雕塑",
     "en": "mirror sculpture"
-  },
-  {
-    "cn": "喷泉雕塑",
-    "en": "fountain sculpture"
   },
   {
     "cn": "天使雕像",
@@ -400,10 +336,6 @@
     "en": "wood carving sculpture"
   },
   {
-    "cn": "汉白玉雕塑",
-    "en": "white marble statue"
-  },
-  {
     "cn": "群雕",
     "en": "group sculpture"
   },
@@ -460,10 +392,6 @@
     "en": "deserted island beach"
   },
   {
-    "cn": "海滩日落",
-    "en": "beach sunset palm"
-  },
-  {
     "cn": "海浪航拍",
     "en": "ocean waves aerial"
   },
@@ -478,10 +406,6 @@
   {
     "cn": "海滩秋千",
     "en": "beach swing"
-  },
-  {
-    "cn": "海滩吊床",
-    "en": "beach hammock"
   },
   {
     "cn": "长滩岛",
@@ -532,10 +456,6 @@
     "en": "portugal beach"
   },
   {
-    "cn": "加州海滩",
-    "en": "california beach"
-  },
-  {
     "cn": "澳洲海滩",
     "en": "australia beach"
   },
@@ -568,10 +488,6 @@
     "en": "glacier canyon"
   },
   {
-    "cn": "云海日出",
-    "en": "sea of clouds sunrise"
-  },
-  {
     "cn": "瀑布日落",
     "en": "waterfall sunset"
   },
@@ -596,7 +512,91 @@
     "en": "forest morning mist"
   },
   {
-    "cn": "花海航拍",
-    "en": "flower field aerial"
+    "cn": "拜县",
+    "en": "pai valley thailand"
+  },
+  {
+    "cn": "科莫多岛",
+    "en": "komodo island"
+  },
+  {
+    "cn": "巴拉望",
+    "en": "palawan island"
+  },
+  {
+    "cn": "仙本那",
+    "en": "semporna island"
+  },
+  {
+    "cn": "安纳普尔纳",
+    "en": "annapurna mountain"
+  },
+  {
+    "cn": "斯里兰卡茶园",
+    "en": "sri lanka tea plantation"
+  },
+  {
+    "cn": "毛里求斯",
+    "en": "mauritius waterfall"
+  },
+  {
+    "cn": "猴面包树",
+    "en": "baobab trees madagascar"
+  },
+  {
+    "cn": "马赛马拉",
+    "en": "masai mara savanna"
+  },
+  {
+    "cn": "乞力马扎罗",
+    "en": "kilimanjaro mountain"
+  },
+  {
+    "cn": "摩洛哥撒哈拉",
+    "en": "sahara desert morocco"
+  },
+  {
+    "cn": "桌山",
+    "en": "table mountain cape town"
+  },
+  {
+    "cn": "乌鲁鲁",
+    "en": "uluru australia"
+  },
+  {
+    "cn": "十二门徒",
+    "en": "twelve apostles australia"
+  },
+  {
+    "cn": "米尔福德峡湾",
+    "en": "milford sound"
+  },
+  {
+    "cn": "瓦纳卡湖",
+    "en": "lake wanaka"
+  },
+  {
+    "cn": "库克山",
+    "en": "mount cook new zealand"
+  },
+  {
+    "cn": "班夫",
+    "en": "banff lake"
+  },
+  {
+    "cn": "路易斯湖",
+    "en": "lake louise"
+  },
+  {
+    "cn": "优胜美地",
+    "en": "yosemite valley"
+  },
+  {
+    "cn": "锡安",
+    "en": "zion national park"
+  },
+  {
+    "cn": "布莱斯峡谷",
+    "en": "bryce canyon"
   }
 ]

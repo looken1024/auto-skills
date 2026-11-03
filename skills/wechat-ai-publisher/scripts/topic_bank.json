@@ -1,98 +1,6 @@
 {
   "pending": [
     {
-      "cn": "拜县",
-      "en": "pai valley thailand"
-    },
-    {
-      "cn": "科莫多岛",
-      "en": "komodo island"
-    },
-    {
-      "cn": "巴拉望",
-      "en": "palawan island"
-    },
-    {
-      "cn": "仙本那",
-      "en": "semporna island"
-    },
-    {
-      "cn": "安纳普尔纳",
-      "en": "annapurna mountain"
-    },
-    {
-      "cn": "斯里兰卡茶园",
-      "en": "sri lanka tea plantation"
-    },
-    {
-      "cn": "塞舌尔",
-      "en": "seychelles beach"
-    },
-    {
-      "cn": "毛里求斯",
-      "en": "mauritius waterfall"
-    },
-    {
-      "cn": "猴面包树",
-      "en": "baobab trees madagascar"
-    },
-    {
-      "cn": "马赛马拉",
-      "en": "masai mara savanna"
-    },
-    {
-      "cn": "乞力马扎罗",
-      "en": "kilimanjaro mountain"
-    },
-    {
-      "cn": "摩洛哥撒哈拉",
-      "en": "sahara desert morocco"
-    },
-    {
-      "cn": "桌山",
-      "en": "table mountain cape town"
-    },
-    {
-      "cn": "乌鲁鲁",
-      "en": "uluru australia"
-    },
-    {
-      "cn": "十二门徒",
-      "en": "twelve apostles australia"
-    },
-    {
-      "cn": "米尔福德峡湾",
-      "en": "milford sound"
-    },
-    {
-      "cn": "瓦纳卡湖",
-      "en": "lake wanaka"
-    },
-    {
-      "cn": "库克山",
-      "en": "mount cook new zealand"
-    },
-    {
-      "cn": "班夫",
-      "en": "banff lake"
-    },
-    {
-      "cn": "路易斯湖",
-      "en": "lake louise"
-    },
-    {
-      "cn": "优胜美地",
-      "en": "yosemite valley"
-    },
-    {
-      "cn": "锡安",
-      "en": "zion national park"
-    },
-    {
-      "cn": "布莱斯峡谷",
-      "en": "bryce canyon"
-    },
-    {
       "cn": "冰川国家公园",
       "en": "glacier national park"
     },
@@ -263,6 +171,246 @@
     {
       "cn": "白唇鹿",
       "en": "white lipped deer"
+    },
+    {
+      "cn": "峨眉山",
+      "en": "mount emei"
+    },
+    {
+      "cn": "三清山",
+      "en": "sanqingshan"
+    },
+    {
+      "cn": "龙虎山",
+      "en": "longhu mountain"
+    },
+    {
+      "cn": "武夷山",
+      "en": "wuyi mountain"
+    },
+    {
+      "cn": "丹霞山",
+      "en": "danxia mountain"
+    },
+    {
+      "cn": "雁荡山",
+      "en": "yandang mountain"
+    },
+    {
+      "cn": "四姑娘山",
+      "en": "siguniang mountain"
+    },
+    {
+      "cn": "梅里雪山",
+      "en": "meili snow mountain"
+    },
+    {
+      "cn": "玉龙雪山",
+      "en": "yulong snow mountain"
+    },
+    {
+      "cn": "珠穆朗玛峰",
+      "en": "mount everest"
+    },
+    {
+      "cn": "冈仁波齐",
+      "en": "mount kailash"
+    },
+    {
+      "cn": "南迦巴瓦峰",
+      "en": "namcha barwa"
+    },
+    {
+      "cn": "喀纳斯湖",
+      "en": "kanas lake"
+    },
+    {
+      "cn": "赛里木湖",
+      "en": "sayram lake"
+    },
+    {
+      "cn": "纳木错",
+      "en": "namtso lake"
+    },
+    {
+      "cn": "羊卓雍措",
+      "en": "yamdrok lake"
+    },
+    {
+      "cn": "青海湖",
+      "en": "qinghai lake"
+    },
+    {
+      "cn": "茶卡盐湖",
+      "en": "chaka salt lake"
+    },
+    {
+      "cn": "长白山天池",
+      "en": "changbai mountain lake"
+    },
+    {
+      "cn": "神农架",
+      "en": "shennongjia forest"
+    },
+    {
+      "cn": "张家界",
+      "en": "zhangjiajie"
+    },
+    {
+      "cn": "恩施大峡谷",
+      "en": "enshi grand canyon"
+    },
+    {
+      "cn": "雅鲁藏布大峡谷",
+      "en": "yarlung tsangpo canyon"
+    },
+    {
+      "cn": "虎跳峡",
+      "en": "tiger leaping gorge"
+    },
+    {
+      "cn": "漓江",
+      "en": "li river karst"
+    },
+    {
+      "cn": "额济纳胡杨林",
+      "en": "ejin poplar forest"
+    },
+    {
+      "cn": "巴丹吉林沙漠",
+      "en": "badain jaran desert"
+    },
+    {
+      "cn": "腾格里沙漠",
+      "en": "tengger desert"
+    },
+    {
+      "cn": "塔克拉玛干沙漠",
+      "en": "taklamakan desert"
+    },
+    {
+      "cn": "呼伦贝尔草原",
+      "en": "hulunbuir grassland"
+    },
+    {
+      "cn": "那拉提草原",
+      "en": "nalati grassland"
+    },
+    {
+      "cn": "巴音布鲁克草原",
+      "en": "bayanbulak grassland"
+    },
+    {
+      "cn": "若尔盖草原",
+      "en": "zoige grassland"
+    },
+    {
+      "cn": "稻城亚丁",
+      "en": "daocheng yading"
+    },
+    {
+      "cn": "海螺沟",
+      "en": "hailuogou glacier"
+    },
+    {
+      "cn": "普达措",
+      "en": "pudacuo national park"
+    },
+    {
+      "cn": "九寨沟",
+      "en": "jiuzhaigou valley"
+    },
+    {
+      "cn": "黄果树瀑布",
+      "en": "huangguoshu waterfall"
+    },
+    {
+      "cn": "壶口瀑布",
+      "en": "hukou waterfall"
+    },
+    {
+      "cn": "万峰林",
+      "en": "wanfenglin karst"
+    },
+    {
+      "cn": "扎尕那",
+      "en": "zhagana"
+    },
+    {
+      "cn": "年保玉则",
+      "en": "nianbaoyuze"
+    },
+    {
+      "cn": "可可西里",
+      "en": "kekexili"
+    },
+    {
+      "cn": "帕米尔高原",
+      "en": "pamir plateau"
+    },
+    {
+      "cn": "慕士塔格峰",
+      "en": "muztagh ata"
+    },
+    {
+      "cn": "天山天池",
+      "en": "tianchi lake"
+    },
+    {
+      "cn": "果子沟",
+      "en": "guozigou valley"
+    },
+    {
+      "cn": "乌尔禾魔鬼城",
+      "en": "urho ghost city yardang"
+    },
+    {
+      "cn": "火焰山",
+      "en": "flaming mountains"
+    },
+    {
+      "cn": "荔波小七孔",
+      "en": "libo xiaoqikong"
+    },
+    {
+      "cn": "藏羚羊",
+      "en": "tibetan antelope"
+    },
+    {
+      "cn": "雪豹",
+      "en": "snow leopard"
+    },
+    {
+      "cn": "大熊猫",
+      "en": "giant panda"
+    },
+    {
+      "cn": "金丝猴",
+      "en": "golden snub-nosed monkey"
+    },
+    {
+      "cn": "丹顶鹤",
+      "en": "red-crowned crane"
+    },
+    {
+      "cn": "朱鹮",
+      "en": "crested ibis"
+    },
+    {
+      "cn": "萤火虫",
+      "en": "fireflies forest"
+    },
+    {
+      "cn": "银杏",
+      "en": "ginkgo tree autumn"
+    },
+    {
+      "cn": "白桦林",
+      "en": "birch forest"
+    },
+    {
+      "cn": "高山杜鹃",
+      "en": "alpine rhododendron"
     }
   ],
   "used": [
@@ -880,7 +1028,123 @@
       "cn": "皮皮岛",
       "en": "phi phi island",
       "ts": "2026-10-31T23:04:05.493002"
+    },
+    {
+      "cn": "拜县",
+      "en": "pai valley thailand",
+      "ts": "2026-11-03T23:11:18.320588"
+    },
+    {
+      "cn": "科莫多岛",
+      "en": "komodo island",
+      "ts": "2026-11-03T23:11:18.320603"
+    },
+    {
+      "cn": "巴拉望",
+      "en": "palawan island",
+      "ts": "2026-11-03T23:11:18.320605"
+    },
+    {
+      "cn": "仙本那",
+      "en": "semporna island",
+      "ts": "2026-11-03T23:11:18.320606"
+    },
+    {
+      "cn": "安纳普尔纳",
+      "en": "annapurna mountain",
+      "ts": "2026-11-03T23:11:18.320607"
+    },
+    {
+      "cn": "斯里兰卡茶园",
+      "en": "sri lanka tea plantation",
+      "ts": "2026-11-03T23:11:18.320609"
+    },
+    {
+      "cn": "毛里求斯",
+      "en": "mauritius waterfall",
+      "ts": "2026-11-03T23:11:18.320610"
+    },
+    {
+      "cn": "猴面包树",
+      "en": "baobab trees madagascar",
+      "ts": "2026-11-03T23:11:18.320612"
+    },
+    {
+      "cn": "马赛马拉",
+      "en": "masai mara savanna",
+      "ts": "2026-11-03T23:11:18.320613"
+    },
+    {
+      "cn": "乞力马扎罗",
+      "en": "kilimanjaro mountain",
+      "ts": "2026-11-03T23:11:18.320615"
+    },
+    {
+      "cn": "摩洛哥撒哈拉",
+      "en": "sahara desert morocco",
+      "ts": "2026-11-03T23:11:18.320616"
+    },
+    {
+      "cn": "桌山",
+      "en": "table mountain cape town",
+      "ts": "2026-11-03T23:11:18.320618"
+    },
+    {
+      "cn": "乌鲁鲁",
+      "en": "uluru australia",
+      "ts": "2026-11-03T23:11:18.320655"
+    },
+    {
+      "cn": "十二门徒",
+      "en": "twelve apostles australia",
+      "ts": "2026-11-03T23:11:18.320658"
+    },
+    {
+      "cn": "米尔福德峡湾",
+      "en": "milford sound",
+      "ts": "2026-11-03T23:11:18.320659"
+    },
+    {
+      "cn": "瓦纳卡湖",
+      "en": "lake wanaka",
+      "ts": "2026-11-03T23:11:18.320660"
+    },
+    {
+      "cn": "库克山",
+      "en": "mount cook new zealand",
+      "ts": "2026-11-03T23:11:18.320662"
+    },
+    {
+      "cn": "班夫",
+      "en": "banff lake",
+      "ts": "2026-11-03T23:11:18.320663"
+    },
+    {
+      "cn": "路易斯湖",
+      "en": "lake louise",
+      "ts": "2026-11-03T23:11:18.320665"
+    },
+    {
+      "cn": "优胜美地",
+      "en": "yosemite valley",
+      "ts": "2026-11-03T23:11:18.320666"
+    },
+    {
+      "cn": "锡安",
+      "en": "zion national park",
+      "ts": "2026-11-03T23:11:18.320667"
+    },
+    {
+      "cn": "布莱斯峡谷",
+      "en": "bryce canyon",
+      "ts": "2026-11-03T23:11:18.320668"
     }
   ],
-  "rejected": []
+  "rejected": [
+    {
+      "cn": "塞舌尔",
+      "en": "seychelles beach",
+      "reason": "历史已用过/重复"
+    }
+  ]
 }
