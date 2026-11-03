@@ -67,6 +67,7 @@ Validated workflow for turning a Clash subscription URL into a persistent system
 - `allow-lan: true` in many subscription configs means the port listens on 0.0.0.0 — be aware before exposing a server.
 - The MMDB download may also succeed directly via a jsdelivr/raw mirror even when GitHub raw is unreachable; jsdelivr is the reliable first choice.
 - First curl attempt to GitHub with `-I` (HEAD) got 405 from the panel — panels often only accept GET. The subscription fetch itself usually succeeds even when GitHub does not.
+- **系统代理会拖慢特定 API / 图床，甚至拖到超时**（实测：Pexels API 走代理 32s、图片 40s+ 超时；直连只要 1.2s / 2s）。对这类主机在脚本里做**定向绕过**，不要全局关代理：urllib 用 `build_opener(ProxyHandler({}))`，requests 用 `session.trust_env = False`。排障时用 `env -u http_proxy -u https_proxy curl ...` 做直连/代理对比（注意：shell 里已 export 的代理会让"直连"测试假阳性）。
 
 ## Skills batch-install pattern
 Bulk-installing skills from a git repo (e.g. clone repo, copy `skills/*/` into `~/.hermes/skills/`): repo may contain `@user/` subdirectories each holding more skills — flatten those (`for f in @*/*/; do cp -r "$f" ~/.hermes/skills/; done`) and skip `@*` top-level dirs. Verify with `skills_list` count before/after; some third-party SKILL.md files have malformed frontmatter (e.g. description literally `---`) — note these rather than silently skipping the skill.

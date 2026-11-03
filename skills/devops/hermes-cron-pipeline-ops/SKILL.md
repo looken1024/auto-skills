@@ -54,6 +54,8 @@ hermes cron edit <job_id> --provider <provider> --model <model>
 - 真实 provider 列表：`hermes fallback list` 或 config.yaml 的 `providers:` 段。
 - 改完**复核落盘**：`hermes cron list` 或读 `~/.hermes/cron/jobs.json` 的 `provider`/`model`。
 - **未 pin 的任务会在全局模型漂移时被 `drift_skip` 静默跳过**（不花钱，但任务停摆）→ 要么 pin 到与全局一致，要么 pin 到一个真实存在的 provider。
+- **工具层差异**：`cronjob` 工具本身没有 `model` / `provider` 参数；要改模型/供应商必须走 CLI `hermes cron edit <id> --model ... --provider ...`，改完用 `hermes cron list` 复核。
+- **`no_agent=true` 的任务，`model`/`provider` 只是元数据**：实际调用哪个模型由脚本自己决定（如微头条的 `wt_common.MODEL_CHAIN`）。只改 cron 记录不会换模型，必须改脚本里的模型链/端点。
 
 ### 1.2 免费模型 429 → fallback 链
 ```bash
@@ -143,6 +145,16 @@ Chrome 重启后 `/tmp/chrome-wx` 里的 cookie **可能还在也可能过期**�
 - **确认手法**：跑前 `free -m`；事后 `dmesg | grep -i "killed process"` 确认是 OOM 而非别的。
 - **Chrome 标签是隐形内存黑洞**：长期存活的 headless Chrome 会堆标签（曾到 27 个，内存 260MB→672MB）。`curl 127.0.0.1:9222/json/list` 列表，`curl 127.0.0.1:9222/json/close/<targetId>` 逐个关。
 - 通用经验：**“整图/整文件一次性运算”的写法在这台机器上先想峰值内存**，宁可分块。
+
+## 5d. 图集类流水线：话题池轮换与 Pexels 加速（2026-11-03）
+
+图集/配图流水线跑久了会"池子吃穿"：老话题反复出现、Pexels 检索深度耗尽。2026-11-03 按用户要求做成**每 3 天自动轮换**：剔除高频话题、从候选银行补新词、每条新词先过 Pexels 验图。
+
+- 关键设计：**按窗口内使用次数 + 累计出图数**判高频（窗口 3 天内被选 ≥2 次，或累计 ≥27 张），每轮最多剔 30 条；**等量补充**保持池子规模稳定；新词验证横图 ≥12 张才入池。
+- 两套池子用 `GALLERY_TOPICS_FILE` 环境变量切换：通用池 `topics.json`、"炫酷/不常见风景"专用池 `topics_stunning.json`。
+- ⚠️ **系统代理会拖死 Pexels**：本机 `http_proxy=127.0.0.1:9981` 下 Pexels API 要 32s、图片 40s+ 超时；绕过代理直连只要 1-2s。脚本里用 urllib `build_opener(ProxyHandler({}))` 显式绕代理，并给搜索/下载各加 3 次重试。
+
+完整脚本设计、验证循环、并发坑与当前 cron 映射见 `references/pexels-gallery-ops.md`。
 
 ## 6. 与其它 skill 的关系
 

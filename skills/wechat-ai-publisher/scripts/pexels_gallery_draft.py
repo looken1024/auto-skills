@@ -26,7 +26,7 @@ import compress_image
 # ---------- 话题池：中文名 → Pexels 英文搜索词 ----------
 # 话题池独立存于 scripts/topics.json（每3天由 expand_topics.py 补充），脚本优先读它；
 # 若文件缺失则回退到下方内置列表。
-TOPICS_JSON = os.path.join(SCRIPT_DIR, "topics.json")
+TOPICS_JSON = os.environ.get("GALLERY_TOPICS_FILE") or os.path.join(SCRIPT_DIR, "topics.json")
 
 def load_topics():
     if os.path.exists(TOPICS_JSON):
@@ -222,6 +222,10 @@ LEDGER_FILE = os.path.join(LOG_DIR, "gallery_sent_md5.json")
 TOPIC_DAY_FILE = os.path.join(LOG_DIR, "gallery_topic_day.json")
 UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
                     "(KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"}
+# 2026-11-03：本机系统代理 127.0.0.1:9981 访问 Pexels 极慢（API 32s / 图片 40s+ 超时），
+# Pexels 直连只要 1-2s，所以这里显式绕过环境代理。
+import urllib.request as _urlreq
+_PEXELS_OPENER = _urlreq.build_opener(_urlreq.ProxyHandler({}))
 
 
 # ---------- 话题级去重（同一天不重复选话题） ----------
@@ -316,29 +320,45 @@ def get_pexels_key():
 
 
 def pexels_search(query, per_page=40, orientation="landscape"):
-    import urllib.request, urllib.parse
+    import urllib.request, urllib.parse, time as _time
     key = get_pexels_key()
     url = "https://api.pexels.com/v1/search?query=%s&per_page=%d&orientation=%s" % (
         urllib.parse.quote(query), per_page, orientation)
-    req = urllib.request.Request(url, headers={"Authorization": key, **UA})
-    with urllib.request.urlopen(req, timeout=30) as r:
-        return json.loads(r.read()).get("photos", [])
+    last = None
+    for attempt in range(3):
+        try:
+            req = urllib.request.Request(url, headers={"Authorization": key, **UA})
+            with _PEXELS_OPENER.open(req, timeout=30) as r:
+                return json.loads(r.read()).get("photos", [])
+        except Exception as e:
+            last = e
+            if attempt < 2:
+                _time.sleep(2)
+    raise last
 
 
 def pexels_fetch(photo_id, out, original_url=None):
     """下载原图。优先用 API 返回的 src.original（全分辨率），否则退回压缩 URL。"""
-    import urllib.request
+    import urllib.request, time as _time
     if original_url:
         url = original_url
     else:
         url = ("https://images.pexels.com/photos/%d/pexels-photo-%d.jpeg"
                "?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop" % (photo_id, photo_id))
-    req = urllib.request.Request(url, headers=UA)
-    with urllib.request.urlopen(req, timeout=120) as r:
-        data = r.read()
-    with open(out, "wb") as f:
-        f.write(data)
-    return out
+    last = None
+    for attempt in range(3):
+        try:
+            req = urllib.request.Request(url, headers=UA)
+            with _PEXELS_OPENER.open(req, timeout=120) as r:
+                data = r.read()
+            with open(out, "wb") as f:
+                f.write(data)
+            return out
+        except Exception as e:
+            last = e
+            if attempt < 2:
+                _time.sleep(2)
+    raise last
 
 
 def process_image(src, dst):
