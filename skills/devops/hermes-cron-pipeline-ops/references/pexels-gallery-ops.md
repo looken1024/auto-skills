@@ -105,3 +105,19 @@ python3 scripts/pexels_gallery_draft.py --mode news
 | `21a4b0cf5a35` | `every 72h` | 轮换 + 银行 | 剔高频、补新词 |
 
 > 两个图集任务并存时一天约 36 条草稿；加任务前先跟用户确认是否要停掉另一个，避免草稿箱被刷屏。
+
+## 6. 图文标题：地点描述式（2026-11-03 用户要求）
+
+**规则（只作用于 `--mode news`）**：
+- 不再用「{话题}·每日图集（{日期}）」；标题要契合这个地点/景点，像一句有画面的短描述。
+- 主题是**具体地名或景点**时，地名必须出现在标题里（地名后用「，」或「｜」与后半句隔开）；泛场景（银河拱桥、沙漠星空、海浪航拍）不要硬编地名。
+- 12–24 字；禁「每日图集」「图集」；禁书名号/引号/日期/序号/浮夸营销词。
+- `newspic` 贴图模式**保持旧格式**（用户只要求改图文任务）。
+
+**实现**：`pexels_gallery_draft.py` 的 `make_title(topic)`：
+1. 读 `OPENCODE_GO_API_KEY`（env 或 `~/.hermes/.env`），调 `deepseek-v4.1-flash`，`reasoning_effort=low` + `stream=False` + `max_tokens=3000`。
+2. 请求头**必须带浏览器 UA + `Accept: application/json`**，否则 Cloudflare 返回 `403 error code: 1010`（默认 Python-urllib UA 被拦）。
+3. 清洗：取第一行、去引号/书名号/前缀序号；校验 6–32 字且不含「图集」，不合格就用模板 `{topic}｜一眼心动的风景`。
+4. 生成失败不阻断建稿，只打 stderr 并回退模板。
+
+**验证**：跑一次真实 `news` 任务后，用 `draft/batchget` 拉草稿看 `news_item[0].title`（示例实测：「阿尔山天池，云影落入森林的眼」）。只改代码不跑真实路径验不出来——`--dry-run` 在建稿前就 return 了，不会触发 `make_title()`。

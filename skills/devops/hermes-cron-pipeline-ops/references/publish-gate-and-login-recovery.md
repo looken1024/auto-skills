@@ -36,6 +36,17 @@ if use_opencode:
     hdrs["x-opencode-session"] = "hermes-main"
 ```
 
+### 用 urllib 调 opencode 必须带浏览器 UA
+默认 `Python-urllib/3.x` 会被 Cloudflare 回 `HTTP 403`，响应体只有
+`error code: 1010`（不是 key 错、也不是余额错）。补上：
+
+```python
+hdrs["User-Agent"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) ... Chrome/126.0.0.0 Safari/537.36"
+hdrs["Accept"] = "application/json"
+```
+
+判据：**同一 key 用 curl 能通、用脚本 403** → 先补 UA。
+
 ## 5. 平台登录态：先验旧 cookie，再让人扫码
 头条（mp.toutiao.com）的 `sessionid` / `sessionid_ss` 存在
 `~/.hermes/skills/toutiao-micro-publish/config/toutiao_cookies.json`。

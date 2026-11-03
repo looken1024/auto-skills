@@ -44,6 +44,8 @@ grep "OpenAI client created" ~/.hermes/logs/agent.log | tail -3   # 真实 provi
 
 **OpenCode Go 连接参数**：base_url `https://opencode.ai/inference/go/openai/v1`；必须带 `x-opencode-session` 头（缺了 400 MissingSessionID）；key 形如 `oc_sk_*`；`GET /models` 可能 404，验活直接 `POST /chat/completions`（`max_tokens≥500`，reasoning 会先吃 token）。
 
+**脚本调用必须伪装浏览器 UA（2026-11-03 实测）**：Python `urllib` 默认 `Python-urllib/3.x` 会被 Cloudflare 拦成 `HTTP 403`，响应体只有 `error code: 1010`——极容易误判成 key 失效或套餐问题。加 `User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) ... Chrome/126.0.0.0 Safari/537.36`（再带 `Accept: application/json`）即可正常返回。判据：**curl 能通、脚本 403** → 先补 UA，别换 key。
+
 **脚本化调用（2026-10-20 实测）**：`deepseek-v4.1-flash` 是 reasoning 模型，脚本里必须 `stream=False` + `reasoning_effort="low"` + `max_tokens` 给足。约 1.2 万字符的终审 prompt 用 8000 token 会返回**空 content**（思考吃满），提到 12000 才稳定拿到 1100+ 字正文。多模型链还要按模型切端点和 key（opencode 模型走 opencode URL + `OPENCODE_GO_API_KEY`，免费模型走本地 8899 解包代理）。详见 `references/publish-gate-and-login-recovery.md`。
 
 ### 1.1 pin 任务模型
@@ -76,6 +78,8 @@ hermes fallback list   # 复核
 hermes config set auxiliary.vision.provider deepseek
 hermes config set auxiliary.vision.model deepseek-flash
 ```
+
+> ⚠️ 主模型切到 opencode-go 后，`auxiliary.vision` 若仍留 `auto`，识图请求会落到 opencode 端点但缺 `x-opencode-session` 头，报 `400 MissingSessionID`——症状很像“识图功能坏了”。按上面显式钉到支持识图的后端即可。
 
 改完**立刻用一张已知内容的图验一次**（问“画面里是什么”看答得对不对），别只看配置写进去了。
 
@@ -153,6 +157,7 @@ Chrome 重启后 `/tmp/chrome-wx` 里的 cookie **可能还在也可能过期**�
 - 关键设计：**按窗口内使用次数 + 累计出图数**判高频（窗口 3 天内被选 ≥2 次，或累计 ≥27 张），每轮最多剔 30 条；**等量补充**保持池子规模稳定；新词验证横图 ≥12 张才入池。
 - 两套池子用 `GALLERY_TOPICS_FILE` 环境变量切换：通用池 `topics.json`、"炫酷/不常见风景"专用池 `topics_stunning.json`。
 - ⚠️ **系统代理会拖死 Pexels**：本机 `http_proxy=127.0.0.1:9981` 下 Pexels API 要 32s、图片 40s+ 超时；绕过代理直连只要 1-2s。脚本里用 urllib `build_opener(ProxyHandler({}))` 显式绕代理，并给搜索/下载各加 3 次重试。
+- **图文标题改成地点描述式（2026-11-03）**：`news` 模式不再用「{话题}·每日图集（日期）」，改用主模型生成契合该地点/景点的描述性标题；主题是具体地名/景点时**地名必须出现在标题里**，禁用「图集/每日图集」字样。生成失败回退 `{话题}｜一眼心动的风景`。`newspic` 贴图模式保持旧格式（用户只要求改图文）。实现见 `make_title()`，细节见 `references/pexels-gallery-ops.md` §6。
 
 完整脚本设计、验证循环、并发坑与当前 cron 映射见 `references/pexels-gallery-ops.md`。
 

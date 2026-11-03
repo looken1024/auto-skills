@@ -14,7 +14,7 @@ md5 去重（2026-08-29 用户要求）:
 依赖: Pillow + requests + numpy（wechat-ai-publisher 环境已有）
 配置: Pexels key 从 douyin-card-pipeline/config.json 读; 微信 .env 从本 skill 目录读
 """
-import os, sys, json, random, shutil, argparse, tempfile, hashlib, glob, time
+import os, sys, json, random, shutil, argparse, tempfile, hashlib, glob, time, re
 import requests
 from datetime import datetime
 
@@ -226,6 +226,73 @@ UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.3
 # Pexels 直连只要 1-2s，所以这里显式绕过环境代理。
 import urllib.request as _urlreq
 _PEXELS_OPENER = _urlreq.build_opener(_urlreq.ProxyHandler({}))
+
+# ---------- 标题生成（2026-11-03 用户要求）----------
+# 不再用「{话题}·每日图集（日期）」，改成契合该地点/景点的描述性标题；
+# 主题是具体地名/景点时必须把地名写进标题。用主模型 opencode-go 生成，失败则退回模板。
+_OPENCODE_URL = "https://opencode.ai/inference/go/openai/v1/chat/completions"
+_TITLE_PROMPT = """你是微信公众号「棱镜折射」的图片栏目编辑。根据下面这个风景主题，写一个吸引人的中文标题。
+
+要求：
+- 12 到 24 个字
+- 如果主题是具体地名或景点（例如：喀拉峻草原、莫雷诺冰川、布莱德湖、平潭蓝眼泪），标题里必须出现这个地名或景点名，并且地名后面用「，」或「｜」与后半句隔开
+- 如果主题是泛场景（例如：银河拱桥、沙漠星空、海浪航拍），不要硬编地名，用画面感描述
+- 大气、优美、有画面感；不要浮夸营销词（绝绝子、封神、yyds、天花板）
+- 不要出现「每日图集」「图集」字样，不要书名号、引号、日期、序号
+- 只输出标题本身，不要解释，不要换行
+
+主题：%s"""
+
+
+def _opencode_key():
+    key = os.environ.get("OPENCODE_GO_API_KEY", "").strip()
+    if key:
+        return key
+    try:
+        txt = open(os.path.expanduser("~/.hermes/.env"), encoding="utf-8").read()
+        m = re.search(r"^OPENCODE_GO_API_KEY=(.+)$", txt, re.M)
+        return m.group(1).strip() if m else ""
+    except Exception:
+        return ""
+
+
+def _clean_title(t):
+    t = (t or "").strip().splitlines()[0] if (t or "").strip() else ""
+    t = t.strip('“”"\'《》【】[]（）() \t')
+    t = re.sub(r"^\d+[.、\s]+", "", t)
+    return t.strip()
+
+
+def make_title(topic):
+    """按景点/主题生成标题；失败回退到「{topic}｜一眼心动的风景」。"""
+    key = _opencode_key()
+    if key:
+        try:
+            payload = {
+                "model": "deepseek-v4.1-flash",
+                "messages": [{"role": "user", "content": _TITLE_PROMPT % topic}],
+                "max_tokens": 3000,
+                "temperature": 0.9,
+                "reasoning_effort": "low",
+                "stream": False,
+            }
+            req = _urlreq.Request(
+                _OPENCODE_URL, data=json.dumps(payload).encode("utf-8"), method="POST",
+                headers={"Authorization": "Bearer " + key,
+                         "x-opencode-session": "hermes-main",
+                         "Content-Type": "application/json",
+                         "Accept": "application/json",
+                         "User-Agent": UA["User-Agent"]})
+            with _PEXELS_OPENER.open(req, timeout=45) as r:
+                d = json.loads(r.read())
+            msg = (d.get("choices") or [{}])[0].get("message") or {}
+            t = _clean_title(msg.get("content") or "")
+            if 6 <= len(t) <= 32 and "每日图集" not in t and "图集" not in t:
+                return t
+            print(f"! 标题不合格，改用模板: {t!r}", file=sys.stderr)
+        except Exception as e:
+            print(f"! 标题生成失败({type(e).__name__})，改用模板", file=sys.stderr)
+    return f"{topic}｜一眼心动的风景"
 
 
 # ---------- 话题级去重（同一天不重复选话题） ----------
@@ -738,7 +805,12 @@ def main():
         #    news  = 图文消息，正文带可点击的小程序文字链（content 支持 HTML）
         #    newspic = 纯贴图，无正文（content 只支持纯文本，写链接也点不动）
         today_str = datetime.now().strftime("%Y-%m-%d")
-        title = f"{topic}·每日图集（{today_str}）"
+        if args.mode == "news":
+            # 2026-11-03：图文消息标题改为契合地点/景点的描述，不再用「每日图集」
+            title = make_title(topic)
+            print(f"标题: {title}", file=sys.stderr)
+        else:
+            title = f"{topic}·每日图集（{today_str}）"
         if args.mode == "news":
             blocks = [f'<p><img src="{u}" style="width:100%;"/></p>' for u, _, _ in content_urls]
             blocks.append(_draft_content(topic))
