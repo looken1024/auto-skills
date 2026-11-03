@@ -16,10 +16,6 @@
     "en": "migratory birds flock sky"
   },
   {
-    "cn": "鲨鱼",
-    "en": "shark underwater ocean"
-  },
-  {
     "cn": "雾漫山峦",
     "en": "foggy mountain range layers"
   },
@@ -52,16 +48,8 @@
     "en": "plum blossom winter"
   },
   {
-    "cn": "格桑花海",
-    "en": "cosmos flower field plateau"
-  },
-  {
     "cn": "冰瀑",
     "en": "frozen waterfall ice"
-  },
-  {
-    "cn": "雪山星空",
-    "en": "snow mountain starry night"
   },
   {
     "cn": "鸣沙山",
@@ -84,10 +72,6 @@
     "en": "new zealand south island landscape"
   },
   {
-    "cn": "羚羊峡谷",
-    "en": "antelope canyon light beams"
-  },
-  {
     "cn": "阿尔卑斯山",
     "en": "alps mountain landscape"
   },
@@ -108,10 +92,6 @@
     "en": "eboliang yardang"
   },
   {
-    "cn": "茫崖翡翠湖",
-    "en": "mangya emerald lake"
-  },
-  {
     "cn": "黄河石林",
     "en": "yellow river stone forest"
   },
@@ -124,16 +104,8 @@
     "en": "guane valley lake"
   },
   {
-    "cn": "黄龙五彩池",
-    "en": "huanglong colorful pool"
-  },
-  {
     "cn": "五色海",
     "en": "wuse lake plateau"
-  },
-  {
-    "cn": "塔公草原",
-    "en": "tagong grassland"
   },
   {
     "cn": "光雾山",
@@ -156,10 +128,6 @@
     "en": "tengchong volcano"
   },
   {
-    "cn": "德天瀑布",
-    "en": "detian waterfall"
-  },
-  {
     "cn": "姑婆山",
     "en": "gupo mountain"
   },
@@ -178,10 +146,6 @@
   {
     "cn": "太姥山",
     "en": "taimu mountain"
-  },
-  {
-    "cn": "楠溪江",
-    "en": "nanxi river"
   },
   {
     "cn": "神仙居",
@@ -232,16 +196,8 @@
     "en": "langya mountain"
   },
   {
-    "cn": "云台山",
-    "en": "yuntai mountain"
-  },
-  {
     "cn": "老君山",
     "en": "laojun mountain"
-  },
-  {
-    "cn": "嵩山",
-    "en": "song mountain"
   },
   {
     "cn": "王屋山",
@@ -250,10 +206,6 @@
   {
     "cn": "太行大峡谷",
     "en": "taihang grand canyon"
-  },
-  {
-    "cn": "蟒河",
-    "en": "manghe valley"
   },
   {
     "cn": "芦芽山",
@@ -292,40 +244,16 @@
     "en": "grassland highway"
   },
   {
-    "cn": "呼伦湖",
-    "en": "hulun lake"
-  },
-  {
     "cn": "莫尔道嘎",
     "en": "moerdaoga forest"
-  },
-  {
-    "cn": "根河湿地",
-    "en": "genhe wetland"
-  },
-  {
-    "cn": "额尔古纳湿地",
-    "en": "erguna wetland"
-  },
-  {
-    "cn": "镜泊湖",
-    "en": "jingpo lake"
   },
   {
     "cn": "吊水楼瀑布",
     "en": "diaoshuilou waterfall"
   },
   {
-    "cn": "五大连池",
-    "en": "wudalianchi lake"
-  },
-  {
     "cn": "龙江第一湾",
     "en": "heilongjiang first bend"
-  },
-  {
-    "cn": "雾凇岛",
-    "en": "rime island"
   },
   {
     "cn": "伊春林海",
@@ -340,24 +268,8 @@
     "en": "gullfoss iceland"
   },
   {
-    "cn": "冰岛钻石沙滩",
-    "en": "diamond beach iceland"
-  },
-  {
-    "cn": "冰岛米湖",
-    "en": "myvatn lake iceland"
-  },
-  {
     "cn": "罗弗敦群岛",
     "en": "lofoten islands norway"
-  },
-  {
-    "cn": "布道石",
-    "en": "preikestolen norway"
-  },
-  {
-    "cn": "恶魔之舌",
-    "en": "trolltunga norway"
   },
   {
     "cn": "苏格兰高地",
@@ -366,22 +278,6 @@
   {
     "cn": "莫赫悬崖",
     "en": "cliffs of moher"
-  },
-  {
-    "cn": "普罗旺斯",
-    "en": "provence lavender field"
-  },
-  {
-    "cn": "托斯卡纳",
-    "en": "tuscany landscape"
-  },
-  {
-    "cn": "科莫湖",
-    "en": "lake como italy"
-  },
-  {
-    "cn": "国王湖",
-    "en": "konigssee germany"
   },
   {
     "cn": "因特拉肯",
@@ -396,24 +292,8 @@
     "en": "pamukkale terrace"
   },
   {
-    "cn": "卡兹别克",
-    "en": "kazbegi mountain georgia"
-  },
-  {
-    "cn": "塞凡湖",
-    "en": "sevan lake armenia"
-  },
-  {
-    "cn": "贝加尔湖",
-    "en": "lake baikal ice"
-  },
-  {
     "cn": "堪察加",
     "en": "kamchatka volcano"
-  },
-  {
-    "cn": "北海道薰衣草",
-    "en": "hokkaido lavender field"
   },
   {
     "cn": "屋久岛",
@@ -430,5 +310,297 @@
   {
     "cn": "皮皮岛",
     "en": "phi phi island"
+  },
+  {
+    "cn": "古典大理石雕塑",
+    "en": "classical marble sculpture"
+  },
+  {
+    "cn": "希腊雕塑",
+    "en": "greek marble statue"
+  },
+  {
+    "cn": "青铜雕塑",
+    "en": "bronze sculpture"
+  },
+  {
+    "cn": "抽象雕塑",
+    "en": "abstract sculpture"
+  },
+  {
+    "cn": "镜面雕塑",
+    "en": "mirror sculpture"
+  },
+  {
+    "cn": "喷泉雕塑",
+    "en": "fountain sculpture"
+  },
+  {
+    "cn": "天使雕像",
+    "en": "angel statue"
+  },
+  {
+    "cn": "骑马雕像",
+    "en": "equestrian statue"
+  },
+  {
+    "cn": "沉思者",
+    "en": "rodin thinker sculpture"
+  },
+  {
+    "cn": "维纳斯雕像",
+    "en": "venus statue"
+  },
+  {
+    "cn": "大卫雕像",
+    "en": "michelangelo david statue"
+  },
+  {
+    "cn": "胜利女神像",
+    "en": "winged victory statue"
+  },
+  {
+    "cn": "拉奥孔群雕",
+    "en": "laocoon sculpture"
+  },
+  {
+    "cn": "佛像",
+    "en": "buddha statue"
+  },
+  {
+    "cn": "石窟造像",
+    "en": "buddhist grotto statues"
+  },
+  {
+    "cn": "乐山大佛",
+    "en": "leshan giant buddha"
+  },
+  {
+    "cn": "冰雕",
+    "en": "ice sculpture"
+  },
+  {
+    "cn": "沙雕",
+    "en": "sand sculpture"
+  },
+  {
+    "cn": "金属雕塑",
+    "en": "metal sculpture"
+  },
+  {
+    "cn": "雕塑公园",
+    "en": "sculpture garden"
+  },
+  {
+    "cn": "罗丹雕塑",
+    "en": "rodin sculpture"
+  },
+  {
+    "cn": "石雕",
+    "en": "stone carving sculpture"
+  },
+  {
+    "cn": "木雕",
+    "en": "wood carving sculpture"
+  },
+  {
+    "cn": "汉白玉雕塑",
+    "en": "white marble statue"
+  },
+  {
+    "cn": "群雕",
+    "en": "group sculpture"
+  },
+  {
+    "cn": "雕塑剪影",
+    "en": "sculpture silhouette sunset"
+  },
+  {
+    "cn": "博物馆雕塑",
+    "en": "museum sculpture hall"
+  },
+  {
+    "cn": "城市雕塑",
+    "en": "public art sculpture"
+  },
+  {
+    "cn": "白沙滩",
+    "en": "white sand beach"
+  },
+  {
+    "cn": "黑沙滩",
+    "en": "black sand beach"
+  },
+  {
+    "cn": "粉沙滩",
+    "en": "pink sand beach"
+  },
+  {
+    "cn": "心形海滩",
+    "en": "heart shaped beach"
+  },
+  {
+    "cn": "隐秘海湾",
+    "en": "hidden cove beach"
+  },
+  {
+    "cn": "悬崖海滩",
+    "en": "cliff beach"
+  },
+  {
+    "cn": "礁石海岸",
+    "en": "rocky coast beach"
+  },
+  {
+    "cn": "棕榈海滩",
+    "en": "palm tree beach"
+  },
+  {
+    "cn": "椰林海滩",
+    "en": "coconut beach"
+  },
+  {
+    "cn": "无人岛海滩",
+    "en": "deserted island beach"
+  },
+  {
+    "cn": "海滩日落",
+    "en": "beach sunset palm"
+  },
+  {
+    "cn": "海浪航拍",
+    "en": "ocean waves aerial"
+  },
+  {
+    "cn": "碧蓝海水",
+    "en": "turquoise water aerial"
+  },
+  {
+    "cn": "海滩栈桥",
+    "en": "beach pier"
+  },
+  {
+    "cn": "海滩秋千",
+    "en": "beach swing"
+  },
+  {
+    "cn": "海滩吊床",
+    "en": "beach hammock"
+  },
+  {
+    "cn": "长滩岛",
+    "en": "boracay beach"
+  },
+  {
+    "cn": "苏梅岛",
+    "en": "koh samui beach"
+  },
+  {
+    "cn": "普吉岛",
+    "en": "phuket beach"
+  },
+  {
+    "cn": "冲绳海滩",
+    "en": "okinawa beach"
+  },
+  {
+    "cn": "青岛金沙滩",
+    "en": "qingdao beach"
+  },
+  {
+    "cn": "北海银滩",
+    "en": "beihai silver beach"
+  },
+  {
+    "cn": "大梅沙",
+    "en": "shenzhen beach"
+  },
+  {
+    "cn": "清水湾",
+    "en": "hainan clearwater bay"
+  },
+  {
+    "cn": "鼓浪屿",
+    "en": "gulangyu island"
+  },
+  {
+    "cn": "圣托里尼海滩",
+    "en": "santorini beach"
+  },
+  {
+    "cn": "克罗地亚海滩",
+    "en": "croatia beach"
+  },
+  {
+    "cn": "葡萄牙海滩",
+    "en": "portugal beach"
+  },
+  {
+    "cn": "加州海滩",
+    "en": "california beach"
+  },
+  {
+    "cn": "澳洲海滩",
+    "en": "australia beach"
+  },
+  {
+    "cn": "夏威夷海滩",
+    "en": "hawaii beach"
+  },
+  {
+    "cn": "马尔代夫沙滩",
+    "en": "maldives beach"
+  },
+  {
+    "cn": "塞舌尔沙滩",
+    "en": "seychelles beach"
+  },
+  {
+    "cn": "斐济海滩",
+    "en": "fiji beach"
+  },
+  {
+    "cn": "大溪地海滩",
+    "en": "tahiti beach"
+  },
+  {
+    "cn": "雪山日出",
+    "en": "snow mountain sunrise"
+  },
+  {
+    "cn": "冰川峡谷",
+    "en": "glacier canyon"
+  },
+  {
+    "cn": "云海日出",
+    "en": "sea of clouds sunrise"
+  },
+  {
+    "cn": "瀑布日落",
+    "en": "waterfall sunset"
+  },
+  {
+    "cn": "大峡谷日落",
+    "en": "grand canyon sunset"
+  },
+  {
+    "cn": "沙漠星空",
+    "en": "desert starry sky"
+  },
+  {
+    "cn": "海岸线航拍",
+    "en": "coastline aerial"
+  },
+  {
+    "cn": "湖泊倒影",
+    "en": "lake reflection mountains"
+  },
+  {
+    "cn": "森林晨雾",
+    "en": "forest morning mist"
+  },
+  {
+    "cn": "花海航拍",
+    "en": "flower field aerial"
   }
 ]
