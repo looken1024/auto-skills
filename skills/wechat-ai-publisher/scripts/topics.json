@@ -20,10 +20,6 @@
     "en": "foggy mountain range layers"
   },
   {
-    "cn": "塞尼亚岛",
-    "en": "senja norway fjord"
-  },
-  {
     "cn": "众神之谷",
     "en": "valley of the gods utah"
   },
@@ -38,10 +34,6 @@
   {
     "cn": "梅花盛开",
     "en": "plum blossom winter"
-  },
-  {
-    "cn": "冰瀑",
-    "en": "frozen waterfall ice"
   },
   {
     "cn": "鸣沙山",
@@ -74,10 +66,6 @@
   {
     "cn": "官鹅沟",
     "en": "guane valley lake"
-  },
-  {
-    "cn": "五色海",
-    "en": "wuse lake plateau"
   },
   {
     "cn": "光雾山",
@@ -172,10 +160,6 @@
     "en": "kubuqi desert"
   },
   {
-    "cn": "塞罕坝",
-    "en": "saihanba forest"
-  },
-  {
     "cn": "坝上草原",
     "en": "bashang grassland"
   },
@@ -192,10 +176,6 @@
     "en": "diaoshuilou waterfall"
   },
   {
-    "cn": "龙江第一湾",
-    "en": "heilongjiang first bend"
-  },
-  {
     "cn": "伊春林海",
     "en": "yichun forest sea"
   },
@@ -208,36 +188,12 @@
     "en": "gullfoss iceland"
   },
   {
-    "cn": "罗弗敦群岛",
-    "en": "lofoten islands norway"
-  },
-  {
-    "cn": "苏格兰高地",
-    "en": "scottish highlands"
-  },
-  {
     "cn": "莫赫悬崖",
     "en": "cliffs of moher"
   },
   {
     "cn": "因特拉肯",
     "en": "interlaken switzerland"
-  },
-  {
-    "cn": "卡帕多奇亚",
-    "en": "cappadocia landscape"
-  },
-  {
-    "cn": "棉花堡",
-    "en": "pamukkale terrace"
-  },
-  {
-    "cn": "堪察加",
-    "en": "kamchatka volcano"
-  },
-  {
-    "cn": "屋久岛",
-    "en": "yakushima forest"
   },
   {
     "cn": "济州岛",
@@ -248,16 +204,8 @@
     "en": "halong bay vietnam"
   },
   {
-    "cn": "皮皮岛",
-    "en": "phi phi island"
-  },
-  {
     "cn": "希腊雕塑",
     "en": "greek marble statue"
-  },
-  {
-    "cn": "青铜雕塑",
-    "en": "bronze sculpture"
   },
   {
     "cn": "抽象雕塑",
@@ -276,14 +224,6 @@
     "en": "equestrian statue"
   },
   {
-    "cn": "沉思者",
-    "en": "rodin thinker sculpture"
-  },
-  {
-    "cn": "维纳斯雕像",
-    "en": "venus statue"
-  },
-  {
     "cn": "大卫雕像",
     "en": "michelangelo david statue"
   },
@@ -296,20 +236,8 @@
     "en": "laocoon sculpture"
   },
   {
-    "cn": "石窟造像",
-    "en": "buddhist grotto statues"
-  },
-  {
-    "cn": "乐山大佛",
-    "en": "leshan giant buddha"
-  },
-  {
     "cn": "冰雕",
     "en": "ice sculpture"
-  },
-  {
-    "cn": "沙雕",
-    "en": "sand sculpture"
   },
   {
     "cn": "金属雕塑",
@@ -318,10 +246,6 @@
   {
     "cn": "雕塑公园",
     "en": "sculpture garden"
-  },
-  {
-    "cn": "罗丹雕塑",
-    "en": "rodin sculpture"
   },
   {
     "cn": "石雕",
@@ -360,24 +284,12 @@
     "en": "pink sand beach"
   },
   {
-    "cn": "心形海滩",
-    "en": "heart shaped beach"
-  },
-  {
     "cn": "隐秘海湾",
     "en": "hidden cove beach"
   },
   {
     "cn": "悬崖海滩",
     "en": "cliff beach"
-  },
-  {
-    "cn": "礁石海岸",
-    "en": "rocky coast beach"
-  },
-  {
-    "cn": "棕榈海滩",
-    "en": "palm tree beach"
   },
   {
     "cn": "椰林海滩",
@@ -388,20 +300,12 @@
     "en": "deserted island beach"
   },
   {
-    "cn": "海浪航拍",
-    "en": "ocean waves aerial"
-  },
-  {
     "cn": "碧蓝海水",
     "en": "turquoise water aerial"
   },
   {
     "cn": "海滩栈桥",
     "en": "beach pier"
-  },
-  {
-    "cn": "海滩秋千",
-    "en": "beach swing"
   },
   {
     "cn": "长滩岛",
@@ -416,14 +320,6 @@
     "en": "phuket beach"
   },
   {
-    "cn": "冲绳海滩",
-    "en": "okinawa beach"
-  },
-  {
-    "cn": "青岛金沙滩",
-    "en": "qingdao beach"
-  },
-  {
     "cn": "北海银滩",
     "en": "beihai silver beach"
   },
@@ -436,24 +332,12 @@
     "en": "hainan clearwater bay"
   },
   {
-    "cn": "鼓浪屿",
-    "en": "gulangyu island"
-  },
-  {
     "cn": "圣托里尼海滩",
     "en": "santorini beach"
   },
   {
-    "cn": "克罗地亚海滩",
-    "en": "croatia beach"
-  },
-  {
     "cn": "葡萄牙海滩",
     "en": "portugal beach"
-  },
-  {
-    "cn": "澳洲海滩",
-    "en": "australia beach"
   },
   {
     "cn": "夏威夷海滩",
@@ -510,10 +394,6 @@
   {
     "cn": "拜县",
     "en": "pai valley thailand"
-  },
-  {
-    "cn": "科莫多岛",
-    "en": "komodo island"
   },
   {
     "cn": "巴拉望",
@@ -594,5 +474,125 @@
   {
     "cn": "布莱斯峡谷",
     "en": "bryce canyon"
+  },
+  {
+    "cn": "冰川国家公园",
+    "en": "glacier national park"
+  },
+  {
+    "cn": "夏威夷",
+    "en": "hawaii coast"
+  },
+  {
+    "cn": "坎昆",
+    "en": "cancun beach"
+  },
+  {
+    "cn": "哥斯达黎加雨林",
+    "en": "costa rica rainforest"
+  },
+  {
+    "cn": "百内",
+    "en": "torres del paine"
+  },
+  {
+    "cn": "伊瓜苏瀑布",
+    "en": "iguazu falls"
+  },
+  {
+    "cn": "格陵兰冰山",
+    "en": "greenland iceberg"
+  },
+  {
+    "cn": "阿拉斯加冰川",
+    "en": "alaska glacier"
+  },
+  {
+    "cn": "南极冰山",
+    "en": "antarctica iceberg"
+  },
+  {
+    "cn": "北极浮冰",
+    "en": "arctic pack ice"
+  },
+  {
+    "cn": "红海珊瑚礁",
+    "en": "red sea coral reef"
+  },
+  {
+    "cn": "大溪地",
+    "en": "tahiti island"
+  },
+  {
+    "cn": "斐济群岛",
+    "en": "fiji islands"
+  },
+  {
+    "cn": "塞班岛",
+    "en": "saipan island"
+  },
+  {
+    "cn": "北极狐",
+    "en": "arctic fox snow"
+  },
+  {
+    "cn": "北极狼",
+    "en": "arctic wolf"
+  },
+  {
+    "cn": "棕熊",
+    "en": "brown bear river"
+  },
+  {
+    "cn": "美洲豹",
+    "en": "jaguar jungle"
+  },
+  {
+    "cn": "花豹",
+    "en": "leopard tree"
+  },
+  {
+    "cn": "长臂猿",
+    "en": "gibbon forest"
+  },
+  {
+    "cn": "猩猩",
+    "en": "orangutan forest"
+  },
+  {
+    "cn": "穿山甲",
+    "en": "pangolin"
+  },
+  {
+    "cn": "犀鸟",
+    "en": "hornbill bird"
+  },
+  {
+    "cn": "巨嘴鸟",
+    "en": "toucan bird"
+  },
+  {
+    "cn": "鹈鹕",
+    "en": "pelican lake"
+  },
+  {
+    "cn": "锤头鲨",
+    "en": "hammerhead shark"
+  },
+  {
+    "cn": "蝠鲼",
+    "en": "manta ray ocean"
+  },
+  {
+    "cn": "章鱼",
+    "en": "octopus underwater"
+  },
+  {
+    "cn": "海马",
+    "en": "seahorse underwater"
+  },
+  {
+    "cn": "小丑鱼",
+    "en": "clownfish coral"
   }
 ]

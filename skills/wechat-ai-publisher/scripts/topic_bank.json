@@ -1,138 +1,6 @@
 {
   "pending": [
     {
-      "cn": "冰川国家公园",
-      "en": "glacier national park"
-    },
-    {
-      "cn": "夏威夷",
-      "en": "hawaii coast"
-    },
-    {
-      "cn": "坎昆",
-      "en": "cancun beach"
-    },
-    {
-      "cn": "哥斯达黎加雨林",
-      "en": "costa rica rainforest"
-    },
-    {
-      "cn": "百内",
-      "en": "torres del paine"
-    },
-    {
-      "cn": "莫雷诺冰川",
-      "en": "perito moreno glacier"
-    },
-    {
-      "cn": "伊瓜苏瀑布",
-      "en": "iguazu falls"
-    },
-    {
-      "cn": "天使瀑布",
-      "en": "angel falls venezuela"
-    },
-    {
-      "cn": "格陵兰冰山",
-      "en": "greenland iceberg"
-    },
-    {
-      "cn": "阿拉斯加冰川",
-      "en": "alaska glacier"
-    },
-    {
-      "cn": "南极冰山",
-      "en": "antarctica iceberg"
-    },
-    {
-      "cn": "北极浮冰",
-      "en": "arctic pack ice"
-    },
-    {
-      "cn": "红海珊瑚礁",
-      "en": "red sea coral reef"
-    },
-    {
-      "cn": "大溪地",
-      "en": "tahiti island"
-    },
-    {
-      "cn": "斐济群岛",
-      "en": "fiji islands"
-    },
-    {
-      "cn": "帕劳水母湖",
-      "en": "palau jellyfish lake"
-    },
-    {
-      "cn": "塞班岛",
-      "en": "saipan island"
-    },
-    {
-      "cn": "北极狐",
-      "en": "arctic fox snow"
-    },
-    {
-      "cn": "北极狼",
-      "en": "arctic wolf"
-    },
-    {
-      "cn": "棕熊",
-      "en": "brown bear river"
-    },
-    {
-      "cn": "美洲豹",
-      "en": "jaguar jungle"
-    },
-    {
-      "cn": "花豹",
-      "en": "leopard tree"
-    },
-    {
-      "cn": "长臂猿",
-      "en": "gibbon forest"
-    },
-    {
-      "cn": "猩猩",
-      "en": "orangutan forest"
-    },
-    {
-      "cn": "穿山甲",
-      "en": "pangolin"
-    },
-    {
-      "cn": "犀鸟",
-      "en": "hornbill bird"
-    },
-    {
-      "cn": "巨嘴鸟",
-      "en": "toucan bird"
-    },
-    {
-      "cn": "鹈鹕",
-      "en": "pelican lake"
-    },
-    {
-      "cn": "锤头鲨",
-      "en": "hammerhead shark"
-    },
-    {
-      "cn": "蝠鲼",
-      "en": "manta ray ocean"
-    },
-    {
-      "cn": "章鱼",
-      "en": "octopus underwater"
-    },
-    {
-      "cn": "海马",
-      "en": "seahorse underwater"
-    },
-    {
-      "cn": "小丑鱼",
-      "en": "clownfish coral"
-    },
-    {
       "cn": "珊瑚",
       "en": "coral reef colorful"
     },
@@ -1138,12 +1006,177 @@
       "cn": "布莱斯峡谷",
       "en": "bryce canyon",
       "ts": "2026-11-03T23:11:18.320668"
+    },
+    {
+      "cn": "冰川国家公园",
+      "en": "glacier national park",
+      "ts": "2026-11-06T23:13:27.800979"
+    },
+    {
+      "cn": "夏威夷",
+      "en": "hawaii coast",
+      "ts": "2026-11-06T23:13:27.800995"
+    },
+    {
+      "cn": "坎昆",
+      "en": "cancun beach",
+      "ts": "2026-11-06T23:13:27.800997"
+    },
+    {
+      "cn": "哥斯达黎加雨林",
+      "en": "costa rica rainforest",
+      "ts": "2026-11-06T23:13:27.800998"
+    },
+    {
+      "cn": "百内",
+      "en": "torres del paine",
+      "ts": "2026-11-06T23:13:27.801000"
+    },
+    {
+      "cn": "伊瓜苏瀑布",
+      "en": "iguazu falls",
+      "ts": "2026-11-06T23:13:27.801001"
+    },
+    {
+      "cn": "格陵兰冰山",
+      "en": "greenland iceberg",
+      "ts": "2026-11-06T23:13:27.801002"
+    },
+    {
+      "cn": "阿拉斯加冰川",
+      "en": "alaska glacier",
+      "ts": "2026-11-06T23:13:27.801004"
+    },
+    {
+      "cn": "南极冰山",
+      "en": "antarctica iceberg",
+      "ts": "2026-11-06T23:13:27.801006"
+    },
+    {
+      "cn": "北极浮冰",
+      "en": "arctic pack ice",
+      "ts": "2026-11-06T23:13:27.801007"
+    },
+    {
+      "cn": "红海珊瑚礁",
+      "en": "red sea coral reef",
+      "ts": "2026-11-06T23:13:27.801009"
+    },
+    {
+      "cn": "大溪地",
+      "en": "tahiti island",
+      "ts": "2026-11-06T23:13:27.801010"
+    },
+    {
+      "cn": "斐济群岛",
+      "en": "fiji islands",
+      "ts": "2026-11-06T23:13:27.801011"
+    },
+    {
+      "cn": "塞班岛",
+      "en": "saipan island",
+      "ts": "2026-11-06T23:13:27.801012"
+    },
+    {
+      "cn": "北极狐",
+      "en": "arctic fox snow",
+      "ts": "2026-11-06T23:13:27.801014"
+    },
+    {
+      "cn": "北极狼",
+      "en": "arctic wolf",
+      "ts": "2026-11-06T23:13:27.801015"
+    },
+    {
+      "cn": "棕熊",
+      "en": "brown bear river",
+      "ts": "2026-11-06T23:13:27.801016"
+    },
+    {
+      "cn": "美洲豹",
+      "en": "jaguar jungle",
+      "ts": "2026-11-06T23:13:27.801017"
+    },
+    {
+      "cn": "花豹",
+      "en": "leopard tree",
+      "ts": "2026-11-06T23:13:27.801018"
+    },
+    {
+      "cn": "长臂猿",
+      "en": "gibbon forest",
+      "ts": "2026-11-06T23:13:27.801020"
+    },
+    {
+      "cn": "猩猩",
+      "en": "orangutan forest",
+      "ts": "2026-11-06T23:13:27.801021"
+    },
+    {
+      "cn": "穿山甲",
+      "en": "pangolin",
+      "ts": "2026-11-06T23:13:27.801022"
+    },
+    {
+      "cn": "犀鸟",
+      "en": "hornbill bird",
+      "ts": "2026-11-06T23:13:27.801023"
+    },
+    {
+      "cn": "巨嘴鸟",
+      "en": "toucan bird",
+      "ts": "2026-11-06T23:13:27.801024"
+    },
+    {
+      "cn": "鹈鹕",
+      "en": "pelican lake",
+      "ts": "2026-11-06T23:13:27.801026"
+    },
+    {
+      "cn": "锤头鲨",
+      "en": "hammerhead shark",
+      "ts": "2026-11-06T23:13:27.801027"
+    },
+    {
+      "cn": "蝠鲼",
+      "en": "manta ray ocean",
+      "ts": "2026-11-06T23:13:27.801028"
+    },
+    {
+      "cn": "章鱼",
+      "en": "octopus underwater",
+      "ts": "2026-11-06T23:13:27.801029"
+    },
+    {
+      "cn": "海马",
+      "en": "seahorse underwater",
+      "ts": "2026-11-06T23:13:27.801031"
+    },
+    {
+      "cn": "小丑鱼",
+      "en": "clownfish coral",
+      "ts": "2026-11-06T23:13:27.801032"
     }
   ],
   "rejected": [
     {
       "cn": "塞舌尔",
       "en": "seychelles beach",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "莫雷诺冰川",
+      "en": "perito moreno glacier",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "天使瀑布",
+      "en": "angel falls venezuela",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "帕劳水母湖",
+      "en": "palau jellyfish lake",
       "reason": "历史已用过/重复"
     }
   ]
