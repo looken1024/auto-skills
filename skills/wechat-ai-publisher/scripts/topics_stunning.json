@@ -84,16 +84,8 @@
     "en": "mangya emerald lake"
   },
   {
-    "cn": "甘泉大峡谷",
-    "en": "ganquan canyon"
-  },
-  {
     "cn": "靖边波浪谷",
     "en": "wave valley danxia"
-  },
-  {
-    "cn": "屏山峡谷",
-    "en": "pingshan canyon boat"
   },
   {
     "cn": "梵净山",
@@ -152,14 +144,6 @@
     "en": "dunhuang yardang"
   },
   {
-    "cn": "库车大峡谷",
-    "en": "kuqa canyon red"
-  },
-  {
-    "cn": "天山神秘大峡谷",
-    "en": "tianshan canyon"
-  },
-  {
     "cn": "伊犁杏花",
     "en": "ili apricot blossom"
   },
@@ -170,10 +154,6 @@
   {
     "cn": "白沙湖",
     "en": "white sand lake pamir"
-  },
-  {
-    "cn": "羚羊峡谷",
-    "en": "antelope canyon light"
   },
   {
     "cn": "大棱镜温泉",
@@ -272,15 +252,263 @@
     "en": "yellow river stone forest"
   },
   {
-    "cn": "布莱斯峡谷",
-    "en": "bryce canyon"
-  },
-  {
     "cn": "卡帕多奇亚",
     "en": "cappadocia balloons"
   },
   {
     "cn": "银河拱桥",
     "en": "milky way arch night sky"
+  },
+  {
+    "cn": "古典油画",
+    "en": "classical oil painting"
+  },
+  {
+    "cn": "文艺复兴壁画",
+    "en": "renaissance fresco"
+  },
+  {
+    "cn": "西斯廷天顶画",
+    "en": "sistine chapel ceiling"
+  },
+  {
+    "cn": "巴洛克壁画",
+    "en": "baroque ceiling fresco"
+  },
+  {
+    "cn": "油画肖像",
+    "en": "oil portrait painting"
+  },
+  {
+    "cn": "海景油画",
+    "en": "seascape oil painting"
+  },
+  {
+    "cn": "静物油画",
+    "en": "still life oil painting"
+  },
+  {
+    "cn": "画廊油画墙",
+    "en": "art gallery paintings wall"
+  },
+  {
+    "cn": "印象派色彩",
+    "en": "impressionist color painting"
+  },
+  {
+    "cn": "抽象油画",
+    "en": "abstract oil painting"
+  },
+  {
+    "cn": "油画笔触",
+    "en": "oil paint texture canvas"
+  },
+  {
+    "cn": "博物馆名画",
+    "en": "museum masterpiece painting"
+  },
+  {
+    "cn": "雪豹",
+    "en": "snow leopard wild"
+  },
+  {
+    "cn": "藏羚羊",
+    "en": "tibetan antelope"
+  },
+  {
+    "cn": "朱鹮",
+    "en": "crested ibis"
+  },
+  {
+    "cn": "火烈鸟",
+    "en": "flamingo flock"
+  },
+  {
+    "cn": "企鹅",
+    "en": "penguin colony"
+  },
+  {
+    "cn": "海豹",
+    "en": "seal pup ice"
+  },
+  {
+    "cn": "鲸鲨",
+    "en": "whale shark"
+  },
+  {
+    "cn": "非洲象",
+    "en": "elephant herd savanna"
+  },
+  {
+    "cn": "狮子",
+    "en": "lion pride"
+  },
+  {
+    "cn": "猎豹",
+    "en": "cheetah running"
+  },
+  {
+    "cn": "花豹",
+    "en": "leopard portrait"
+  },
+  {
+    "cn": "北极熊",
+    "en": "polar bear ice"
+  },
+  {
+    "cn": "狼",
+    "en": "wolf pack snow"
+  },
+  {
+    "cn": "红狐",
+    "en": "red fox snow"
+  },
+  {
+    "cn": "大熊猫",
+    "en": "giant panda"
+  },
+  {
+    "cn": "金丝猴",
+    "en": "golden snub nosed monkey"
+  },
+  {
+    "cn": "东北虎",
+    "en": "siberian tiger"
+  },
+  {
+    "cn": "长颈鹿",
+    "en": "giraffe herd"
+  },
+  {
+    "cn": "斑马",
+    "en": "zebra herd"
+  },
+  {
+    "cn": "角马迁徙",
+    "en": "wildebeest migration"
+  },
+  {
+    "cn": "犀牛",
+    "en": "rhino portrait"
+  },
+  {
+    "cn": "河马",
+    "en": "hippo water"
+  },
+  {
+    "cn": "驼鹿",
+    "en": "moose lake"
+  },
+  {
+    "cn": "麋鹿",
+    "en": "elk antlers"
+  },
+  {
+    "cn": "梅花鹿",
+    "en": "sika deer"
+  },
+  {
+    "cn": "雪鸮",
+    "en": "snowy owl flight"
+  },
+  {
+    "cn": "金雕",
+    "en": "golden eagle flight"
+  },
+  {
+    "cn": "猫头鹰",
+    "en": "owl portrait"
+  },
+  {
+    "cn": "蜂鸟",
+    "en": "hummingbird hover"
+  },
+  {
+    "cn": "巨嘴鸟",
+    "en": "toucan portrait"
+  },
+  {
+    "cn": "犀鸟",
+    "en": "hornbill bird"
+  },
+  {
+    "cn": "变色龙",
+    "en": "chameleon macro"
+  },
+  {
+    "cn": "树蛙",
+    "en": "tree frog macro"
+  },
+  {
+    "cn": "凤蝶",
+    "en": "swallowtail butterfly"
+  },
+  {
+    "cn": "蝠鲼",
+    "en": "manta ray"
+  },
+  {
+    "cn": "锤头鲨",
+    "en": "hammerhead shark school"
+  },
+  {
+    "cn": "海獭",
+    "en": "sea otter"
+  },
+  {
+    "cn": "海狮",
+    "en": "sea lion colony"
+  },
+  {
+    "cn": "北极狐",
+    "en": "arctic fox winter"
+  },
+  {
+    "cn": "棕熊",
+    "en": "brown bear catching salmon"
+  },
+  {
+    "cn": "猞猁",
+    "en": "lynx snow"
+  },
+  {
+    "cn": "藏野驴",
+    "en": "tibetan wild ass"
+  },
+  {
+    "cn": "盘羊",
+    "en": "argali sheep"
+  },
+  {
+    "cn": "岩羊",
+    "en": "blue sheep cliff"
+  },
+  {
+    "cn": "瞪羚",
+    "en": "gazelle jump"
+  },
+  {
+    "cn": "驯鹿",
+    "en": "reindeer herd tundra"
+  },
+  {
+    "cn": "座头鲸",
+    "en": "humpback whale breach"
+  },
+  {
+    "cn": "虎鲸",
+    "en": "orca pod"
+  },
+  {
+    "cn": "海豚",
+    "en": "dolphin pod"
+  },
+  {
+    "cn": "发光水母",
+    "en": "glowing jellyfish"
+  },
+  {
+    "cn": "珊瑚礁",
+    "en": "coral reef fish"
   }
 ]

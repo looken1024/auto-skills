@@ -29,6 +29,21 @@
 1. 读 `topics.json` 与 bank，补充 60 条全新自然风景候选（国内景点/山川湖海/花草树木/冰雪沙漠/野生动物，禁建筑/城市/人文/节庆）
 2. 不自己调 Pexels，交给脚本下一轮统一验证
 
+## 多池并存（2026-11-03）
+同一脚本可读不同池：`GALLERY_TOPICS_FILE=/abs/path/topics_stunning.json`（脚本的 `TOPICS_JSON` 已支持该环境变量）。当前布局：
+
+- 每 2 小时图文 job（`9d58e7843134`，`0 */2 * * *`）→ `topics_stunning.json`（大气/炫酷/不常见风景专池，2026-11-07 起 128 条）
+- 每小时贴图 job（`6b86d039a651`）→ `topics.json`（通用池，2026-11-07 起 200 条）
+
+两者的 topic-day 去重共用 `logs/gallery_topic_day.json`，同一天不会重复选同一话题。
+
+## 按主题批量增删
+用户会直接点名增删，不要沿用旧口径（“只留自然风景”已被雕塑/海滩/动物/名画多次覆盖）：
+
+- 加：先枚举候选 → Pexels 验证横图 ≥12 → 按 `cn`/`en` 两维去重后写入两个池
+- 删：按类别扫 `cn` + 英文 `en` 两维；**`峡湾`(fjord) 不算 `峡谷`**，删除前把边界告诉用户
+- 每次都要 `cp topics.json topics.json.bak-<ts>`（两个池都备），并同步清 `topic_bank.json` 的 `pending`，否则轮换会把刚删的词补回来
+
 ## 验证
 ```bash
 python3 rotate_topics.py --status                 # 池子/银行余量
