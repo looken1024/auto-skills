@@ -1,19 +1,11 @@
 [
   {
-    "cn": "冰岛蓝冰洞",
-    "en": "glacier ice cave iceland"
-  },
-  {
     "cn": "冰岛玄武岩柱",
     "en": "basalt columns iceland"
   },
   {
     "cn": "冰岛飞机残骸",
     "en": "plane wreck iceland beach"
-  },
-  {
-    "cn": "冰岛冰川泻湖",
-    "en": "jokulsarlon glacier lagoon"
   },
   {
     "cn": "冰岛高地",
@@ -50,10 +42,6 @@
   {
     "cn": "法罗群岛",
     "en": "faroe islands cliffs"
-  },
-  {
-    "cn": "格陵兰冰山",
-    "en": "greenland iceberg fjord"
   },
   {
     "cn": "乌尤尼盐沼",
@@ -184,10 +172,6 @@
     "en": "lake louise"
   },
   {
-    "cn": "莫雷诺冰川",
-    "en": "perito moreno glacier"
-  },
-  {
     "cn": "百内国家公园",
     "en": "torres del paine"
   },
@@ -234,10 +218,6 @@
   {
     "cn": "沙漠星空",
     "en": "desert starry sky"
-  },
-  {
-    "cn": "冰川瀑布",
-    "en": "glacier waterfall"
   },
   {
     "cn": "雪山星空",
@@ -302,5 +282,117 @@
   {
     "cn": "博物馆名画",
     "en": "museum masterpiece painting"
+  },
+  {
+    "cn": "海上日出",
+    "en": "sunrise over ocean"
+  },
+  {
+    "cn": "山顶日出",
+    "en": "mountain peak sunrise"
+  },
+  {
+    "cn": "草原日出",
+    "en": "grassland sunrise"
+  },
+  {
+    "cn": "沙漠日出",
+    "en": "desert sunrise"
+  },
+  {
+    "cn": "湖泊日出",
+    "en": "lake sunrise mist"
+  },
+  {
+    "cn": "日出剪影",
+    "en": "sunrise silhouette landscape"
+  },
+  {
+    "cn": "海边日落",
+    "en": "beach sunset"
+  },
+  {
+    "cn": "沙漠日落",
+    "en": "desert sunset dunes"
+  },
+  {
+    "cn": "草原日落",
+    "en": "grassland sunset"
+  },
+  {
+    "cn": "湖面日落",
+    "en": "lake sunset reflection"
+  },
+  {
+    "cn": "雪山日落",
+    "en": "snow mountain sunset"
+  },
+  {
+    "cn": "森林日落",
+    "en": "forest sunset rays"
+  },
+  {
+    "cn": "大漠日落",
+    "en": "desert dusk"
+  },
+  {
+    "cn": "长河落日",
+    "en": "river sunset golden"
+  },
+  {
+    "cn": "火烧云",
+    "en": "dramatic sunset clouds"
+  },
+  {
+    "cn": "晚霞满天",
+    "en": "pink purple sunset sky"
+  },
+  {
+    "cn": "海边晚霞",
+    "en": "beach dusk afterglow"
+  },
+  {
+    "cn": "雨后晚霞",
+    "en": "afterglow clouds sky"
+  },
+  {
+    "cn": "暮色云霞",
+    "en": "twilight clouds colors"
+  },
+  {
+    "cn": "公路日落",
+    "en": "road sunset"
+  },
+  {
+    "cn": "风车日落",
+    "en": "windmill sunset"
+  },
+  {
+    "cn": "灯塔日落",
+    "en": "lighthouse sunset"
+  },
+  {
+    "cn": "帆船日落",
+    "en": "sailboat sunset"
+  },
+  {
+    "cn": "城市晚霞",
+    "en": "city skyline sunset"
+  },
+  {
+    "cn": "山脊日落",
+    "en": "mountain ridge sunset"
+  },
+  {
+    "cn": "金色时刻",
+    "en": "golden hour landscape"
+  },
+  {
+    "cn": "日落剪影",
+    "en": "sunset silhouette"
+  },
+  {
+    "cn": "云层晚霞",
+    "en": "sunset cloud layers"
   }
 ]

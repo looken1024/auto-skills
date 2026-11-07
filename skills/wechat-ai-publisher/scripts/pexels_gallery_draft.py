@@ -655,16 +655,53 @@ def create_newspic_draft(app_id, app_secret, title, image_media_ids, content="")
     return data  # {media_id}
 
 
-def main():
-    ap = argparse.ArgumentParser(description="每小时公众号图集草稿（Pexels 9图→翻转滤镜→贴图草稿，md5去重）")
-    ap.add_argument("--topic", default=None, help="指定话题（默认随机）")
-    ap.add_argument("--count", type=int, default=9, help="图片数量（默认9）")
-    ap.add_argument("--dry-run", action="store_true", help="只下载处理不上传不建草稿")
-    ap.add_argument("--no-qc", action="store_true", help="关闭画质闸门（排错用）")
-    ap.add_argument("--mode", choices=["news", "newspic"], default="news",
-                    help="news=图文消息(可带小程序文字链) / newspic=贴图(无正文)。默认 news")
-    args = ap.parse_args()
+MIN_VALID_IMAGES = 5   # 2026-11-07：单话题有效图片不足此数 → 删除该关键词、换下一个
 
+
+class InsufficientImages(Exception):
+    """某个话题有效图片不足阈值；由外层删除该关键词后换下一个话题。"""
+
+    def __init__(self, topic, count, skipped, rejected):
+        super().__init__(f"「{topic}」有效图片仅 {count} 张（<{MIN_VALID_IMAGES}）")
+        self.topic = topic
+        self.count = count
+        self.skipped = skipped
+        self.rejected = rejected
+
+
+def remove_topic_from_pool(cn):
+    """从当前话题池文件删掉一个关键词（原子写 + 备份），并同步内存里的 TOPICS。"""
+    global TOPICS
+    TOPICS = [t for t in TOPICS if t[0] != cn]
+    try:
+        data = json.load(open(TOPICS_JSON, encoding="utf-8"))
+        if not isinstance(data, list):
+            return False
+
+        def name_of(d):
+            if isinstance(d, dict):
+                return d.get("cn")
+            if isinstance(d, (list, tuple)) and d:
+                return d[0]
+            return None
+
+        new = [d for d in data if name_of(d) != cn]
+        if len(new) == len(data):
+            return False
+        bak = TOPICS_JSON + ".bak-removed-" + datetime.now().strftime("%Y%m%d_%H%M%S")
+        shutil.copy2(TOPICS_JSON, bak)
+        tmp = TOPICS_JSON + ".tmp"
+        with open(tmp, "w", encoding="utf-8") as f:
+            json.dump(new, f, ensure_ascii=False, indent=2)
+        os.replace(tmp, TOPICS_JSON)
+        print(f"– 已从话题池删除「{cn}」（剩余 {len(new)} 条，备份 {os.path.basename(bak)}）", file=sys.stderr)
+        return True
+    except Exception as e:
+        print(f"! 从话题池删除「{cn}」失败: {e}", file=sys.stderr)
+        return False
+
+
+def _run_once(args):
     if args.topic:
         topic, query = args.topic, args.topic
         for cn, en in TOPICS:
@@ -705,14 +742,12 @@ def main():
         print(f"方向: {ori}", file=sys.stderr)
         # 1. 搜索 + 下载(跳过已发 md5 的重复图，多取候选补足)
         photos = pexels_search(query, per_page=args.count * 6, orientation=ori)
-        if len(photos) < args.count * 2:
-            fallback_q = TOPICS[0][1] if TOPICS else _SEED_TOPIC[0][1]
-            photos += pexels_search(fallback_q, per_page=args.count * 3, orientation=ori)  # 兜底
         picked = []   # [(path, md5, pexels_id)]
         skipped = 0
         rejected = 0
         for p in photos:
-            if len(picked) >= args.count:
+            # 至少抓够 MIN_VALID 张，否则 --count 小于阈值时会误判
+            if len(picked) >= max(args.count, MIN_VALID_IMAGES):
                 break
             # 只收符合本次随机方向的图
             if ori == "landscape" and p.get("width", 0) < p.get("height", 0):
@@ -745,8 +780,10 @@ def main():
             shutil.copy(out, raw_out)
             picked.append((out, h, p["id"]))
             print(f"  + 下载 pexels {p['id']} md5={h[:12]} ({os.path.getsize(out)//1024}KB)", file=sys.stderr)
-        if len(picked) < 3:
-            raise Exception(f"有效图片不足3张（仅{len(picked)}张；剔除重复{skipped}张、画质不合格{rejected}张），放弃本次")
+        if len(picked) < MIN_VALID_IMAGES:
+            # 有效图不足：把这个关键词从池子里删掉，外层换下一个话题重试
+            shutil.rmtree(save_dir, ignore_errors=True)
+            raise InsufficientImages(topic, len(picked), skipped, rejected)
 
         # 2. 左右翻转 + 滤镜 → 产出两版：压缩版（≤600KB，草稿箱）+ 全尺寸版（不压缩，发微信）
         processed = []   # [(final_path, md5, pexels_id)]
@@ -1097,5 +1134,43 @@ def cloud_stash(orig_dir, thumb_dir, topic, title, image_widths_heights, tags=No
     return results
 
 
+def main():
+    ap = argparse.ArgumentParser(description="每小时公众号图集草稿（Pexels 9图→翻转滤镜→贴图草稿，md5去重）")
+    ap.add_argument("--topic", default=None, help="指定话题（默认随机）")
+    ap.add_argument("--count", type=int, default=9, help="图片数量（默认9）")
+    ap.add_argument("--dry-run", action="store_true", help="只下载处理不上传不建草稿")
+    ap.add_argument("--no-qc", action="store_true", help="关闭画质闸门（排错用）")
+    ap.add_argument("--mode", choices=["news", "newspic"], default="news",
+                    help="news=图文消息(可带小程序文字链) / newspic=贴图(无正文)。默认 news")
+    args = ap.parse_args()
+
+    # 指定话题：只跑一次，不删池子
+    if args.topic:
+        try:
+            return _run_once(args)
+        except InsufficientImages as e:
+            print(f"❌ 「{e.topic}」有效图片仅 {e.count} 张（<{MIN_VALID_IMAGES}；"
+                  f"剔除重复 {e.skipped}、画质不合格 {e.rejected}），未建草稿", file=sys.stderr)
+            return 1
+
+    global TOPICS
+    tried = 0
+    while tried < 10 and TOPICS:
+        tried += 1
+        try:
+            return _run_once(args)
+        except InsufficientImages as e:
+            print(f"! 「{e.topic}」有效图片仅 {e.count} 张（<{MIN_VALID_IMAGES}；"
+                  f"剔除重复 {e.skipped}、画质不合格 {e.rejected}）→ 换下一个关键词", file=sys.stderr)
+            if args.dry_run:
+                # 试运行不写文件，只在内存里排除，继续试下一个
+                TOPICS = [t for t in TOPICS if t[0] != e.topic]
+                continue
+            if not remove_topic_from_pool(e.topic):
+                raise
+    print(f"❌ 连续 {tried} 个话题有效图片都不足 {MIN_VALID_IMAGES} 张，本次放弃", file=sys.stderr)
+    return 1
+
+
 if __name__ == "__main__":
-    main()
+    sys.exit(main())
