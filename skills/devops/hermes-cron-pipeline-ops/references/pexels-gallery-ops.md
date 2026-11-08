@@ -121,3 +121,67 @@ python3 scripts/pexels_gallery_draft.py --mode news
 4. 生成失败不阻断建稿，只打 stderr 并回退模板。
 
 **验证**：跑一次真实 `news` 任务后，用 `draft/batchget` 拉草稿看 `news_item[0].title`（示例实测：「阿尔山天池，云影落入森林的眼」）。只改代码不跑真实路径验不出来——`--dry-run` 在建稿前就 return 了，不会触发 `make_title()`。
+
+## 7. 单话题产量兜底：<5 张就删词换下一个（2026-11-07）
+
+用户口径：某个关键词凑不出足够的有效图，就**把这个词从池子里永久删掉**，换下一个继续，别拿别的词的图凑数。
+
+实现要点（`pexels_gallery_draft.py`）：
+
+1. 常量 `MIN_VALID_IMAGES = 5`；下载循环的停止条件是 `len(picked) >= max(args.count, MIN_VALID_IMAGES)`——只写 `>= args.count` 的话，`--count 3` 永远凑不到 5，会误删好词。
+2. 有效图不足时抛 `InsufficientImages(topic, count, skipped, rejected)`，由外层 `main()` 捕获。
+3. 外层循环最多换 10 个词：
+   - 自动选词模式：`remove_topic_from_pool(cn)` 原子写回当前 `GALLERY_TOPICS_FILE`，并同步内存里的 `TOPICS`；备份名 `.bak-removed-<ts>`。
+   - `--dry-run`：只在内存里排除，不写文件（试跑不能改池子）。
+   - 手动 `--topic`：只报「有效图片不足」并退出，不删词（一次性需求不该污染池子）。
+4. **删掉旧的"兜底补图"逻辑**：原来 `photos < count*2` 时会拿 `TOPICS[0]`（雪山金顶）的图来凑，导致文章混入无关图、死词永远留在池里。现在不补，直接换词。
+
+验证方法（可重复）：建一个只含死词的临时池，直接跑（非 dry-run）：
+```bash
+printf '[{"cn":"测试死词","en":"zzzzqqqqxxxxnoresult"}]' > /tmp/test_pool.json
+GALLERY_TOPICS_FILE=/tmp/test_pool.json python3 scripts/pexels_gallery_draft.py --count 3 --mode news
+cat /tmp/test_pool.json                      # 应为 []
+ls /tmp/test_pool.json.bak-removed-*         # 应有备份
+```
+注意 Pexels 对乱码查询也会模糊返回几条图，所以"死词"不一定真的 0 结果；验证的是**不足 5 张时的删词与换词路径**，不是搜索为空。
+
+## 8. 多路查询与"一篇只写一个国家"（2026-11-08）
+
+新增参数：
+
+| 参数 | 作用 |
+|---|---|
+| `--queries "q1\|q2\|q3"` | 多路 Pexels 查询，按**轮询**把各自结果交错合并，适合多城市/多国家拼一篇 |
+| `--country 肯尼亚` | 标题里**必须**出现该国名；模型没写就判不合格，最终回退 `国家｜主题` |
+| `--title-context "..."` | 给标题生成的补充信息（人物、场景、国家） |
+
+用户口径（2026-11-08）：**一篇文章只用一个国家**，国家名写进标题。做「贫民窟/底层生活」这类题材时：
+
+```bash
+# 单国家 + 人物导向查询（全部肯尼亚）
+GALLERY_TOPICS_FILE=/tmp/slum_pool.json python3 scripts/pexels_gallery_draft.py \
+  --mode news --topic 贫民窟 --count 9 --country 肯尼亚 \
+  --queries "kibera slum people|nairobi kibera life|kenya slum child" \
+  --title-context "肯尼亚内罗毕基贝拉的贫民窟日常，画面里有人物"
+# 产出标题示例：肯尼亚基贝拉，贫民窟日常里的人间剪影
+```
+
+要点：
+- 人物/底层题材的查询必须带 `people` / `daily life` / `child` / `family`，只搜地名会全是空景航拍。
+- 多国素材不要混进同一篇；一个国家跑一次，标题带国名。
+- 想避开"脏乱差"观感时用 `favela colorful houses` 这类词（彩色山坡贫民窟），比 `slum poverty` 的垃圾/污水纪实图更适合公众号。
+- 一次性专题用临时池文件（`/tmp/xxx_pool.json`），不要写进常规轮换池。
+
+## 9. 批次增删关键词：实操口径（2026-11）
+
+用户会按类别下指令（"峡谷的去掉"、"动物都去掉"、"冰川去掉"、"加雕塑和海滩"）。做法：
+
+1. **先列命中项再删**，把中文名和英文查询词一起打出来，让用户能核对边界（例如"峡湾算不算峡谷"）。
+2. **两个池 + 银行都要清**：`topics.json`、`topics_stunning.json`、`topic_bank.json` 的 `pending`（`used` 是历史记录可不动）。只清一个池，另一个池还会继续出。
+3. 匹配规则要写清楚：`"峡谷" in cn` / `cn.endswith("峡")` / `canyon|gorge`；**峡湾 fjord 要排除**（用户认为峡湾不算峡谷，且是水景+峭壁，保留）。动物类按名单精确匹配，别用 `"羊"`、`"象"` 这种子串（会误伤羊卓雍措、抽象油画、牯牛降、老牛湾）。
+4. **加词前必须验 Pexels**：`per_page=24&orientation=landscape`，横图 ≥12 才收；5-6 并发、失败项顺序重试 3 次（10 并发会大量 SSL EOF）。
+5. 写回前 `shutil.copy2` 备份；写完用 Python 检查 `cn`/`en` 无重复；再跑一次 `--dry-run --count 9` 抽一个新词验证全链路。
+
+截至 2026-11-08 的池子规模：`topics.json` 160 条、`topics_stunning.json` 99 条、`topic_bank.pending` 52 条（数字会随轮换变，别当常量）。
+
+**Pexels 的"世界名画"陷阱**：搜 `famous oil painting` / `renaissance painting` 返回的大多是**博物馆实拍、天顶壁画、画廊墙面、画家调色盘**，不是《星月夜》《蒙娜丽莎》这类真迹高清。做"名画"专题要真迹就去维基共享资源/大都会 Open Access，Pexels 只能做"艺术氛围"。

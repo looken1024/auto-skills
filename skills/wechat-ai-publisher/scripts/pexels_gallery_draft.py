@@ -263,14 +263,20 @@ def _clean_title(t):
     return t.strip()
 
 
-def make_title(topic):
-    """按景点/主题生成标题；失败回退到「{topic}｜一眼心动的风景」。"""
+def make_title(topic, context=None, country=None):
+    """按景点/主题生成标题；失败回退到「{topic}｜一眼心动的风景」。
+    指定 country 时，标题里必须出现该国家名。"""
     key = _opencode_key()
+    prompt = _TITLE_PROMPT % topic
+    if country:
+        prompt += f"\n国家：{country}（标题里必须出现「{country}」这个国家名）"
+    if context:
+        prompt += f"\n补充信息（可以写进标题）：{context}"
     if key:
         try:
             payload = {
                 "model": "deepseek-v4.1-flash",
-                "messages": [{"role": "user", "content": _TITLE_PROMPT % topic}],
+                "messages": [{"role": "user", "content": prompt}],
                 "max_tokens": 3000,
                 "temperature": 0.9,
                 "reasoning_effort": "low",
@@ -287,12 +293,15 @@ def make_title(topic):
                 d = json.loads(r.read())
             msg = (d.get("choices") or [{}])[0].get("message") or {}
             t = _clean_title(msg.get("content") or "")
-            if 6 <= len(t) <= 32 and "每日图集" not in t and "图集" not in t:
+            ok = 6 <= len(t) <= 32 and "每日图集" not in t and "图集" not in t
+            if country and country not in t:
+                ok = False
+            if ok:
                 return t
-            print(f"! 标题不合格，改用模板: {t!r}", file=sys.stderr)
+            print(f"! 标题不合格（国家名缺失或格式不符），改用模板: {t!r}", file=sys.stderr)
         except Exception as e:
             print(f"! 标题生成失败({type(e).__name__})，改用模板", file=sys.stderr)
-    return f"{topic}｜一眼心动的风景"
+    return f"{country}｜{topic}" if country else f"{topic}｜一眼心动的风景"
 
 
 # ---------- 话题级去重（同一天不重复选话题） ----------
@@ -741,7 +750,23 @@ def _run_once(args):
         ori = "landscape"   # 2026-10-03 用户要求：图集一律横版
         print(f"方向: {ori}", file=sys.stderr)
         # 1. 搜索 + 下载(跳过已发 md5 的重复图，多取候选补足)
-        photos = pexels_search(query, per_page=args.count * 6, orientation=ori)
+        #    --queries 支持多路查询（竖线分隔），按轮询混合，适合多国家/多场景拼一篇
+        qlist = [q.strip() for q in (getattr(args, "queries", None) or "").split("|") if q.strip()] or [query]
+        if len(qlist) > 1:
+            buckets = []
+            for q in qlist:
+                try:
+                    buckets.append(pexels_search(q, per_page=max(8, args.count * 2), orientation=ori))
+                except Exception as e:
+                    print(f"! 查询「{q}」失败: {e}", file=sys.stderr)
+            photos = []
+            for i in range(max((len(b) for b in buckets), default=0)):
+                for b in buckets:
+                    if i < len(b):
+                        photos.append(b[i])
+            print(f"多路查询 {len(qlist)} 条，合并候选 {len(photos)} 张", file=sys.stderr)
+        else:
+            photos = pexels_search(qlist[0], per_page=args.count * 6, orientation=ori)
         picked = []   # [(path, md5, pexels_id)]
         skipped = 0
         rejected = 0
@@ -844,7 +869,8 @@ def _run_once(args):
         today_str = datetime.now().strftime("%Y-%m-%d")
         if args.mode == "news":
             # 2026-11-03：图文消息标题改为契合地点/景点的描述，不再用「每日图集」
-            title = make_title(topic)
+            title = make_title(topic, getattr(args, "title_context", None),
+                               getattr(args, "country", None))
             print(f"标题: {title}", file=sys.stderr)
         else:
             title = f"{topic}·每日图集（{today_str}）"
@@ -1142,6 +1168,10 @@ def main():
     ap.add_argument("--no-qc", action="store_true", help="关闭画质闸门（排错用）")
     ap.add_argument("--mode", choices=["news", "newspic"], default="news",
                     help="news=图文消息(可带小程序文字链) / newspic=贴图(无正文)。默认 news")
+    ap.add_argument("--queries", default=None,
+                    help="多路 Pexels 查询，竖线分隔（例如 'a|b|c'），按轮询混合取图")
+    ap.add_argument("--title-context", default=None, help="给标题生成的补充信息（国家/人物/主题）")
+    ap.add_argument("--country", default=None, help="只写一个国家时指定国名；标题里必须出现")
     args = ap.parse_args()
 
     # 指定话题：只跑一次，不删池子
