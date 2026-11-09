@@ -1,214 +1,5 @@
 {
-  "pending": [
-    {
-      "cn": "信天翁",
-      "en": "albatross ocean"
-    },
-    {
-      "cn": "雪兔",
-      "en": "snow hare winter"
-    },
-    {
-      "cn": "峨眉山",
-      "en": "mount emei"
-    },
-    {
-      "cn": "三清山",
-      "en": "sanqingshan"
-    },
-    {
-      "cn": "龙虎山",
-      "en": "longhu mountain"
-    },
-    {
-      "cn": "武夷山",
-      "en": "wuyi mountain"
-    },
-    {
-      "cn": "丹霞山",
-      "en": "danxia mountain"
-    },
-    {
-      "cn": "雁荡山",
-      "en": "yandang mountain"
-    },
-    {
-      "cn": "四姑娘山",
-      "en": "siguniang mountain"
-    },
-    {
-      "cn": "梅里雪山",
-      "en": "meili snow mountain"
-    },
-    {
-      "cn": "玉龙雪山",
-      "en": "yulong snow mountain"
-    },
-    {
-      "cn": "珠穆朗玛峰",
-      "en": "mount everest"
-    },
-    {
-      "cn": "冈仁波齐",
-      "en": "mount kailash"
-    },
-    {
-      "cn": "南迦巴瓦峰",
-      "en": "namcha barwa"
-    },
-    {
-      "cn": "喀纳斯湖",
-      "en": "kanas lake"
-    },
-    {
-      "cn": "赛里木湖",
-      "en": "sayram lake"
-    },
-    {
-      "cn": "纳木错",
-      "en": "namtso lake"
-    },
-    {
-      "cn": "羊卓雍措",
-      "en": "yamdrok lake"
-    },
-    {
-      "cn": "青海湖",
-      "en": "qinghai lake"
-    },
-    {
-      "cn": "茶卡盐湖",
-      "en": "chaka salt lake"
-    },
-    {
-      "cn": "长白山天池",
-      "en": "changbai mountain lake"
-    },
-    {
-      "cn": "神农架",
-      "en": "shennongjia forest"
-    },
-    {
-      "cn": "张家界",
-      "en": "zhangjiajie"
-    },
-    {
-      "cn": "漓江",
-      "en": "li river karst"
-    },
-    {
-      "cn": "额济纳胡杨林",
-      "en": "ejin poplar forest"
-    },
-    {
-      "cn": "巴丹吉林沙漠",
-      "en": "badain jaran desert"
-    },
-    {
-      "cn": "腾格里沙漠",
-      "en": "tengger desert"
-    },
-    {
-      "cn": "塔克拉玛干沙漠",
-      "en": "taklamakan desert"
-    },
-    {
-      "cn": "呼伦贝尔草原",
-      "en": "hulunbuir grassland"
-    },
-    {
-      "cn": "那拉提草原",
-      "en": "nalati grassland"
-    },
-    {
-      "cn": "巴音布鲁克草原",
-      "en": "bayanbulak grassland"
-    },
-    {
-      "cn": "若尔盖草原",
-      "en": "zoige grassland"
-    },
-    {
-      "cn": "稻城亚丁",
-      "en": "daocheng yading"
-    },
-    {
-      "cn": "普达措",
-      "en": "pudacuo national park"
-    },
-    {
-      "cn": "九寨沟",
-      "en": "jiuzhaigou valley"
-    },
-    {
-      "cn": "黄果树瀑布",
-      "en": "huangguoshu waterfall"
-    },
-    {
-      "cn": "壶口瀑布",
-      "en": "hukou waterfall"
-    },
-    {
-      "cn": "万峰林",
-      "en": "wanfenglin karst"
-    },
-    {
-      "cn": "扎尕那",
-      "en": "zhagana"
-    },
-    {
-      "cn": "年保玉则",
-      "en": "nianbaoyuze"
-    },
-    {
-      "cn": "可可西里",
-      "en": "kekexili"
-    },
-    {
-      "cn": "帕米尔高原",
-      "en": "pamir plateau"
-    },
-    {
-      "cn": "慕士塔格峰",
-      "en": "muztagh ata"
-    },
-    {
-      "cn": "天山天池",
-      "en": "tianchi lake"
-    },
-    {
-      "cn": "果子沟",
-      "en": "guozigou valley"
-    },
-    {
-      "cn": "乌尔禾魔鬼城",
-      "en": "urho ghost city yardang"
-    },
-    {
-      "cn": "火焰山",
-      "en": "flaming mountains"
-    },
-    {
-      "cn": "荔波小七孔",
-      "en": "libo xiaoqikong"
-    },
-    {
-      "cn": "萤火虫",
-      "en": "fireflies forest"
-    },
-    {
-      "cn": "银杏",
-      "en": "ginkgo tree autumn"
-    },
-    {
-      "cn": "白桦林",
-      "en": "birch forest"
-    },
-    {
-      "cn": "高山杜鹃",
-      "en": "alpine rhododendron"
-    }
-  ],
+  "pending": [],
   "used": [
     {
       "cn": "喀拉峻草原",
@@ -1084,6 +875,106 @@
       "cn": "小丑鱼",
       "en": "clownfish coral",
       "ts": "2026-11-06T23:13:27.801032"
+    },
+    {
+      "cn": "信天翁",
+      "en": "albatross ocean",
+      "ts": "2026-11-09T23:15:47.391278"
+    },
+    {
+      "cn": "雪兔",
+      "en": "snow hare winter",
+      "ts": "2026-11-09T23:15:47.391297"
+    },
+    {
+      "cn": "珠穆朗玛峰",
+      "en": "mount everest",
+      "ts": "2026-11-09T23:15:47.391300"
+    },
+    {
+      "cn": "南迦巴瓦峰",
+      "en": "namcha barwa",
+      "ts": "2026-11-09T23:15:47.391303"
+    },
+    {
+      "cn": "长白山天池",
+      "en": "changbai mountain lake",
+      "ts": "2026-11-09T23:15:47.391305"
+    },
+    {
+      "cn": "漓江",
+      "en": "li river karst",
+      "ts": "2026-11-09T23:15:47.391308"
+    },
+    {
+      "cn": "额济纳胡杨林",
+      "en": "ejin poplar forest",
+      "ts": "2026-11-09T23:15:47.391311"
+    },
+    {
+      "cn": "塔克拉玛干沙漠",
+      "en": "taklamakan desert",
+      "ts": "2026-11-09T23:15:47.391314"
+    },
+    {
+      "cn": "巴音布鲁克草原",
+      "en": "bayanbulak grassland",
+      "ts": "2026-11-09T23:15:47.391317"
+    },
+    {
+      "cn": "若尔盖草原",
+      "en": "zoige grassland",
+      "ts": "2026-11-09T23:15:47.391319"
+    },
+    {
+      "cn": "普达措",
+      "en": "pudacuo national park",
+      "ts": "2026-11-09T23:15:47.391322"
+    },
+    {
+      "cn": "壶口瀑布",
+      "en": "hukou waterfall",
+      "ts": "2026-11-09T23:15:47.391324"
+    },
+    {
+      "cn": "扎尕那",
+      "en": "zhagana",
+      "ts": "2026-11-09T23:15:47.391327"
+    },
+    {
+      "cn": "年保玉则",
+      "en": "nianbaoyuze",
+      "ts": "2026-11-09T23:15:47.391330"
+    },
+    {
+      "cn": "可可西里",
+      "en": "kekexili",
+      "ts": "2026-11-09T23:15:47.391333"
+    },
+    {
+      "cn": "慕士塔格峰",
+      "en": "muztagh ata",
+      "ts": "2026-11-09T23:15:47.391335"
+    },
+    {
+      "cn": "果子沟",
+      "en": "guozigou valley",
+      "ts": "2026-11-09T23:15:47.391338"
+    },
+    {
+      "cn": "乌尔禾魔鬼城",
+      "en": "urho ghost city yardang",
+      "ts": "2026-11-09T23:15:47.391341"
+    },
+    {
+      "cn": "萤火虫",
+      "en": "fireflies forest",
+      "ts": "2026-11-09T23:15:47.391343"
+    },
+    {
+      "cn": "银杏",
+      "en": "ginkgo tree autumn",
+      "ts": "2026-11-09T23:15:47.391347"
     }
   ],
   "rejected": [
@@ -1100,6 +991,166 @@
     {
       "cn": "天使瀑布",
       "en": "angel falls venezuela",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "峨眉山",
+      "en": "mount emei",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "三清山",
+      "en": "sanqingshan",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "龙虎山",
+      "en": "longhu mountain",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "武夷山",
+      "en": "wuyi mountain",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "丹霞山",
+      "en": "danxia mountain",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "雁荡山",
+      "en": "yandang mountain",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "四姑娘山",
+      "en": "siguniang mountain",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "梅里雪山",
+      "en": "meili snow mountain",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "玉龙雪山",
+      "en": "yulong snow mountain",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "冈仁波齐",
+      "en": "mount kailash",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "喀纳斯湖",
+      "en": "kanas lake",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "赛里木湖",
+      "en": "sayram lake",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "纳木错",
+      "en": "namtso lake",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "羊卓雍措",
+      "en": "yamdrok lake",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "青海湖",
+      "en": "qinghai lake",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "茶卡盐湖",
+      "en": "chaka salt lake",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "神农架",
+      "en": "shennongjia forest",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "张家界",
+      "en": "zhangjiajie",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "巴丹吉林沙漠",
+      "en": "badain jaran desert",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "腾格里沙漠",
+      "en": "tengger desert",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "呼伦贝尔草原",
+      "en": "hulunbuir grassland",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "那拉提草原",
+      "en": "nalati grassland",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "稻城亚丁",
+      "en": "daocheng yading",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "九寨沟",
+      "en": "jiuzhaigou valley",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "黄果树瀑布",
+      "en": "huangguoshu waterfall",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "万峰林",
+      "en": "wanfenglin karst",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "帕米尔高原",
+      "en": "pamir plateau",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "天山天池",
+      "en": "tianchi lake",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "火焰山",
+      "en": "flaming mountains",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "荔波小七孔",
+      "en": "libo xiaoqikong",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "白桦林",
+      "en": "birch forest",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "高山杜鹃",
+      "en": "alpine rhododendron",
       "reason": "历史已用过/重复"
     }
   ]

@@ -100,20 +100,8 @@
     "en": "wutai mountain"
   },
   {
-    "cn": "老牛湾",
-    "en": "laoniuwan yellow river"
-  },
-  {
     "cn": "库布齐沙漠",
     "en": "kubuqi desert"
-  },
-  {
-    "cn": "坝上草原",
-    "en": "bashang grassland"
-  },
-  {
-    "cn": "草原天路",
-    "en": "grassland highway"
   },
   {
     "cn": "莫尔道嘎",
@@ -136,24 +124,12 @@
     "en": "gullfoss iceland"
   },
   {
-    "cn": "莫赫悬崖",
-    "en": "cliffs of moher"
-  },
-  {
     "cn": "因特拉肯",
     "en": "interlaken switzerland"
   },
   {
-    "cn": "济州岛",
-    "en": "jeju island coast"
-  },
-  {
     "cn": "下龙湾",
     "en": "halong bay vietnam"
-  },
-  {
-    "cn": "希腊雕塑",
-    "en": "greek marble statue"
   },
   {
     "cn": "抽象雕塑",
@@ -164,16 +140,8 @@
     "en": "mirror sculpture"
   },
   {
-    "cn": "天使雕像",
-    "en": "angel statue"
-  },
-  {
     "cn": "骑马雕像",
     "en": "equestrian statue"
-  },
-  {
-    "cn": "大卫雕像",
-    "en": "michelangelo david statue"
   },
   {
     "cn": "胜利女神像",
@@ -190,22 +158,6 @@
   {
     "cn": "金属雕塑",
     "en": "metal sculpture"
-  },
-  {
-    "cn": "雕塑公园",
-    "en": "sculpture garden"
-  },
-  {
-    "cn": "石雕",
-    "en": "stone carving sculpture"
-  },
-  {
-    "cn": "木雕",
-    "en": "wood carving sculpture"
-  },
-  {
-    "cn": "群雕",
-    "en": "group sculpture"
   },
   {
     "cn": "雕塑剪影",
@@ -236,24 +188,8 @@
     "en": "hidden cove beach"
   },
   {
-    "cn": "悬崖海滩",
-    "en": "cliff beach"
-  },
-  {
-    "cn": "椰林海滩",
-    "en": "coconut beach"
-  },
-  {
     "cn": "无人岛海滩",
     "en": "deserted island beach"
-  },
-  {
-    "cn": "碧蓝海水",
-    "en": "turquoise water aerial"
-  },
-  {
-    "cn": "海滩栈桥",
-    "en": "beach pier"
   },
   {
     "cn": "长滩岛",
@@ -262,10 +198,6 @@
   {
     "cn": "苏梅岛",
     "en": "koh samui beach"
-  },
-  {
-    "cn": "普吉岛",
-    "en": "phuket beach"
   },
   {
     "cn": "北海银滩",
@@ -292,14 +224,6 @@
     "en": "hawaii beach"
   },
   {
-    "cn": "马尔代夫沙滩",
-    "en": "maldives beach"
-  },
-  {
-    "cn": "塞舌尔沙滩",
-    "en": "seychelles beach"
-  },
-  {
     "cn": "斐济海滩",
     "en": "fiji beach"
   },
@@ -314,10 +238,6 @@
   {
     "cn": "沙漠星空",
     "en": "desert starry sky"
-  },
-  {
-    "cn": "海岸线航拍",
-    "en": "coastline aerial"
   },
   {
     "cn": "湖泊倒影",
@@ -344,20 +264,12 @@
     "en": "annapurna mountain"
   },
   {
-    "cn": "斯里兰卡茶园",
-    "en": "sri lanka tea plantation"
-  },
-  {
     "cn": "毛里求斯",
     "en": "mauritius waterfall"
   },
   {
     "cn": "猴面包树",
     "en": "baobab trees madagascar"
-  },
-  {
-    "cn": "马赛马拉",
-    "en": "masai mara savanna"
   },
   {
     "cn": "乞力马扎罗",
@@ -374,10 +286,6 @@
   {
     "cn": "乌鲁鲁",
     "en": "uluru australia"
-  },
-  {
-    "cn": "十二门徒",
-    "en": "twelve apostles australia"
   },
   {
     "cn": "米尔福德峡湾",
@@ -424,10 +332,6 @@
     "en": "torres del paine"
   },
   {
-    "cn": "伊瓜苏瀑布",
-    "en": "iguazu falls"
-  },
-  {
     "cn": "大溪地",
     "en": "tahiti island"
   },
@@ -444,10 +348,6 @@
     "en": "classical oil painting"
   },
   {
-    "cn": "文艺复兴壁画",
-    "en": "renaissance fresco"
-  },
-  {
     "cn": "西斯廷天顶画",
     "en": "sistine chapel ceiling"
   },
@@ -458,10 +358,6 @@
   {
     "cn": "油画肖像",
     "en": "oil portrait painting"
-  },
-  {
-    "cn": "海景油画",
-    "en": "seascape oil painting"
   },
   {
     "cn": "静物油画",
@@ -508,10 +404,6 @@
     "en": "lake sunrise mist"
   },
   {
-    "cn": "日出剪影",
-    "en": "sunrise silhouette landscape"
-  },
-  {
     "cn": "海边日落",
     "en": "beach sunset"
   },
@@ -552,10 +444,6 @@
     "en": "pink purple sunset sky"
   },
   {
-    "cn": "海边晚霞",
-    "en": "beach dusk afterglow"
-  },
-  {
     "cn": "雨后晚霞",
     "en": "afterglow clouds sky"
   },
@@ -576,10 +464,6 @@
     "en": "lighthouse sunset"
   },
   {
-    "cn": "帆船日落",
-    "en": "sailboat sunset"
-  },
-  {
     "cn": "城市晚霞",
     "en": "city skyline sunset"
   },
@@ -594,10 +478,6 @@
   {
     "cn": "日落剪影",
     "en": "sunset silhouette"
-  },
-  {
-    "cn": "云层晚霞",
-    "en": "sunset cloud layers"
   },
   {
     "cn": "喀斯特溶洞",
@@ -794,5 +674,85 @@
   {
     "cn": "双色海",
     "en": "two color sea"
+  },
+  {
+    "cn": "信天翁",
+    "en": "albatross ocean"
+  },
+  {
+    "cn": "雪兔",
+    "en": "snow hare winter"
+  },
+  {
+    "cn": "珠穆朗玛峰",
+    "en": "mount everest"
+  },
+  {
+    "cn": "南迦巴瓦峰",
+    "en": "namcha barwa"
+  },
+  {
+    "cn": "长白山天池",
+    "en": "changbai mountain lake"
+  },
+  {
+    "cn": "漓江",
+    "en": "li river karst"
+  },
+  {
+    "cn": "额济纳胡杨林",
+    "en": "ejin poplar forest"
+  },
+  {
+    "cn": "塔克拉玛干沙漠",
+    "en": "taklamakan desert"
+  },
+  {
+    "cn": "巴音布鲁克草原",
+    "en": "bayanbulak grassland"
+  },
+  {
+    "cn": "若尔盖草原",
+    "en": "zoige grassland"
+  },
+  {
+    "cn": "普达措",
+    "en": "pudacuo national park"
+  },
+  {
+    "cn": "壶口瀑布",
+    "en": "hukou waterfall"
+  },
+  {
+    "cn": "扎尕那",
+    "en": "zhagana"
+  },
+  {
+    "cn": "年保玉则",
+    "en": "nianbaoyuze"
+  },
+  {
+    "cn": "可可西里",
+    "en": "kekexili"
+  },
+  {
+    "cn": "慕士塔格峰",
+    "en": "muztagh ata"
+  },
+  {
+    "cn": "果子沟",
+    "en": "guozigou valley"
+  },
+  {
+    "cn": "乌尔禾魔鬼城",
+    "en": "urho ghost city yardang"
+  },
+  {
+    "cn": "萤火虫",
+    "en": "fireflies forest"
+  },
+  {
+    "cn": "银杏",
+    "en": "ginkgo tree autumn"
   }
 ]
