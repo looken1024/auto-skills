@@ -244,16 +244,8 @@
     "en": "lake reflection mountains"
   },
   {
-    "cn": "森林晨雾",
-    "en": "forest morning mist"
-  },
-  {
     "cn": "拜县",
     "en": "pai valley thailand"
-  },
-  {
-    "cn": "巴拉望",
-    "en": "palawan island"
   },
   {
     "cn": "仙本那",
@@ -268,14 +260,6 @@
     "en": "mauritius waterfall"
   },
   {
-    "cn": "猴面包树",
-    "en": "baobab trees madagascar"
-  },
-  {
-    "cn": "乞力马扎罗",
-    "en": "kilimanjaro mountain"
-  },
-  {
     "cn": "摩洛哥撒哈拉",
     "en": "sahara desert morocco"
   },
@@ -286,10 +270,6 @@
   {
     "cn": "乌鲁鲁",
     "en": "uluru australia"
-  },
-  {
-    "cn": "米尔福德峡湾",
-    "en": "milford sound"
   },
   {
     "cn": "瓦纳卡湖",
@@ -352,36 +332,12 @@
     "en": "sistine chapel ceiling"
   },
   {
-    "cn": "巴洛克壁画",
-    "en": "baroque ceiling fresco"
-  },
-  {
-    "cn": "油画肖像",
-    "en": "oil portrait painting"
-  },
-  {
-    "cn": "静物油画",
-    "en": "still life oil painting"
-  },
-  {
-    "cn": "画廊油画墙",
-    "en": "art gallery paintings wall"
-  },
-  {
     "cn": "印象派色彩",
     "en": "impressionist color painting"
   },
   {
-    "cn": "抽象油画",
-    "en": "abstract oil painting"
-  },
-  {
     "cn": "油画笔触",
     "en": "oil paint texture canvas"
-  },
-  {
-    "cn": "博物馆名画",
-    "en": "museum masterpiece painting"
   },
   {
     "cn": "海上日出",
@@ -396,32 +352,12 @@
     "en": "grassland sunrise"
   },
   {
-    "cn": "沙漠日出",
-    "en": "desert sunrise"
-  },
-  {
     "cn": "湖泊日出",
     "en": "lake sunrise mist"
   },
   {
-    "cn": "海边日落",
-    "en": "beach sunset"
-  },
-  {
     "cn": "沙漠日落",
     "en": "desert sunset dunes"
-  },
-  {
-    "cn": "草原日落",
-    "en": "grassland sunset"
-  },
-  {
-    "cn": "湖面日落",
-    "en": "lake sunset reflection"
-  },
-  {
-    "cn": "雪山日落",
-    "en": "snow mountain sunset"
   },
   {
     "cn": "森林日落",
@@ -440,36 +376,16 @@
     "en": "dramatic sunset clouds"
   },
   {
-    "cn": "晚霞满天",
-    "en": "pink purple sunset sky"
-  },
-  {
     "cn": "雨后晚霞",
     "en": "afterglow clouds sky"
-  },
-  {
-    "cn": "暮色云霞",
-    "en": "twilight clouds colors"
   },
   {
     "cn": "公路日落",
     "en": "road sunset"
   },
   {
-    "cn": "风车日落",
-    "en": "windmill sunset"
-  },
-  {
     "cn": "灯塔日落",
     "en": "lighthouse sunset"
-  },
-  {
-    "cn": "城市晚霞",
-    "en": "city skyline sunset"
-  },
-  {
-    "cn": "山脊日落",
-    "en": "mountain ridge sunset"
   },
   {
     "cn": "金色时刻",
@@ -532,10 +448,6 @@
     "en": "archipelago aerial"
   },
   {
-    "cn": "半岛海岸",
-    "en": "peninsula coast"
-  },
-  {
     "cn": "海蚀洞",
     "en": "sea cave coast"
   },
@@ -564,10 +476,6 @@
     "en": "yardang desert"
   },
   {
-    "cn": "沙丘曲线",
-    "en": "sand dune curves"
-  },
-  {
     "cn": "湖泊群",
     "en": "lake district"
   },
@@ -578,10 +486,6 @@
   {
     "cn": "梯田云海",
     "en": "rice terraces clouds"
-  },
-  {
-    "cn": "红土地",
-    "en": "red earth farmland"
   },
   {
     "cn": "野花草原",
@@ -614,10 +518,6 @@
   {
     "cn": "溶洞钟乳石",
     "en": "stalactite cave"
-  },
-  {
-    "cn": "沙漠绿洲",
-    "en": "desert oasis"
   },
   {
     "cn": "海上石林",
@@ -754,5 +654,105 @@
   {
     "cn": "银杏",
     "en": "ginkgo tree autumn"
+  },
+  {
+    "cn": "太白山",
+    "en": "Taibai Mountain"
+  },
+  {
+    "cn": "武功山",
+    "en": "Wugong Mountain"
+  },
+  {
+    "cn": "井冈山",
+    "en": "Jinggangshan"
+  },
+  {
+    "cn": "昆仑山",
+    "en": "Kunlun Mountains"
+  },
+  {
+    "cn": "唐古拉山",
+    "en": "Tanggula Mountains"
+  },
+  {
+    "cn": "喀喇昆仑",
+    "en": "Karakoram"
+  },
+  {
+    "cn": "哈巴雪山",
+    "en": "Haba Snow Mountain"
+  },
+  {
+    "cn": "白马雪山",
+    "en": "Baima Snow Mountain"
+  },
+  {
+    "cn": "雅拉雪山",
+    "en": "Yala Snow Mountain"
+  },
+  {
+    "cn": "雅鲁藏布大峡谷",
+    "en": "Yarlung Tsangpo Grand Canyon"
+  },
+  {
+    "cn": "怒江大峡谷",
+    "en": "Nujiang Grand Canyon"
+  },
+  {
+    "cn": "洱海",
+    "en": "Erhai Lake"
+  },
+  {
+    "cn": "抚仙湖",
+    "en": "Fuxian Lake"
+  },
+  {
+    "cn": "红海滩",
+    "en": "Panjin red beach"
+  },
+  {
+    "cn": "蓝眼泪",
+    "en": "bioluminescent waves"
+  },
+  {
+    "cn": "伊犁薰衣草",
+    "en": "lavender field"
+  },
+  {
+    "cn": "荷花",
+    "en": "lotus pond"
+  },
+  {
+    "cn": "向日葵花田",
+    "en": "sunflower field"
+  },
+  {
+    "cn": "樱花",
+    "en": "cherry blossom"
+  },
+  {
+    "cn": "蓝花楹",
+    "en": "jacaranda"
+  },
+  {
+    "cn": "竹林",
+    "en": "bamboo forest"
+  },
+  {
+    "cn": "冰洞",
+    "en": "ice cave"
+  },
+  {
+    "cn": "戈壁",
+    "en": "Gobi desert"
+  },
+  {
+    "cn": "银河",
+    "en": "milky way"
+  },
+  {
+    "cn": "环礁",
+    "en": "atoll"
   }
 ]

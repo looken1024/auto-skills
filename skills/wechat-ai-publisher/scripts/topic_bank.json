@@ -1,5 +1,294 @@
 {
-  "pending": [],
+  "pending": [
+    {
+      "cn": "泻湖",
+      "en": "lagoon"
+    },
+    {
+      "cn": "海蚀柱",
+      "en": "sea stack"
+    },
+    {
+      "cn": "苔藓森林",
+      "en": "moss forest"
+    },
+    {
+      "cn": "湿地",
+      "en": "wetland"
+    },
+    {
+      "cn": "雪豹",
+      "en": "snow leopard"
+    },
+    {
+      "cn": "藏羚羊",
+      "en": "Tibetan antelope"
+    },
+    {
+      "cn": "大熊猫",
+      "en": "giant panda"
+    },
+    {
+      "cn": "丹顶鹤",
+      "en": "red-crowned crane"
+    },
+    {
+      "cn": "金丝猴",
+      "en": "golden snub-nosed monkey"
+    },
+    {
+      "cn": "火烈鸟",
+      "en": "flamingo"
+    },
+    {
+      "cn": "座头鲸",
+      "en": "humpback whale"
+    },
+    {
+      "cn": "帝企鹅",
+      "en": "emperor penguin"
+    },
+    {
+      "cn": "海豚",
+      "en": "dolphin"
+    },
+    {
+      "cn": "虎鲸",
+      "en": "orca"
+    },
+    {
+      "cn": "海豹",
+      "en": "seal"
+    },
+    {
+      "cn": "北极熊",
+      "en": "polar bear"
+    },
+    {
+      "cn": "驯鹿",
+      "en": "reindeer"
+    },
+    {
+      "cn": "狼",
+      "en": "wolf"
+    },
+    {
+      "cn": "赤狐",
+      "en": "red fox"
+    },
+    {
+      "cn": "松鼠",
+      "en": "squirrel"
+    },
+    {
+      "cn": "蜂鸟",
+      "en": "hummingbird"
+    },
+    {
+      "cn": "鹦鹉",
+      "en": "parrot"
+    },
+    {
+      "cn": "猫头鹰",
+      "en": "owl"
+    },
+    {
+      "cn": "孔雀",
+      "en": "peacock"
+    },
+    {
+      "cn": "天鹅",
+      "en": "swan"
+    },
+    {
+      "cn": "考拉",
+      "en": "koala"
+    },
+    {
+      "cn": "袋鼠",
+      "en": "kangaroo"
+    },
+    {
+      "cn": "斑马",
+      "en": "zebra"
+    },
+    {
+      "cn": "长颈鹿",
+      "en": "giraffe"
+    },
+    {
+      "cn": "大象",
+      "en": "elephant"
+    },
+    {
+      "cn": "狮子",
+      "en": "lion"
+    },
+    {
+      "cn": "猎豹",
+      "en": "cheetah"
+    },
+    {
+      "cn": "老虎",
+      "en": "tiger"
+    },
+    {
+      "cn": "蝴蝶",
+      "en": "butterfly"
+    },
+    {
+      "cn": "白鹭",
+      "en": "egret"
+    },
+    {
+      "cn": "翠鸟",
+      "en": "kingfisher"
+    },
+    {
+      "cn": "水母",
+      "en": "jellyfish"
+    },
+    {
+      "cn": "鲸鲨",
+      "en": "whale shark"
+    },
+    {
+      "cn": "海龟",
+      "en": "sea turtle"
+    },
+    {
+      "cn": "桃花",
+      "en": "peach blossom"
+    },
+    {
+      "cn": "梨花",
+      "en": "pear blossom"
+    },
+    {
+      "cn": "杏花",
+      "en": "apricot blossom"
+    },
+    {
+      "cn": "杜鹃花",
+      "en": "rhododendron"
+    },
+    {
+      "cn": "绣球花",
+      "en": "hydrangea"
+    },
+    {
+      "cn": "睡莲",
+      "en": "water lily"
+    },
+    {
+      "cn": "郁金香",
+      "en": "tulip field"
+    },
+    {
+      "cn": "野花",
+      "en": "wildflowers"
+    },
+    {
+      "cn": "蒲公英",
+      "en": "dandelion"
+    },
+    {
+      "cn": "枫叶",
+      "en": "autumn leaves"
+    },
+    {
+      "cn": "松林",
+      "en": "pine forest"
+    },
+    {
+      "cn": "棕榈树",
+      "en": "palm trees"
+    },
+    {
+      "cn": "葡萄园",
+      "en": "vineyard"
+    },
+    {
+      "cn": "麦田",
+      "en": "wheat field"
+    },
+    {
+      "cn": "稻田",
+      "en": "rice field"
+    },
+    {
+      "cn": "茶园",
+      "en": "tea plantation"
+    },
+    {
+      "cn": "峡谷",
+      "en": "canyon"
+    },
+    {
+      "cn": "悬崖",
+      "en": "cliff"
+    },
+    {
+      "cn": "海浪",
+      "en": "ocean waves"
+    },
+    {
+      "cn": "礁石",
+      "en": "rocky shore"
+    },
+    {
+      "cn": "云海",
+      "en": "sea of clouds"
+    },
+    {
+      "cn": "彩虹",
+      "en": "rainbow"
+    },
+    {
+      "cn": "雷雨",
+      "en": "thunderstorm"
+    },
+    {
+      "cn": "山谷晨雾",
+      "en": "misty valley"
+    },
+    {
+      "cn": "雪原",
+      "en": "snowfield"
+    },
+    {
+      "cn": "星轨",
+      "en": "star trails"
+    },
+    {
+      "cn": "盐湖",
+      "en": "salt flat"
+    },
+    {
+      "cn": "天然拱门",
+      "en": "natural arch"
+    },
+    {
+      "cn": "蘑菇",
+      "en": "mushroom"
+    },
+    {
+      "cn": "荞麦花",
+      "en": "buckwheat field"
+    },
+    {
+      "cn": "瀑布",
+      "en": "waterfall"
+    },
+    {
+      "cn": "溪流",
+      "en": "mountain stream"
+    },
+    {
+      "cn": "高山湖泊",
+      "en": "alpine lake"
+    }
+  ],
   "used": [
     {
       "cn": "喀拉峻草原",
@@ -975,6 +1264,131 @@
       "cn": "银杏",
       "en": "ginkgo tree autumn",
       "ts": "2026-11-09T23:15:47.391347"
+    },
+    {
+      "cn": "太白山",
+      "en": "Taibai Mountain",
+      "ts": "2026-11-09T23:18:20.027055"
+    },
+    {
+      "cn": "武功山",
+      "en": "Wugong Mountain",
+      "ts": "2026-11-09T23:18:20.027072"
+    },
+    {
+      "cn": "井冈山",
+      "en": "Jinggangshan",
+      "ts": "2026-11-09T23:18:20.027073"
+    },
+    {
+      "cn": "昆仑山",
+      "en": "Kunlun Mountains",
+      "ts": "2026-11-09T23:18:20.027075"
+    },
+    {
+      "cn": "唐古拉山",
+      "en": "Tanggula Mountains",
+      "ts": "2026-11-09T23:18:20.027076"
+    },
+    {
+      "cn": "喀喇昆仑",
+      "en": "Karakoram",
+      "ts": "2026-11-09T23:18:20.027077"
+    },
+    {
+      "cn": "哈巴雪山",
+      "en": "Haba Snow Mountain",
+      "ts": "2026-11-09T23:18:20.027079"
+    },
+    {
+      "cn": "白马雪山",
+      "en": "Baima Snow Mountain",
+      "ts": "2026-11-09T23:18:20.027081"
+    },
+    {
+      "cn": "雅拉雪山",
+      "en": "Yala Snow Mountain",
+      "ts": "2026-11-09T23:18:20.027082"
+    },
+    {
+      "cn": "雅鲁藏布大峡谷",
+      "en": "Yarlung Tsangpo Grand Canyon",
+      "ts": "2026-11-09T23:18:20.027084"
+    },
+    {
+      "cn": "怒江大峡谷",
+      "en": "Nujiang Grand Canyon",
+      "ts": "2026-11-09T23:18:20.027085"
+    },
+    {
+      "cn": "洱海",
+      "en": "Erhai Lake",
+      "ts": "2026-11-09T23:18:20.027086"
+    },
+    {
+      "cn": "抚仙湖",
+      "en": "Fuxian Lake",
+      "ts": "2026-11-09T23:18:20.027087"
+    },
+    {
+      "cn": "红海滩",
+      "en": "Panjin red beach",
+      "ts": "2026-11-09T23:18:20.027089"
+    },
+    {
+      "cn": "蓝眼泪",
+      "en": "bioluminescent waves",
+      "ts": "2026-11-09T23:18:20.027090"
+    },
+    {
+      "cn": "伊犁薰衣草",
+      "en": "lavender field",
+      "ts": "2026-11-09T23:18:20.027091"
+    },
+    {
+      "cn": "荷花",
+      "en": "lotus pond",
+      "ts": "2026-11-09T23:18:20.027092"
+    },
+    {
+      "cn": "向日葵花田",
+      "en": "sunflower field",
+      "ts": "2026-11-09T23:18:20.027094"
+    },
+    {
+      "cn": "樱花",
+      "en": "cherry blossom",
+      "ts": "2026-11-09T23:18:20.027095"
+    },
+    {
+      "cn": "蓝花楹",
+      "en": "jacaranda",
+      "ts": "2026-11-09T23:18:20.027096"
+    },
+    {
+      "cn": "竹林",
+      "en": "bamboo forest",
+      "ts": "2026-11-09T23:18:20.027097"
+    },
+    {
+      "cn": "冰洞",
+      "en": "ice cave",
+      "ts": "2026-11-09T23:18:20.027099"
+    },
+    {
+      "cn": "戈壁",
+      "en": "Gobi desert",
+      "ts": "2026-11-09T23:18:20.027100"
+    },
+    {
+      "cn": "银河",
+      "en": "milky way",
+      "ts": "2026-11-09T23:18:20.027101"
+    },
+    {
+      "cn": "环礁",
+      "en": "atoll",
+      "ts": "2026-11-09T23:18:20.027102"
     }
   ],
   "rejected": [
@@ -1151,6 +1565,121 @@
     {
       "cn": "高山杜鹃",
       "en": "alpine rhododendron",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "华山",
+      "en": "Mount Hua",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "泰山",
+      "en": "Mount Tai",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "黄山",
+      "en": "Huangshan",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "庐山",
+      "en": "Lushan Mountain",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "秦岭",
+      "en": "Qinling Mountains",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "贺兰山",
+      "en": "Helan Mountains",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "虎跳峡",
+      "en": "Tiger Leaping Gorge",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "三峡",
+      "en": "Three Gorges",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "千岛湖",
+      "en": "Thousand Island Lake",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "泸沽湖",
+      "en": "Lugu Lake",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "洞庭湖",
+      "en": "Dongting Lake",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "鄱阳湖",
+      "en": "Poyang Lake",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "月牙泉",
+      "en": "Crescent Lake Dunhuang",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "元阳梯田",
+      "en": "Yuanyang rice terraces",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "霞浦滩涂",
+      "en": "Xiapu mudflat",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "婺源",
+      "en": "Wuyuan",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "涠洲岛",
+      "en": "Weizhou Island",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "香山红叶",
+      "en": "Fragrant Hills autumn leaves",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "芦苇荡",
+      "en": "reed marsh",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "冰川湖",
+      "en": "glacial lake",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "冰瀑",
+      "en": "frozen waterfall",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "极光",
+      "en": "aurora borealis",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "火山熔岩",
+      "en": "lava flow",
       "reason": "历史已用过/重复"
     }
   ]
