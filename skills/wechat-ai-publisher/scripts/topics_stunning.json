@@ -268,112 +268,16 @@
     "en": "museum masterpiece painting"
   },
   {
-    "cn": "海上日出",
-    "en": "sunrise over ocean"
-  },
-  {
-    "cn": "山顶日出",
-    "en": "mountain peak sunrise"
-  },
-  {
-    "cn": "草原日出",
-    "en": "grassland sunrise"
-  },
-  {
-    "cn": "沙漠日出",
-    "en": "desert sunrise"
-  },
-  {
-    "cn": "湖泊日出",
-    "en": "lake sunrise mist"
-  },
-  {
-    "cn": "日出剪影",
-    "en": "sunrise silhouette landscape"
-  },
-  {
-    "cn": "海边日落",
-    "en": "beach sunset"
-  },
-  {
-    "cn": "沙漠日落",
-    "en": "desert sunset dunes"
-  },
-  {
-    "cn": "草原日落",
-    "en": "grassland sunset"
-  },
-  {
-    "cn": "湖面日落",
-    "en": "lake sunset reflection"
-  },
-  {
-    "cn": "雪山日落",
-    "en": "snow mountain sunset"
-  },
-  {
-    "cn": "森林日落",
-    "en": "forest sunset rays"
-  },
-  {
-    "cn": "大漠日落",
-    "en": "desert dusk"
-  },
-  {
-    "cn": "长河落日",
-    "en": "river sunset golden"
-  },
-  {
     "cn": "火烧云",
     "en": "dramatic sunset clouds"
-  },
-  {
-    "cn": "晚霞满天",
-    "en": "pink purple sunset sky"
-  },
-  {
-    "cn": "海边晚霞",
-    "en": "beach dusk afterglow"
-  },
-  {
-    "cn": "雨后晚霞",
-    "en": "afterglow clouds sky"
   },
   {
     "cn": "暮色云霞",
     "en": "twilight clouds colors"
   },
   {
-    "cn": "公路日落",
-    "en": "road sunset"
-  },
-  {
-    "cn": "风车日落",
-    "en": "windmill sunset"
-  },
-  {
-    "cn": "灯塔日落",
-    "en": "lighthouse sunset"
-  },
-  {
-    "cn": "帆船日落",
-    "en": "sailboat sunset"
-  },
-  {
-    "cn": "城市晚霞",
-    "en": "city skyline sunset"
-  },
-  {
-    "cn": "山脊日落",
-    "en": "mountain ridge sunset"
-  },
-  {
     "cn": "金色时刻",
     "en": "golden hour landscape"
-  },
-  {
-    "cn": "日落剪影",
-    "en": "sunset silhouette"
   },
   {
     "cn": "喀斯特溶洞",
@@ -570,5 +474,265 @@
   {
     "cn": "双色海",
     "en": "two color sea"
+  },
+  {
+    "cn": "琼库什台",
+    "en": "qiongkushitai grassland"
+  },
+  {
+    "cn": "夏塔古道",
+    "en": "xiata valley"
+  },
+  {
+    "cn": "艾肯泉",
+    "en": "aiken spring"
+  },
+  {
+    "cn": "西沙群岛",
+    "en": "paracel islands aerial"
+  },
+  {
+    "cn": "镇海角",
+    "en": "zhenhaijiao cape"
+  },
+  {
+    "cn": "枸杞岛",
+    "en": "gouqi island"
+  },
+  {
+    "cn": "金佛山",
+    "en": "jinfo mountain"
+  },
+  {
+    "cn": "牛背山",
+    "en": "niubei mountain sea of clouds"
+  },
+  {
+    "cn": "扎达土林",
+    "en": "zanda earth forest"
+  },
+  {
+    "cn": "班公湖",
+    "en": "pangong lake"
+  },
+  {
+    "cn": "然乌湖",
+    "en": "ranwu lake"
+  },
+  {
+    "cn": "千湖山",
+    "en": "qianhu mountain"
+  },
+  {
+    "cn": "蓝月谷",
+    "en": "blue moon valley"
+  },
+  {
+    "cn": "白水台",
+    "en": "baishuitai terraces"
+  },
+  {
+    "cn": "独龙江",
+    "en": "dulong river valley"
+  },
+  {
+    "cn": "丙中洛",
+    "en": "bingzhongluo"
+  },
+  {
+    "cn": "坝美",
+    "en": "bamei village"
+  },
+  {
+    "cn": "加榜梯田",
+    "en": "jiabang rice terraces"
+  },
+  {
+    "cn": "云和梯田",
+    "en": "yunhe rice terraces"
+  },
+  {
+    "cn": "茗岙梯田",
+    "en": "mingao terraces"
+  },
+  {
+    "cn": "嵛山岛",
+    "en": "yushan island"
+  },
+  {
+    "cn": "台山岛",
+    "en": "taishan island"
+  },
+  {
+    "cn": "南麂岛",
+    "en": "nanji island"
+  },
+  {
+    "cn": "大陈岛",
+    "en": "dachen island"
+  },
+  {
+    "cn": "渔山列岛",
+    "en": "yushan islands"
+  },
+  {
+    "cn": "海王九岛",
+    "en": "haiwang nine islands"
+  },
+  {
+    "cn": "广鹿岛",
+    "en": "guanglu island"
+  },
+  {
+    "cn": "纪念碑谷",
+    "en": "monument valley"
+  },
+  {
+    "cn": "彩虹山",
+    "en": "vinicunca rainbow mountain"
+  },
+  {
+    "cn": "巨人之路",
+    "en": "giants causeway"
+  },
+  {
+    "cn": "黑暗树篱",
+    "en": "dark hedges"
+  },
+  {
+    "cn": "多佛白崖",
+    "en": "white cliffs dover"
+  },
+  {
+    "cn": "天空岛",
+    "en": "isle of skye"
+  },
+  {
+    "cn": "梅黛奥拉",
+    "en": "meteora greece"
+  },
+  {
+    "cn": "青池",
+    "en": "blue pond biei"
+  },
+  {
+    "cn": "紫藤隧道",
+    "en": "wisteria tunnel japan"
+  },
+  {
+    "cn": "日立海滨公园",
+    "en": "nemophila field japan"
+  },
+  {
+    "cn": "爱妮岛",
+    "en": "el nido palawan"
+  },
+  {
+    "cn": "丽贝岛",
+    "en": "koh lipe"
+  },
+  {
+    "cn": "斯米兰群岛",
+    "en": "similan islands"
+  },
+  {
+    "cn": "蒲甘",
+    "en": "bagan temples"
+  },
+  {
+    "cn": "克什米尔",
+    "en": "kashmir valley"
+  },
+  {
+    "cn": "劳特布龙嫩",
+    "en": "lauterbrunnen valley"
+  },
+  {
+    "cn": "哈尔施塔特",
+    "en": "hallstatt austria"
+  },
+  {
+    "cn": "圣米歇尔山",
+    "en": "mont saint michel"
+  },
+  {
+    "cn": "阿马尔菲海岸",
+    "en": "amalfi coast"
+  },
+  {
+    "cn": "五渔村",
+    "en": "cinque terre"
+  },
+  {
+    "cn": "卡普里岛",
+    "en": "capri island"
+  },
+  {
+    "cn": "科托尔湾",
+    "en": "bay of kotor"
+  },
+  {
+    "cn": "蓝眼泉",
+    "en": "blue eye spring albania"
+  },
+  {
+    "cn": "死海",
+    "en": "dead sea"
+  },
+  {
+    "cn": "瓦希巴沙漠",
+    "en": "wahiba sands"
+  },
+  {
+    "cn": "卢特沙漠",
+    "en": "lut desert"
+  },
+  {
+    "cn": "伊塞克湖",
+    "en": "issyk kul lake"
+  },
+  {
+    "cn": "美瑛",
+    "en": "biei hills hokkaido"
+  },
+  {
+    "cn": "清水断崖",
+    "en": "qingshui cliff hualien"
+  },
+  {
+    "cn": "诺西贝岛",
+    "en": "nosy be island"
+  },
+  {
+    "cn": "桑给巴尔",
+    "en": "zanzibar beach"
+  },
+  {
+    "cn": "毛里求斯七色土",
+    "en": "seven colored earth mauritius"
+  },
+  {
+    "cn": "巴厘岛梯田",
+    "en": "bali rice terrace"
+  },
+  {
+    "cn": "龙目岛",
+    "en": "lombok island"
+  },
+  {
+    "cn": "科莫多",
+    "en": "komodo island"
+  },
+  {
+    "cn": "菲律宾梯田",
+    "en": "banaue rice terraces"
+  },
+  {
+    "cn": "老挝光西瀑布",
+    "en": "kuang si waterfall"
+  },
+  {
+    "cn": "越南沙巴",
+    "en": "sapa valley vietnam"
   }
 ]
