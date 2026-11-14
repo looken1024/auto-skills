@@ -80,29 +80,29 @@
     "created_by": null,
     "last_patched_at": null,
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-09-25T09:27:47.687331+00:00",
-    "last_viewed_at": "2026-09-25T09:27:47.680964+00:00",
+    "last_used_at": "2026-11-14T14:53:58.109852+00:00",
+    "last_viewed_at": "2026-11-14T14:53:58.104364+00:00",
     "patch_count": 0,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 1,
-    "view_count": 1
+    "use_count": 2,
+    "view_count": 2
   },
   "free-image-sources": {
     "archived_at": null,
     "created_at": "2026-09-19T06:50:54.990381+00:00",
     "created_by": "agent",
     "last_patched_at": "2026-09-19T10:00:22.766960+00:00",
-    "last_reused_patch_generation": 1,
-    "last_used_at": "2026-09-19T09:59:26.159082+00:00",
-    "last_viewed_at": "2026-09-19T09:59:26.155011+00:00",
+    "last_reused_patch_generation": 2,
+    "last_used_at": "2026-11-14T14:51:28.586590+00:00",
+    "last_viewed_at": "2026-11-14T14:51:28.583767+00:00",
     "patch_count": 2,
     "patch_generation": 2,
     "pinned": false,
     "state": "stale",
-    "use_count": 3,
-    "view_count": 3
+    "use_count": 4,
+    "view_count": 4
   },
   "github": {
     "archived_at": null,
@@ -230,14 +230,14 @@
     "created_by": null,
     "last_patched_at": "2026-09-14T16:52:06.967644+00:00",
     "last_reused_patch_generation": 1,
-    "last_used_at": "2026-10-01T01:45:30.017271+00:00",
-    "last_viewed_at": "2026-10-01T01:45:30.013320+00:00",
+    "last_used_at": "2026-11-14T14:54:08.551379+00:00",
+    "last_viewed_at": "2026-11-14T14:54:08.547923+00:00",
     "patch_count": 1,
     "patch_generation": 1,
     "pinned": false,
     "state": "active",
-    "use_count": 21,
-    "view_count": 21
+    "use_count": 22,
+    "view_count": 22
   },
   "ima-skill": {
     "archived_at": null,
@@ -479,6 +479,22 @@
     "use_count": 29,
     "view_count": 29
   },
+  "wanx-comic-captions": {
+    "archived_at": null,
+    "created_at": "2026-11-14T14:31:13.336334+00:00",
+    "created_by": null,
+    "first_seen_at": null,
+    "last_patched_at": null,
+    "last_reused_patch_generation": 0,
+    "last_used_at": "2026-11-14T14:31:13.339743+00:00",
+    "last_viewed_at": "2026-11-14T14:31:13.336348+00:00",
+    "patch_count": 0,
+    "patch_generation": 0,
+    "pinned": false,
+    "state": "active",
+    "use_count": 1,
+    "view_count": 1
+  },
   "web-tools-guide": {
     "archived_at": null,
     "created_at": "2026-09-13T05:58:57.416958+00:00",
@@ -515,14 +531,14 @@
     "created_by": null,
     "last_patched_at": "2026-11-14T11:41:58.131996+00:00",
     "last_reused_patch_generation": 5,
-    "last_used_at": "2026-11-14T12:53:22.390873+00:00",
-    "last_viewed_at": "2026-11-14T12:53:22.384179+00:00",
+    "last_used_at": "2026-11-14T14:54:02.653113+00:00",
+    "last_viewed_at": "2026-11-14T14:54:02.649727+00:00",
     "patch_count": 5,
     "patch_generation": 5,
     "pinned": false,
     "state": "active",
-    "use_count": 66,
-    "view_count": 66
+    "use_count": 68,
+    "view_count": 68
   },
   "wechat-cloud-base-api": {
     "archived_at": null,
