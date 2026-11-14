@@ -100,12 +100,11 @@ python3 scripts/pexels_gallery_draft.py --mode news
 
 | job | 调度 | 池子 | 产出 |
 |---|---|---|---|
-| `9d58e7843134` | `0 */2 * * *` | `topics_stunning.json` | `news` 图文（9 图 + 小程序链接） |
-| `6b86d039a651` | `every 60m` | `topics.json` | `newspic` 纯贴图 |
+| `9d58e7843134` | `0 */2 * * *` | `topics_stunning.json` | `news` 图文（9 图 + 小程序链接）— **已由用户要求暂停** |
+| `6b86d039a651` | `every 60m` | `topics.json` | `newspic` 纯贴图 — 当前唯一在跑的图集任务 |
 | `21a4b0cf5a35` | `every 72h` | 轮换 + 银行 | 剔高频、补新词 |
 
-> 两个图集任务并存时一天约 36 条草稿；加任务前先跟用户确认是否要停掉另一个，避免草稿箱被刷屏。
-> 启停状态会变，动手前用 `cronjob list` 核对：用户可能只要停其中一种（带链接的 `news` 或不带正文的 `newspic`），别把两个一起停。停完回执里要写清停的是哪个 job、哪种产出。
+> 上表的启停状态会变，动手前先 `cronjob list` 核对。用户说「停带小程序链接的那个」= `news`，「停贴图」= `newspic`；按名字 + 最近 `last_run_at` 认准 job_id，停完回执写清停的是哪个 job、哪种产出。
 
 ## 6. 图文标题：地点描述式（2026-11-03 用户要求）
 
@@ -148,6 +147,23 @@ ls /tmp/test_pool.json.bak-removed-*         # 应有备份
 
 ## 8. 多路查询与"一篇只写一个国家"（2026-11-08）
 
+### 指定池外话题：`--topic` 必须配 `--queries`（硬性）
+
+`--topic 蓝色海洋` 这种**池里没有**的名字，`_run_once()` 会把 `query` 直接设成同一个中文串，Pexels 搜中文几乎只能返回无关图或空结果。指定一次性话题时，同时给 `--queries` 英文词（可多路，竖线分隔）：
+
+```bash
+cd ~/.hermes/skills/wechat-ai-publisher
+/home/ubuntu/.hermes/hermes-agent/venv/bin/python3 scripts/pexels_gallery_draft.py \
+  --mode newspic --topic "蓝色海洋" \
+  --queries "deep blue ocean water|turquoise sea aerial view|blue ocean waves"
+```
+
+- 先 `grep`/扫池确认该中文名是否已存在；存在时 `--topic` 会自动取池里的 `en`，不必再给 `--queries`。
+- `newspic` 的标题仍是固定 `{topic}·每日图集（{date}）`；`news` 才走模型生成的地点标题。
+- 手动跑一轮 9 张常要 3-10 分钟，用后台进程 + 日志落盘（见 §10），完成后用 `draft/batchget` 确认标题出现在草稿箱第一条。
+
+### 多路查询参数
+
 新增参数：
 
 | 参数 | 作用 |
@@ -183,7 +199,7 @@ GALLERY_TOPICS_FILE=/tmp/slum_pool.json python3 scripts/pexels_gallery_draft.py 
 4. **加词前必须验 Pexels**：`per_page=24&orientation=landscape`，横图 ≥12 才收；5-6 并发、失败项顺序重试 3 次（10 并发会大量 SSL EOF）。
 5. 写回前 `shutil.copy2` 备份；写完用 Python 检查 `cn`/`en` 无重复；再跑一次 `--dry-run --count 9` 抽一个新词验证全链路。
 
-截至 2026-11-08 的池子规模：`topics.json` 160 条、`topics_stunning.json` 99 条、`topic_bank.pending` 52 条（数字会随轮换变，别当常量）。
+当前规模（数字随轮换变，别当常量）：`topics.json` 209 条、`topics_stunning.json` 168 条、`topic_bank.pending` 71 条。
 
 **Pexels 的"世界名画"陷阱**：搜 `famous oil painting` / `renaissance painting` 返回的大多是**博物馆实拍、天顶壁画、画廊墙面、画家调色盘**，不是《星月夜》《蒙娜丽莎》这类真迹高清。做"名画"专题要真迹就去维基共享资源/大都会 Open Access，Pexels 只能做"艺术氛围"。
 

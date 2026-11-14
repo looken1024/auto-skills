@@ -28,6 +28,15 @@ import compress_image
 # 若文件缺失则回退到下方内置列表。
 TOPICS_JSON = os.environ.get("GALLERY_TOPICS_FILE") or os.path.join(SCRIPT_DIR, "topics.json")
 
+# 用户明确不要的题材（2026-11-14）：梯田，以及沟壑/峡谷/戈壁/雅丹/土林这类荒凉或灰暗地貌。
+# 池文件被手工改动或轮换脚本回填时，这里再兜一层，保证脚本不会选中。
+BANNED_TOPIC_WORDS = ("梯田", "沟壑", "峡谷", "戈壁", "荒漠", "雅丹", "土林", "荒芜", "废墟")
+
+
+def topic_allowed(cn):
+    return not any(w in cn for w in BANNED_TOPIC_WORDS)
+
+
 def load_topics():
     if os.path.exists(TOPICS_JSON):
         try:
@@ -40,13 +49,13 @@ def load_topics():
                     cn, en = d[0], d[1]
                 else:
                     continue
-                if cn and en:
+                if cn and en and topic_allowed(cn):
                     pairs.append((cn, en))
             if pairs:
                 return pairs
         except Exception as e:
             print(f"! 读取 topics.json 失败({e})，回退内置列表", file=sys.stderr)
-    return _BUILTIN_TOPICS or list(_SEED_TOPIC)
+    return [(cn, en) for cn, en in (_BUILTIN_TOPICS or list(_SEED_TOPIC)) if topic_allowed(cn)]
 
 
 # 池子被掏空（topics.json 与内置表同时为空）时的种子，保证脚本不越界崩溃
@@ -81,7 +90,6 @@ _BUILTIN_TOPICS = [
     ("扎龙湿地", "zhalong wetland red crown"),
     ("极光雪原", "aurora borealis snow field"),
     ("桂林山水", "guilin karst landscape"),
-    ("梯田晨雾", "rice terraces morning mist"),
     ("武隆天生桥", "wulong natural bridge karst"),
     ("海岸悬崖", "coastal cliffs ocean"),
     ("湿地候鸟", "wetland migratory birds"),
@@ -114,7 +122,6 @@ _BUILTIN_TOPICS = [
     ("雪原日出", "snowfield sunrise cold"),
     ("高原湖泊", "plateau lake mountains"),
 
-    ("峡谷晨曦", "canyon sunrise mist"),
     ("沙漠绿洲", "desert oasis palm trees"),
 
     ("富士山湖景", "mount fuji lake reflection"),
@@ -136,11 +143,9 @@ _BUILTIN_TOPICS = [
     ("岳麓山", "yuelu mountain"),
 
     ("三峡", "three gorges yangtze"),
-    ("恩施大峡谷", "enshi grand canyon"),
     ("青城山", "qingcheng mountain"),
     ("四姑娘山", "siguniang mountain"),
 
-    ("元阳梯田", "yuanyang rice terraces"),
     ("玉龙雪山", "jade dragon snow mountain"),
     ("西双版纳", "xishuangbanna rainforest"),
     ("荔波小七孔", "libo xiaoqikong"),

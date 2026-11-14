@@ -178,6 +178,8 @@ $PYTHON $SCRIPTS/create_draft.py \
 | no_cover | 未传封面 | 公众号草稿强制要求封面，先上传封面拿 media_id |
 
 > ⚠️ **排错别只看 cron 摘要（已踩坑）**：`no_agent` 脚本若用 `tail -5` 汇报，会把 40125 之类的真实原因丢掉，只剩"全部图片素材上传失败"，白查半天。**脚本必须把完整 stdout+stderr 落盘**（如 `~/.hermes/logs/cron/gallery_<ts>.log`），stdout 只留一行摘要，并对 `40125 / invalid appsecret` 单独分流提示。
+> 排 cron 失败的第一落点：`~/.hermes/cron/output/<job_id>/` 最新一个 `.md`（stdout 摘要）+ 脚本自己落的完整日志 `~/.hermes/logs/cron/*.log`（真实栈）。`cronjob list` 的 `last_error` 只留最后几行，遇到 `Script exited with code N` 必须去翻这两处，别拿摘要猜根因。
+> 停/启用前先 `list`：`enabled=false / state=paused` 的 job 再 `pause` 是幂等的，可以放心重复；用户说「停掉某个任务」时先按名字和最近的 `last_run_at` 认准 job_id，别按记忆里的 ID 动手。
 
 > ⚠️ **凭证可能中途失效**：同一 AppSecret 可以在几分钟内从可用变为 40125（后台被重置）。判定"是不是凭证问题"最快的办法：直接 `GET /cgi-bin/token` 看 errcode，别先怀疑图或网络。
 
@@ -239,6 +241,15 @@ $PYTHON $SCRIPTS/create_draft.py \
   - 新增词全部是自然风景（山水/花草/树木/冰雪/沙漠/湖海），没有建筑/人文。黄河系列和长城是特意补的——国内"大江大河"类之前一个都没有。
   - 扩展方式：直接往 `topics.json` 追加，再用 `pexels_gallery_draft.py` 的内置表同步（按中文序自动插位，两源必须一致）。
 - 保留：自然风景 + 动物。建筑、城市、人文、节庆、美食、肖像等已全部剔除。
+- **题材黑名单（长期有效，用户口径固定）**：梯田，以及沟壑 / 峡谷 / 戈壁 / 荒漠 / 雅丹 / 土林 / 荒芜 / 废墟这类荒凉、灰暗、缺乏美感的地貌，一律不要。判词按**子串**匹配（「峡谷」要能命中「雅鲁藏布大峡谷」），不能只比中文名全等。
+- ⚠️ **删题材必须同时动五处，漏任一处都会被回填（硬性）**：
+  1. `scripts/topics.json`（贴图 `newspic` 默认池）
+  2. `scripts/topics_stunning.json`（图集 `news` 池，cron 用 `GALLERY_TOPICS_FILE` 指向它）
+  3. `scripts/topic_bank.json` 的 `pending`（3 天轮换的补池来源，不清就会补回来）
+  4. `pexels_gallery_draft.py`：`BANNED_TOPIC_WORDS` + `topic_allowed()`；`load_topics()` 对**池文件和 `_BUILTIN_TOPICS` 兜底表都要过滤**，内置表里的同类条目顺手删掉
+  5. `rotate_topics.py`：候选循环里 `topic_banned()` 命中直接 append 到 `rejected` 并 `continue`，别只停在读池过滤——否则每次轮换都会重新尝试这些词
+- 三个 JSON 改动前先各留 `.bak-ban<时间戳>`；改完按这个顺序自检，别只看肉眼：三个文件断言禁用词命中为 0 → `py_compile` 两个脚本 → 动态 `load_topics()` 打印池条数且命中为 0 → `rotate_topics.py --status` 正常。
+- 「沟」字不是一律判死：官鹅沟、果子沟这类有水的景区保留，纯荒沟/沟壑才删；改动前把候选清单列给用户过目更稳。
 - ⚠️ **池子消耗速度**：图集 job 每小时 1 条 = 每天约 24 条，125 条约 **5 天见底**。见底后靠 `_SEED_TOPIC` 兜底不崩，但会反复出同一个题材。用户明确**不要自动补词**，需要时他自己提；`prune_drafts.py` 的 `pool_status()` 每次清理都会播报剩余量和倒计时，低于 40 条加 ⚠️。
 
 ## 图片处理

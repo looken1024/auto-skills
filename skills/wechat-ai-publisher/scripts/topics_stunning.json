@@ -52,10 +52,6 @@
     "en": "dachaidan emerald lake"
   },
   {
-    "cn": "水上雅丹",
-    "en": "water yardang landform"
-  },
-  {
     "cn": "俄博梁",
     "en": "eboliang yardang"
   },
@@ -110,10 +106,6 @@
   {
     "cn": "鸣沙山月牙泉",
     "en": "mingsha crescent lake"
-  },
-  {
-    "cn": "敦煌雅丹",
-    "en": "dunhuang yardang"
   },
   {
     "cn": "伊犁杏花",
@@ -288,10 +280,6 @@
     "en": "stone forest karst"
   },
   {
-    "cn": "土林",
-    "en": "earth forest landscape"
-  },
-  {
     "cn": "红树林",
     "en": "mangrove forest"
   },
@@ -352,24 +340,12 @@
     "en": "tundra landscape"
   },
   {
-    "cn": "荒漠雅丹",
-    "en": "yardang desert"
-  },
-  {
     "cn": "沙丘曲线",
     "en": "sand dune curves"
   },
   {
     "cn": "湖泊群",
     "en": "lake district"
-  },
-  {
-    "cn": "茶园梯田",
-    "en": "tea plantation terraces"
-  },
-  {
-    "cn": "梯田云海",
-    "en": "rice terraces clouds"
   },
   {
     "cn": "红土地",
@@ -398,10 +374,6 @@
   {
     "cn": "丹霞地貌",
     "en": "danxia landform"
-  },
-  {
-    "cn": "雅丹地貌",
-    "en": "yardang landform"
   },
   {
     "cn": "溶洞钟乳石",
@@ -496,10 +468,6 @@
     "en": "niubei mountain sea of clouds"
   },
   {
-    "cn": "扎达土林",
-    "en": "zanda earth forest"
-  },
-  {
     "cn": "班公湖",
     "en": "pangong lake"
   },
@@ -530,18 +498,6 @@
   {
     "cn": "坝美",
     "en": "bamei village"
-  },
-  {
-    "cn": "加榜梯田",
-    "en": "jiabang rice terraces"
-  },
-  {
-    "cn": "云和梯田",
-    "en": "yunhe rice terraces"
-  },
-  {
-    "cn": "茗岙梯田",
-    "en": "mingao terraces"
   },
   {
     "cn": "嵛山岛",
@@ -700,20 +656,12 @@
     "en": "seven colored earth mauritius"
   },
   {
-    "cn": "巴厘岛梯田",
-    "en": "bali rice terrace"
-  },
-  {
     "cn": "龙目岛",
     "en": "lombok island"
   },
   {
     "cn": "科莫多",
     "en": "komodo island"
-  },
-  {
-    "cn": "菲律宾梯田",
-    "en": "banaue rice terraces"
   },
   {
     "cn": "老挝光西瀑布",

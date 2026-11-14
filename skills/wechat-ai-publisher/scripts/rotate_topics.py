@@ -32,6 +32,14 @@ PEXELS_CFG = os.path.join(SCRIPT_DIR, "..", "..", "douyin-card-pipeline", "confi
 UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
                     "(KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"}
 
+# 题材黑名单（2026-11-14 用户指定）：梯田，以及沟壑/峡谷/戈壁/雅丹/土林等荒凉或灰暗地貌。
+# 补池时直接判死，避免下轮轮换又把它们塞回 topics.json。
+BANNED_TOPIC_WORDS = ("梯田", "沟壑", "峡谷", "戈壁", "荒漠", "雅丹", "土林", "荒芜", "废墟")
+
+
+def topic_banned(cn):
+    return any(w in (cn or "") for w in BANNED_TOPIC_WORDS)
+
 
 def load_json(path, default):
     try:
@@ -151,6 +159,9 @@ def main():
     while len(added) < need and i < len(pending):
         cand = pending[i]; i += 1
         cn, en = cand["cn"], cand["en"]
+        if topic_banned(cn):
+            rejected_now.append({**cand, "reason": "题材黑名单(梯田/沟壑等)"})
+            continue
         if cn in ever_used or en in used_en:
             rejected_now.append({**cand, "reason": "历史已用过/重复"})
             continue
