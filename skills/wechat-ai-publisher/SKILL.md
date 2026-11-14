@@ -28,8 +28,9 @@ MARKDOWN_THEME=orange
 
 ## 依赖
 ```
-pip install requests markdown Pillow
+pip install requests markdown Pillow numpy
 ```
+> ⚠️ `numpy` 是图集画质闸门（`qc_sharpness()`）的硬依赖，漏装会在 QC 阶段报 `ModuleNotFoundError`。cron 包装脚本要显式挑一个能 `import numpy, PIL, requests` 的解释器（PATH 会随网关重启漂移），见 `hermes-cron-pipeline-ops` 的 `references/pexels-gallery-ops.md` §10。
 
 ## 工作流（六步）
 
@@ -120,9 +121,10 @@ $PYTHON $SCRIPTS/create_draft.py \
 
 **横版**：`ori` 已硬编码为 `landscape`（用户要求图集一律横版），不再随机选方向。
 
-### 调度拆分（2026-10-03）
-- cron `9d58e7843134`「公众号图集-每天一次（图文消息）」→ `0 10 * * *`，跑 `gallery_draft_daily.sh`（`--mode news`）
-- cron `6b86d039a651`「公众号贴图-每小时（纯贴图，无正文）」→ `every 60m`，跑 `gallery_draft_hourly.sh`（`--mode newspic`）
+### 调度拆分（2026-10-03 起；频率/启停以 `cronjob list` 为准）
+- cron `9d58e7843134`「公众号图集（图文消息）」→ 现在 `0 */2 * * *`，跑 `gallery_draft_daily.sh`（`--mode news`）。**2026-11-14 用户已要求暂停**（只保留纯贴图）。
+- cron `6b86d039a651`「公众号贴图-每小时（纯贴图，无正文）」→ `every 60m`，跑 `gallery_draft_hourly.sh`（`--mode newspic`），当前在跑。
+- 两个任务并存时一天约 36 条草稿，会把草稿箱刷屏；要"停一个"时先分清：**带小程序链接的是 news（图集），无正文的是 newspic（贴图）**，按用户指的那一种停，别两个一起停。
 - 实测（金丝猴，贴图模式）：`article_type=newspic`、正文 0 图、无文字、无小程序标签、封面有、云转存 9 ✅
 - ⚠️ **贴图模式的"前两张重复"坑（2026-10-03 踩过）**：`newspic` 的 `image_list` 本身就是全部贴图，**不需要单独的封面**（`thumb_media_id` 是 `news` 模式才用的）。之前把 `processed[0]` 的压缩版当第 1 张、又把 `full_size[0]` 的压缩版当第 2 张——**同一张原图的两个压缩版本**，视觉上完全一样，用户一眼看穿。正确做法：贴图模式直接从 `full_size` 传 9 张，`image_media_ids` 从空列表开始 append。另加保护：贴图有效图不足 3 张直接抛异常，不静默出 1 张图的草稿。
 
@@ -144,6 +146,7 @@ $PYTHON $SCRIPTS/create_draft.py \
 - **雾景/夜景豁免**：`QC_HAZY_TOPICS`（松林晨雾、云瀑、温泉雾气、峡谷晨曦、雪原日出、银河星空、极光湖面、萤火虫森林、蓝冰洞、瀑布彩虹）阈值降到 60，否则会被误杀。
 - 候选数从 `count*4` 提到 `count*6`，被拦后自动换下一张；`--no-qc` 可关闭（排错用）。JSON 输出多一个 `rejected_qc` 字段。
 - 实测（火烈鸟群）：候选取 15 张，拦下 6 张（4 张 sharp 20/50/67/120 模糊 + 2 张 sat 22/26 灰暗），留 9 张，vision 复核 6.5～7/10 合格。
+- ⚠️ **QC 依赖 numpy，cron 里要钉解释器**：裸 `python3` 可能解析到 Hermes venv（有 PIL/requests、缺 numpy），表现为图片已下载、到 `qc_sharpness()` 才抛 `ModuleNotFoundError: No module named 'numpy'`。包装脚本按能力选解释器，修完先 `--dry-run --count 3` 验 QC 通路。
 
 ### 话题池构成（2026-10-03）
 - 77 条纯自然风景（山水/花草/树木/冰雪/沙漠/湖海，建筑·城市·人文·节庆已全数剔除）
@@ -204,6 +207,7 @@ $PYTHON $SCRIPTS/create_draft.py \
 
 ## 资源
 - 脚本文档见 `scripts/`。
+- **把流水线交给用户带走时**：打一个 zip 包含 `scripts/pexels_gallery_draft.py + compress_image.py + config.py + retry_util.py`、两套话题池与 `topic_bank.json`、两个 cron 包装脚本、`SKILL.md`，以及 `README.md`（依赖含 numpy、两种模式对照表、常用参数、已知坑）和 `env.example`。**不要把真实 `.env` 打包或发到聊天里**（只有 AppID/AppSecret，发了等于泄密钥）；给模板并说明填法即可。
 - 写作参考：`history-social-writing`、`news-social-writing`。
 
 ---
@@ -214,7 +218,7 @@ $PYTHON $SCRIPTS/create_draft.py \
 
 每小时/每 30 分钟产出一期公众号图集草稿：Pexels 抓图 → 翻转+滤镜 → 两版产出 → 传封面+正文图 → 建**图文消息(news)**草稿（正文末尾带可点击的小程序文字链）→ 同步小程序云存储。
 
-> ⚠️ **类型必须是 news，不能是 newspic（2026-10-01 踩坑·硬性）**：见下方「小程序文字链」一节。用 `newspic` 时正文里写 `#小程序://...` 发布后是**死文字点不动**，别再用。
+> ⚠️ **要小程序链接就只能用 `news`（硬性）**：`newspic` 正文只支持纯文本，写 `#小程序://` 或 `<a>` 发布后都是死文字（HTML 还会报 45166）。两种模式都是设计内产出（见下方「图集脚本双模式」）：`news` = 图文消息 + 可点击链接，`newspic` = 纯贴图无正文；按任务选，别把 newspic 当“错误类型”。
 
 ## 话题池
 

@@ -105,6 +105,7 @@ python3 scripts/pexels_gallery_draft.py --mode news
 | `21a4b0cf5a35` | `every 72h` | 轮换 + 银行 | 剔高频、补新词 |
 
 > 两个图集任务并存时一天约 36 条草稿；加任务前先跟用户确认是否要停掉另一个，避免草稿箱被刷屏。
+> 启停状态会变，动手前用 `cronjob list` 核对：用户可能只要停其中一种（带链接的 `news` 或不带正文的 `newspic`），别把两个一起停。停完回执里要写清停的是哪个 job、哪种产出。
 
 ## 6. 图文标题：地点描述式（2026-11-03 用户要求）
 
@@ -185,3 +186,42 @@ GALLERY_TOPICS_FILE=/tmp/slum_pool.json python3 scripts/pexels_gallery_draft.py 
 截至 2026-11-08 的池子规模：`topics.json` 160 条、`topics_stunning.json` 99 条、`topic_bank.pending` 52 条（数字会随轮换变，别当常量）。
 
 **Pexels 的"世界名画"陷阱**：搜 `famous oil painting` / `renaissance painting` 返回的大多是**博物馆实拍、天顶壁画、画廊墙面、画家调色盘**，不是《星月夜》《蒙娜丽莎》这类真迹高清。做"名画"专题要真迹就去维基共享资源/大都会 Open Access，Pexels 只能做"艺术氛围"。
+
+## 10. cron 包装脚本：解释器与依赖必须显式钉住
+
+cron 的 `no_agent` 脚本由网关派生，**PATH 会随网关重启变化**。裸写 `python3` 时可能解析到 `/home/ubuntu/.hermes/hermes-agent/venv/bin/python3`（有 PIL/requests，**没有 numpy**），而流水线的画质闸门 `qc_sharpness()` 用 numpy 算拉普拉斯方差 → 图片已下载、进入 QC 时才崩：
+
+```
+Traceback ...
+  ok, why = image_quality_ok(out, topic)
+  sharp = qc_sharpness(path)
+ModuleNotFoundError: No module named 'numpy'
+```
+
+症状很像"任务跑一半自己挂了"，实际是解释器选错；同一脚本昨天能跑不代表今天能跑（网关重启后 PATH 变了）。
+
+### 修法（两道都做）
+
+1. 依赖装到脚本实际使用的解释器：`uv pip install --python <venv>/bin/python3 numpy`（本机 Hermes venv 是 Python 3.14，numpy 2.5.x 有 wheel）。
+2. 包装 shell 按**导入能力**挑解释器，不依赖 PATH 顺序：
+
+```bash
+PY=""
+for c in /home/ubuntu/.hermes/hermes-agent/venv/bin/python3 /usr/bin/python3 python3; do
+  if "$c" -c "import numpy, PIL, requests" >/dev/null 2>&1; then PY="$c"; break; fi
+done
+[ -z "$PY" ] && PY=python3
+out=$("$PY" scripts/pexels_gallery_draft.py --mode newspic 2>&1)
+```
+
+注意 `/usr/bin/python3` 有 numpy 但没有 PIL，单看 numpy 会选错——四个模块一起判。
+
+### 验证顺序（别直接上生产）
+
+1. `--dry-run --count 3`：只下载+处理+QC，不传素材不建稿，能过就说明依赖齐了。
+2. 再用真实模式完整跑一次，确认日志尾部的 JSON 有 `status: success` / 草稿 media_id，而不是只看 cron 的退出码。
+3. 跑真实任务用后台进程 + 日志落盘（`pgrep -f pexels_gallery_draft` 判活），别用一次前台调用等到底——完整 9 张图一轮常要 3-10 分钟，前台容易超时被 kill，误判成失败。
+
+### 台账膨胀导致的"假卡死"
+
+`logs/gallery_sent_md5.json` 累积上万条后，热门话题单页 50+ 张可能**连续全被判重复**，日志刷几十行 `剔除重复`；脚本仍在换批次尝试，属正常。判据是进程还在、日志还在增长；不要因为 5 分钟没出草稿就 kill。要快验通路就用 `--dry-run --count 3` 或换一个冷门话题。
