@@ -374,6 +374,22 @@
     "use_count": 0,
     "view_count": 0
   },
+  "recipe-step-images": {
+    "archived_at": null,
+    "created_at": "2026-11-14T15:04:21.303397+00:00",
+    "created_by": "learn",
+    "first_seen_at": null,
+    "last_patched_at": "2026-11-14T15:44:29.595386+00:00",
+    "last_reused_patch_generation": 0,
+    "last_used_at": "2026-11-14T15:44:20.837421+00:00",
+    "last_viewed_at": "2026-11-14T15:44:20.833785+00:00",
+    "patch_count": 8,
+    "patch_generation": 8,
+    "pinned": false,
+    "state": "active",
+    "use_count": 1,
+    "view_count": 1
+  },
   "requesting-code-review": {
     "archived_at": null,
     "created_at": "2026-09-19T19:36:08.377320+00:00",
@@ -531,14 +547,14 @@
     "created_by": null,
     "last_patched_at": "2026-11-14T11:41:58.131996+00:00",
     "last_reused_patch_generation": 5,
-    "last_used_at": "2026-11-14T14:54:02.653113+00:00",
-    "last_viewed_at": "2026-11-14T14:54:02.649727+00:00",
+    "last_used_at": "2026-11-14T15:27:29.653914+00:00",
+    "last_viewed_at": "2026-11-14T15:27:29.650556+00:00",
     "patch_count": 5,
     "patch_generation": 5,
     "pinned": false,
     "state": "active",
-    "use_count": 68,
-    "view_count": 68
+    "use_count": 69,
+    "view_count": 69
   },
   "wechat-cloud-base-api": {
     "archived_at": null,
