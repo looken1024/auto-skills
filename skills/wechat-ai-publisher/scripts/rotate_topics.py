@@ -72,15 +72,19 @@ def pexels_key():
     return key
 
 
+_DIRECT_OPENER = urllib.request.build_opener(urllib.request.ProxyHandler({}))
+
+
 def pexels_count(en, tries=3):
-    """返回 (横图数量, 错误信息)"""
+    """返回 (横图数量, 错误信息)。直连优先（系统代理 127.0.0.1:9981 对 Pexels 极慢/握手失败），失败再回退走默认代理。"""
     url = ("https://api.pexels.com/v1/search?query=%s&per_page=24&orientation=landscape"
            % urllib.parse.quote(en))
     last = ""
-    for _ in range(tries):
+    for attempt in range(tries):
+        opener = _DIRECT_OPENER if attempt < tries - 1 else urllib.request.build_opener()
         try:
             req = urllib.request.Request(url, headers={"Authorization": pexels_key(), **UA})
-            with urllib.request.urlopen(req, timeout=25) as r:
+            with opener.open(req, timeout=25) as r:
                 photos = json.loads(r.read()).get("photos", [])
             return sum(1 for p in photos if p.get("width", 0) > p.get("height", 0)), ""
         except Exception as e:
