@@ -60,7 +60,7 @@
     "view_count": 44
   },
   "data-chart-scripting": {
-    "archived_at": null,
+    "archived_at": "2026-11-14T23:22:28.256462+00:00",
     "created_at": "2026-10-03T01:59:57.351455+00:00",
     "created_by": "agent",
     "last_patched_at": "2026-10-03T01:59:57.419430+00:00",
@@ -70,7 +70,7 @@
     "patch_count": 2,
     "patch_generation": 2,
     "pinned": false,
-    "state": "stale",
+    "state": "archived",
     "use_count": 5,
     "view_count": 5
   },
@@ -100,7 +100,7 @@
     "patch_count": 2,
     "patch_generation": 2,
     "pinned": false,
-    "state": "stale",
+    "state": "active",
     "use_count": 4,
     "view_count": 4
   },
@@ -557,7 +557,7 @@
     "view_count": 69
   },
   "wechat-cloud-base-api": {
-    "archived_at": null,
+    "archived_at": "2026-11-14T23:22:28.431069+00:00",
     "created_at": "2026-09-25T09:28:40.049394+00:00",
     "created_by": "agent",
     "last_patched_at": null,
@@ -567,7 +567,7 @@
     "patch_count": 0,
     "patch_generation": 0,
     "pinned": false,
-    "state": "stale",
+    "state": "archived",
     "use_count": 0,
     "view_count": 0
   },
@@ -587,7 +587,7 @@
     "view_count": 6
   },
   "wx-cloud-storage": {
-    "archived_at": null,
+    "archived_at": "2026-11-14T23:22:28.606283+00:00",
     "created_at": "2026-09-25T08:10:20.502712+00:00",
     "created_by": "agent",
     "last_patched_at": "2026-09-25T08:49:34.036893+00:00",
@@ -597,7 +597,7 @@
     "patch_count": 4,
     "patch_generation": 4,
     "pinned": false,
-    "state": "stale",
+    "state": "archived",
     "use_count": 4,
     "view_count": 4
   }
