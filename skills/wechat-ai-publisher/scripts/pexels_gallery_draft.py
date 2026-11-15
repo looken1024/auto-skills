@@ -199,7 +199,6 @@ _BUILTIN_TOPICS = [
     ("法罗群岛", "faroe islands cliff"),
     ("乌尤尼盐沼", "salar de uyuni mirror sky"),
     ("潘塔纳尔湿地", "pantanal wetland jaguar"),
-    ("众神之谷", "valley of the gods utah"),
     ("鸟取沙丘", "tottori sand dunes japan"),
     ("十六湖", "plitvice lakes croatia"),
     ("盖朗厄尔峡湾", "geirangerfjord norway"),
