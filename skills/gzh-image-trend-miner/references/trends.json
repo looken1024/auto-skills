@@ -1,119 +1,36 @@
 {
-  "last_run": "2026-10-01",
+  "last_run": "2026-11-15",
+  "note": "2026-08~10 条目已在池轮换中退出 topics 池，本轮起只跟踪仍在池内的节令词",
   "entries": [
     {
-      "cn": "天安门广场",
-      "en": "tiananmen square flag raising ceremony national day celebration",
-      "expires": "2026-10-08",
-      "added": "2026-09-24"
+      "cn": "长城初雪",
+      "en": "great wall of china snow winter mountain",
+      "expires": "2026-12-15",
+      "added": "2026-11-15"
     },
     {
-      "cn": "肉桂暖调",
-      "en": "cinnamon spice flat lay warm amber tones rustic wood cozy autumn still life",
-      "expires": "",
-      "added": "2026-09-25"
+      "cn": "故宫雪景",
+      "en": "forbidden city beijing snow covered roofs",
+      "expires": "2026-12-15",
+      "added": "2026-11-15"
     },
     {
-      "cn": "金色银杏",
-      "en": "golden ginkgo tree autumn leaves sunlight temple boulevard",
-      "expires": "",
-      "added": "2026-09-25"
+      "cn": "雾凇",
+      "en": "hoarfrost covered trees winter forest",
+      "expires": "2026-12-15",
+      "added": "2026-11-15"
     },
     {
-      "cn": "南瓜丰收",
-      "en": "pumpkin patch autumn harvest field orange pumpkins golden hour",
-      "expires": "",
-      "added": "2026-09-25"
+      "cn": "初冬芦苇",
+      "en": "golden reed grass wetland winter sunset",
+      "expires": "2026-11-30",
+      "added": "2026-11-15"
     },
     {
-      "cn": "雾林晨曦",
-      "en": "misty foggy forest dawn moody atmosphere cinematic nature",
-      "expires": "",
-      "added": "2026-09-26"
-    },
-    {
-      "cn": "电影感秋色",
-      "en": "cinematic autumn landscape wide angle golden hour forest lake",
-      "expires": "",
-      "added": "2026-09-26"
-    },
-    {
-      "cn": "手工纸纹",
-      "en": "handmade paper texture rustic background warm neutral fibers imperfection",
-      "expires": "",
-      "added": "2026-09-27"
-    },
-    {
-      "cn": "国庆山河",
-      "en": "china mountain landscape aerial view",
-      "expires": "2026-10-08",
-      "added": "2026-09-28"
-    },
-    {
-      "cn": "红旗飘扬",
-      "en": "chinese flag waving national day",
-      "expires": "2026-10-08",
-      "added": "2026-09-28"
-    },
-    {
-      "cn": "寒露柿子",
-      "en": "persimmon tree autumn branch orange",
-      "expires": "2026-10-15",
-      "added": "2026-09-28"
-    },
-    {
-      "cn": "霜降红叶",
-      "en": "autumn frost red leaves forest floor",
-      "expires": "2026-10-30",
-      "added": "2026-09-28"
-    },
-    {
-      "cn": "多巴胺撞色",
-      "en": "saturated colorful abstract gradient",
-      "expires": "2026-12-31",
-      "added": "2026-09-28"
-    },
-    {
-      "cn": "重阳菊花",
-      "en": "vibrant chrysanthemum autumn bloom garden colorful",
-      "expires": "2026-10-29",
-      "added": "2026-09-29"
-    },
-    {
-      "cn": "登高秋色",
-      "en": "autumn mountain hiking trail senior family sunset",
-      "expires": "2026-10-29",
-      "added": "2026-09-29"
-    },
-    {
-      "cn": "万圣节南瓜灯",
-      "en": "halloween jack o lantern pumpkin porch spooky candle",
-      "expires": "2026-11-01",
-      "added": "2026-09-30"
-    },
-    {
-      "cn": "秋日咖啡",
-      "en": "cozy autumn coffee latte cup warm rustic wood cinnamon leaves",
-      "expires": "",
-      "added": "2026-09-30"
-    },
-    {
-      "cn": "赤陶大地",
-      "en": "terracotta clay pot earthy tone rustic pottery warm ceramic",
-      "expires": "",
-      "added": "2026-09-30"
-    },
-    {
-      "cn": "国庆烟花",
-      "en": "national day fireworks celebration night sky colorful sparks",
-      "expires": "2026-10-08",
-      "added": "2026-10-01"
-    },
-    {
-      "cn": "红灯笼",
-      "en": "vibrant red chinese lanterns night festival glowing warm",
-      "expires": "2026-10-08",
-      "added": "2026-10-01"
+      "cn": "圣诞市集",
+      "en": "christmas market night lights festive stalls",
+      "expires": "2026-12-26",
+      "added": "2026-11-15"
     }
   ]
 }
