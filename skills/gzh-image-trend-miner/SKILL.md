@@ -23,6 +23,14 @@ description: "每日调研公众号热门图片/图集趋势，动态把热门�
 
 判据：一个题材要进入话题池，需要 **≥2 路搜索结果都指向它**，或有明确节令窗口（如中秋前 5 天圆月必然火）。
 
+**工具探活（每轮开头必做）**：`web_search` 走系统代理，代理挂了会四路后端一起 SSL EOF 报错，不是没结果，是没联网。先跑
+`curl -s --noproxy '*' -o /dev/null -w '%{http_code}' --max-time 10 https://www.bing.com/`（200=直连可用）。
+若 `web_search` 报 SSL/超时：用本 skill `scripts/bsearch.py` 直连 Bing，并直接 curl 栏目页拿最新稿（比搜索更新、更准）：
+- 人民网图片 `http://pic.people.com.cn/`（官媒组图，看日期判断新鲜度）
+- 3G壁纸节日频道 `https://www.3gbizhi.com/wallJR/index_1.html`（壁纸/节日题材上架情况）
+- 搜狗微信 `https://weixin.sogou.com/weixin?type=2&query=<词>`（公众号图集/海报热度）
+`web_search` 查询串里带年份（如「2026 …」）时 Bing 极易被日历类结果淹没，中文调研尽量不带年份、用短场景词。
+
 ### Step 2 转化为 Pexels 可搜关键词（硬约束）
 
 - 话题池是给 `pexels_gallery_draft.py` 用的，**每条必须是 Pexels 实拍能搜到的横图场景词**，中英双语 `{"cn":..,"en":..}`
@@ -50,3 +58,4 @@ description: "每日调研公众号热门图片/图集趋势，动态把热门�
 - 每次加词 ≤5 条，宁缺毋滥
 - 节令词必须带过期日期，不做永久性节令污染
 - 只加实拍授权可用的场景词，不碰肖像/logo/截图
+- `web_search` 失败时不许直接下「无新趋势」结论——它多半是代理/后端故障，先按 Step 1 的探活流程走直连

@@ -1,6 +1,6 @@
 {
-  "last_run": "2026-11-15",
-  "note": "2026-08~10 条目已在池轮换中退出 topics 池，本轮起只跟踪仍在池内的节令词",
+  "last_run": "2026-11-16",
+  "note": "只跟踪仍在 topics 池内的节令词；过期即从 topics.json / topics_stunning.json 移除",
   "entries": [
     {
       "cn": "长城初雪",
@@ -31,6 +31,30 @@
       "en": "christmas market night lights festive stalls",
       "expires": "2026-12-26",
       "added": "2026-11-15"
+    },
+    {
+      "cn": "小雪",
+      "en": "light snow falling pine forest winter",
+      "expires": "2026-12-06",
+      "added": "2026-11-16"
+    },
+    {
+      "cn": "雪乡",
+      "en": "snow covered wooden village houses winter",
+      "expires": "2027-02-28",
+      "added": "2026-11-16"
+    },
+    {
+      "cn": "候鸟湿地",
+      "en": "migratory birds wetland lake winter flock",
+      "expires": "2027-03-15",
+      "added": "2026-11-16"
+    },
+    {
+      "cn": "圣诞灯光",
+      "en": "christmas lights street night decoration bokeh",
+      "expires": "2026-12-27",
+      "added": "2026-11-16"
     }
   ]
 }
