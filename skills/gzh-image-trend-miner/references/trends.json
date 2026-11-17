@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-11-16",
+  "last_run": "2026-11-17",
   "note": "只跟踪仍在 topics 池内的节令词；过期即从 topics.json / topics_stunning.json 移除",
   "entries": [
     {
@@ -55,6 +55,24 @@
       "en": "christmas lights street night decoration bokeh",
       "expires": "2026-12-27",
       "added": "2026-11-16"
+    },
+    {
+      "cn": "城市初雪",
+      "en": "snowy city street night winter",
+      "expires": "2027-02-28",
+      "added": "2026-11-17"
+    },
+    {
+      "cn": "围炉煮茶",
+      "en": "outdoor tea kettle campfire winter snow",
+      "expires": "2027-02-28",
+      "added": "2026-11-17"
+    },
+    {
+      "cn": "滑雪场",
+      "en": "ski resort snowy mountain slope",
+      "expires": "2027-03-15",
+      "added": "2026-11-17"
     }
   ]
 }
