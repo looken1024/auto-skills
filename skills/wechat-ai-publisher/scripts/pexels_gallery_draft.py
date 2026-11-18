@@ -764,20 +764,28 @@ def _run_once(args):
                 except Exception as e:
                     print(f"! 查询「{q}」失败: {e}", file=sys.stderr)
             photos = []
+            seen_ids = set()   # 多路查询会返回同一张图，必须按 id 去重，否则同一张进图集两次
             for i in range(max((len(b) for b in buckets), default=0)):
                 for b in buckets:
                     if i < len(b):
+                        pid = b[i].get("id")
+                        if pid in seen_ids:
+                            continue
+                        seen_ids.add(pid)
                         photos.append(b[i])
             print(f"多路查询 {len(qlist)} 条，合并候选 {len(photos)} 张", file=sys.stderr)
         else:
             photos = pexels_search(qlist[0], per_page=args.count * 6, orientation=ori)
         picked = []   # [(path, md5, pexels_id)]
+        picked_ids = set()
         skipped = 0
         rejected = 0
         for p in photos:
             # 至少抓够 MIN_VALID 张，否则 --count 小于阈值时会误判
             if len(picked) >= max(args.count, MIN_VALID_IMAGES):
                 break
+            if p.get("id") in picked_ids:
+                continue
             # 只收符合本次随机方向的图
             if ori == "landscape" and p.get("width", 0) < p.get("height", 0):
                 continue
@@ -808,6 +816,7 @@ def _run_once(args):
             raw_out = os.path.join(save_dir, f"raw_{len(picked)+1}.jpg")
             shutil.copy(out, raw_out)
             picked.append((out, h, p["id"]))
+            picked_ids.add(p["id"])
             print(f"  + 下载 pexels {p['id']} md5={h[:12]} ({os.path.getsize(out)//1024}KB)", file=sys.stderr)
         if len(picked) < MIN_VALID_IMAGES:
             # 有效图不足：把这个关键词从池子里删掉，外层换下一个话题重试
@@ -873,9 +882,14 @@ def _run_once(args):
         today_str = datetime.now().strftime("%Y-%m-%d")
         if args.mode == "news":
             # 2026-11-03：图文消息标题改为契合地点/景点的描述，不再用「每日图集」
-            title = make_title(topic, getattr(args, "title_context", None),
-                               getattr(args, "country", None))
-            print(f"标题: {title}", file=sys.stderr)
+            # 2026-11-18：--title 可强制指定标题（模型生成失败时会退回模板，用户嫌模板化）
+            if getattr(args, "title", None):
+                title = args.title
+                print(f"标题(指定): {title}", file=sys.stderr)
+            else:
+                title = make_title(topic, getattr(args, "title_context", None),
+                                   getattr(args, "country", None))
+                print(f"标题: {title}", file=sys.stderr)
         else:
             title = f"{topic}·每日图集（{today_str}）"
         if args.mode == "news":
@@ -1174,6 +1188,8 @@ def main():
                     help="news=图文消息(可带小程序文字链) / newspic=贴图(无正文)。默认 news")
     ap.add_argument("--queries", default=None,
                     help="多路 Pexels 查询，竖线分隔（例如 'a|b|c'），按轮询混合取图")
+    ap.add_argument("--title", default=None,
+                    help="强制指定 news 草稿标题（覆盖模型生成的标题）")
     ap.add_argument("--title-context", default=None, help="给标题生成的补充信息（国家/人物/主题）")
     ap.add_argument("--country", default=None, help="只写一个国家时指定国名；标题里必须出现")
     args = ap.parse_args()
