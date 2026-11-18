@@ -20,10 +20,6 @@
     "en": "tangbula grassland"
   },
   {
-    "cn": "黄河石林",
-    "en": "yellow river stone forest"
-  },
-  {
     "cn": "官鹅沟",
     "en": "guane valley lake"
   },
@@ -128,10 +124,6 @@
     "en": "santorini beach"
   },
   {
-    "cn": "葡萄牙海滩",
-    "en": "portugal beach"
-  },
-  {
     "cn": "夏威夷海滩",
     "en": "hawaii beach"
   },
@@ -172,10 +164,6 @@
     "en": "cancun beach"
   },
   {
-    "cn": "哥斯达黎加雨林",
-    "en": "costa rica rainforest"
-  },
-  {
     "cn": "斐济群岛",
     "en": "fiji islands"
   },
@@ -190,10 +178,6 @@
   {
     "cn": "油画笔触",
     "en": "oil paint texture canvas"
-  },
-  {
-    "cn": "火烧云",
-    "en": "dramatic sunset clouds"
   },
   {
     "cn": "金色时刻",
@@ -232,18 +216,6 @@
     "en": "tidal flat"
   },
   {
-    "cn": "河流三角洲",
-    "en": "river delta aerial"
-  },
-  {
-    "cn": "高山草甸",
-    "en": "alpine meadow"
-  },
-  {
-    "cn": "湖泊群",
-    "en": "lake district"
-  },
-  {
     "cn": "湖畔森林",
     "en": "lake forest shoreline"
   },
@@ -256,14 +228,6 @@
     "en": "danxia landform"
   },
   {
-    "cn": "梦莲湖",
-    "en": "moraine lake"
-  },
-  {
-    "cn": "新西兰萤火虫洞",
-    "en": "glowworm cave"
-  },
-  {
     "cn": "粉红湖",
     "en": "pink lake australia"
   },
@@ -272,32 +236,12 @@
     "en": "cenote mexico"
   },
   {
-    "cn": "韩松洞",
-    "en": "hang son doong cave"
-  },
-  {
     "cn": "瓦迪拉姆",
     "en": "wadi rum desert"
   },
   {
-    "cn": "蓝湖",
-    "en": "blausee lake switzerland"
-  },
-  {
     "cn": "双色海",
     "en": "two color sea"
-  },
-  {
-    "cn": "信天翁",
-    "en": "albatross ocean"
-  },
-  {
-    "cn": "雪兔",
-    "en": "snow hare winter"
-  },
-  {
-    "cn": "南迦巴瓦峰",
-    "en": "namcha barwa"
   },
   {
     "cn": "漓江",
@@ -312,14 +256,6 @@
     "en": "bayanbulak grassland"
   },
   {
-    "cn": "普达措",
-    "en": "pudacuo national park"
-  },
-  {
-    "cn": "扎尕那",
-    "en": "zhagana"
-  },
-  {
     "cn": "可可西里",
     "en": "kekexili"
   },
@@ -330,10 +266,6 @@
   {
     "cn": "乌尔禾魔鬼城",
     "en": "urho ghost city yardang"
-  },
-  {
-    "cn": "萤火虫",
-    "en": "fireflies forest"
   },
   {
     "cn": "银杏",
@@ -354,10 +286,6 @@
   {
     "cn": "喀喇昆仑",
     "en": "Karakoram"
-  },
-  {
-    "cn": "哈巴雪山",
-    "en": "Haba Snow Mountain"
   },
   {
     "cn": "白马雪山",
@@ -388,24 +316,12 @@
     "en": "sunflower field"
   },
   {
-    "cn": "蓝花楹",
-    "en": "jacaranda"
-  },
-  {
     "cn": "环礁",
     "en": "atoll"
   },
   {
     "cn": "琼库什台",
     "en": "qiongkushitai grassland"
-  },
-  {
-    "cn": "艾肯泉",
-    "en": "aiken spring"
-  },
-  {
-    "cn": "西沙群岛",
-    "en": "paracel islands aerial"
   },
   {
     "cn": "枸杞岛",
@@ -456,10 +372,6 @@
     "en": "monument valley"
   },
   {
-    "cn": "彩虹山",
-    "en": "vinicunca rainbow mountain"
-  },
-  {
     "cn": "巨人之路",
     "en": "giants causeway"
   },
@@ -472,24 +384,12 @@
     "en": "meteora greece"
   },
   {
-    "cn": "青池",
-    "en": "blue pond biei"
-  },
-  {
-    "cn": "紫藤隧道",
-    "en": "wisteria tunnel japan"
-  },
-  {
     "cn": "爱妮岛",
     "en": "el nido palawan"
   },
   {
     "cn": "丽贝岛",
     "en": "koh lipe"
-  },
-  {
-    "cn": "哈尔施塔特",
-    "en": "hallstatt austria"
   },
   {
     "cn": "圣米歇尔山",
@@ -500,72 +400,20 @@
     "en": "amalfi coast"
   },
   {
-    "cn": "五渔村",
-    "en": "cinque terre"
-  },
-  {
     "cn": "卡普里岛",
     "en": "capri island"
-  },
-  {
-    "cn": "科托尔湾",
-    "en": "bay of kotor"
   },
   {
     "cn": "蓝眼泉",
     "en": "blue eye spring albania"
   },
   {
-    "cn": "死海",
-    "en": "dead sea"
-  },
-  {
-    "cn": "瓦希巴沙漠",
-    "en": "wahiba sands"
-  },
-  {
     "cn": "卢特沙漠",
     "en": "lut desert"
   },
   {
-    "cn": "伊塞克湖",
-    "en": "issyk kul lake"
-  },
-  {
-    "cn": "美瑛",
-    "en": "biei hills hokkaido"
-  },
-  {
-    "cn": "清水断崖",
-    "en": "qingshui cliff hualien"
-  },
-  {
-    "cn": "诺西贝岛",
-    "en": "nosy be island"
-  },
-  {
-    "cn": "桑给巴尔",
-    "en": "zanzibar beach"
-  },
-  {
-    "cn": "毛里求斯七色土",
-    "en": "seven colored earth mauritius"
-  },
-  {
-    "cn": "龙目岛",
-    "en": "lombok island"
-  },
-  {
     "cn": "老挝光西瀑布",
     "en": "kuang si waterfall"
-  },
-  {
-    "cn": "越南沙巴",
-    "en": "sapa valley vietnam"
-  },
-  {
-    "cn": "长城初雪",
-    "en": "great wall of china snow winter mountain"
   },
   {
     "cn": "故宫雪景",
@@ -576,24 +424,12 @@
     "en": "hoarfrost covered trees winter forest"
   },
   {
-    "cn": "初冬芦苇",
-    "en": "golden reed grass wetland winter sunset"
-  },
-  {
     "cn": "圣诞市集",
     "en": "christmas market night lights festive stalls"
   },
   {
     "cn": "泻湖",
     "en": "lagoon"
-  },
-  {
-    "cn": "海蚀柱",
-    "en": "sea stack"
-  },
-  {
-    "cn": "苔藓森林",
-    "en": "moss forest"
   },
   {
     "cn": "火烈鸟",
@@ -604,14 +440,6 @@
     "en": "emperor penguin"
   },
   {
-    "cn": "虎鲸",
-    "en": "orca"
-  },
-  {
-    "cn": "狼",
-    "en": "wolf"
-  },
-  {
     "cn": "赤狐",
     "en": "red fox"
   },
@@ -620,28 +448,12 @@
     "en": "squirrel"
   },
   {
-    "cn": "孔雀",
-    "en": "peacock"
-  },
-  {
     "cn": "天鹅",
     "en": "swan"
   },
   {
-    "cn": "袋鼠",
-    "en": "kangaroo"
-  },
-  {
     "cn": "翠鸟",
     "en": "kingfisher"
-  },
-  {
-    "cn": "水母",
-    "en": "jellyfish"
-  },
-  {
-    "cn": "桃花",
-    "en": "peach blossom"
   },
   {
     "cn": "梨花",
@@ -650,10 +462,6 @@
   {
     "cn": "杏花",
     "en": "apricot blossom"
-  },
-  {
-    "cn": "杜鹃花",
-    "en": "rhododendron"
   },
   {
     "cn": "睡莲",
@@ -666,14 +474,6 @@
   {
     "cn": "野花",
     "en": "wildflowers"
-  },
-  {
-    "cn": "蒲公英",
-    "en": "dandelion"
-  },
-  {
-    "cn": "枫叶",
-    "en": "autumn leaves"
   },
   {
     "cn": "松林",
@@ -708,14 +508,6 @@
     "en": "ocean waves"
   },
   {
-    "cn": "礁石",
-    "en": "rocky shore"
-  },
-  {
-    "cn": "彩虹",
-    "en": "rainbow"
-  },
-  {
     "cn": "雷雨",
     "en": "thunderstorm"
   },
@@ -732,14 +524,6 @@
     "en": "star trails"
   },
   {
-    "cn": "天然拱门",
-    "en": "natural arch"
-  },
-  {
-    "cn": "蘑菇",
-    "en": "mushroom"
-  },
-  {
     "cn": "荞麦花",
     "en": "buckwheat field"
   },
@@ -752,32 +536,16 @@
     "en": "amne machin snow mountain"
   },
   {
-    "cn": "大兴安岭",
-    "en": "greater khingan mountains forest"
-  },
-  {
     "cn": "小兴安岭",
     "en": "lesser khingan forest"
-  },
-  {
-    "cn": "大巴山",
-    "en": "daba mountains"
   },
   {
     "cn": "雪峰山",
     "en": "xuefeng mountain"
   },
   {
-    "cn": "四明山",
-    "en": "siming mountain"
-  },
-  {
     "cn": "雪窦山",
     "en": "xuedou mountain"
-  },
-  {
-    "cn": "十万大山",
-    "en": "shiwandashan forest"
   },
   {
     "cn": "崂山",
@@ -806,14 +574,6 @@
   {
     "cn": "兴凯湖",
     "en": "khanka lake"
-  },
-  {
-    "cn": "达里诺尔湖",
-    "en": "dalinor lake"
-  },
-  {
-    "cn": "博斯腾湖",
-    "en": "bosten lake"
   },
   {
     "cn": "乌梁素海",
@@ -854,5 +614,245 @@
   {
     "cn": "冬日晨霜",
     "en": "winter morning sunrise frost field"
+  },
+  {
+    "cn": "鸭绿江",
+    "en": "yalu river"
+  },
+  {
+    "cn": "澜沧江",
+    "en": "lancang river"
+  },
+  {
+    "cn": "闽江",
+    "en": "minjiang river"
+  },
+  {
+    "cn": "瓯江",
+    "en": "oujiang river"
+  },
+  {
+    "cn": "松花江",
+    "en": "songhua river"
+  },
+  {
+    "cn": "乌苏里江",
+    "en": "ussuri river"
+  },
+  {
+    "cn": "万山群岛",
+    "en": "wanshan islands"
+  },
+  {
+    "cn": "庙岛群岛",
+    "en": "miaodao islands"
+  },
+  {
+    "cn": "长山群岛",
+    "en": "changshan islands"
+  },
+  {
+    "cn": "花鸟岛",
+    "en": "huaniao island"
+  },
+  {
+    "cn": "灵山岛",
+    "en": "lingshan island"
+  },
+  {
+    "cn": "渤海湾",
+    "en": "bohai bay"
+  },
+  {
+    "cn": "木棉花",
+    "en": "kapok blossom"
+  },
+  {
+    "cn": "海棠花",
+    "en": "crabapple blossom"
+  },
+  {
+    "cn": "玉兰花",
+    "en": "magnolia blossom"
+  },
+  {
+    "cn": "紫薇花",
+    "en": "crape myrtle blossoms"
+  },
+  {
+    "cn": "凤凰木",
+    "en": "flamboyant tree blossom"
+  },
+  {
+    "cn": "杉木林",
+    "en": "fir forest"
+  },
+  {
+    "cn": "榕树",
+    "en": "banyan tree"
+  },
+  {
+    "cn": "柳树湖畔",
+    "en": "willow trees by lake"
+  },
+  {
+    "cn": "芒草",
+    "en": "silver grass hills"
+  },
+  {
+    "cn": "红草地",
+    "en": "red grass wetland"
+  },
+  {
+    "cn": "库木塔格沙漠",
+    "en": "kumtag desert"
+  },
+  {
+    "cn": "沙丘纹理",
+    "en": "sand dune ripples"
+  },
+  {
+    "cn": "冰封湖面",
+    "en": "frozen lake ice"
+  },
+  {
+    "cn": "雪松林",
+    "en": "snow covered pine forest"
+  },
+  {
+    "cn": "冰柱",
+    "en": "icicle cliff"
+  },
+  {
+    "cn": "浮冰",
+    "en": "ice floes sea"
+  },
+  {
+    "cn": "藏野驴",
+    "en": "kiang tibetan wild ass"
+  },
+  {
+    "cn": "兔狲",
+    "en": "pallas cat"
+  },
+  {
+    "cn": "黑颈鹤",
+    "en": "black-necked crane"
+  },
+  {
+    "cn": "鸳鸯",
+    "en": "mandarin duck"
+  },
+  {
+    "cn": "大青山",
+    "en": "daqing mountain"
+  },
+  {
+    "cn": "阴山",
+    "en": "yinshan mountains"
+  },
+  {
+    "cn": "猫儿山",
+    "en": "maoer mountain"
+  },
+  {
+    "cn": "九岭山",
+    "en": "jiuling mountain"
+  },
+  {
+    "cn": "幕阜山",
+    "en": "mufu mountain"
+  },
+  {
+    "cn": "熊耳山",
+    "en": "xionger mountain"
+  },
+  {
+    "cn": "中条山",
+    "en": "zhongtiao mountain"
+  },
+  {
+    "cn": "龙栖山",
+    "en": "longqi mountain"
+  },
+  {
+    "cn": "太湖",
+    "en": "taihu lake"
+  },
+  {
+    "cn": "骆马湖",
+    "en": "luoma lake"
+  },
+  {
+    "cn": "高邮湖",
+    "en": "gaoyou lake"
+  },
+  {
+    "cn": "白洋淀",
+    "en": "baiyangdian lake"
+  },
+  {
+    "cn": "东钱湖",
+    "en": "dongqian lake"
+  },
+  {
+    "cn": "滇池",
+    "en": "dianchi lake"
+  },
+  {
+    "cn": "钱塘江",
+    "en": "qiantang river"
+  },
+  {
+    "cn": "大渡河",
+    "en": "dadu river"
+  },
+  {
+    "cn": "雅砻江",
+    "en": "yalong river"
+  },
+  {
+    "cn": "嘉陵江",
+    "en": "jialing river"
+  },
+  {
+    "cn": "汉江",
+    "en": "hanjiang river"
+  },
+  {
+    "cn": "淮河",
+    "en": "huaihe river"
+  },
+  {
+    "cn": "南日岛",
+    "en": "nanri island"
+  },
+  {
+    "cn": "养马岛",
+    "en": "yangma island"
+  },
+  {
+    "cn": "硇洲岛",
+    "en": "naozhou island"
+  },
+  {
+    "cn": "川山群岛",
+    "en": "chuanshan islands"
+  },
+  {
+    "cn": "分界洲岛",
+    "en": "fenjiezhou island"
+  },
+  {
+    "cn": "石梅湾",
+    "en": "shimei bay"
+  },
+  {
+    "cn": "棋子湾",
+    "en": "qizi bay"
+  },
+  {
+    "cn": "杨树林",
+    "en": "poplar forest"
   }
 ]
