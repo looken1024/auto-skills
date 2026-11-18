@@ -52,6 +52,7 @@ description: "每日调研公众号热门图片/图集趋势，动态把热门�
 ## 调度
 - cron：每日上午 09:40（错开其他任务），agent 版，带 continuity（能看到上轮报告和 trends.json，避免重复调研同一结论）
 - GitHub 提交：改完主动跑 `bash ~/.hermes/scripts/skills_backup.sh`（topics.json 在 wechat-ai-publisher 下会一起被推）
+- 备份脚本的坑：`/tmp/auto-skills-push` 会因 /tmp 清理导致 git 对象库损坏（`unable to read tree`），此时 add/commit/push 全空转、旧版还会误报 ✅。脚本已加预检 + `ls-remote` 远端核实；若报「对象库损坏」，就 `git clone --depth 1 git@github.com:looken1024/auto-skills.git` 到新目录、rsync 后 commit/push，再把新目录换回 `/tmp/auto-skills-push`（全量 clone 约 10 分钟，别用前台 300s 超时）
 
 ## 红线
 - 不为追热点加 Pexels 搜不到的词——搜不到=图集流水线直接跳题，白占池位
