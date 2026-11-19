@@ -161,6 +161,10 @@ $PYTHON $SCRIPTS/create_draft.py \
 - **`--title` 可强制指定 news 标题**：`make_title()` 调模型失败时会静默退回「{话题}｜一眼心动的风景」模板，用户明确嫌这种 AI 味。生成失败或要指定时直接传 `--title`。
 - **有效新图不足 9 张时脚本仍会建稿**（`MIN_VALID_IMAGES=5`）。要满 9 张就加查询路线（长江用 5 路：`yangtze river china` / `three gorges yangtze` / `chongqing skyline river` / `yangtze river gorge` / `three gorges dam`）。只有 7 张的稿子用户不要：删草稿后必须把本轮 md5 从 `logs/gallery_sent_md5.json` 的 `md5s` 和 `list` 里一起移除，否则重跑会全被判重、永远凑不满。
 - Pexels 上中国的阿勒泰冬季实景可用，搜 `altay xinjiang snow` / `xinjiang snow`，alt 会标 `Altay Prefecture, Xinjiang`，比俄属阿尔泰的图更贴题。
+- **稀缺题材凑不满 9 张时**：先用 `pexels_search(q, per_page=80)` 把该题材深翻一遍，再按 `alt` 里的地名字符串过滤，能捞出台账外的真图（梅里雪山最终拿到 8 张新图 + 2 张旧图候选）。不要拿邻近题材顶替，也不要静默交 7-8 张。
+- **草稿已建、只差第 9 张时走 `draft/update`，别整篇重跑**：`uploadimg` 上传缺的那张 → `draft/get` 取 `content` → 在 `<p><a data-miniprogram` 之前插入 `<p><img src="..." style="width:100%;"/></p><p><br/></p>` → `draft/update`，body 为 `{"media_id": ..., "index": 0, "articles": {...}}`，articles 复用 draft/get 返回的 title/author/digest/content_source_url/thumb_media_id/need_open_comment/only_fans_can_comment。整篇重建要 8-10 分钟，update 约 1 分钟。
+- **手工补的图要单独补云转存**：`cloud_stash()` 只处理脚本自己那一批；补图后造一个临时目录（`full_1.jpg` = 处理图、`final_1.jpg` = 压缩图）再调一次，否则会出现草稿 9 张、云库 8 条。
+- **补的是复用旧图或邻近题材图时，在回执里说明**（例：“第 9 张用了同一座山的旧图补位”），别让用户以为是新图。
 
 ### 话题池构成（2026-10-03）
 - 77 条纯自然风景（山水/花草/树木/冰雪/沙漠/湖海，建筑·城市·人文·节庆已全数剔除）
@@ -310,6 +314,8 @@ $PYTHON $SCRIPTS/create_draft.py \
 - **图与图之间、以及最后链接之前各留一个空行**：用 `<p><br/></p>` 当分隔符拼接（`"<p><br/></p>".join(blocks)`）。直接 `"".join()` 连排会挤成一片。微信存库时会规范成 `<br  />`，回读校验别按 `<br/>` 原文匹配。
 
 ### 其他坑
+
+- **写文章（run_pipeline）也要带小程序链接时**：在 `article.md` 末尾直接写同一段 raw HTML（`<p><a data-miniprogram-appid="..." ...>文案</a></p>`），markdown→HTML 会原样保留；建稿后用 `draft/get` 确认 `data-miniprogram-appid` 还在（实测保留）。别指望在 md 里写 `#小程序://` 或普通 `[文字](链接)`。
 
 - **`draft/update` 不能改文章类型**：`newspic` → `news` 会报 `53403 不支持修改文章类型`。要换类型只能**新建草稿 + 删旧的**（`draft/delete`）。
 - **`draft/batchget` 才是列草稿的接口**；写成 `draft/getdraft` 会报 `40066 invalid url`（误导性报错）。单篇用 `draft/get`。

@@ -59,6 +59,11 @@ hermes cron edit <job_id> --provider <provider> --model <model>
 - **工具层差异**：`cronjob` 工具本身没有 `model` / `provider` 参数；要改模型/供应商必须走 CLI `hermes cron edit <id> --model ... --provider ...`，改完用 `hermes cron list` 复核。
 - **`no_agent=true` 的任务，`model`/`provider` 只是元数据**：实际调用哪个模型由脚本自己决定（如微头条的 `wt_common.MODEL_CHAIN`）。只改 cron 记录不会换模型，必须改脚本里的模型链/端点。
 
+### 1.1b resume 已过期的任务会立即补跑一次
+
+- `next_run_at` 已经过去的任务被 `resume` 后，会**立刻触发一次补跑**，然后重算到下一个 cron 槽位。`resume` 的返回里可能仍显示那个过期时间，别据此判断没排上——跑完后读 `~/.hermes/cron/jobs.json` 的 `next_run_at` 复核。
+- 补跑期间同一流水线的其他任务（每小时贴图、整点图集）可能同时在跑。手动触发前先 `pgrep -af "<脚本名>"` 看一眼，避免两个进程抢台账/磁盘。
+
 ### 1.2 免费模型 429 → fallback 链
 ```bash
 hermes config set fallback_providers '[{"provider":"cline_local","model":"dots-studio/dots-3-note-preview:free"}, ...]'
@@ -95,6 +100,8 @@ hermes config set auxiliary.vision.model deepseek-flash
   2. `~/.hermes/cron/executions.db`（`claimed_at/started_at/finished_at/status/error`）
   3. **实际产物**：业务侧的台账/列表页（例：`logs/published.log`、头条作品管理页、草稿箱 batchget）
 - **最快健康度信号：回执的最后一句**。是结果（`RESULT: 已发布 ...`）才算跑完；是进度说明（“P1-P4 已写入，继续写入 P5-P7”）= 模型半途交卷。
+- **执行成功 ≠ 投递成功**：`last_status: delivery_failed` 且 `last_error` 为空，意思是脚本跑完了、只是回执没发出去（本机常见 `iLink sendmessage session not ready: ret=-2`）。汇报时把两层分开说——“任务在正常产草稿，只是微信回执没送到”，不要把它当任务失败去修脚本。
+- **看全量状态读 `~/.hermes/cron/jobs.json`**：字段 `enabled` / `schedule.display` / `next_run_at` / `last_status` / `last_error` / `last_delivery_error`，比 `cronjob list` 的大段 JSON 好筛。用户问“哪些任务在跑/失败了”时，先按 `enabled` 分组，再把 exec 错误和 deliver 错误分开列。
 
 ## 3. 加固 agentic 流水线的 prompt（弱模型/长流程必做）
 

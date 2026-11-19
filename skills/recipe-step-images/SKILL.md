@@ -64,12 +64,13 @@ python3 scripts/cover_design.py --img cover_src.jpg --title 干锅菜花 \
 1. 收到菜谱立刻把它拆成 `steps.json`（每步一条：`step` / `img` / `text`），**再等图**。编号先定死，后面收到的图只往上对号，不会错位。
 2. 每道菜一个工作目录：`~/recipe_imgs/<拼音菜名>/`，内含 `steps.json`、`src/`（原图）、`out/`（成品）、`cover_src.jpg`、`cover.jpg`、`<菜名>_steps.zip`。不要把所有菜混在同一层。
 3. 用户按顺序发图。每收到一张：立刻从微信缓存拷进 `src/N.jpg`（路径形如 `~/.hermes/cache/documents/native-inputs/<hash>/img_*.jpg`，缓存会被清理，别直接拿原路径当输入），用第 N 步文案渲染 `out/N.jpg`，马上回传预览并报“第 N 步好了”。
-4. 用户说“这张发错了”时，等新图直接覆盖同名 `src/N.jpg` / `out/N.jpg`，不另起编号。
-5. 全部收完：跑 `python3 scripts/verify_outputs.py steps.json out` 校验尺寸与字号，再打包 zip 一起给。
+4. 用户说“这张发错了”时，等新图直接覆盖同名 `src/N.jpg` / `out/N.jpg`，不另起编号。**如果 zip 已经发过，替换后必须重建 zip 再发一次**，否则用户手里还是旧包（当时只发现单张预览换了、压缩包没换）。
+5. 全部收完：跑 `python3 scripts/verify_outputs.py steps.json out` 校验尺寸与字号，再打包 zip 一起给。重发过某一步的，打包前先确认 `out/N.jpg` 的修改时间是最新的。
 6. 封面：默认等用户发成品图当底图——他明确要求自己提供底图、只要排字，不要主动 AI 生成底图（除非他让你生成）。标题用菜名，英文副标题给意译，kicker 写版本与份量（如“豆角五花肉 · 2～3人份”“家常少油版 · 2～3人份”）。
 
 ## 坑
 
+- 封面底图先用 PIL 量尺寸和亮度再定渐变：3:4 的 1280×1707 正好匹配 1080×1440，不用裁；顶部 35% 平均亮度 >100 时 alpha 215 的渐变够压住白字，不需要整块黑底。
 - 步骤编号由文案自带（“1. 处理菜花……”），脚本不会自动加。
 - 换字体前用 fontTools 查缺字：`TTFont(p).getBestCmap()`，标题字不在 cmap 里会渲染成空白。
 - pollinations 免费通道的 402/503 是限流（1 张/45 秒），不是坏 key：间隔 50 秒重试即可。别加 `?width=` 等参数，容易触发 402；可用入口是 `https://pollinations.ai/p/<urlencoded prompt>`。
