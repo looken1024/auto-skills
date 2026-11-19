@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-11-18",
+  "last_run": "2026-11-19",
   "note": "只跟踪仍在 topics 池内的节令词；过期即从 topics.json / topics_stunning.json 移除",
   "entries": [
     {
@@ -85,6 +85,12 @@
       "en": "winter morning sunrise frost field",
       "expires": "2027-02-28",
       "added": "2026-11-18"
+    },
+    {
+      "cn": "冰瀑",
+      "en": "frozen waterfall ice cliff winter",
+      "expires": "2027-02-28",
+      "added": "2026-11-19"
     }
   ]
 }
