@@ -148,6 +148,13 @@ $PYTHON $SCRIPTS/create_draft.py \
 - 实测（火烈鸟群）：候选取 15 张，拦下 6 张（4 张 sharp 20/50/67/120 模糊 + 2 张 sat 22/26 灰暗），留 9 张，vision 复核 6.5～7/10 合格。
 - ⚠️ **QC 依赖 numpy，cron 里要钉解释器**：裸 `python3` 可能解析到 Hermes venv（有 PIL/requests、缺 numpy），表现为图片已下载、到 `qc_sharpness()` 才抛 `ModuleNotFoundError: No module named 'numpy'`。包装脚本按能力选解释器，修完先 `--dry-run --count 3` 验 QC 通路。
 
+### 多路查询去重与强制标题（2026-11-18）
+
+- **多路 `--queries` 必须按 Pexels id 去重**：同一张图会被多个查询同时返回，旧代码只按 md5 查历史台账、不查本轮已选，结果同一张图进图集两次。已在合并阶段加 `seen_ids`，挑选循环加 `picked_ids`。
+- **`--title` 可强制指定 news 标题**：`make_title()` 调模型失败时会静默退回「{话题}｜一眼心动的风景」模板，用户明确嫌这种 AI 味。生成失败或要指定时直接传 `--title`。
+- **有效新图不足 9 张时脚本仍会建稿**（`MIN_VALID_IMAGES=5`）。要满 9 张就加查询路线（长江用 5 路：`yangtze river china` / `three gorges yangtze` / `chongqing skyline river` / `yangtze river gorge` / `three gorges dam`）。只有 7 张的稿子用户不要：删草稿后必须把本轮 md5 从 `logs/gallery_sent_md5.json` 的 `md5s` 和 `list` 里一起移除，否则重跑会全被判重、永远凑不满。
+- Pexels 上中国的阿勒泰冬季实景可用，搜 `altay xinjiang snow` / `xinjiang snow`，alt 会标 `Altay Prefecture, Xinjiang`，比俄属阿尔泰的图更贴题。
+
 ### 话题池构成（2026-10-03）
 - 77 条纯自然风景（山水/花草/树木/冰雪/沙漠/湖海，建筑·城市·人文·节庆已全数剔除）
 - **+37 条动物**（非洲象、长颈鹿、雪豹、大熊猫、北极熊、座头鲸、火烈鸟群、丹顶鹤、企鹅群、发光水母……）→ **共 114 条**
