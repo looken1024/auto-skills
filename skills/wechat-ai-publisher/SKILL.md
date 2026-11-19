@@ -121,6 +121,13 @@ $PYTHON $SCRIPTS/create_draft.py \
 
 **横版**：`ori` 已硬编码为 `landscape`（用户要求图集一律横版），不再随机选方向。
 
+### 需求识别：“图集”不等于“文章”（硬性）
+
+- 用户说“做个图集 / 九张美景图 / 不要文字 / 带小程序链接” → **直接跑 `pexels_gallery_draft.py --mode news`**，不要先写文章。两者产物完全不同：文章走 `run_pipeline`（一篇图文，正文是字），图集是一组纯图片 + 链接。做错方向等于白做，用户会直接炸。
+- 只有用户明确说“文章 / 推文 / 写一篇 / 要正文”时才写文章。拿不准时**先问一句**要文章还是图片组，别自作主张写一篇。
+- **产出张数必须等于用户要求**（默认 9）。脚本 `MIN_VALID_IMAGES=5`，有效新图只有 7 张也会报 `status: success`；所以验收不能只看 success，要用 `draft/get` 数 `content.count('<img')`，不足就按上一节“有效新图不足”的补救流程重做。
+- 盯任务进程用 `pgrep -f "pexels_gallery_draft.py --mode news "`（末尾加空格）或 `pgrep -af ... | grep -v newspic`。`news` 是 `newspic` 的前缀，不加边界会把每小时的贴图任务误判成图集任务还在跑。
+
 ### 调度拆分（2026-10-03 起；频率/启停以 `cronjob list` 为准）
 - cron `9d58e7843134`「公众号图集（图文消息）」→ 现在 `0 */2 * * *`，跑 `gallery_draft_daily.sh`（`--mode news`）。**2026-11-14 用户已要求暂停**（只保留纯贴图）。
 - cron `6b86d039a651`「公众号贴图-每小时（纯贴图，无正文）」→ `every 60m`，跑 `gallery_draft_hourly.sh`（`--mode newspic`），当前在跑。
