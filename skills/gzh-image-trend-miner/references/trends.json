@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-11-19",
+  "last_run": "2026-11-20",
   "note": "只跟踪仍在 topics 池内的节令词；过期即从 topics.json / topics_stunning.json 移除",
   "entries": [
     {
@@ -91,6 +91,24 @@
       "en": "frozen waterfall ice cliff winter",
       "expires": "2027-02-28",
       "added": "2026-11-19"
+    },
+    {
+      "cn": "水杉林",
+      "en": "red cypress trees lake reflection autumn",
+      "expires": "2026-12-31",
+      "added": "2026-11-20"
+    },
+    {
+      "cn": "梯田冬水",
+      "en": "rice terraces water reflection sunrise",
+      "expires": "2027-03-15",
+      "added": "2026-11-20"
+    },
+    {
+      "cn": "柿子红了",
+      "en": "persimmon tree autumn orange fruit",
+      "expires": "2026-12-31",
+      "added": "2026-11-20"
     }
   ]
 }

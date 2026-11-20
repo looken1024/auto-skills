@@ -1,722 +1,730 @@
 [
-  {
-    "cn": "冰岛玄武岩柱",
-    "en": "basalt columns iceland"
-  },
-  {
-    "cn": "冰岛飞机残骸",
-    "en": "plane wreck iceland beach"
-  },
-  {
-    "cn": "冰岛高地",
-    "en": "iceland highlands landscape"
-  },
-  {
-    "cn": "冰岛极光",
-    "en": "iceland aurora borealis"
-  },
-  {
-    "cn": "罗弗敦群岛",
-    "en": "lofoten islands aerial"
-  },
-  {
-    "cn": "布道石",
-    "en": "preikestolen cliff norway"
-  },
-  {
-    "cn": "恶魔之舌",
-    "en": "trolltunga rock norway"
-  },
-  {
-    "cn": "盖朗厄尔峡湾",
-    "en": "geirangerfjord norway"
-  },
-  {
-    "cn": "松恩峡湾",
-    "en": "sognefjord norway"
-  },
-  {
-    "cn": "塞尼亚岛",
-    "en": "senja island norway"
-  },
-  {
-    "cn": "法罗群岛",
-    "en": "faroe islands cliffs"
-  },
-  {
-    "cn": "阿塔卡马沙漠",
-    "en": "atacama desert night sky"
-  },
-  {
-    "cn": "大柴旦翡翠湖",
-    "en": "dachaidan emerald lake"
-  },
-  {
-    "cn": "茫崖翡翠湖",
-    "en": "mangya emerald lake"
-  },
-  {
-    "cn": "梵净山",
-    "en": "fanjing mountain"
-  },
-  {
-    "cn": "东川红土地",
-    "en": "dongchuan red earth"
-  },
-  {
-    "cn": "普者黑",
-    "en": "puzhehei lotus lake"
-  },
-  {
-    "cn": "德天瀑布",
-    "en": "detian waterfall"
-  },
-  {
-    "cn": "平潭蓝眼泪",
-    "en": "bioluminescent waves beach"
-  },
-  {
-    "cn": "阿尔山天池",
-    "en": "arshan lake"
-  },
-  {
-    "cn": "珠峰大本营",
-    "en": "everest base camp"
-  },
-  {
-    "cn": "雨崩村",
-    "en": "yubeng village mountain"
-  },
-  {
-    "cn": "额济纳胡杨",
-    "en": "ejina poplar forest"
-  },
-  {
-    "cn": "塔里木胡杨",
-    "en": "tarim poplar forest"
-  },
-  {
-    "cn": "鸣沙山月牙泉",
-    "en": "mingsha crescent lake"
-  },
-  {
-    "cn": "伊犁杏花",
-    "en": "ili apricot blossom"
-  },
-  {
-    "cn": "白沙湖",
-    "en": "white sand lake pamir"
-  },
-  {
-    "cn": "大棱镜温泉",
-    "en": "grand prismatic spring"
-  },
-  {
-    "cn": "死亡谷",
-    "en": "death valley salt flat"
-  },
-  {
-    "cn": "锡安国家公园",
-    "en": "zion national park"
-  },
-  {
-    "cn": "拱门国家公园",
-    "en": "arches national park"
-  },
-  {
-    "cn": "优胜美地",
-    "en": "yosemite valley"
-  },
-  {
-    "cn": "班夫",
-    "en": "banff lake mountains"
-  },
-  {
-    "cn": "路易斯湖",
-    "en": "lake louise"
-  },
-  {
-    "cn": "百内国家公园",
-    "en": "torres del paine"
-  },
-  {
-    "cn": "伊瓜苏瀑布",
-    "en": "iguazu falls"
-  },
-  {
-    "cn": "天使瀑布",
-    "en": "angel falls"
-  },
-  {
-    "cn": "维多利亚瀑布",
-    "en": "victoria falls"
-  },
-  {
-    "cn": "纳米布沙漠",
-    "en": "namib desert dunes"
-  },
-  {
-    "cn": "猴面包树",
-    "en": "baobab avenue madagascar"
-  },
-  {
-    "cn": "大堡礁",
-    "en": "great barrier reef aerial"
-  },
-  {
-    "cn": "夏威夷火山",
-    "en": "hawaii volcano lava"
-  },
-  {
-    "cn": "黄刀极光",
-    "en": "yellowknife aurora"
-  },
-  {
-    "cn": "芬兰极光",
-    "en": "finnish lapland aurora"
-  },
-  {
-    "cn": "沙漠星空",
-    "en": "desert starry sky"
-  },
-  {
-    "cn": "雪山星空",
-    "en": "snow mountain night sky"
-  },
-  {
-    "cn": "黄河石林",
-    "en": "yellow river stone forest"
-  },
-  {
-    "cn": "卡帕多奇亚",
-    "en": "cappadocia balloons"
-  },
-  {
-    "cn": "银河拱桥",
-    "en": "milky way arch night sky"
-  },
-  {
-    "cn": "古典油画",
-    "en": "classical oil painting"
-  },
-  {
-    "cn": "文艺复兴壁画",
-    "en": "renaissance fresco"
-  },
-  {
-    "cn": "西斯廷天顶画",
-    "en": "sistine chapel ceiling"
-  },
-  {
-    "cn": "巴洛克壁画",
-    "en": "baroque ceiling fresco"
-  },
-  {
-    "cn": "油画肖像",
-    "en": "oil portrait painting"
-  },
-  {
-    "cn": "海景油画",
-    "en": "seascape oil painting"
-  },
-  {
-    "cn": "静物油画",
-    "en": "still life oil painting"
-  },
-  {
-    "cn": "画廊油画墙",
-    "en": "art gallery paintings wall"
-  },
-  {
-    "cn": "印象派色彩",
-    "en": "impressionist color painting"
-  },
-  {
-    "cn": "抽象油画",
-    "en": "abstract oil painting"
-  },
-  {
-    "cn": "油画笔触",
-    "en": "oil paint texture canvas"
-  },
-  {
-    "cn": "博物馆名画",
-    "en": "museum masterpiece painting"
-  },
-  {
-    "cn": "火烧云",
-    "en": "dramatic sunset clouds"
-  },
-  {
-    "cn": "暮色云霞",
-    "en": "twilight clouds colors"
-  },
-  {
-    "cn": "金色时刻",
-    "en": "golden hour landscape"
-  },
-  {
-    "cn": "喀斯特溶洞",
-    "en": "karst cave interior"
-  },
-  {
-    "cn": "地下河",
-    "en": "underground river cave"
-  },
-  {
-    "cn": "天坑",
-    "en": "tiankeng sinkhole"
-  },
-  {
-    "cn": "石林",
-    "en": "stone forest karst"
-  },
-  {
-    "cn": "红树林",
-    "en": "mangrove forest"
-  },
-  {
-    "cn": "原始森林",
-    "en": "old growth forest"
-  },
-  {
-    "cn": "云雾森林",
-    "en": "cloud forest"
-  },
-  {
-    "cn": "温泉",
-    "en": "hot spring pool"
-  },
-  {
-    "cn": "间歇泉",
-    "en": "geyser eruption"
-  },
-  {
-    "cn": "地热谷",
-    "en": "geothermal valley"
-  },
-  {
-    "cn": "火山口湖",
-    "en": "volcanic crater lake"
-  },
-  {
-    "cn": "群岛航拍",
-    "en": "archipelago aerial"
-  },
-  {
-    "cn": "半岛海岸",
-    "en": "peninsula coast"
-  },
-  {
-    "cn": "海蚀洞",
-    "en": "sea cave coast"
-  },
-  {
-    "cn": "蓝洞",
-    "en": "blue hole ocean"
-  },
-  {
-    "cn": "潮汐滩涂",
-    "en": "tidal flat"
-  },
-  {
-    "cn": "河流三角洲",
-    "en": "river delta aerial"
-  },
-  {
-    "cn": "高山草甸",
-    "en": "alpine meadow"
-  },
-  {
-    "cn": "苔原",
-    "en": "tundra landscape"
-  },
-  {
-    "cn": "沙丘曲线",
-    "en": "sand dune curves"
-  },
-  {
-    "cn": "湖泊群",
-    "en": "lake district"
-  },
-  {
-    "cn": "红土地",
-    "en": "red earth farmland"
-  },
-  {
-    "cn": "野花草原",
-    "en": "wildflower meadow"
-  },
-  {
-    "cn": "石柱海岸",
-    "en": "sea stacks coast"
-  },
-  {
-    "cn": "湖畔森林",
-    "en": "lake forest shoreline"
-  },
-  {
-    "cn": "河流蜿蜒",
-    "en": "river bend aerial"
-  },
-  {
-    "cn": "瀑布深潭",
-    "en": "waterfall plunge pool"
-  },
-  {
-    "cn": "丹霞地貌",
-    "en": "danxia landform"
-  },
-  {
-    "cn": "溶洞钟乳石",
-    "en": "stalactite cave"
-  },
-  {
-    "cn": "沙漠绿洲",
-    "en": "desert oasis"
-  },
-  {
-    "cn": "海上石林",
-    "en": "sea karst pillars"
-  },
-  {
-    "cn": "梦莲湖",
-    "en": "moraine lake"
-  },
-  {
-    "cn": "新西兰萤火虫洞",
-    "en": "glowworm cave"
-  },
-  {
-    "cn": "粉红湖",
-    "en": "pink lake australia"
-  },
-  {
-    "cn": "玫瑰湖",
-    "en": "lake retba pink"
-  },
-  {
-    "cn": "墨西哥天坑",
-    "en": "cenote mexico"
-  },
-  {
-    "cn": "韩松洞",
-    "en": "hang son doong cave"
-  },
-  {
-    "cn": "瓦迪拉姆",
-    "en": "wadi rum desert"
-  },
-  {
-    "cn": "埃及白沙漠",
-    "en": "white desert egypt"
-  },
-  {
-    "cn": "波浪谷",
-    "en": "the wave arizona"
-  },
-  {
-    "cn": "大理石洞",
-    "en": "marble caves chile"
-  },
-  {
-    "cn": "仙女池",
-    "en": "fairy pools skye"
-  },
-  {
-    "cn": "蓝湖",
-    "en": "blausee lake switzerland"
-  },
-  {
-    "cn": "双色海",
-    "en": "two color sea"
-  },
-  {
-    "cn": "夏塔古道",
-    "en": "xiata valley"
-  },
-  {
-    "cn": "艾肯泉",
-    "en": "aiken spring"
-  },
-  {
-    "cn": "西沙群岛",
-    "en": "paracel islands aerial"
-  },
-  {
-    "cn": "镇海角",
-    "en": "zhenhaijiao cape"
-  },
-  {
-    "cn": "金佛山",
-    "en": "jinfo mountain"
-  },
-  {
-    "cn": "牛背山",
-    "en": "niubei mountain sea of clouds"
-  },
-  {
-    "cn": "班公湖",
-    "en": "pangong lake"
-  },
-  {
-    "cn": "然乌湖",
-    "en": "ranwu lake"
-  },
-  {
-    "cn": "千湖山",
-    "en": "qianhu mountain"
-  },
-  {
-    "cn": "蓝月谷",
-    "en": "blue moon valley"
-  },
-  {
-    "cn": "白水台",
-    "en": "baishuitai terraces"
-  },
-  {
-    "cn": "独龙江",
-    "en": "dulong river valley"
-  },
-  {
-    "cn": "丙中洛",
-    "en": "bingzhongluo"
-  },
-  {
-    "cn": "坝美",
-    "en": "bamei village"
-  },
-  {
-    "cn": "嵛山岛",
-    "en": "yushan island"
-  },
-  {
-    "cn": "台山岛",
-    "en": "taishan island"
-  },
-  {
-    "cn": "南麂岛",
-    "en": "nanji island"
-  },
-  {
-    "cn": "大陈岛",
-    "en": "dachen island"
-  },
-  {
-    "cn": "渔山列岛",
-    "en": "yushan islands"
-  },
-  {
-    "cn": "海王九岛",
-    "en": "haiwang nine islands"
-  },
-  {
-    "cn": "广鹿岛",
-    "en": "guanglu island"
-  },
-  {
-    "cn": "纪念碑谷",
-    "en": "monument valley"
-  },
-  {
-    "cn": "彩虹山",
-    "en": "vinicunca rainbow mountain"
-  },
-  {
-    "cn": "巨人之路",
-    "en": "giants causeway"
-  },
-  {
-    "cn": "黑暗树篱",
-    "en": "dark hedges"
-  },
-  {
-    "cn": "多佛白崖",
-    "en": "white cliffs dover"
-  },
-  {
-    "cn": "天空岛",
-    "en": "isle of skye"
-  },
-  {
-    "cn": "梅黛奥拉",
-    "en": "meteora greece"
-  },
-  {
-    "cn": "青池",
-    "en": "blue pond biei"
-  },
-  {
-    "cn": "紫藤隧道",
-    "en": "wisteria tunnel japan"
-  },
-  {
-    "cn": "日立海滨公园",
-    "en": "nemophila field japan"
-  },
-  {
-    "cn": "爱妮岛",
-    "en": "el nido palawan"
-  },
-  {
-    "cn": "丽贝岛",
-    "en": "koh lipe"
-  },
-  {
-    "cn": "斯米兰群岛",
-    "en": "similan islands"
-  },
-  {
-    "cn": "蒲甘",
-    "en": "bagan temples"
-  },
-  {
-    "cn": "克什米尔",
-    "en": "kashmir valley"
-  },
-  {
-    "cn": "劳特布龙嫩",
-    "en": "lauterbrunnen valley"
-  },
-  {
-    "cn": "哈尔施塔特",
-    "en": "hallstatt austria"
-  },
-  {
-    "cn": "圣米歇尔山",
-    "en": "mont saint michel"
-  },
-  {
-    "cn": "阿马尔菲海岸",
-    "en": "amalfi coast"
-  },
-  {
-    "cn": "五渔村",
-    "en": "cinque terre"
-  },
-  {
-    "cn": "卡普里岛",
-    "en": "capri island"
-  },
-  {
-    "cn": "科托尔湾",
-    "en": "bay of kotor"
-  },
-  {
-    "cn": "蓝眼泉",
-    "en": "blue eye spring albania"
-  },
-  {
-    "cn": "死海",
-    "en": "dead sea"
-  },
-  {
-    "cn": "瓦希巴沙漠",
-    "en": "wahiba sands"
-  },
-  {
-    "cn": "卢特沙漠",
-    "en": "lut desert"
-  },
-  {
-    "cn": "伊塞克湖",
-    "en": "issyk kul lake"
-  },
-  {
-    "cn": "美瑛",
-    "en": "biei hills hokkaido"
-  },
-  {
-    "cn": "清水断崖",
-    "en": "qingshui cliff hualien"
-  },
-  {
-    "cn": "诺西贝岛",
-    "en": "nosy be island"
-  },
-  {
-    "cn": "桑给巴尔",
-    "en": "zanzibar beach"
-  },
-  {
-    "cn": "毛里求斯七色土",
-    "en": "seven colored earth mauritius"
-  },
-  {
-    "cn": "龙目岛",
-    "en": "lombok island"
-  },
-  {
-    "cn": "科莫多",
-    "en": "komodo island"
-  },
-  {
-    "cn": "老挝光西瀑布",
-    "en": "kuang si waterfall"
-  },
-  {
-    "cn": "越南沙巴",
-    "en": "sapa valley vietnam"
-  },
-  {
-    "cn": "长城初雪",
-    "en": "great wall of china snow winter mountain"
-  },
-  {
-    "cn": "故宫雪景",
-    "en": "forbidden city beijing snow covered roofs"
-  },
-  {
-    "cn": "雾凇",
-    "en": "hoarfrost covered trees winter forest"
-  },
-  {
-    "cn": "初冬芦苇",
-    "en": "golden reed grass wetland winter sunset"
-  },
-  {
-    "cn": "圣诞市集",
-    "en": "christmas market night lights festive stalls"
-  },
-  {
-    "cn": "小雪",
-    "en": "light snow falling pine forest winter"
-  },
-  {
-    "cn": "雪乡",
-    "en": "snow covered wooden village houses winter"
-  },
-  {
-    "cn": "候鸟湿地",
-    "en": "migratory birds wetland lake winter flock"
-  },
-  {
-    "cn": "圣诞灯光",
-    "en": "christmas lights street night decoration bokeh"
-  },
-  {
-    "cn": "城市初雪",
-    "en": "snowy city street night winter"
-  },
-  {
-    "cn": "围炉煮茶",
-    "en": "outdoor tea kettle campfire winter snow"
-  },
-  {
-    "cn": "滑雪场",
-    "en": "ski resort snowy mountain slope"
-  },
-  {
-    "cn": "三峡红叶",
-    "en": "yangtze river autumn foliage cliff"
-  },
-  {
-    "cn": "冬日晨霜",
-    "en": "winter morning sunrise frost field"
-  },
-  {
-    "cn": "冰瀑",
-    "en": "frozen waterfall ice cliff winter"
-  }
+ {
+  "cn": "冰岛玄武岩柱",
+  "en": "basalt columns iceland"
+ },
+ {
+  "cn": "冰岛飞机残骸",
+  "en": "plane wreck iceland beach"
+ },
+ {
+  "cn": "冰岛高地",
+  "en": "iceland highlands landscape"
+ },
+ {
+  "cn": "冰岛极光",
+  "en": "iceland aurora borealis"
+ },
+ {
+  "cn": "罗弗敦群岛",
+  "en": "lofoten islands aerial"
+ },
+ {
+  "cn": "布道石",
+  "en": "preikestolen cliff norway"
+ },
+ {
+  "cn": "恶魔之舌",
+  "en": "trolltunga rock norway"
+ },
+ {
+  "cn": "盖朗厄尔峡湾",
+  "en": "geirangerfjord norway"
+ },
+ {
+  "cn": "松恩峡湾",
+  "en": "sognefjord norway"
+ },
+ {
+  "cn": "塞尼亚岛",
+  "en": "senja island norway"
+ },
+ {
+  "cn": "法罗群岛",
+  "en": "faroe islands cliffs"
+ },
+ {
+  "cn": "阿塔卡马沙漠",
+  "en": "atacama desert night sky"
+ },
+ {
+  "cn": "大柴旦翡翠湖",
+  "en": "dachaidan emerald lake"
+ },
+ {
+  "cn": "茫崖翡翠湖",
+  "en": "mangya emerald lake"
+ },
+ {
+  "cn": "梵净山",
+  "en": "fanjing mountain"
+ },
+ {
+  "cn": "东川红土地",
+  "en": "dongchuan red earth"
+ },
+ {
+  "cn": "普者黑",
+  "en": "puzhehei lotus lake"
+ },
+ {
+  "cn": "德天瀑布",
+  "en": "detian waterfall"
+ },
+ {
+  "cn": "平潭蓝眼泪",
+  "en": "bioluminescent waves beach"
+ },
+ {
+  "cn": "阿尔山天池",
+  "en": "arshan lake"
+ },
+ {
+  "cn": "珠峰大本营",
+  "en": "everest base camp"
+ },
+ {
+  "cn": "雨崩村",
+  "en": "yubeng village mountain"
+ },
+ {
+  "cn": "额济纳胡杨",
+  "en": "ejina poplar forest"
+ },
+ {
+  "cn": "塔里木胡杨",
+  "en": "tarim poplar forest"
+ },
+ {
+  "cn": "鸣沙山月牙泉",
+  "en": "mingsha crescent lake"
+ },
+ {
+  "cn": "伊犁杏花",
+  "en": "ili apricot blossom"
+ },
+ {
+  "cn": "白沙湖",
+  "en": "white sand lake pamir"
+ },
+ {
+  "cn": "大棱镜温泉",
+  "en": "grand prismatic spring"
+ },
+ {
+  "cn": "死亡谷",
+  "en": "death valley salt flat"
+ },
+ {
+  "cn": "锡安国家公园",
+  "en": "zion national park"
+ },
+ {
+  "cn": "拱门国家公园",
+  "en": "arches national park"
+ },
+ {
+  "cn": "优胜美地",
+  "en": "yosemite valley"
+ },
+ {
+  "cn": "班夫",
+  "en": "banff lake mountains"
+ },
+ {
+  "cn": "路易斯湖",
+  "en": "lake louise"
+ },
+ {
+  "cn": "百内国家公园",
+  "en": "torres del paine"
+ },
+ {
+  "cn": "伊瓜苏瀑布",
+  "en": "iguazu falls"
+ },
+ {
+  "cn": "天使瀑布",
+  "en": "angel falls"
+ },
+ {
+  "cn": "维多利亚瀑布",
+  "en": "victoria falls"
+ },
+ {
+  "cn": "纳米布沙漠",
+  "en": "namib desert dunes"
+ },
+ {
+  "cn": "猴面包树",
+  "en": "baobab avenue madagascar"
+ },
+ {
+  "cn": "大堡礁",
+  "en": "great barrier reef aerial"
+ },
+ {
+  "cn": "夏威夷火山",
+  "en": "hawaii volcano lava"
+ },
+ {
+  "cn": "黄刀极光",
+  "en": "yellowknife aurora"
+ },
+ {
+  "cn": "芬兰极光",
+  "en": "finnish lapland aurora"
+ },
+ {
+  "cn": "沙漠星空",
+  "en": "desert starry sky"
+ },
+ {
+  "cn": "雪山星空",
+  "en": "snow mountain night sky"
+ },
+ {
+  "cn": "黄河石林",
+  "en": "yellow river stone forest"
+ },
+ {
+  "cn": "卡帕多奇亚",
+  "en": "cappadocia balloons"
+ },
+ {
+  "cn": "银河拱桥",
+  "en": "milky way arch night sky"
+ },
+ {
+  "cn": "古典油画",
+  "en": "classical oil painting"
+ },
+ {
+  "cn": "文艺复兴壁画",
+  "en": "renaissance fresco"
+ },
+ {
+  "cn": "西斯廷天顶画",
+  "en": "sistine chapel ceiling"
+ },
+ {
+  "cn": "巴洛克壁画",
+  "en": "baroque ceiling fresco"
+ },
+ {
+  "cn": "油画肖像",
+  "en": "oil portrait painting"
+ },
+ {
+  "cn": "海景油画",
+  "en": "seascape oil painting"
+ },
+ {
+  "cn": "静物油画",
+  "en": "still life oil painting"
+ },
+ {
+  "cn": "画廊油画墙",
+  "en": "art gallery paintings wall"
+ },
+ {
+  "cn": "印象派色彩",
+  "en": "impressionist color painting"
+ },
+ {
+  "cn": "抽象油画",
+  "en": "abstract oil painting"
+ },
+ {
+  "cn": "油画笔触",
+  "en": "oil paint texture canvas"
+ },
+ {
+  "cn": "博物馆名画",
+  "en": "museum masterpiece painting"
+ },
+ {
+  "cn": "火烧云",
+  "en": "dramatic sunset clouds"
+ },
+ {
+  "cn": "暮色云霞",
+  "en": "twilight clouds colors"
+ },
+ {
+  "cn": "金色时刻",
+  "en": "golden hour landscape"
+ },
+ {
+  "cn": "喀斯特溶洞",
+  "en": "karst cave interior"
+ },
+ {
+  "cn": "地下河",
+  "en": "underground river cave"
+ },
+ {
+  "cn": "天坑",
+  "en": "tiankeng sinkhole"
+ },
+ {
+  "cn": "石林",
+  "en": "stone forest karst"
+ },
+ {
+  "cn": "红树林",
+  "en": "mangrove forest"
+ },
+ {
+  "cn": "原始森林",
+  "en": "old growth forest"
+ },
+ {
+  "cn": "云雾森林",
+  "en": "cloud forest"
+ },
+ {
+  "cn": "温泉",
+  "en": "hot spring pool"
+ },
+ {
+  "cn": "间歇泉",
+  "en": "geyser eruption"
+ },
+ {
+  "cn": "地热谷",
+  "en": "geothermal valley"
+ },
+ {
+  "cn": "火山口湖",
+  "en": "volcanic crater lake"
+ },
+ {
+  "cn": "群岛航拍",
+  "en": "archipelago aerial"
+ },
+ {
+  "cn": "半岛海岸",
+  "en": "peninsula coast"
+ },
+ {
+  "cn": "海蚀洞",
+  "en": "sea cave coast"
+ },
+ {
+  "cn": "蓝洞",
+  "en": "blue hole ocean"
+ },
+ {
+  "cn": "潮汐滩涂",
+  "en": "tidal flat"
+ },
+ {
+  "cn": "河流三角洲",
+  "en": "river delta aerial"
+ },
+ {
+  "cn": "高山草甸",
+  "en": "alpine meadow"
+ },
+ {
+  "cn": "苔原",
+  "en": "tundra landscape"
+ },
+ {
+  "cn": "沙丘曲线",
+  "en": "sand dune curves"
+ },
+ {
+  "cn": "湖泊群",
+  "en": "lake district"
+ },
+ {
+  "cn": "红土地",
+  "en": "red earth farmland"
+ },
+ {
+  "cn": "野花草原",
+  "en": "wildflower meadow"
+ },
+ {
+  "cn": "石柱海岸",
+  "en": "sea stacks coast"
+ },
+ {
+  "cn": "湖畔森林",
+  "en": "lake forest shoreline"
+ },
+ {
+  "cn": "河流蜿蜒",
+  "en": "river bend aerial"
+ },
+ {
+  "cn": "瀑布深潭",
+  "en": "waterfall plunge pool"
+ },
+ {
+  "cn": "丹霞地貌",
+  "en": "danxia landform"
+ },
+ {
+  "cn": "溶洞钟乳石",
+  "en": "stalactite cave"
+ },
+ {
+  "cn": "沙漠绿洲",
+  "en": "desert oasis"
+ },
+ {
+  "cn": "海上石林",
+  "en": "sea karst pillars"
+ },
+ {
+  "cn": "梦莲湖",
+  "en": "moraine lake"
+ },
+ {
+  "cn": "新西兰萤火虫洞",
+  "en": "glowworm cave"
+ },
+ {
+  "cn": "粉红湖",
+  "en": "pink lake australia"
+ },
+ {
+  "cn": "玫瑰湖",
+  "en": "lake retba pink"
+ },
+ {
+  "cn": "墨西哥天坑",
+  "en": "cenote mexico"
+ },
+ {
+  "cn": "韩松洞",
+  "en": "hang son doong cave"
+ },
+ {
+  "cn": "瓦迪拉姆",
+  "en": "wadi rum desert"
+ },
+ {
+  "cn": "埃及白沙漠",
+  "en": "white desert egypt"
+ },
+ {
+  "cn": "波浪谷",
+  "en": "the wave arizona"
+ },
+ {
+  "cn": "大理石洞",
+  "en": "marble caves chile"
+ },
+ {
+  "cn": "仙女池",
+  "en": "fairy pools skye"
+ },
+ {
+  "cn": "蓝湖",
+  "en": "blausee lake switzerland"
+ },
+ {
+  "cn": "双色海",
+  "en": "two color sea"
+ },
+ {
+  "cn": "夏塔古道",
+  "en": "xiata valley"
+ },
+ {
+  "cn": "艾肯泉",
+  "en": "aiken spring"
+ },
+ {
+  "cn": "西沙群岛",
+  "en": "paracel islands aerial"
+ },
+ {
+  "cn": "镇海角",
+  "en": "zhenhaijiao cape"
+ },
+ {
+  "cn": "金佛山",
+  "en": "jinfo mountain"
+ },
+ {
+  "cn": "牛背山",
+  "en": "niubei mountain sea of clouds"
+ },
+ {
+  "cn": "班公湖",
+  "en": "pangong lake"
+ },
+ {
+  "cn": "然乌湖",
+  "en": "ranwu lake"
+ },
+ {
+  "cn": "千湖山",
+  "en": "qianhu mountain"
+ },
+ {
+  "cn": "蓝月谷",
+  "en": "blue moon valley"
+ },
+ {
+  "cn": "白水台",
+  "en": "baishuitai terraces"
+ },
+ {
+  "cn": "独龙江",
+  "en": "dulong river valley"
+ },
+ {
+  "cn": "丙中洛",
+  "en": "bingzhongluo"
+ },
+ {
+  "cn": "坝美",
+  "en": "bamei village"
+ },
+ {
+  "cn": "嵛山岛",
+  "en": "yushan island"
+ },
+ {
+  "cn": "台山岛",
+  "en": "taishan island"
+ },
+ {
+  "cn": "南麂岛",
+  "en": "nanji island"
+ },
+ {
+  "cn": "大陈岛",
+  "en": "dachen island"
+ },
+ {
+  "cn": "渔山列岛",
+  "en": "yushan islands"
+ },
+ {
+  "cn": "海王九岛",
+  "en": "haiwang nine islands"
+ },
+ {
+  "cn": "广鹿岛",
+  "en": "guanglu island"
+ },
+ {
+  "cn": "纪念碑谷",
+  "en": "monument valley"
+ },
+ {
+  "cn": "彩虹山",
+  "en": "vinicunca rainbow mountain"
+ },
+ {
+  "cn": "巨人之路",
+  "en": "giants causeway"
+ },
+ {
+  "cn": "黑暗树篱",
+  "en": "dark hedges"
+ },
+ {
+  "cn": "多佛白崖",
+  "en": "white cliffs dover"
+ },
+ {
+  "cn": "天空岛",
+  "en": "isle of skye"
+ },
+ {
+  "cn": "梅黛奥拉",
+  "en": "meteora greece"
+ },
+ {
+  "cn": "青池",
+  "en": "blue pond biei"
+ },
+ {
+  "cn": "紫藤隧道",
+  "en": "wisteria tunnel japan"
+ },
+ {
+  "cn": "日立海滨公园",
+  "en": "nemophila field japan"
+ },
+ {
+  "cn": "爱妮岛",
+  "en": "el nido palawan"
+ },
+ {
+  "cn": "丽贝岛",
+  "en": "koh lipe"
+ },
+ {
+  "cn": "斯米兰群岛",
+  "en": "similan islands"
+ },
+ {
+  "cn": "蒲甘",
+  "en": "bagan temples"
+ },
+ {
+  "cn": "克什米尔",
+  "en": "kashmir valley"
+ },
+ {
+  "cn": "劳特布龙嫩",
+  "en": "lauterbrunnen valley"
+ },
+ {
+  "cn": "哈尔施塔特",
+  "en": "hallstatt austria"
+ },
+ {
+  "cn": "圣米歇尔山",
+  "en": "mont saint michel"
+ },
+ {
+  "cn": "阿马尔菲海岸",
+  "en": "amalfi coast"
+ },
+ {
+  "cn": "五渔村",
+  "en": "cinque terre"
+ },
+ {
+  "cn": "卡普里岛",
+  "en": "capri island"
+ },
+ {
+  "cn": "科托尔湾",
+  "en": "bay of kotor"
+ },
+ {
+  "cn": "蓝眼泉",
+  "en": "blue eye spring albania"
+ },
+ {
+  "cn": "死海",
+  "en": "dead sea"
+ },
+ {
+  "cn": "瓦希巴沙漠",
+  "en": "wahiba sands"
+ },
+ {
+  "cn": "卢特沙漠",
+  "en": "lut desert"
+ },
+ {
+  "cn": "伊塞克湖",
+  "en": "issyk kul lake"
+ },
+ {
+  "cn": "美瑛",
+  "en": "biei hills hokkaido"
+ },
+ {
+  "cn": "清水断崖",
+  "en": "qingshui cliff hualien"
+ },
+ {
+  "cn": "诺西贝岛",
+  "en": "nosy be island"
+ },
+ {
+  "cn": "桑给巴尔",
+  "en": "zanzibar beach"
+ },
+ {
+  "cn": "毛里求斯七色土",
+  "en": "seven colored earth mauritius"
+ },
+ {
+  "cn": "龙目岛",
+  "en": "lombok island"
+ },
+ {
+  "cn": "科莫多",
+  "en": "komodo island"
+ },
+ {
+  "cn": "老挝光西瀑布",
+  "en": "kuang si waterfall"
+ },
+ {
+  "cn": "越南沙巴",
+  "en": "sapa valley vietnam"
+ },
+ {
+  "cn": "长城初雪",
+  "en": "great wall of china snow winter mountain"
+ },
+ {
+  "cn": "故宫雪景",
+  "en": "forbidden city beijing snow covered roofs"
+ },
+ {
+  "cn": "雾凇",
+  "en": "hoarfrost covered trees winter forest"
+ },
+ {
+  "cn": "初冬芦苇",
+  "en": "golden reed grass wetland winter sunset"
+ },
+ {
+  "cn": "圣诞市集",
+  "en": "christmas market night lights festive stalls"
+ },
+ {
+  "cn": "小雪",
+  "en": "light snow falling pine forest winter"
+ },
+ {
+  "cn": "雪乡",
+  "en": "snow covered wooden village houses winter"
+ },
+ {
+  "cn": "候鸟湿地",
+  "en": "migratory birds wetland lake winter flock"
+ },
+ {
+  "cn": "圣诞灯光",
+  "en": "christmas lights street night decoration bokeh"
+ },
+ {
+  "cn": "城市初雪",
+  "en": "snowy city street night winter"
+ },
+ {
+  "cn": "围炉煮茶",
+  "en": "outdoor tea kettle campfire winter snow"
+ },
+ {
+  "cn": "滑雪场",
+  "en": "ski resort snowy mountain slope"
+ },
+ {
+  "cn": "三峡红叶",
+  "en": "yangtze river autumn foliage cliff"
+ },
+ {
+  "cn": "冬日晨霜",
+  "en": "winter morning sunrise frost field"
+ },
+ {
+  "cn": "冰瀑",
+  "en": "frozen waterfall ice cliff winter"
+ },
+ {
+  "cn": "水杉林",
+  "en": "red cypress trees lake reflection autumn"
+ },
+ {
+  "cn": "梯田冬水",
+  "en": "rice terraces water reflection sunrise"
+ }
 ]
