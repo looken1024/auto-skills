@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-11-20",
+  "last_run": "2026-11-21",
   "note": "只跟踪仍在 topics 池内的节令词；过期即从 topics.json / topics_stunning.json 移除",
   "entries": [
     {
@@ -109,6 +109,18 @@
       "en": "persimmon tree autumn orange fruit",
       "expires": "2026-12-31",
       "added": "2026-11-20"
+    },
+    {
+      "cn": "梧桐落叶",
+      "en": "plane trees avenue autumn yellow leaves",
+      "expires": "2026-12-10",
+      "added": "2026-11-21"
+    },
+    {
+      "cn": "橘子红了",
+      "en": "ripe oranges hanging tree branch sunlight",
+      "expires": "2027-01-15",
+      "added": "2026-11-21"
     }
   ]
 }
