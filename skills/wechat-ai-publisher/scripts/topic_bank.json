@@ -1,248 +1,480 @@
 {
   "pending": [
     {
-      "cn": "二月兰",
-      "en": "violet flower field"
+      "cn": "紫藤花",
+      "en": "wisteria blossoms"
     },
     {
-      "cn": "梵净山",
-      "en": "Fanjing Mountain Guizhou"
+      "cn": "波斯菊",
+      "en": "cosmos flower field"
     },
     {
-      "cn": "苍山",
-      "en": "Cangshan Mountain Dali"
+      "cn": "三角梅",
+      "en": "bougainvillea flowers"
     },
     {
-      "cn": "无量山",
-      "en": "Wuliang Mountain Yunnan"
+      "cn": "菊花",
+      "en": "chrysanthemum flowers"
     },
     {
-      "cn": "哀牢山",
-      "en": "Ailao Mountain forest"
+      "cn": "风信子",
+      "en": "hyacinth flowers"
     },
     {
-      "cn": "阿尔泰山",
-      "en": "Altai Mountains landscape"
+      "cn": "水仙花",
+      "en": "daffodil meadow"
     },
     {
-      "cn": "念青唐古拉",
-      "en": "Nyenchen Tanglha snow mountain"
+      "cn": "苹果花",
+      "en": "apple blossom orchard"
     },
     {
-      "cn": "麦积山",
-      "en": "Maiji Mountain forest"
+      "cn": "玫瑰园",
+      "en": "rose garden"
     },
     {
-      "cn": "关山草原",
-      "en": "Guanshan grassland"
+      "cn": "百合花",
+      "en": "lily flowers field"
     },
     {
-      "cn": "桑科草原",
-      "en": "Sangke grassland Gannan"
+      "cn": "鼠尾草田",
+      "en": "salvia field"
     },
     {
-      "cn": "昭苏草原",
-      "en": "Zhaosu grassland Xinjiang"
+      "cn": "花海",
+      "en": "flower field landscape"
     },
     {
-      "cn": "辽河",
-      "en": "Liaohe river wetland"
+      "cn": "落羽杉",
+      "en": "bald cypress swamp"
     },
     {
-      "cn": "嫩江",
-      "en": "Nen river"
+      "cn": "橄榄树林",
+      "en": "olive grove"
     },
     {
-      "cn": "牡丹江",
-      "en": "Mudan river valley"
+      "cn": "迷雾森林",
+      "en": "misty forest"
     },
     {
-      "cn": "图们江",
-      "en": "Tumen river"
+      "cn": "原始森林",
+      "en": "ancient forest"
     },
     {
-      "cn": "独龙江",
-      "en": "Dulong river gorge"
+      "cn": "秋日森林",
+      "en": "autumn forest"
     },
     {
-      "cn": "清江",
-      "en": "Qingjiang river Hubei"
+      "cn": "橡树林",
+      "en": "oak forest"
     },
     {
-      "cn": "湘江",
-      "en": "Xiang river"
+      "cn": "椰林",
+      "en": "coconut palm grove"
     },
     {
-      "cn": "赣江",
-      "en": "Gan river"
+      "cn": "红杉林",
+      "en": "redwood forest"
     },
     {
-      "cn": "渭河",
-      "en": "Wei river"
+      "cn": "多佛白崖",
+      "en": "white cliffs of dover"
     },
     {
-      "cn": "塔里木河",
-      "en": "Tarim river desert"
+      "cn": "大堡礁",
+      "en": "great barrier reef"
     },
     {
-      "cn": "玛旁雍错",
-      "en": "Lake Manasarovar"
+      "cn": "潮池",
+      "en": "tide pool rocks"
     },
     {
-      "cn": "色林错",
-      "en": "Selin Co lake Tibet"
+      "cn": "蓝洞",
+      "en": "blue hole ocean"
     },
     {
-      "cn": "岱海",
-      "en": "Daihai lake"
+      "cn": "沙洲",
+      "en": "sandbar island"
     },
     {
-      "cn": "贝尔湖",
-      "en": "Buir lake"
+      "cn": "冰河湖",
+      "en": "glacier lagoon"
     },
     {
-      "cn": "松花湖",
-      "en": "Songhua lake"
+      "cn": "地热温泉",
+      "en": "geothermal hot spring"
     },
     {
-      "cn": "查干湖",
-      "en": "Chagan lake"
+      "cn": "三角洲",
+      "en": "river delta aerial"
     },
     {
-      "cn": "邛海",
-      "en": "Qionghai lake"
+      "cn": "海雾",
+      "en": "sea fog coast"
     },
     {
-      "cn": "草海",
-      "en": "Caohai lake wetland"
+      "cn": "尼亚加拉瀑布",
+      "en": "niagara falls"
     },
     {
-      "cn": "东江湖",
-      "en": "Dongjiang lake mist"
+      "cn": "维多利亚瀑布",
+      "en": "victoria falls"
     },
     {
-      "cn": "大陈岛",
-      "en": "Dachen island coast"
+      "cn": "乌尤尼盐沼",
+      "en": "uyuni salt flat"
     },
     {
-      "cn": "朱家尖",
-      "en": "Zhujiajian island beach"
+      "cn": "乔戈里峰",
+      "en": "k2 mountain"
     },
     {
-      "cn": "桃花岛",
-      "en": "Taohua island coast"
+      "cn": "富士山",
+      "en": "mount fuji"
     },
     {
-      "cn": "亚龙湾",
-      "en": "Yalong bay Sanya"
+      "cn": "马特洪峰",
+      "en": "matterhorn"
     },
     {
-      "cn": "金石滩",
-      "en": "Jinshitan coastal rocks"
+      "cn": "勃朗峰",
+      "en": "mont blanc"
     },
     {
-      "cn": "茉莉花",
-      "en": "jasmine flowers"
+      "cn": "落基山脉",
+      "en": "rocky mountains"
     },
     {
-      "cn": "茶花",
-      "en": "camellia flowers"
+      "cn": "阿尔卑斯山",
+      "en": "alps mountains"
     },
     {
-      "cn": "兰花",
-      "en": "orchid flowers"
+      "cn": "喜马拉雅山脉",
+      "en": "himalaya mountains"
     },
     {
-      "cn": "牡丹花",
-      "en": "peony flowers"
+      "cn": "安第斯山脉",
+      "en": "andes mountains"
     },
     {
-      "cn": "芍药花",
-      "en": "herbaceous peony flowers"
+      "cn": "阿巴拉契亚山脉",
+      "en": "appalachian mountains"
     },
     {
-      "cn": "格桑花",
-      "en": "Tibetan wildflowers plateau"
+      "cn": "活火山",
+      "en": "active volcano eruption"
     },
     {
-      "cn": "绿绒蒿",
-      "en": "Himalayan blue poppy"
+      "cn": "科罗拉多大峡谷",
+      "en": "grand canyon"
     },
     {
-      "cn": "雪莲",
-      "en": "snow lotus flower"
+      "cn": "黄石国家公园",
+      "en": "yellowstone national park"
     },
     {
-      "cn": "金莲花",
-      "en": "globeflower meadow"
+      "cn": "纳米布沙漠",
+      "en": "namib desert"
     },
     {
-      "cn": "红柳花",
-      "en": "tamarisk flowers desert"
+      "cn": "阿塔卡马沙漠",
+      "en": "atacama desert"
     },
     {
-      "cn": "云杉林",
-      "en": "spruce forest"
+      "cn": "白沙沙漠",
+      "en": "white sands desert"
     },
     {
-      "cn": "落叶松林",
-      "en": "larch forest autumn"
+      "cn": "张掖丹霞",
+      "en": "zhangye danxia"
     },
     {
-      "cn": "梭梭林",
-      "en": "saxaul desert forest"
+      "cn": "猞猁",
+      "en": "lynx wild"
     },
     {
-      "cn": "红树林",
-      "en": "mangrove forest"
+      "cn": "白头海雕",
+      "en": "bald eagle"
     },
     {
-      "cn": "冰塔林",
-      "en": "glacier seracs ice towers"
+      "cn": "金雕",
+      "en": "golden eagle"
     },
     {
-      "cn": "蓝冰",
-      "en": "blue ice glacier"
+      "cn": "苍鹭",
+      "en": "heron bird"
     },
     {
-      "cn": "冰裂缝",
-      "en": "glacier crevasses"
+      "cn": "鹳",
+      "en": "stork bird"
     },
     {
-      "cn": "雪蘑菇",
-      "en": "snow covered rocks winter"
+      "cn": "海狮",
+      "en": "sea lion"
     },
     {
-      "cn": "黑戈壁",
-      "en": "black gobi desert"
+      "cn": "海獭",
+      "en": "sea otter"
     },
     {
-      "cn": "藏狐",
-      "en": "Tibetan fox"
+      "cn": "海鹦",
+      "en": "puffin bird"
     },
     {
-      "cn": "岩羊",
-      "en": "blue sheep himalaya"
+      "cn": "企鹅群",
+      "en": "penguin colony"
     },
     {
-      "cn": "白鹤",
-      "en": "Siberian crane"
+      "cn": "狐獴",
+      "en": "meerkat"
     },
     {
-      "cn": "斑头雁",
-      "en": "bar-headed goose"
+      "cn": "树懒",
+      "en": "sloth animal"
     },
     {
-      "cn": "野骆驼",
-      "en": "wild bactrian camel"
+      "cn": "河马",
+      "en": "hippo river"
     },
     {
-      "cn": "普氏野马",
-      "en": "Przewalski horse"
+      "cn": "鸢尾花",
+      "en": "iris flowers"
     },
     {
-      "cn": "冷杉林",
-      "en": "subalpine fir forest"
+      "cn": "雏菊",
+      "en": "daisy meadow"
+    },
+    {
+      "cn": "虞美人",
+      "en": "poppy field"
+    },
+    {
+      "cn": "金盏花",
+      "en": "marigold field"
+    },
+    {
+      "cn": "高山草甸",
+      "en": "alpine meadow"
+    },
+    {
+      "cn": "苔原",
+      "en": "tundra landscape"
+    },
+    {
+      "cn": "藤蔓丛林",
+      "en": "jungle vines"
+    },
+    {
+      "cn": "黑森林",
+      "en": "black forest germany"
+    },
+    {
+      "cn": "秋日林间小路",
+      "en": "forest path autumn"
+    },
+    {
+      "cn": "桉树林",
+      "en": "eucalyptus forest"
+    },
+    {
+      "cn": "金合欢树",
+      "en": "acacia tree savanna"
+    },
+    {
+      "cn": "冰架",
+      "en": "antarctic ice shelf"
+    },
+    {
+      "cn": "龙卷风",
+      "en": "tornado storm"
+    },
+    {
+      "cn": "峡谷地",
+      "en": "canyonlands"
+    },
+    {
+      "cn": "恶地",
+      "en": "badlands landscape"
+    },
+    {
+      "cn": "死亡谷",
+      "en": "death valley desert"
+    },
+    {
+      "cn": "大提顿",
+      "en": "grand teton"
+    },
+    {
+      "cn": "冰川湾",
+      "en": "glacier bay alaska"
+    },
+    {
+      "cn": "巴塔哥尼亚",
+      "en": "patagonia landscape"
+    },
+    {
+      "cn": "火地岛",
+      "en": "tierra del fuego"
+    },
+    {
+      "cn": "斯瓦尔巴",
+      "en": "svalbard arctic"
+    },
+    {
+      "cn": "法罗群岛",
+      "en": "faroe islands"
+    },
+    {
+      "cn": "天空岛",
+      "en": "isle of skye"
+    },
+    {
+      "cn": "亚速尔群岛",
+      "en": "azores islands"
+    },
+    {
+      "cn": "马德拉岛",
+      "en": "madeira island"
+    },
+    {
+      "cn": "埃特纳火山",
+      "en": "mount etna"
+    },
+    {
+      "cn": "熔岩原",
+      "en": "lava field"
+    },
+    {
+      "cn": "犀牛",
+      "en": "rhino savanna"
+    },
+    {
+      "cn": "鳄鱼",
+      "en": "crocodile river"
+    },
+    {
+      "cn": "变色龙",
+      "en": "chameleon"
+    },
+    {
+      "cn": "箭毒蛙",
+      "en": "poison dart frog"
+    },
+    {
+      "cn": "蜻蜓",
+      "en": "dragonfly"
+    },
+    {
+      "cn": "鲑鱼洄游",
+      "en": "salmon run river"
+    },
+    {
+      "cn": "水獭",
+      "en": "river otter"
+    },
+    {
+      "cn": "野牛",
+      "en": "bison prairie"
+    },
+    {
+      "cn": "麝牛",
+      "en": "musk ox"
+    },
+    {
+      "cn": "旱獭",
+      "en": "marmot"
+    },
+    {
+      "cn": "刺猬",
+      "en": "hedgehog"
+    },
+    {
+      "cn": "蓝鲸",
+      "en": "blue whale"
+    },
+    {
+      "cn": "大白鲨",
+      "en": "great white shark"
+    },
+    {
+      "cn": "海星",
+      "en": "starfish beach"
+    },
+    {
+      "cn": "寄居蟹",
+      "en": "hermit crab"
+    },
+    {
+      "cn": "金刚鹦鹉",
+      "en": "macaw parrot"
+    },
+    {
+      "cn": "角雕",
+      "en": "harpy eagle"
+    },
+    {
+      "cn": "云豹",
+      "en": "clouded leopard"
+    },
+    {
+      "cn": "狒狒",
+      "en": "baboon"
+    },
+    {
+      "cn": "瞪羚",
+      "en": "gazelle savanna"
+    },
+    {
+      "cn": "鬣狗",
+      "en": "hyena"
+    },
+    {
+      "cn": "角马",
+      "en": "wildebeest herd"
+    },
+    {
+      "cn": "非洲野犬",
+      "en": "african wild dog"
+    },
+    {
+      "cn": "大猩猩",
+      "en": "mountain gorilla"
+    },
+    {
+      "cn": "海象",
+      "en": "walrus"
+    },
+    {
+      "cn": "啄木鸟",
+      "en": "woodpecker"
+    },
+    {
+      "cn": "戴胜",
+      "en": "hoopoe bird"
+    },
+    {
+      "cn": "帝王蝶",
+      "en": "monarch butterfly"
+    },
+    {
+      "cn": "瓢虫",
+      "en": "ladybug"
+    },
+    {
+      "cn": "蜗牛",
+      "en": "snail"
+    },
+    {
+      "cn": "珊瑚",
+      "en": "coral reef underwater"
+    },
+    {
+      "cn": "海葵",
+      "en": "sea anemone"
+    },
+    {
+      "cn": "海牛",
+      "en": "manatee"
     }
   ],
   "used": [
@@ -1945,6 +2177,286 @@
       "cn": "杨树林",
       "en": "poplar forest",
       "ts": "2026-11-18T23:34:13.528774"
+    },
+    {
+      "cn": "二月兰",
+      "en": "violet flower field",
+      "ts": "2026-11-21T23:36:33.693550"
+    },
+    {
+      "cn": "苍山",
+      "en": "Cangshan Mountain Dali",
+      "ts": "2026-11-21T23:36:33.693566"
+    },
+    {
+      "cn": "无量山",
+      "en": "Wuliang Mountain Yunnan",
+      "ts": "2026-11-21T23:36:33.693568"
+    },
+    {
+      "cn": "哀牢山",
+      "en": "Ailao Mountain forest",
+      "ts": "2026-11-21T23:36:33.693570"
+    },
+    {
+      "cn": "阿尔泰山",
+      "en": "Altai Mountains landscape",
+      "ts": "2026-11-21T23:36:33.693571"
+    },
+    {
+      "cn": "念青唐古拉",
+      "en": "Nyenchen Tanglha snow mountain",
+      "ts": "2026-11-21T23:36:33.693573"
+    },
+    {
+      "cn": "麦积山",
+      "en": "Maiji Mountain forest",
+      "ts": "2026-11-21T23:36:33.693575"
+    },
+    {
+      "cn": "关山草原",
+      "en": "Guanshan grassland",
+      "ts": "2026-11-21T23:36:33.693576"
+    },
+    {
+      "cn": "桑科草原",
+      "en": "Sangke grassland Gannan",
+      "ts": "2026-11-21T23:36:33.693577"
+    },
+    {
+      "cn": "昭苏草原",
+      "en": "Zhaosu grassland Xinjiang",
+      "ts": "2026-11-21T23:36:33.693579"
+    },
+    {
+      "cn": "辽河",
+      "en": "Liaohe river wetland",
+      "ts": "2026-11-21T23:36:33.693580"
+    },
+    {
+      "cn": "嫩江",
+      "en": "Nen river",
+      "ts": "2026-11-21T23:36:33.693582"
+    },
+    {
+      "cn": "牡丹江",
+      "en": "Mudan river valley",
+      "ts": "2026-11-21T23:36:33.693583"
+    },
+    {
+      "cn": "图们江",
+      "en": "Tumen river",
+      "ts": "2026-11-21T23:36:33.693585"
+    },
+    {
+      "cn": "清江",
+      "en": "Qingjiang river Hubei",
+      "ts": "2026-11-21T23:36:33.693586"
+    },
+    {
+      "cn": "湘江",
+      "en": "Xiang river",
+      "ts": "2026-11-21T23:36:33.693588"
+    },
+    {
+      "cn": "赣江",
+      "en": "Gan river",
+      "ts": "2026-11-21T23:36:33.693589"
+    },
+    {
+      "cn": "渭河",
+      "en": "Wei river",
+      "ts": "2026-11-21T23:36:33.693591"
+    },
+    {
+      "cn": "塔里木河",
+      "en": "Tarim river desert",
+      "ts": "2026-11-21T23:36:33.693592"
+    },
+    {
+      "cn": "玛旁雍错",
+      "en": "Lake Manasarovar",
+      "ts": "2026-11-21T23:36:33.693594"
+    },
+    {
+      "cn": "色林错",
+      "en": "Selin Co lake Tibet",
+      "ts": "2026-11-21T23:36:33.693595"
+    },
+    {
+      "cn": "岱海",
+      "en": "Daihai lake",
+      "ts": "2026-11-21T23:36:33.693596"
+    },
+    {
+      "cn": "贝尔湖",
+      "en": "Buir lake",
+      "ts": "2026-11-21T23:36:33.693598"
+    },
+    {
+      "cn": "松花湖",
+      "en": "Songhua lake",
+      "ts": "2026-11-21T23:36:33.693599"
+    },
+    {
+      "cn": "查干湖",
+      "en": "Chagan lake",
+      "ts": "2026-11-21T23:36:33.693601"
+    },
+    {
+      "cn": "邛海",
+      "en": "Qionghai lake",
+      "ts": "2026-11-21T23:36:33.693602"
+    },
+    {
+      "cn": "草海",
+      "en": "Caohai lake wetland",
+      "ts": "2026-11-21T23:36:33.693604"
+    },
+    {
+      "cn": "东江湖",
+      "en": "Dongjiang lake mist",
+      "ts": "2026-11-21T23:36:33.693605"
+    },
+    {
+      "cn": "朱家尖",
+      "en": "Zhujiajian island beach",
+      "ts": "2026-11-21T23:36:33.693607"
+    },
+    {
+      "cn": "桃花岛",
+      "en": "Taohua island coast",
+      "ts": "2026-11-21T23:36:33.693608"
+    },
+    {
+      "cn": "金石滩",
+      "en": "Jinshitan coastal rocks",
+      "ts": "2026-11-21T23:38:21.367766"
+    },
+    {
+      "cn": "茉莉花",
+      "en": "jasmine flowers",
+      "ts": "2026-11-21T23:38:21.367780"
+    },
+    {
+      "cn": "茶花",
+      "en": "camellia flowers",
+      "ts": "2026-11-21T23:38:21.367783"
+    },
+    {
+      "cn": "兰花",
+      "en": "orchid flowers",
+      "ts": "2026-11-21T23:38:21.367784"
+    },
+    {
+      "cn": "牡丹花",
+      "en": "peony flowers",
+      "ts": "2026-11-21T23:38:21.367785"
+    },
+    {
+      "cn": "芍药花",
+      "en": "herbaceous peony flowers",
+      "ts": "2026-11-21T23:38:21.367787"
+    },
+    {
+      "cn": "格桑花",
+      "en": "Tibetan wildflowers plateau",
+      "ts": "2026-11-21T23:38:21.367788"
+    },
+    {
+      "cn": "绿绒蒿",
+      "en": "Himalayan blue poppy",
+      "ts": "2026-11-21T23:38:21.367789"
+    },
+    {
+      "cn": "雪莲",
+      "en": "snow lotus flower",
+      "ts": "2026-11-21T23:38:21.367791"
+    },
+    {
+      "cn": "金莲花",
+      "en": "globeflower meadow",
+      "ts": "2026-11-21T23:38:21.367792"
+    },
+    {
+      "cn": "红柳花",
+      "en": "tamarisk flowers desert",
+      "ts": "2026-11-21T23:38:21.367793"
+    },
+    {
+      "cn": "云杉林",
+      "en": "spruce forest",
+      "ts": "2026-11-21T23:38:21.367794"
+    },
+    {
+      "cn": "落叶松林",
+      "en": "larch forest autumn",
+      "ts": "2026-11-21T23:38:21.367796"
+    },
+    {
+      "cn": "梭梭林",
+      "en": "saxaul desert forest",
+      "ts": "2026-11-21T23:38:21.367797"
+    },
+    {
+      "cn": "冰塔林",
+      "en": "glacier seracs ice towers",
+      "ts": "2026-11-21T23:38:21.367798"
+    },
+    {
+      "cn": "蓝冰",
+      "en": "blue ice glacier",
+      "ts": "2026-11-21T23:38:21.367799"
+    },
+    {
+      "cn": "冰裂缝",
+      "en": "glacier crevasses",
+      "ts": "2026-11-21T23:38:21.367801"
+    },
+    {
+      "cn": "雪蘑菇",
+      "en": "snow covered rocks winter",
+      "ts": "2026-11-21T23:38:21.367802"
+    },
+    {
+      "cn": "藏狐",
+      "en": "Tibetan fox",
+      "ts": "2026-11-21T23:38:21.367803"
+    },
+    {
+      "cn": "岩羊",
+      "en": "blue sheep himalaya",
+      "ts": "2026-11-21T23:38:21.367804"
+    },
+    {
+      "cn": "白鹤",
+      "en": "Siberian crane",
+      "ts": "2026-11-21T23:38:21.367806"
+    },
+    {
+      "cn": "斑头雁",
+      "en": "bar-headed goose",
+      "ts": "2026-11-21T23:38:21.367807"
+    },
+    {
+      "cn": "野骆驼",
+      "en": "wild bactrian camel",
+      "ts": "2026-11-21T23:38:21.367808"
+    },
+    {
+      "cn": "普氏野马",
+      "en": "Przewalski horse",
+      "ts": "2026-11-21T23:38:21.367809"
+    },
+    {
+      "cn": "冷杉林",
+      "en": "subalpine fir forest",
+      "ts": "2026-11-21T23:38:21.367810"
+    },
+    {
+      "cn": "鲁冰花",
+      "en": "lupine flower field",
+      "ts": "2026-11-21T23:38:21.367812"
     }
   ],
   "rejected": [
@@ -2437,6 +2949,36 @@
       "cn": "蜈支洲岛",
       "en": "wuzhizhou island",
       "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "梵净山",
+      "en": "Fanjing Mountain Guizhou",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "独龙江",
+      "en": "Dulong river gorge",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "大陈岛",
+      "en": "Dachen island coast",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "亚龙湾",
+      "en": "Yalong bay Sanya",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "红树林",
+      "en": "mangrove forest",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "黑戈壁",
+      "en": "black gobi desert",
+      "reason": "题材黑名单(梯田/沟壑等)"
     }
   ]
 }

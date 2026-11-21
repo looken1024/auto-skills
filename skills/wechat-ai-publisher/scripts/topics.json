@@ -44,20 +44,12 @@
     "en": "luya mountain"
   },
   {
-    "cn": "莫尔道嘎",
-    "en": "moerdaoga forest"
-  },
-  {
     "cn": "吊水楼瀑布",
     "en": "diaoshuilou waterfall"
   },
   {
     "cn": "冰岛黄金瀑布",
     "en": "gullfoss iceland"
-  },
-  {
-    "cn": "因特拉肯",
-    "en": "interlaken switzerland"
   },
   {
     "cn": "抽象雕塑",
@@ -84,44 +76,20 @@
     "en": "museum sculpture hall"
   },
   {
-    "cn": "黑沙滩",
-    "en": "black sand beach"
-  },
-  {
     "cn": "粉沙滩",
     "en": "pink sand beach"
-  },
-  {
-    "cn": "隐秘海湾",
-    "en": "hidden cove beach"
-  },
-  {
-    "cn": "无人岛海滩",
-    "en": "deserted island beach"
   },
   {
     "cn": "长滩岛",
     "en": "boracay beach"
   },
   {
-    "cn": "苏梅岛",
-    "en": "koh samui beach"
-  },
-  {
     "cn": "北海银滩",
     "en": "beihai silver beach"
   },
   {
-    "cn": "清水湾",
-    "en": "hainan clearwater bay"
-  },
-  {
     "cn": "圣托里尼海滩",
     "en": "santorini beach"
-  },
-  {
-    "cn": "夏威夷海滩",
-    "en": "hawaii beach"
   },
   {
     "cn": "斐济海滩",
@@ -136,14 +104,6 @@
     "en": "sahara desert morocco"
   },
   {
-    "cn": "乌鲁鲁",
-    "en": "uluru australia"
-  },
-  {
-    "cn": "班夫",
-    "en": "banff lake"
-  },
-  {
     "cn": "优胜美地",
     "en": "yosemite valley"
   },
@@ -152,16 +112,8 @@
     "en": "zion national park"
   },
   {
-    "cn": "夏威夷",
-    "en": "hawaii coast"
-  },
-  {
     "cn": "坎昆",
     "en": "cancun beach"
-  },
-  {
-    "cn": "斐济群岛",
-    "en": "fiji islands"
   },
   {
     "cn": "塞班岛",
@@ -184,10 +136,6 @@
     "en": "karst cave interior"
   },
   {
-    "cn": "地下河",
-    "en": "underground river cave"
-  },
-  {
     "cn": "石林",
     "en": "stone forest karst"
   },
@@ -204,36 +152,12 @@
     "en": "archipelago aerial"
   },
   {
-    "cn": "海蚀洞",
-    "en": "sea cave coast"
-  },
-  {
-    "cn": "潮汐滩涂",
-    "en": "tidal flat"
-  },
-  {
-    "cn": "湖畔森林",
-    "en": "lake forest shoreline"
-  },
-  {
-    "cn": "瀑布深潭",
-    "en": "waterfall plunge pool"
-  },
-  {
     "cn": "粉红湖",
     "en": "pink lake australia"
   },
   {
-    "cn": "墨西哥天坑",
-    "en": "cenote mexico"
-  },
-  {
     "cn": "瓦迪拉姆",
     "en": "wadi rum desert"
-  },
-  {
-    "cn": "双色海",
-    "en": "two color sea"
   },
   {
     "cn": "漓江",
@@ -252,14 +176,6 @@
     "en": "guozigou valley"
   },
   {
-    "cn": "乌尔禾魔鬼城",
-    "en": "urho ghost city yardang"
-  },
-  {
-    "cn": "银杏",
-    "en": "ginkgo tree autumn"
-  },
-  {
     "cn": "太白山",
     "en": "Taibai Mountain"
   },
@@ -268,24 +184,12 @@
     "en": "Wugong Mountain"
   },
   {
-    "cn": "唐古拉山",
-    "en": "Tanggula Mountains"
-  },
-  {
     "cn": "喀喇昆仑",
     "en": "Karakoram"
   },
   {
-    "cn": "白马雪山",
-    "en": "Baima Snow Mountain"
-  },
-  {
     "cn": "雅拉雪山",
     "en": "Yala Snow Mountain"
-  },
-  {
-    "cn": "抚仙湖",
-    "en": "Fuxian Lake"
   },
   {
     "cn": "红海滩",
@@ -304,10 +208,6 @@
     "en": "sunflower field"
   },
   {
-    "cn": "环礁",
-    "en": "atoll"
-  },
-  {
     "cn": "琼库什台",
     "en": "qiongkushitai grassland"
   },
@@ -318,14 +218,6 @@
   {
     "cn": "金佛山",
     "en": "jinfo mountain"
-  },
-  {
-    "cn": "班公湖",
-    "en": "pangong lake"
-  },
-  {
-    "cn": "然乌湖",
-    "en": "ranwu lake"
   },
   {
     "cn": "千湖山",
@@ -342,10 +234,6 @@
   {
     "cn": "南麂岛",
     "en": "nanji island"
-  },
-  {
-    "cn": "渔山列岛",
-    "en": "yushan islands"
   },
   {
     "cn": "广鹿岛",
@@ -368,24 +256,8 @@
     "en": "meteora greece"
   },
   {
-    "cn": "爱妮岛",
-    "en": "el nido palawan"
-  },
-  {
-    "cn": "丽贝岛",
-    "en": "koh lipe"
-  },
-  {
-    "cn": "圣米歇尔山",
-    "en": "mont saint michel"
-  },
-  {
     "cn": "阿马尔菲海岸",
     "en": "amalfi coast"
-  },
-  {
-    "cn": "卡普里岛",
-    "en": "capri island"
   },
   {
     "cn": "蓝眼泉",
@@ -400,18 +272,6 @@
     "en": "kuang si waterfall"
   },
   {
-    "cn": "故宫雪景",
-    "en": "forbidden city beijing snow covered roofs"
-  },
-  {
-    "cn": "雾凇",
-    "en": "hoarfrost covered trees winter forest"
-  },
-  {
-    "cn": "圣诞市集",
-    "en": "christmas market night lights festive stalls"
-  },
-  {
     "cn": "泻湖",
     "en": "lagoon"
   },
@@ -424,20 +284,12 @@
     "en": "emperor penguin"
   },
   {
-    "cn": "赤狐",
-    "en": "red fox"
-  },
-  {
     "cn": "松鼠",
     "en": "squirrel"
   },
   {
     "cn": "天鹅",
     "en": "swan"
-  },
-  {
-    "cn": "翠鸟",
-    "en": "kingfisher"
   },
   {
     "cn": "梨花",
@@ -456,16 +308,8 @@
     "en": "tulip field"
   },
   {
-    "cn": "野花",
-    "en": "wildflowers"
-  },
-  {
     "cn": "松林",
     "en": "pine forest"
-  },
-  {
-    "cn": "棕榈树",
-    "en": "palm trees"
   },
   {
     "cn": "葡萄园",
@@ -516,10 +360,6 @@
     "en": "amne machin snow mountain"
   },
   {
-    "cn": "小兴安岭",
-    "en": "lesser khingan forest"
-  },
-  {
     "cn": "雪峰山",
     "en": "xuefeng mountain"
   },
@@ -564,28 +404,12 @@
     "en": "light snow falling pine forest winter"
   },
   {
-    "cn": "雪乡",
-    "en": "snow covered wooden village houses winter"
-  },
-  {
-    "cn": "候鸟湿地",
-    "en": "migratory birds wetland lake winter flock"
-  },
-  {
     "cn": "圣诞灯光",
     "en": "christmas lights street night decoration bokeh"
   },
   {
-    "cn": "城市初雪",
-    "en": "snowy city street night winter"
-  },
-  {
     "cn": "围炉煮茶",
     "en": "outdoor tea kettle campfire winter snow"
-  },
-  {
-    "cn": "滑雪场",
-    "en": "ski resort snowy mountain slope"
   },
   {
     "cn": "三峡红叶",
@@ -600,10 +424,6 @@
     "en": "yalu river"
   },
   {
-    "cn": "澜沧江",
-    "en": "lancang river"
-  },
-  {
     "cn": "闽江",
     "en": "minjiang river"
   },
@@ -614,10 +434,6 @@
   {
     "cn": "乌苏里江",
     "en": "ussuri river"
-  },
-  {
-    "cn": "万山群岛",
-    "en": "wanshan islands"
   },
   {
     "cn": "庙岛群岛",
@@ -660,20 +476,12 @@
     "en": "flamboyant tree blossom"
   },
   {
-    "cn": "杉木林",
-    "en": "fir forest"
-  },
-  {
     "cn": "榕树",
     "en": "banyan tree"
   },
   {
     "cn": "柳树湖畔",
     "en": "willow trees by lake"
-  },
-  {
-    "cn": "芒草",
-    "en": "silver grass hills"
   },
   {
     "cn": "红草地",
@@ -686,10 +494,6 @@
   {
     "cn": "冰封湖面",
     "en": "frozen lake ice"
-  },
-  {
-    "cn": "雪松林",
-    "en": "snow covered pine forest"
   },
   {
     "cn": "冰柱",
@@ -712,16 +516,8 @@
     "en": "black-necked crane"
   },
   {
-    "cn": "鸳鸯",
-    "en": "mandarin duck"
-  },
-  {
     "cn": "大青山",
     "en": "daqing mountain"
-  },
-  {
-    "cn": "阴山",
-    "en": "yinshan mountains"
   },
   {
     "cn": "猫儿山",
@@ -740,20 +536,12 @@
     "en": "zhongtiao mountain"
   },
   {
-    "cn": "太湖",
-    "en": "taihu lake"
-  },
-  {
     "cn": "骆马湖",
     "en": "luoma lake"
   },
   {
     "cn": "高邮湖",
     "en": "gaoyou lake"
-  },
-  {
-    "cn": "东钱湖",
-    "en": "dongqian lake"
   },
   {
     "cn": "滇池",
@@ -766,10 +554,6 @@
   {
     "cn": "大渡河",
     "en": "dadu river"
-  },
-  {
-    "cn": "雅砻江",
-    "en": "yalong river"
   },
   {
     "cn": "嘉陵江",
@@ -790,10 +574,6 @@
   {
     "cn": "养马岛",
     "en": "yangma island"
-  },
-  {
-    "cn": "硇洲岛",
-    "en": "naozhou island"
   },
   {
     "cn": "川山群岛",
@@ -820,10 +600,6 @@
     "en": "frozen waterfall ice cliff winter"
   },
   {
-    "cn": "水杉林",
-    "en": "red cypress trees lake reflection autumn"
-  },
-  {
     "cn": "梯田冬水",
     "en": "rice terraces water reflection sunrise"
   },
@@ -838,5 +614,229 @@
   {
     "cn": "橘子红了",
     "en": "ripe oranges hanging tree branch sunlight"
+  },
+  {
+    "cn": "二月兰",
+    "en": "violet flower field"
+  },
+  {
+    "cn": "苍山",
+    "en": "Cangshan Mountain Dali"
+  },
+  {
+    "cn": "无量山",
+    "en": "Wuliang Mountain Yunnan"
+  },
+  {
+    "cn": "哀牢山",
+    "en": "Ailao Mountain forest"
+  },
+  {
+    "cn": "阿尔泰山",
+    "en": "Altai Mountains landscape"
+  },
+  {
+    "cn": "念青唐古拉",
+    "en": "Nyenchen Tanglha snow mountain"
+  },
+  {
+    "cn": "麦积山",
+    "en": "Maiji Mountain forest"
+  },
+  {
+    "cn": "关山草原",
+    "en": "Guanshan grassland"
+  },
+  {
+    "cn": "桑科草原",
+    "en": "Sangke grassland Gannan"
+  },
+  {
+    "cn": "昭苏草原",
+    "en": "Zhaosu grassland Xinjiang"
+  },
+  {
+    "cn": "辽河",
+    "en": "Liaohe river wetland"
+  },
+  {
+    "cn": "嫩江",
+    "en": "Nen river"
+  },
+  {
+    "cn": "牡丹江",
+    "en": "Mudan river valley"
+  },
+  {
+    "cn": "图们江",
+    "en": "Tumen river"
+  },
+  {
+    "cn": "清江",
+    "en": "Qingjiang river Hubei"
+  },
+  {
+    "cn": "湘江",
+    "en": "Xiang river"
+  },
+  {
+    "cn": "赣江",
+    "en": "Gan river"
+  },
+  {
+    "cn": "渭河",
+    "en": "Wei river"
+  },
+  {
+    "cn": "塔里木河",
+    "en": "Tarim river desert"
+  },
+  {
+    "cn": "玛旁雍错",
+    "en": "Lake Manasarovar"
+  },
+  {
+    "cn": "色林错",
+    "en": "Selin Co lake Tibet"
+  },
+  {
+    "cn": "岱海",
+    "en": "Daihai lake"
+  },
+  {
+    "cn": "贝尔湖",
+    "en": "Buir lake"
+  },
+  {
+    "cn": "松花湖",
+    "en": "Songhua lake"
+  },
+  {
+    "cn": "查干湖",
+    "en": "Chagan lake"
+  },
+  {
+    "cn": "邛海",
+    "en": "Qionghai lake"
+  },
+  {
+    "cn": "草海",
+    "en": "Caohai lake wetland"
+  },
+  {
+    "cn": "东江湖",
+    "en": "Dongjiang lake mist"
+  },
+  {
+    "cn": "朱家尖",
+    "en": "Zhujiajian island beach"
+  },
+  {
+    "cn": "桃花岛",
+    "en": "Taohua island coast"
+  },
+  {
+    "cn": "金石滩",
+    "en": "Jinshitan coastal rocks"
+  },
+  {
+    "cn": "茉莉花",
+    "en": "jasmine flowers"
+  },
+  {
+    "cn": "茶花",
+    "en": "camellia flowers"
+  },
+  {
+    "cn": "兰花",
+    "en": "orchid flowers"
+  },
+  {
+    "cn": "牡丹花",
+    "en": "peony flowers"
+  },
+  {
+    "cn": "芍药花",
+    "en": "herbaceous peony flowers"
+  },
+  {
+    "cn": "格桑花",
+    "en": "Tibetan wildflowers plateau"
+  },
+  {
+    "cn": "绿绒蒿",
+    "en": "Himalayan blue poppy"
+  },
+  {
+    "cn": "雪莲",
+    "en": "snow lotus flower"
+  },
+  {
+    "cn": "金莲花",
+    "en": "globeflower meadow"
+  },
+  {
+    "cn": "红柳花",
+    "en": "tamarisk flowers desert"
+  },
+  {
+    "cn": "云杉林",
+    "en": "spruce forest"
+  },
+  {
+    "cn": "落叶松林",
+    "en": "larch forest autumn"
+  },
+  {
+    "cn": "梭梭林",
+    "en": "saxaul desert forest"
+  },
+  {
+    "cn": "冰塔林",
+    "en": "glacier seracs ice towers"
+  },
+  {
+    "cn": "蓝冰",
+    "en": "blue ice glacier"
+  },
+  {
+    "cn": "冰裂缝",
+    "en": "glacier crevasses"
+  },
+  {
+    "cn": "雪蘑菇",
+    "en": "snow covered rocks winter"
+  },
+  {
+    "cn": "藏狐",
+    "en": "Tibetan fox"
+  },
+  {
+    "cn": "岩羊",
+    "en": "blue sheep himalaya"
+  },
+  {
+    "cn": "白鹤",
+    "en": "Siberian crane"
+  },
+  {
+    "cn": "斑头雁",
+    "en": "bar-headed goose"
+  },
+  {
+    "cn": "野骆驼",
+    "en": "wild bactrian camel"
+  },
+  {
+    "cn": "普氏野马",
+    "en": "Przewalski horse"
+  },
+  {
+    "cn": "冷杉林",
+    "en": "subalpine fir forest"
+  },
+  {
+    "cn": "鲁冰花",
+    "en": "lupine flower field"
   }
 ]
