@@ -29,9 +29,20 @@ def fit_cover(im, w, h):
     return im.crop((x, y, x + w, y + h))
 
 
-def build(title, place, imgs, out, size=(1080, 648)):
+def build(title, place, imgs, out, size=(1080, 648), no_text=False):
     W, H = size
     canvas = Image.new("RGB", (W, H), BG)
+
+    if no_text:
+        # 纯图版：六条竖图满铺，不加标题和地名
+        top, img_h = 0, H
+        n = len(imgs)
+        strip_w = W / n
+        for i, p in enumerate(imgs):
+            x0, x1 = int(round(i * strip_w)), int(round((i + 1) * strip_w))
+            canvas.paste(fit_cover(Image.open(p).convert("RGB"), x1 - x0, img_h), (x0, top))
+        canvas.save(out, quality=93)
+        return out
 
     # 顶部标题
     d = ImageDraw.Draw(canvas)
@@ -81,7 +92,8 @@ if __name__ == "__main__":
     ap.add_argument("--imgs", required=True, help="逗号分隔，6 张")
     ap.add_argument("--out", required=True)
     ap.add_argument("--size", default="1080x648")
+    ap.add_argument("--no-text", action="store_true")
     a = ap.parse_args()
     imgs = [x.strip() for x in a.imgs.split(",") if x.strip()]
     W, H = [int(x) for x in a.size.lower().split("x")]
-    print(build(a.title, a.place, imgs, a.out, (W, H)))
+    print(build(a.title, a.place, imgs, a.out, (W, H), a.no_text))
