@@ -74,7 +74,7 @@ python3 scripts/cover_design.py --img cover_src.jpg --title 干锅菜花 \
 - 步骤编号由文案自带（“1. 处理菜花……”），脚本不会自动加。
 - 换字体前用 fontTools 查缺字：`TTFont(p).getBestCmap()`，标题字不在 cmap 里会渲染成空白。
 - pollinations 免费通道的 402/503 是限流（1 张/45 秒），不是坏 key：间隔 50 秒重试即可。别加 `?width=` 等参数，容易触发 402；可用入口是 `https://pollinations.ai/p/<urlencoded prompt>`。
-- 本机 `vision_analyze` 曾因模型名不匹配报 400，无法自检画面，成图效果交给用户确认。
+- 需要自检成图时，先确认 `auxiliary.vision` 钉了一个支持识图的后端；若 `vision_analyze` 报模型名不匹配（400），按 `hermes-cron-pipeline-ops` §1.4 显式钉模型，别把成图默默交给用户——修不好就直接说没自检、请用户看效果。
 
 ## 参考
 

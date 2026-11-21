@@ -128,9 +128,10 @@ $PYTHON $SCRIPTS/create_draft.py \
 - **产出张数必须等于用户要求**（默认 9）。脚本 `MIN_VALID_IMAGES=5`，有效新图只有 7 张也会报 `status: success`；所以验收不能只看 success，要用 `draft/get` 数 `content.count('<img')`，不足就按上一节“有效新图不足”的补救流程重做。
 - 盯任务进程用 `pgrep -f "pexels_gallery_draft.py --mode news "`（末尾加空格）或 `pgrep -af ... | grep -v newspic`。`news` 是 `newspic` 的前缀，不加边界会把每小时的贴图任务误判成图集任务还在跑。
 
-### 调度拆分（2026-10-03 起；频率/启停以 `cronjob list` 为准）
-- cron `9d58e7843134`「公众号图集（图文消息）」→ 现在 `0 */2 * * *`，跑 `gallery_draft_daily.sh`（`--mode news`）。**2026-11-14 用户已要求暂停**（只保留纯贴图）。
-- cron `6b86d039a651`「公众号贴图-每小时（纯贴图，无正文）」→ `every 60m`，跑 `gallery_draft_hourly.sh`（`--mode newspic`），当前在跑。
+### 调度拆分（频率/启停以 `cronjob list` 为准）
+- cron `9d58e7843134`「公众号图集-每2小时（炫酷风景·图文消息）」→ `0 */2 * * *`，跑 `gallery_draft_daily.sh`（`--mode news --count 12`）。当前启用，用户要求图集每次 **12 张**。
+- cron `6b86d039a651`「公众号贴图-每4小时（纯贴图，无正文）」→ `0 */4 * * *`，跑 `gallery_draft_hourly.sh`（`--mode newspic`）。当前启用，用户把原来的每小时改成了每 4 小时。
+- 改频率只动 cron 的 schedule（`cronjob_manage update`），改张数只动包装脚本的 `--count`；不要改脚本里的默认值（9），否则手动跑和定时跑会分叉。
 - 两个任务并存时一天约 36 条草稿，会把草稿箱刷屏；要"停一个"时先分清：**带小程序链接的是 news（图集），无正文的是 newspic（贴图）**，按用户指的那一种停，别两个一起停。
 - 实测（金丝猴，贴图模式）：`article_type=newspic`、正文 0 图、无文字、无小程序标签、封面有、云转存 9 ✅
 - ⚠️ **贴图模式的"前两张重复"坑（2026-10-03 踩过）**：`newspic` 的 `image_list` 本身就是全部贴图，**不需要单独的封面**（`thumb_media_id` 是 `news` 模式才用的）。之前把 `processed[0]` 的压缩版当第 1 张、又把 `full_size[0]` 的压缩版当第 2 张——**同一张原图的两个压缩版本**，视觉上完全一样，用户一眼看穿。正确做法：贴图模式直接从 `full_size` 传 9 张，`image_media_ids` 从空列表开始 append。另加保护：贴图有效图不足 3 张直接抛异常，不静默出 1 张图的草稿。
@@ -271,6 +272,8 @@ $PYTHON $SCRIPTS/create_draft.py \
 - ⚠️ **池子消耗速度**：图集 job 每小时 1 条 = 每天约 24 条，125 条约 **5 天见底**。见底后靠 `_SEED_TOPIC` 兜底不崩，但会反复出同一个题材。用户明确**不要自动补词**，需要时他自己提；`prune_drafts.py` 的 `pool_status()` 每次清理都会播报剩余量和倒计时，低于 40 条加 ⚠️。
 
 ## 图片处理
+
+> 图源：主源 Pexels；免费备选 **Wikimedia Commons**（CC0/PD 免署名，CC BY 系列要署名）的接入配方、代理要求和实测素材量见 `references/image-sources.md`。
 
 1. Pexels 搜索 → 只收横图（width > height）→ 下载原图
 2. md5 去重：查 `logs/gallery_sent_md5.json`，发过的跳过
