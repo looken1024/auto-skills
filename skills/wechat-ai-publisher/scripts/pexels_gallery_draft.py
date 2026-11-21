@@ -451,7 +451,12 @@ def process_image(src, dst):
     """
     from PIL import Image, ImageEnhance
     import numpy as np
-    im = Image.open(src).convert("RGB")
+    Image.MAX_IMAGE_PIXELS = None
+    im = Image.open(src)
+    W0, H0 = im.size
+    if W0 * H0 > 60_000_000:
+        raise ValueError(f"图片过大 {W0}x{H0}（{W0*H0/1e6:.0f}MP），拒绝处理")
+    im = im.convert("RGB")
     w, h = im.size
     # 长边也设上限：竖图 2500×3750 的数组仍然很大
     if max(w, h) > 3000:
@@ -493,7 +498,18 @@ def qc_sharpness(src, patch=512):
     """原图分块取最锐一块的拉普拉斯方差；比缩放到固定宽度可靠得多。"""
     import numpy as np
     from PIL import Image          # 本脚本 PIL 一贯函数内懒加载，模块级没有 Image
-    im = Image.open(src)
+    # Pexels 偶发超大拼接图（实测 2 亿像素），PIL 默认按"解压炸弹"直接抛异常把整轮跑挂。
+    # 这里关掉 PIL 的硬上限，改为按像素数主动判不合格，既不死循环也不吃内存。
+    Image.MAX_IMAGE_PIXELS = None
+    try:
+        im = Image.open(src)
+        W0, H0 = im.size
+    except Exception as e:
+        print(f"  ! 图片无法读取（{e}），按不合格跳过", file=sys.stderr)
+        return 0.0
+    if W0 * H0 > 60_000_000:
+        print(f"  ! 图片过大 {W0}x{H0}（{W0*H0/1e6:.0f}MP），按不合格跳过", file=sys.stderr)
+        return 0.0
     g = np.asarray(im.convert("L"), dtype=np.uint8)
     H, W = g.shape
     if min(H, W) < patch:                       # 小图退回整图计算

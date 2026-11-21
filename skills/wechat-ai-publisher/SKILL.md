@@ -128,6 +128,23 @@ $PYTHON $SCRIPTS/create_draft.py \
 - **产出张数必须等于用户要求**（默认 9）。脚本 `MIN_VALID_IMAGES=5`，有效新图只有 7 张也会报 `status: success`；所以验收不能只看 success，要用 `draft/get` 数 `content.count('<img')`，不足就按上一节“有效新图不足”的补救流程重做。
 - 盯任务进程用 `pgrep -f "pexels_gallery_draft.py --mode news "`（末尾加空格）或 `pgrep -af ... | grep -v newspic`。`news` 是 `newspic` 的前缀，不加边界会把每小时的贴图任务误判成图集任务还在跑。
 
+### 图集封面：六格竖条卡片（用户指定样式）
+
+用户给的参考样式是一张公众号资讯卡片：白底、顶部黑色大标题居中、下方 6 条竖图满铺、图上左下角白色地名。**以后所有图集都用这个封面**，不要再拿单张风景图当封面。
+
+脚本：`scripts/cover_card6.py`
+
+```
+python3 scripts/cover_card6.py \
+  --title "华山 长空栈道挂在崖壁上" --place "华山" \
+  --imgs a.jpg,b.jpg,c.jpg,d.jpg,e.jpg,f.jpg --out card.jpg --size 1080x648
+```
+
+- 默认 1080×648（接近参考图比例）；公众号列表会按 2.35:1 裁切，需要时再出一版 `--size 1080x460`。
+- 6 张从当期图集里挑，**不要直接取前 6 张**：挑不同景别、不同光线，避免六格看起来像同一张的连拍。
+- 标题沿用当期图集标题（地名在前半句），`--place` 写话题名。
+- 字体用系统 `wqy-zenhei.ttc`（参考图是黑体），标题超宽会自动缩字号。
+
 ### 调度拆分（频率/启停以 `cronjob list` 为准）
 - cron `9d58e7843134`「公众号图集-每2小时（炫酷风景·图文消息）」→ `0 */2 * * *`，跑 `gallery_draft_daily.sh`（`--mode news --count 12`）。当前启用，用户要求图集每次 **12 张**。
 - cron `6b86d039a651`「公众号贴图-每4小时（纯贴图，无正文）」→ `0 */4 * * *`，跑 `gallery_draft_hourly.sh`（`--mode newspic`）。当前启用，用户把原来的每小时改成了每 4 小时。
@@ -155,6 +172,7 @@ $PYTHON $SCRIPTS/create_draft.py \
 - 候选数从 `count*4` 提到 `count*6`，被拦后自动换下一张；`--no-qc` 可关闭（排错用）。JSON 输出多一个 `rejected_qc` 字段。
 - 实测（火烈鸟群）：候选取 15 张，拦下 6 张（4 张 sharp 20/50/67/120 模糊 + 2 张 sat 22/26 灰暗），留 9 张，vision 复核 6.5～7/10 合格。
 - ⚠️ **QC 依赖 numpy，cron 里要钉解释器**：裸 `python3` 可能解析到 Hermes venv（有 PIL/requests、缺 numpy），表现为图片已下载、到 `qc_sharpness()` 才抛 `ModuleNotFoundError: No module named 'numpy'`。包装脚本按能力选解释器，修完先 `--dry-run --count 3` 验 QC 通路。
+- ⚠️ **超大拼接图会触发 PIL 解压炸弹（`DecompressionBombError`）**：Pexels 偶发 16000×13000（约 2 亿像素）的图，超过 PIL 默认 1.79 亿像素上限，`qc_sharpness()` 的 `Image.open()` 直接抛异常，**整轮 news 和 newspic 都在 QC 阶段崩掉**（磁盘、网络、凭证都正常，别往那三个方向查）。修法：`Image.MAX_IMAGE_PIXELS = None` 关掉硬上限，打开后先读 `im.size`，`w*h > 60_000_000`（6000 万像素，约 9000×6600）就打印“图片过大”并按不合格跳过；`process_image()` 加同一道保护并 raise ValueError。改完不要等 cron 验证：`Image.new("L", (9000, 9000))` 存一张 JPEG，断言 `qc_sharpness()` 返回 0.0、`process_image()` 抛 ValueError。
 
 ### 多路查询去重与强制标题（2026-11-18）
 
@@ -200,11 +218,13 @@ $PYTHON $SCRIPTS/create_draft.py \
 > 排 cron 失败的第一落点：`~/.hermes/cron/output/<job_id>/` 最新一个 `.md`（stdout 摘要）+ 脚本自己落的完整日志 `~/.hermes/logs/cron/*.log`（真实栈）。`cronjob list` 的 `last_error` 只留最后几行，遇到 `Script exited with code N` 必须去翻这两处，别拿摘要猜根因。
 > 停/启用前先 `list`：`enabled=false / state=paused` 的 job 再 `pause` 是幂等的，可以放心重复；用户说「停掉某个任务」时先按名字和最近的 `last_run_at` 认准 job_id，别按记忆里的 ID 动手。
 
+> ⚠️ **先按 `last_status` 分类，再决定查什么**：`error` = 脚本非零退出，去看 `last_error` 末几行 + 脚本完整日志（`~/.hermes/logs/cron/*.log`）；`delivery_failed` = 脚本本身跑成功，只是结果没推到微信（典型 `iLink sendmessage session not ready: ret=-2 ... the user must send the bot a message first`），**不要**去查 Pexels、磁盘或凭证，那是投递链路问题；`ok` 但用户没收到消息也先按投递算。用户问“最近任务怎么失败了”时，先把这两类分开再翻日志，否则会把推送失败误判成流水线故障。
+
 > ⚠️ **凭证可能中途失效**：同一 AppSecret 可以在几分钟内从可用变为 40125（后台被重置）。判定"是不是凭证问题"最快的办法：直接 `GET /cgi-bin/token` 看 errcode，别先怀疑图或网络。
 
 ## 铁律
 - 封面图 **必须有**，否则微信拒收草稿。
-- **封面默认纯图不带字**（文字交给封面库/标题字段；要叠字先确认）。
+- **文章封面默认纯图不带字**（文字交给封面库/标题字段；要叠字先确认）。**图集封面例外**：用户已指定六格卡片、标题直接烧在图里（见「图集封面：六格竖条卡片」）。
 - **正文图片宁缺毋滥**：常见 1 张即可，插入数量先跟用户对齐。
 - **正文图引用必须无前缀路径 `](/tmp/xxx.jpg)`，禁止 `file:///`**（否则 run_pipeline 替换不上，正文图丢失）。
 - **AI 生成的封面/正文图发布前须验证非废图**（dark>90% 为过暗废图重新生成；全亮需 qwen-vl-max 看图确认而非直接重生成）。
