@@ -180,10 +180,17 @@ python3 scripts/cover_card6.py \
 - **`--title` 可强制指定 news 标题**：`make_title()` 调模型失败时会静默退回「{话题}｜一眼心动的风景」模板，用户明确嫌这种 AI 味。生成失败或要指定时直接传 `--title`。
 - **有效新图不足 9 张时脚本仍会建稿**（`MIN_VALID_IMAGES=5`）。要满 9 张就加查询路线（长江用 5 路：`yangtze river china` / `three gorges yangtze` / `chongqing skyline river` / `yangtze river gorge` / `three gorges dam`）。只有 7 张的稿子用户不要：删草稿后必须把本轮 md5 从 `logs/gallery_sent_md5.json` 的 `md5s` 和 `list` 里一起移除，否则重跑会全被判重、永远凑不满。
 - Pexels 上中国的阿勒泰冬季实景可用，搜 `altay xinjiang snow` / `xinjiang snow`，alt 会标 `Altay Prefecture, Xinjiang`，比俄属阿尔泰的图更贴题。
-- **稀缺题材凑不满 9 张时**：先用 `pexels_search(q, per_page=80)` 把该题材深翻一遍，再按 `alt` 里的地名字符串过滤，能捞出台账外的真图（梅里雪山最终拿到 8 张新图 + 2 张旧图候选）。不要拿邻近题材顶替，也不要静默交 7-8 张。
+- **稀缺题材凑不满 9 张时**：先用 `pexels_search(q, per_page=80)` 把该题材深翻一遍，再按 `alt` 里的地名字符串过滤，能捞出台账外的真图（梅里雪山最终拿到 8 张新图 + 2 张旧图候选）。不要**自行**拿邻近题材顶替，也不要静默交 7-8 张；确需换题或混源，先说明代价让用户拍板（他明确说“就用 Pexels”时照做，但回执要标明不是实拍该地点）。
 - **草稿已建、只差第 9 张时走 `draft/update`，别整篇重跑**：`uploadimg` 上传缺的那张 → `draft/get` 取 `content` → 在 `<p><a data-miniprogram` 之前插入 `<p><img src="..." style="width:100%;"/></p><p><br/></p>` → `draft/update`，body 为 `{"media_id": ..., "index": 0, "articles": {...}}`，articles 复用 draft/get 返回的 title/author/digest/content_source_url/thumb_media_id/need_open_comment/only_fans_can_comment。整篇重建要 8-10 分钟，update 约 1 分钟。
 - **手工补的图要单独补云转存**：`cloud_stash()` 只处理脚本自己那一批；补图后造一个临时目录（`full_1.jpg` = 处理图、`final_1.jpg` = 压缩图）再调一次，否则会出现草稿 9 张、云库 8 条。
 - **补的是复用旧图或邻近题材图时，在回执里说明**（例：“第 9 张用了同一座山的旧图补位”），别让用户以为是新图。
+
+### 跨源混编与题材真实性（2026-11）
+
+- **用户临时指定张数时只传 `--count`**：12 张、18 张、20 张都走命令行，不改脚本默认值（9），否则后续定时任务与手动跑会分叉。20 张要传 40 次图（正文 + 封面 + 云转存），实测 10–15 分钟，**一律后台跑 + `notify`**，别用 420s 前台超时硬等。
+- **Pexels 没有某地实景时，先如实说，再按用户决定做**：搜出来的同名结果是别处的（洞庭湖返西班牙/越南湖、岳阳楼返雷峰塔）。用户若坚持“就用 Pexels”，照做，但必须 ①在回执里明确“这期大部分是同题材湖景/山景，不是实拍该地点”，②把手里真实的少量本地图掺进去并标明来源。不要默默把泛图当实景发。
+- **混源成稿用 `draft/update` 追加，不重跑主流程**：Pexels 那批用脚本建稿，Commons/自备图用 `uploadimg` 补到链接块之前，一条稿子可以同时含两种来源；补完记得给手工图单独补云转存，并在正文末尾加 CC 署名行（见 `references/image-sources.md`）。
+- **题材真实性优先于凑数**：宁可交 8 张真实实景，也不要把邻近景点或别国的湖冒充成目标地点；要凑满就先跟用户说清代价，由他拍板（他可能同意换泛题，也可能同意署名放宽图源）。
 
 ### 话题池构成（2026-10-03）
 - 77 条纯自然风景（山水/花草/树木/冰雪/沙漠/湖海，建筑·城市·人文·节庆已全数剔除）
