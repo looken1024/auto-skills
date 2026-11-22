@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-11-21",
+  "last_run": "2026-11-22",
   "note": "只跟踪仍在 topics 池内的节令词；过期即从 topics.json / topics_stunning.json 移除",
   "entries": [
     {
@@ -121,6 +121,24 @@
       "en": "ripe oranges hanging tree branch sunlight",
       "expires": "2027-01-15",
       "added": "2026-11-21"
+    },
+    {
+      "cn": "火锅",
+      "en": "chinese hot pot boiling soup",
+      "expires": "2027-02-15",
+      "added": "2026-11-22"
+    },
+    {
+      "cn": "冬日云海",
+      "en": "sea of clouds mountain peak sunrise",
+      "expires": "2027-02-28",
+      "added": "2026-11-22"
+    },
+    {
+      "cn": "菊花",
+      "en": "chrysanthemum flower field autumn bloom",
+      "expires": "2026-12-05",
+      "added": "2026-11-22"
     }
   ]
 }
