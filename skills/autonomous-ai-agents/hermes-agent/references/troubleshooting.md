@@ -76,6 +76,14 @@ hermes config set auxiliary.vision.provider <your_provider>
 hermes config set auxiliary.vision.model <model_name>
 ```
 
+**Reading the error instead of guessing** — `vision_analyze` failures name the cause:
+
+- `400 ... The supported API model names are A, B, but you passed C` → `auxiliary.vision.model` is a name that provider does not accept. Set it to one of the names listed in the error (`hermes config set auxiliary.vision.model <A|B>`); the next tool call picks it up, no restart needed. This is the most common cause of a vision tool that "used to work" — the model id drifted from the provider's catalogue while config kept the old string.
+- `403 ... isn't included in <plan>` / `active subscription is required` → provider/model permission problem, not a config typo. Point `auxiliary.vision` at a provider the account actually has access to, or drop the aux override and let `auto` resolve.
+- `400` on an image that opens fine locally → check size/format first, then the model; the same 400 code covers both.
+
+Verify with one real image after the change (`vision_analyze` on a local `.jpg`), not with a config read — aux routing failures only surface on an actual call.
+
 ### "Reset permissions" / auto-approving everything
 See `references/security-privacy.md` — wipe the "Always allow" stores, don't touch yolo mode.
 
