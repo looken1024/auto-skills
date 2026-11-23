@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-11-22",
+  "last_run": "2026-11-23",
   "note": "只跟踪仍在 topics 池内的节令词；过期即从 topics.json / topics_stunning.json 移除",
   "entries": [
     {
@@ -139,6 +139,24 @@
       "en": "chrysanthemum flower field autumn bloom",
       "expires": "2026-12-05",
       "added": "2026-11-22"
+    },
+    {
+      "cn": "日照金山",
+      "en": "golden sunrise light on snow mountain peak",
+      "expires": "2027-03-15",
+      "added": "2026-11-23"
+    },
+    {
+      "cn": "脐橙",
+      "en": "orange orchard trees ripe fruit harvest",
+      "expires": "2027-01-31",
+      "added": "2026-11-23"
+    },
+    {
+      "cn": "枫叶",
+      "en": "red maple leaves autumn tree canopy",
+      "expires": "2026-12-10",
+      "added": "2026-11-23"
     }
   ]
 }
