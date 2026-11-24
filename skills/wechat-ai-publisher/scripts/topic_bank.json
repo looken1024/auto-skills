@@ -1,146 +1,6 @@
 {
   "pending": [
     {
-      "cn": "紫藤花",
-      "en": "wisteria blossoms"
-    },
-    {
-      "cn": "波斯菊",
-      "en": "cosmos flower field"
-    },
-    {
-      "cn": "三角梅",
-      "en": "bougainvillea flowers"
-    },
-    {
-      "cn": "菊花",
-      "en": "chrysanthemum flowers"
-    },
-    {
-      "cn": "风信子",
-      "en": "hyacinth flowers"
-    },
-    {
-      "cn": "水仙花",
-      "en": "daffodil meadow"
-    },
-    {
-      "cn": "苹果花",
-      "en": "apple blossom orchard"
-    },
-    {
-      "cn": "玫瑰园",
-      "en": "rose garden"
-    },
-    {
-      "cn": "百合花",
-      "en": "lily flowers field"
-    },
-    {
-      "cn": "鼠尾草田",
-      "en": "salvia field"
-    },
-    {
-      "cn": "花海",
-      "en": "flower field landscape"
-    },
-    {
-      "cn": "落羽杉",
-      "en": "bald cypress swamp"
-    },
-    {
-      "cn": "橄榄树林",
-      "en": "olive grove"
-    },
-    {
-      "cn": "迷雾森林",
-      "en": "misty forest"
-    },
-    {
-      "cn": "原始森林",
-      "en": "ancient forest"
-    },
-    {
-      "cn": "秋日森林",
-      "en": "autumn forest"
-    },
-    {
-      "cn": "橡树林",
-      "en": "oak forest"
-    },
-    {
-      "cn": "椰林",
-      "en": "coconut palm grove"
-    },
-    {
-      "cn": "红杉林",
-      "en": "redwood forest"
-    },
-    {
-      "cn": "多佛白崖",
-      "en": "white cliffs of dover"
-    },
-    {
-      "cn": "大堡礁",
-      "en": "great barrier reef"
-    },
-    {
-      "cn": "潮池",
-      "en": "tide pool rocks"
-    },
-    {
-      "cn": "蓝洞",
-      "en": "blue hole ocean"
-    },
-    {
-      "cn": "沙洲",
-      "en": "sandbar island"
-    },
-    {
-      "cn": "冰河湖",
-      "en": "glacier lagoon"
-    },
-    {
-      "cn": "地热温泉",
-      "en": "geothermal hot spring"
-    },
-    {
-      "cn": "三角洲",
-      "en": "river delta aerial"
-    },
-    {
-      "cn": "海雾",
-      "en": "sea fog coast"
-    },
-    {
-      "cn": "尼亚加拉瀑布",
-      "en": "niagara falls"
-    },
-    {
-      "cn": "维多利亚瀑布",
-      "en": "victoria falls"
-    },
-    {
-      "cn": "乌尤尼盐沼",
-      "en": "uyuni salt flat"
-    },
-    {
-      "cn": "乔戈里峰",
-      "en": "k2 mountain"
-    },
-    {
-      "cn": "富士山",
-      "en": "mount fuji"
-    },
-    {
-      "cn": "马特洪峰",
-      "en": "matterhorn"
-    },
-    {
-      "cn": "勃朗峰",
-      "en": "mont blanc"
-    },
-    {
       "cn": "落基山脉",
       "en": "rocky mountains"
     },
@@ -2457,6 +2317,131 @@
       "cn": "鲁冰花",
       "en": "lupine flower field",
       "ts": "2026-11-21T23:38:21.367812"
+    },
+    {
+      "cn": "紫藤花",
+      "en": "wisteria blossoms",
+      "ts": "2026-11-24T23:40:30.588495"
+    },
+    {
+      "cn": "波斯菊",
+      "en": "cosmos flower field",
+      "ts": "2026-11-24T23:40:30.588512"
+    },
+    {
+      "cn": "三角梅",
+      "en": "bougainvillea flowers",
+      "ts": "2026-11-24T23:40:30.588514"
+    },
+    {
+      "cn": "风信子",
+      "en": "hyacinth flowers",
+      "ts": "2026-11-24T23:40:30.588516"
+    },
+    {
+      "cn": "水仙花",
+      "en": "daffodil meadow",
+      "ts": "2026-11-24T23:40:30.588518"
+    },
+    {
+      "cn": "苹果花",
+      "en": "apple blossom orchard",
+      "ts": "2026-11-24T23:40:30.588519"
+    },
+    {
+      "cn": "玫瑰园",
+      "en": "rose garden",
+      "ts": "2026-11-24T23:40:30.588521"
+    },
+    {
+      "cn": "百合花",
+      "en": "lily flowers field",
+      "ts": "2026-11-24T23:40:30.588523"
+    },
+    {
+      "cn": "鼠尾草田",
+      "en": "salvia field",
+      "ts": "2026-11-24T23:40:30.588524"
+    },
+    {
+      "cn": "花海",
+      "en": "flower field landscape",
+      "ts": "2026-11-24T23:40:30.588526"
+    },
+    {
+      "cn": "落羽杉",
+      "en": "bald cypress swamp",
+      "ts": "2026-11-24T23:40:30.588528"
+    },
+    {
+      "cn": "橄榄树林",
+      "en": "olive grove",
+      "ts": "2026-11-24T23:40:30.588529"
+    },
+    {
+      "cn": "迷雾森林",
+      "en": "misty forest",
+      "ts": "2026-11-24T23:40:30.588531"
+    },
+    {
+      "cn": "秋日森林",
+      "en": "autumn forest",
+      "ts": "2026-11-24T23:40:30.588533"
+    },
+    {
+      "cn": "橡树林",
+      "en": "oak forest",
+      "ts": "2026-11-24T23:40:30.588534"
+    },
+    {
+      "cn": "椰林",
+      "en": "coconut palm grove",
+      "ts": "2026-11-24T23:40:30.588536"
+    },
+    {
+      "cn": "红杉林",
+      "en": "redwood forest",
+      "ts": "2026-11-24T23:40:30.588537"
+    },
+    {
+      "cn": "潮池",
+      "en": "tide pool rocks",
+      "ts": "2026-11-24T23:40:30.588539"
+    },
+    {
+      "cn": "沙洲",
+      "en": "sandbar island",
+      "ts": "2026-11-24T23:40:30.588541"
+    },
+    {
+      "cn": "冰河湖",
+      "en": "glacier lagoon",
+      "ts": "2026-11-24T23:40:30.588542"
+    },
+    {
+      "cn": "地热温泉",
+      "en": "geothermal hot spring",
+      "ts": "2026-11-24T23:40:30.588544"
+    },
+    {
+      "cn": "三角洲",
+      "en": "river delta aerial",
+      "ts": "2026-11-24T23:40:30.588545"
+    },
+    {
+      "cn": "海雾",
+      "en": "sea fog coast",
+      "ts": "2026-11-24T23:40:30.588547"
+    },
+    {
+      "cn": "乔戈里峰",
+      "en": "k2 mountain",
+      "ts": "2026-11-24T23:40:30.588549"
+    },
+    {
+      "cn": "勃朗峰",
+      "en": "mont blanc",
+      "ts": "2026-11-24T23:40:30.588550"
     }
   ],
   "rejected": [
@@ -2979,6 +2964,56 @@
       "cn": "黑戈壁",
       "en": "black gobi desert",
       "reason": "题材黑名单(梯田/沟壑等)"
+    },
+    {
+      "cn": "菊花",
+      "en": "chrysanthemum flowers",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "原始森林",
+      "en": "ancient forest",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "多佛白崖",
+      "en": "white cliffs of dover",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "大堡礁",
+      "en": "great barrier reef",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "蓝洞",
+      "en": "blue hole ocean",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "尼亚加拉瀑布",
+      "en": "niagara falls",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "维多利亚瀑布",
+      "en": "victoria falls",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "乌尤尼盐沼",
+      "en": "uyuni salt flat",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "富士山",
+      "en": "mount fuji",
+      "reason": "历史已用过/重复"
+    },
+    {
+      "cn": "马特洪峰",
+      "en": "matterhorn",
+      "reason": "历史已用过/重复"
     }
   ]
 }

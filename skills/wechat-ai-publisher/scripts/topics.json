@@ -48,10 +48,6 @@
     "en": "diaoshuilou waterfall"
   },
   {
-    "cn": "冰岛黄金瀑布",
-    "en": "gullfoss iceland"
-  },
-  {
     "cn": "抽象雕塑",
     "en": "abstract sculpture"
   },
@@ -140,20 +136,8 @@
     "en": "stone forest karst"
   },
   {
-    "cn": "间歇泉",
-    "en": "geyser eruption"
-  },
-  {
     "cn": "火山口湖",
     "en": "volcanic crater lake"
-  },
-  {
-    "cn": "群岛航拍",
-    "en": "archipelago aerial"
-  },
-  {
-    "cn": "粉红湖",
-    "en": "pink lake australia"
   },
   {
     "cn": "瓦迪拉姆",
@@ -182,10 +166,6 @@
   {
     "cn": "武功山",
     "en": "Wugong Mountain"
-  },
-  {
-    "cn": "喀喇昆仑",
-    "en": "Karakoram"
   },
   {
     "cn": "雅拉雪山",
@@ -224,16 +204,8 @@
     "en": "qianhu mountain"
   },
   {
-    "cn": "丙中洛",
-    "en": "bingzhongluo"
-  },
-  {
     "cn": "台山岛",
     "en": "taishan island"
-  },
-  {
-    "cn": "南麂岛",
-    "en": "nanji island"
   },
   {
     "cn": "广鹿岛",
@@ -252,10 +224,6 @@
     "en": "dark hedges"
   },
   {
-    "cn": "梅黛奥拉",
-    "en": "meteora greece"
-  },
-  {
     "cn": "阿马尔菲海岸",
     "en": "amalfi coast"
   },
@@ -266,10 +234,6 @@
   {
     "cn": "卢特沙漠",
     "en": "lut desert"
-  },
-  {
-    "cn": "老挝光西瀑布",
-    "en": "kuang si waterfall"
   },
   {
     "cn": "泻湖",
@@ -298,10 +262,6 @@
   {
     "cn": "杏花",
     "en": "apricot blossom"
-  },
-  {
-    "cn": "睡莲",
-    "en": "water lily"
   },
   {
     "cn": "郁金香",
@@ -346,10 +306,6 @@
   {
     "cn": "雪原",
     "en": "snowfield"
-  },
-  {
-    "cn": "荞麦花",
-    "en": "buckwheat field"
   },
   {
     "cn": "高山湖泊",
@@ -400,24 +356,8 @@
     "en": "wuliangsuhai wetland"
   },
   {
-    "cn": "小雪",
-    "en": "light snow falling pine forest winter"
-  },
-  {
     "cn": "圣诞灯光",
     "en": "christmas lights street night decoration bokeh"
-  },
-  {
-    "cn": "围炉煮茶",
-    "en": "outdoor tea kettle campfire winter snow"
-  },
-  {
-    "cn": "三峡红叶",
-    "en": "yangtze river autumn foliage cliff"
-  },
-  {
-    "cn": "冬日晨霜",
-    "en": "winter morning sunrise frost field"
   },
   {
     "cn": "鸭绿江",
@@ -452,10 +392,6 @@
     "en": "lingshan island"
   },
   {
-    "cn": "渤海湾",
-    "en": "bohai bay"
-  },
-  {
     "cn": "木棉花",
     "en": "kapok blossom"
   },
@@ -466,10 +402,6 @@
   {
     "cn": "玉兰花",
     "en": "magnolia blossom"
-  },
-  {
-    "cn": "紫薇花",
-    "en": "crape myrtle blossoms"
   },
   {
     "cn": "凤凰木",
@@ -506,10 +438,6 @@
   {
     "cn": "藏野驴",
     "en": "kiang tibetan wild ass"
-  },
-  {
-    "cn": "兔狲",
-    "en": "pallas cat"
   },
   {
     "cn": "黑颈鹤",
@@ -564,16 +492,8 @@
     "en": "hanjiang river"
   },
   {
-    "cn": "淮河",
-    "en": "huaihe river"
-  },
-  {
     "cn": "南日岛",
     "en": "nanri island"
-  },
-  {
-    "cn": "养马岛",
-    "en": "yangma island"
   },
   {
     "cn": "川山群岛",
@@ -708,20 +628,12 @@
     "en": "Buir lake"
   },
   {
-    "cn": "松花湖",
-    "en": "Songhua lake"
-  },
-  {
     "cn": "查干湖",
     "en": "Chagan lake"
   },
   {
     "cn": "邛海",
     "en": "Qionghai lake"
-  },
-  {
-    "cn": "草海",
-    "en": "Caohai lake wetland"
   },
   {
     "cn": "东江湖",
@@ -764,16 +676,8 @@
     "en": "Tibetan wildflowers plateau"
   },
   {
-    "cn": "绿绒蒿",
-    "en": "Himalayan blue poppy"
-  },
-  {
     "cn": "雪莲",
     "en": "snow lotus flower"
-  },
-  {
-    "cn": "金莲花",
-    "en": "globeflower meadow"
   },
   {
     "cn": "红柳花",
@@ -806,10 +710,6 @@
   {
     "cn": "雪蘑菇",
     "en": "snow covered rocks winter"
-  },
-  {
-    "cn": "藏狐",
-    "en": "Tibetan fox"
   },
   {
     "cn": "岩羊",
@@ -870,5 +770,105 @@
   {
     "cn": "糖炒栗子",
     "en": "roasted chestnuts street vendor winter"
+  },
+  {
+    "cn": "紫藤花",
+    "en": "wisteria blossoms"
+  },
+  {
+    "cn": "波斯菊",
+    "en": "cosmos flower field"
+  },
+  {
+    "cn": "三角梅",
+    "en": "bougainvillea flowers"
+  },
+  {
+    "cn": "风信子",
+    "en": "hyacinth flowers"
+  },
+  {
+    "cn": "水仙花",
+    "en": "daffodil meadow"
+  },
+  {
+    "cn": "苹果花",
+    "en": "apple blossom orchard"
+  },
+  {
+    "cn": "玫瑰园",
+    "en": "rose garden"
+  },
+  {
+    "cn": "百合花",
+    "en": "lily flowers field"
+  },
+  {
+    "cn": "鼠尾草田",
+    "en": "salvia field"
+  },
+  {
+    "cn": "花海",
+    "en": "flower field landscape"
+  },
+  {
+    "cn": "落羽杉",
+    "en": "bald cypress swamp"
+  },
+  {
+    "cn": "橄榄树林",
+    "en": "olive grove"
+  },
+  {
+    "cn": "迷雾森林",
+    "en": "misty forest"
+  },
+  {
+    "cn": "秋日森林",
+    "en": "autumn forest"
+  },
+  {
+    "cn": "橡树林",
+    "en": "oak forest"
+  },
+  {
+    "cn": "椰林",
+    "en": "coconut palm grove"
+  },
+  {
+    "cn": "红杉林",
+    "en": "redwood forest"
+  },
+  {
+    "cn": "潮池",
+    "en": "tide pool rocks"
+  },
+  {
+    "cn": "沙洲",
+    "en": "sandbar island"
+  },
+  {
+    "cn": "冰河湖",
+    "en": "glacier lagoon"
+  },
+  {
+    "cn": "地热温泉",
+    "en": "geothermal hot spring"
+  },
+  {
+    "cn": "三角洲",
+    "en": "river delta aerial"
+  },
+  {
+    "cn": "海雾",
+    "en": "sea fog coast"
+  },
+  {
+    "cn": "乔戈里峰",
+    "en": "k2 mountain"
+  },
+  {
+    "cn": "勃朗峰",
+    "en": "mont blanc"
   }
 ]
