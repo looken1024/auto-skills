@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-11-23",
+  "last_run": "2026-11-24",
   "note": "只跟踪仍在 topics 池内的节令词；过期即从 topics.json / topics_stunning.json 移除",
   "entries": [
     {
@@ -157,6 +157,18 @@
       "en": "red maple leaves autumn tree canopy",
       "expires": "2026-12-10",
       "added": "2026-11-23"
+    },
+    {
+      "cn": "银杏",
+      "en": "ginkgo tree avenue golden yellow leaves autumn",
+      "expires": "2026-12-15",
+      "added": "2026-11-24"
+    },
+    {
+      "cn": "糖炒栗子",
+      "en": "roasted chestnuts street vendor winter",
+      "expires": "2027-01-20",
+      "added": "2026-11-24"
     }
   ]
 }
