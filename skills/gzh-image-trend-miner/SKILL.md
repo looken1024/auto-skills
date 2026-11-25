@@ -29,6 +29,8 @@ description: "每日调研公众号热门图片/图集趋势，动态把热门�
 - 人民网图片 `http://pic.people.com.cn/`（官媒组图，看日期判断新鲜度）
 - 3G壁纸节日频道 `https://www.3gbizhi.com/wallJR/index_1.html`（壁纸/节日题材上架情况）
 - 搜狗微信 `https://weixin.sogou.com/weixin?type=2&query=<词>`（公众号图集/海报热度）
+
+搜狗会「静默封空壳」：HTTP 200 但 body 0 字节（换 UA/手机 UA/Referer/cookie/`--compressed` 均无效）。每轮先单测一个词 `curl -o sg.html -w '%{http_code}:%{size_download}'`，size 为 0 就整路跳过，改走中新网/澎湃/中国天气网/新华网正文 + `web_search` 多源交叉（≥2 路独立媒体、且正文带 2026-11 日期才算数），别把「搜狗没结果」当成「没热点」。`bsearch.py` 查中文短词时 Bing 会被单字百科页淹没，必须给足语境（如「冬捕 查干湖 12月 冰雪」而不是「冬捕」）。
 `web_search` 查询串里带年份（如「2026 …」）时 Bing 极易被日历类结果淹没，中文调研尽量不带年份、用短场景词。
 
 ### Step 2 转化为 Pexels 可搜关键词（硬约束）
