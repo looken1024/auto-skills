@@ -86,6 +86,15 @@ $PYTHON $SCRIPTS/markdown_to_wechat_doocs.py \
 
 > ⚠️ **小标题必须写 `##`（已踩坑）**：正文小标题若只写 `01 xxx` 不带 `## 前缀`，本脚本会把它当普通段落，**失去大字体和彩色下划线**。务必 `## 01 xxx`。小标题内容要极简（序号+几个字）。
 
+## 正文排版强调（用户定稿）
+
+- **文章标题是纯文本字段，不能上色**：微信 `title` 不接受任何 HTML/CSS。用户说“标题加颜色”时，只能给**正文小标题**上色，并直接告诉他文章标题改不了颜色，别硬做。
+- **小标题格式**：`## <span style="color:#1E4E8C">01 xxx</span>`。序号 `01`–`06` 必须带（用户明确要求编号）；颜色跟主题边线同色系——`default` 边线 `#3f51b5` 配深蓝 `#1E4E8C`，换成 `orange` 就必须换文字色，别红字配橙线。
+- **重点/反常识句用红色虚线**：`<span style="border-bottom:1px dashed #C0392B;padding-bottom:2px;">…</span>`。**不要用 `text-decoration-style:dashed`**——微信编辑器对那条 CSS 支持不稳，`border-bottom` 才是可靠写法。
+- 下划线只圈 15–30 字的短句（数字对比、反常识结论、核心洞察）；整段下划线会糊成一片，用户要的是“点一下”，不是“划一片”。
+- raw HTML（`<span>` / `<u>` / `<p><a data-miniprogram…>`）经 `markdown_to_html_doocs` 会原样保留，可放心用；改完用 `draft/get` 数 `<h2>` 与虚线 span 的数量核对。
+- 改标题、加编号、加样式都属于**内容变更**：重新跑 `run_pipeline` 建新草稿 → 删旧草稿（旧 `media_id`）。不删就会出现两篇同名稿，用户会以为改失败。
+
 ### Step 5 创建草稿
 ```
 $PYTHON $SCRIPTS/create_draft.py \
