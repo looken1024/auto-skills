@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-11-25",
+  "last_run": "2026-11-26",
   "note": "只跟踪仍在 topics 池内的节令词；过期即从 topics.json / topics_stunning.json 移除",
   "entries": [
     {
@@ -181,6 +181,18 @@
       "en": "pink cherry blossom tree winter bloom",
       "expires": "2027-01-10",
       "added": "2026-11-25"
+    },
+    {
+      "cn": "雪地玩雪",
+      "en": "children playing snow snowman winter fun",
+      "expires": "2027-02-28",
+      "added": "2026-11-26"
+    },
+    {
+      "cn": "冰雪大世界冰灯",
+      "en": "ice sculpture festival night lights",
+      "expires": "2027-02-28",
+      "added": "2026-11-26"
     }
   ]
 }
