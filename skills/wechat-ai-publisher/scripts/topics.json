@@ -272,10 +272,6 @@
     "en": "pine forest"
   },
   {
-    "cn": "葡萄园",
-    "en": "vineyard"
-  },
-  {
     "cn": "麦田",
     "en": "wheat field"
   },
@@ -874,5 +870,13 @@
   {
     "cn": "雪地玩雪",
     "en": "children playing snow snowman winter fun"
+  },
+  {
+    "cn": "雪中泡汤",
+    "en": "winter hot tub outdoor snow"
+  },
+  {
+    "cn": "冰湖冬捕",
+    "en": "ice fishing frozen lake winter people"
   }
 ]
