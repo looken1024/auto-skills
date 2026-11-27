@@ -100,20 +100,12 @@
     "en": "sahara desert morocco"
   },
   {
-    "cn": "优胜美地",
-    "en": "yosemite valley"
-  },
-  {
     "cn": "锡安",
     "en": "zion national park"
   },
   {
     "cn": "坎昆",
     "en": "cancun beach"
-  },
-  {
-    "cn": "塞班岛",
-    "en": "saipan island"
   },
   {
     "cn": "古典油画",
@@ -126,22 +118,6 @@
   {
     "cn": "金色时刻",
     "en": "golden hour landscape"
-  },
-  {
-    "cn": "喀斯特溶洞",
-    "en": "karst cave interior"
-  },
-  {
-    "cn": "石林",
-    "en": "stone forest karst"
-  },
-  {
-    "cn": "火山口湖",
-    "en": "volcanic crater lake"
-  },
-  {
-    "cn": "瓦迪拉姆",
-    "en": "wadi rum desert"
   },
   {
     "cn": "漓江",
@@ -172,10 +148,6 @@
     "en": "Yala Snow Mountain"
   },
   {
-    "cn": "红海滩",
-    "en": "Panjin red beach"
-  },
-  {
     "cn": "伊犁薰衣草",
     "en": "lavender field"
   },
@@ -196,10 +168,6 @@
     "en": "gouqi island"
   },
   {
-    "cn": "金佛山",
-    "en": "jinfo mountain"
-  },
-  {
     "cn": "千湖山",
     "en": "qianhu mountain"
   },
@@ -212,28 +180,12 @@
     "en": "guanglu island"
   },
   {
-    "cn": "纪念碑谷",
-    "en": "monument valley"
-  },
-  {
-    "cn": "巨人之路",
-    "en": "giants causeway"
-  },
-  {
     "cn": "黑暗树篱",
     "en": "dark hedges"
   },
   {
-    "cn": "阿马尔菲海岸",
-    "en": "amalfi coast"
-  },
-  {
     "cn": "蓝眼泉",
     "en": "blue eye spring albania"
-  },
-  {
-    "cn": "卢特沙漠",
-    "en": "lut desert"
   },
   {
     "cn": "泻湖",
@@ -294,10 +246,6 @@
   {
     "cn": "雷雨",
     "en": "thunderstorm"
-  },
-  {
-    "cn": "山谷晨雾",
-    "en": "misty valley"
   },
   {
     "cn": "雪原",
@@ -428,14 +376,6 @@
     "en": "ice floes sea"
   },
   {
-    "cn": "藏野驴",
-    "en": "kiang tibetan wild ass"
-  },
-  {
-    "cn": "黑颈鹤",
-    "en": "black-necked crane"
-  },
-  {
     "cn": "大青山",
     "en": "daqing mountain"
   },
@@ -556,10 +496,6 @@
     "en": "Maiji Mountain forest"
   },
   {
-    "cn": "关山草原",
-    "en": "Guanshan grassland"
-  },
-  {
     "cn": "桑科草原",
     "en": "Sangke grassland Gannan"
   },
@@ -652,10 +588,6 @@
     "en": "camellia flowers"
   },
   {
-    "cn": "兰花",
-    "en": "orchid flowers"
-  },
-  {
     "cn": "牡丹花",
     "en": "peony flowers"
   },
@@ -738,14 +670,6 @@
   {
     "cn": "冬日云海",
     "en": "sea of clouds mountain peak sunrise"
-  },
-  {
-    "cn": "菊花",
-    "en": "chrysanthemum flower field autumn bloom"
-  },
-  {
-    "cn": "日照金山",
-    "en": "golden sunrise light on snow mountain peak"
   },
   {
     "cn": "脐橙",
@@ -852,10 +776,6 @@
     "en": "river delta aerial"
   },
   {
-    "cn": "海雾",
-    "en": "sea fog coast"
-  },
-  {
     "cn": "乔戈里峰",
     "en": "k2 mountain"
   },
@@ -878,5 +798,85 @@
   {
     "cn": "冰湖冬捕",
     "en": "ice fishing frozen lake winter people"
+  },
+  {
+    "cn": "落基山脉",
+    "en": "rocky mountains"
+  },
+  {
+    "cn": "喜马拉雅山脉",
+    "en": "himalaya mountains"
+  },
+  {
+    "cn": "安第斯山脉",
+    "en": "andes mountains"
+  },
+  {
+    "cn": "阿巴拉契亚山脉",
+    "en": "appalachian mountains"
+  },
+  {
+    "cn": "活火山",
+    "en": "active volcano eruption"
+  },
+  {
+    "cn": "黄石国家公园",
+    "en": "yellowstone national park"
+  },
+  {
+    "cn": "白沙沙漠",
+    "en": "white sands desert"
+  },
+  {
+    "cn": "猞猁",
+    "en": "lynx wild"
+  },
+  {
+    "cn": "白头海雕",
+    "en": "bald eagle"
+  },
+  {
+    "cn": "金雕",
+    "en": "golden eagle"
+  },
+  {
+    "cn": "苍鹭",
+    "en": "heron bird"
+  },
+  {
+    "cn": "鹳",
+    "en": "stork bird"
+  },
+  {
+    "cn": "海獭",
+    "en": "sea otter"
+  },
+  {
+    "cn": "海鹦",
+    "en": "puffin bird"
+  },
+  {
+    "cn": "狐獴",
+    "en": "meerkat"
+  },
+  {
+    "cn": "鸢尾花",
+    "en": "iris flowers"
+  },
+  {
+    "cn": "雏菊",
+    "en": "daisy meadow"
+  },
+  {
+    "cn": "虞美人",
+    "en": "poppy field"
+  },
+  {
+    "cn": "金盏花",
+    "en": "marigold field"
+  },
+  {
+    "cn": "藤蔓丛林",
+    "en": "jungle vines"
   }
 ]
